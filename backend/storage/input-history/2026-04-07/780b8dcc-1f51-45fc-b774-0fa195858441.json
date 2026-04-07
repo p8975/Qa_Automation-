@@ -1,0 +1,15 @@
+{
+  "id": "780b8dcc-1f51-45fc-b774-0fa195858441",
+  "input_type": "natural_language",
+  "filename": null,
+  "file_path": null,
+  "content_preview": "I want to test login flow with mobile number and otp of this Application",
+  "content_hash": "a9aa7c0a90bf76b7b15b83995eff9fb9",
+  "file_size_bytes": 72,
+  "test_cases_generated": 1,
+  "created_at": "2026-04-07T23:17:57.466798",
+  "metadata": {
+    "full_description": "I want to test login flow with mobile number and otp of this Application",
+    "description_length": 72
+  }
+}

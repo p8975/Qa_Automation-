@@ -2,10 +2,11 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, FileText, Package, Smartphone, Play, BarChart3, Calendar, FlaskConical } from 'lucide-react';
+import { Home, FileText, Package, Smartphone, Play, BarChart3, Calendar, FlaskConical, Edit3 } from 'lucide-react';
 
 const navItems = [
   { href: '/', label: 'Home', icon: Home },
+  { href: '/manual-test', label: 'Write Test', icon: Edit3 },
   { href: '/test-cases', label: 'Test Cases', icon: FileText },
   { href: '/builds', label: 'Builds', icon: Package },
   { href: '/devices', label: 'Devices', icon: Smartphone },
