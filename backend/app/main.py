@@ -1736,6 +1736,80 @@ async def get_mobile_test_status(run_id: str):
     }
 
 
+# ============================================================================
+# Live Device Screen Endpoints
+# ============================================================================
+
+@app.get("/api/device/{device_id}/screenshot")
+async def get_device_screenshot(device_id: str):
+    """
+    Get live screenshot from device.
+
+    Args:
+        device_id: Device ID (e.g., emulator-5554)
+
+    Returns:
+        Base64 encoded PNG screenshot
+    """
+    import subprocess
+    import base64
+
+    try:
+        # Use adb to capture screenshot
+        result = subprocess.run(
+            ['adb', '-s', device_id, 'exec-out', 'screencap', '-p'],
+            capture_output=True,
+            timeout=10
+        )
+
+        if result.returncode == 0 and result.stdout:
+            screenshot_base64 = base64.b64encode(result.stdout).decode('utf-8')
+            return {
+                "success": True,
+                "device_id": device_id,
+                "screenshot": screenshot_base64,
+                "format": "png"
+            }
+        else:
+            raise HTTPException(status_code=500, detail="Failed to capture screenshot")
+
+    except subprocess.TimeoutExpired:
+        raise HTTPException(status_code=504, detail="Screenshot capture timed out")
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Screenshot error: {str(e)}")
+
+
+from app.services.execution_logger import get_logs as get_execution_logs
+
+
+@app.get("/api/test-runs/{run_id}/live-progress")
+async def get_live_execution_progress(run_id: str):
+    """
+    Get real-time execution progress for a test run.
+
+    Args:
+        run_id: Test run ID
+
+    Returns:
+        Current step, logs, and status
+    """
+    test_run = test_run_repository.get(run_id)
+    if not test_run:
+        raise HTTPException(status_code=404, detail="Test run not found")
+
+    # Get execution logs from shared module
+    logs = get_execution_logs(run_id, limit=20)
+
+    return {
+        "run_id": run_id,
+        "status": test_run.status.value,
+        "current_test": getattr(test_run, 'current_test', None),
+        "current_step": getattr(test_run, 'current_step', None),
+        "logs": logs,
+        "results_count": len(test_run.results)
+    }
+
+
 if __name__ == "__main__":
     import uvicorn
     port = int(os.getenv("PORT", 8000))

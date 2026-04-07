@@ -21,6 +21,10 @@ export default function ExecutionPage() {
   } = useTestStore();
 
   const [isPaused, setIsPaused] = useState(false);
+  const [liveScreenshot, setLiveScreenshot] = useState<string | null>(null);
+  const [backendRunId, setBackendRunId] = useState<string | null>(null);
+
+  const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
 
   // Use refs to track state that callbacks need to access
   const isPausedRef = useRef(false);
@@ -69,101 +73,136 @@ export default function ExecutionPage() {
     };
   }, []);
 
-  // Execute a single test
-  const executeNextTest = () => {
-    // Check abort/pause state using refs (always fresh)
-    if (isAbortedRef.current || isPausedRef.current) {
+  // Poll for live screenshot when running
+  useEffect(() => {
+    let screenshotInterval: NodeJS.Timeout;
+    if (currentRun?.status === 'running' && !isPaused && selectedDeviceId) {
+      const fetchScreenshot = async () => {
+        try {
+          const res = await fetch(`${API_BASE}/api/device/${selectedDeviceId}/screenshot`);
+          if (res.ok) {
+            const data = await res.json();
+            if (data.success && data.screenshot) {
+              setLiveScreenshot(data.screenshot);
+            }
+          }
+        } catch (err) {
+          console.error('Failed to fetch screenshot:', err);
+        }
+      };
+      // Fetch immediately
+      fetchScreenshot();
+      // Then poll every 1 second
+      screenshotInterval = setInterval(fetchScreenshot, 1000);
+    }
+    return () => {
+      if (screenshotInterval) clearInterval(screenshotInterval);
+    };
+  }, [currentRun?.status, isPaused, selectedDeviceId]);
+
+  // Poll backend for real test results
+  const pollBackendResults = async () => {
+    if (!backendRunId || isAbortedRef.current) {
       isExecutingRef.current = false;
       return;
     }
 
-    const currentIndex = currentTestIndexRef.current;
+    try {
+      const res = await fetch(`${API_BASE}/api/test-runs/${backendRunId}`);
+      if (!res.ok) {
+        console.error('Failed to fetch test run status');
+        timeoutRef.current = setTimeout(pollBackendResults, 2000);
+        return;
+      }
 
-    if (currentIndex >= selectedTestCases.length) {
-      // All tests completed
-      const finalRun = useTestStore.getState().currentRun;
-      if (finalRun && finalRun.status === 'running') {
+      const runData = await res.json();
+
+      // Map backend results to frontend format
+      const results: TestResult[] = (runData.results || []).map((r: any) => ({
+        test_case_id: r.test_case_id,
+        title: r.test_case_title || r.test_case_id,
+        status: r.status === 'passed' ? 'pass' : r.status === 'failed' ? 'fail' : 'skip',
+        duration_ms: r.duration_ms || 0,
+        error_message: r.error_message,
+        steps_passed: r.steps?.filter((s: any) => s.status === 'passed').length || 0,
+        steps_total: r.steps?.length || 0,
+      }));
+
+      const passed = results.filter(r => r.status === 'pass').length;
+      const failed = results.filter(r => r.status === 'fail').length;
+
+      // Update current test being executed
+      const currentTestTitle = runData.current_test_case?.title || runData.status;
+
+      updateCurrentRun({
+        current_test: currentTestTitle,
+        passed,
+        failed,
+        remaining: selectedTestCases.length - results.length,
+        results,
+      });
+
+      // Check if run is complete
+      if (runData.status === 'completed' || runData.status === 'failed') {
         updateCurrentRun({
           status: 'completed',
           completed_at: new Date().toISOString(),
           remaining: 0,
           current_test: undefined,
         });
-        addToHistory({ ...finalRun, status: 'completed' });
-      }
-      isExecutingRef.current = false;
-      return;
-    }
-
-    const currentTest = selectedTestCases[currentIndex];
-
-    // Update current test being executed
-    updateCurrentRun({
-      current_test: currentTest.title,
-    });
-
-    // Simulate test execution with delay
-    const executionTime = 2000 + Math.random() * 2000;
-
-    timeoutRef.current = setTimeout(() => {
-      // Check again after delay
-      if (isAbortedRef.current || isPausedRef.current) {
+        const finalRun = useTestStore.getState().currentRun;
+        if (finalRun) {
+          addToHistory({ ...finalRun, status: 'completed' });
+        }
         isExecutingRef.current = false;
         return;
       }
 
-      const passed = Math.random() > 0.2; // 80% pass rate
-      const result: TestResult = {
-        test_case_id: currentTest.id,
-        title: currentTest.title,
-        status: passed ? 'pass' : 'fail',
-        duration_ms: Math.floor(executionTime),
-        error_message: passed ? undefined : 'Element not found: login_button',
-        steps_passed: passed ? currentTest.steps.length : Math.floor(currentTest.steps.length * 0.6),
-        steps_total: currentTest.steps.length,
-      };
-
-      // Get fresh state from store
-      const freshRun = useTestStore.getState().currentRun;
-      if (!freshRun || freshRun.status !== 'running') {
-        isExecutingRef.current = false;
-        return;
-      }
-
-      // Update with new result
-      updateCurrentRun({
-        passed: freshRun.passed + (passed ? 1 : 0),
-        failed: freshRun.failed + (passed ? 0 : 1),
-        remaining: freshRun.remaining - 1,
-        results: [...freshRun.results, result],
-      });
-
-      // Move to next test
-      currentTestIndexRef.current = currentIndex + 1;
-
-      // Schedule next test execution
+      // Continue polling if still running
       if (!isAbortedRef.current && !isPausedRef.current) {
-        timeoutRef.current = setTimeout(executeNextTest, 500);
+        timeoutRef.current = setTimeout(pollBackendResults, 1500);
       } else {
         isExecutingRef.current = false;
       }
-    }, executionTime);
+    } catch (err) {
+      console.error('Error polling backend:', err);
+      // Retry on error
+      if (!isAbortedRef.current) {
+        timeoutRef.current = setTimeout(pollBackendResults, 3000);
+      }
+    }
   };
 
-  // Start execution when status changes to running
+  // Start polling backend when test run starts
   useEffect(() => {
-    if (currentRun?.status === 'running' && !isPaused && !isExecutingRef.current) {
+    if (currentRun?.status === 'running' && !isPaused && !isExecutingRef.current && backendRunId) {
       isExecutingRef.current = true;
-      executeNextTest();
+      pollBackendResults();
     }
-  }, [currentRun?.status, isPaused]);
+  }, [currentRun?.status, isPaused, backendRunId]);
 
-  const handleStart = () => {
+  const handleStart = async () => {
     if (currentRun?.status === 'pending') {
       isAbortedRef.current = false;
       isPausedRef.current = false;
       currentTestIndexRef.current = 0;
       updateCurrentRun({ status: 'running' });
+
+      // Call backend API to start real test execution
+      try {
+        const testCaseIds = selectedTestCases.map(tc => tc.id).join(',');
+        const res = await fetch(
+          `${API_BASE}/api/test-runs?build_id=${selectedBuildId}&test_case_ids=${testCaseIds}&device_id=${selectedDeviceId}`,
+          { method: 'POST' }
+        );
+        if (res.ok) {
+          const data = await res.json();
+          setBackendRunId(data.run_id);
+          console.log('Backend test run started:', data.run_id);
+        }
+      } catch (err) {
+        console.error('Failed to start backend execution:', err);
+      }
     }
     setIsPaused(false);
   };
@@ -184,10 +223,10 @@ export default function ExecutionPage() {
     isPausedRef.current = false;
     setIsPaused(false);
 
-    // Resume execution if still running
-    if (currentRun?.status === 'running' && !isExecutingRef.current) {
+    // Resume polling if still running
+    if (currentRun?.status === 'running' && !isExecutingRef.current && backendRunId) {
       isExecutingRef.current = true;
-      executeNextTest();
+      pollBackendResults();
     }
   };
 
@@ -365,24 +404,30 @@ export default function ExecutionPage() {
             {/* Notch */}
             <div className="absolute top-4 left-1/2 -translate-x-1/2 w-20 h-5 bg-black rounded-full" />
 
-            {/* Screen */}
-            <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl h-[480px] flex flex-col items-center justify-center overflow-hidden">
-              {currentRun?.status === 'running' && !isPaused ? (
+            {/* Screen - Show live screenshot when available */}
+            <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl h-[480px] flex flex-col items-center justify-center overflow-hidden relative">
+              {liveScreenshot && currentRun?.status === 'running' && !isPaused ? (
+                <>
+                  <img
+                    src={`data:image/png;base64,${liveScreenshot}`}
+                    alt="Live device screen"
+                    className="w-full h-full object-contain"
+                  />
+                  <div className="absolute top-2 left-2 flex items-center gap-1 bg-red-600 text-white text-xs px-2 py-1 rounded">
+                    <div className="w-2 h-2 bg-white rounded-full animate-pulse" />
+                    LIVE
+                  </div>
+                  <div className="absolute bottom-2 left-2 right-2 bg-black/70 text-white text-xs p-2 rounded truncate">
+                    {currentRun.current_test}
+                  </div>
+                </>
+              ) : currentRun?.status === 'running' && !isPaused ? (
                 <div className="text-center p-4">
                   <div className="w-12 h-12 border-4 border-green-500 border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-                  <p className="text-white text-sm font-medium mb-2">Running Test</p>
+                  <p className="text-white text-sm font-medium mb-2">Connecting to device...</p>
                   <p className="text-gray-400 text-xs px-4 truncate max-w-full">
                     {currentRun.current_test}
                   </p>
-                  <div className="mt-4 flex justify-center gap-1">
-                    {[...Array(3)].map((_, i) => (
-                      <div
-                        key={i}
-                        className="w-2 h-2 bg-green-500 rounded-full animate-bounce"
-                        style={{ animationDelay: `${i * 0.1}s` }}
-                      />
-                    ))}
-                  </div>
                 </div>
               ) : isPaused ? (
                 <div className="text-center">

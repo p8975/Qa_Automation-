@@ -41,6 +41,7 @@ class DynamicElementDiscovery:
         """
         Inspect current screen and extract all interactive elements.
         Filters out system UI elements (permission dialogs, etc.)
+        Optimized for Flutter apps that use content-desc for accessibility.
 
         Returns:
             dict: {element_id: {type, text, resource_id, content_desc, bounds}}
@@ -48,41 +49,73 @@ class DynamicElementDiscovery:
         elements = {}
 
         try:
-            # Get page source XML
-            page_source = self.driver.page_source
-
-            # Parse interactive elements
-            interactive_classes = [
-                "android.widget.Button",
-                "android.widget.ImageButton",
-                "android.widget.TextView",
-                "android.widget.EditText",
-                "android.view.View"
-            ]
-
-            for class_name in interactive_classes:
-                class_elements = self.driver.find_elements(AppiumBy.CLASS_NAME, class_name)
-
-                for idx, element in enumerate(class_elements):
-                    try:
-                        resource_id = element.get_attribute("resource-id") or ""
-
-                        # Skip system UI elements (permission dialogs, etc.)
-                        if self._is_system_element(resource_id):
-                            continue
-
-                        element_id = self._generate_element_id(element, idx)
-                        if element_id:
-                            elements[element_id] = {
-                                "type": class_name,
-                                "text": element.text or "",
-                                "resource_id": resource_id,
-                                "content_desc": element.get_attribute("content-desc") or "",
-                                "clickable": element.get_attribute("clickable") == "true",
-                                "enabled": element.get_attribute("enabled") == "true"
-                            }
-                    except Exception:
+            # Strategy 1: Find ALL elements with content-desc (Flutter accessibility labels)
+            # This is the primary strategy for Flutter apps
+            content_desc_elements = self.driver.find_elements(
+                AppiumBy.XPATH, "//*[@content-desc and @content-desc!='']"
+            )
+            for idx, element in enumerate(content_desc_elements):
+                try:
+                    content_desc = element.get_attribute("content-desc") or ""
+                    if not content_desc or self._is_system_element(content_desc):
                         continue
+
+                    element_id = content_desc  # Use content-desc as ID for Flutter elements
+                    elements[element_id] = {
+                        "type": element.get_attribute("class") or "android.view.View",
+                        "text": element.text or "",
+                        "resource_id": element.get_attribute("resource-id") or "",
+                        "content_desc": content_desc,
+                        "clickable": element.get_attribute("clickable") == "true",
+                        "enabled": element.get_attribute("enabled") == "true",
+                        "is_flutter": True
+                    }
+                except Exception:
+                    continue
+
+            # Strategy 2: Find EditText elements (for text input)
+            edit_elements = self.driver.find_elements(AppiumBy.CLASS_NAME, "android.widget.EditText")
+            for idx, element in enumerate(edit_elements):
+                try:
+                    element_id = f"EditText_{idx}"
+                    elements[element_id] = {
+                        "type": "android.widget.EditText",
+                        "text": element.text or "",
+                        "resource_id": element.get_attribute("resource-id") or "",
+                        "content_desc": element.get_attribute("content-desc") or "",
+                        "clickable": True,
+                        "enabled": element.get_attribute("enabled") == "true",
+                        "is_input": True
+                    }
+                except Exception:
+                    continue
+
+            # Strategy 3: Find traditional native elements (backup)
+            if len(elements) < 3:
+                interactive_classes = [
+                    "android.widget.Button",
+                    "android.widget.ImageButton",
+                    "android.widget.TextView",
+                ]
+                for class_name in interactive_classes:
+                    class_elements = self.driver.find_elements(AppiumBy.CLASS_NAME, class_name)
+                    for idx, element in enumerate(class_elements):
+                        try:
+                            resource_id = element.get_attribute("resource-id") or ""
+                            if self._is_system_element(resource_id):
+                                continue
+                            element_id = self._generate_element_id(element, idx)
+                            if element_id and element_id not in elements:
+                                elements[element_id] = {
+                                    "type": class_name,
+                                    "text": element.text or "",
+                                    "resource_id": resource_id,
+                                    "content_desc": element.get_attribute("content-desc") or "",
+                                    "clickable": element.get_attribute("clickable") == "true",
+                                    "enabled": element.get_attribute("enabled") == "true"
+                                }
+                        except Exception:
+                            continue
 
         except Exception as e:
             print(f"Error inspecting screen: {e}")
@@ -175,7 +208,7 @@ class DynamicElementDiscovery:
             else:
                 return (AppiumBy.ID, resource_id_val)
         elif text and text != "null":
-            return (AppiumBy.XPATH, f"//*[@text='{text}']")
+            return (AppiumBy.XPATH, f"//*[@text='{text}' or @content-desc='{text}']")
         else:
             # Fallback: use class type + index
             elem_type = element_info.get("type", "android.widget.Button")

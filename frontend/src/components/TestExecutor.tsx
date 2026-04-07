@@ -79,6 +79,8 @@ export function TestExecutor() {
   const [showTestCase, setShowTestCase] = useState(false);
   const [showResults, setShowResults] = useState(false);
   const [polling, setPolling] = useState(false);
+  const [liveScreenshot, setLiveScreenshot] = useState<string | null>(null);
+  const [executionLogs, setExecutionLogs] = useState<Array<{timestamp: string; level: string; message: string}>>([]);
 
   // Fetch devices and builds on mount
   useEffect(() => {
@@ -86,28 +88,50 @@ export function TestExecutor() {
     fetchBuilds();
   }, []);
 
-  // Poll for execution status when running
+  // Poll for execution status, screenshots, and logs when running
   useEffect(() => {
     let interval: NodeJS.Timeout;
     if (runId && polling) {
       interval = setInterval(async () => {
         try {
-          const res = await fetch(`${API_BASE}/api/mobile-test/status/${runId}`);
-          if (res.ok) {
-            const status = await res.json();
+          // Poll status
+          const statusRes = await fetch(`${API_BASE}/api/mobile-test/status/${runId}`);
+          if (statusRes.ok) {
+            const status = await statusRes.json();
             setExecutionStatus(status);
             if (status.status === 'completed' || status.status === 'failed') {
               setPolling(false);
               setShowResults(true);
+              setLiveScreenshot(null);
+            }
+          }
+
+          // Poll live progress/logs
+          const logsRes = await fetch(`${API_BASE}/api/test-runs/${runId}/live-progress`);
+          if (logsRes.ok) {
+            const logsData = await logsRes.json();
+            if (logsData.logs) {
+              setExecutionLogs(logsData.logs);
+            }
+          }
+
+          // Poll live screenshot
+          if (selectedDevice) {
+            const screenshotRes = await fetch(`${API_BASE}/api/device/${selectedDevice}/screenshot`);
+            if (screenshotRes.ok) {
+              const ssData = await screenshotRes.json();
+              if (ssData.screenshot) {
+                setLiveScreenshot(ssData.screenshot);
+              }
             }
           }
         } catch (err) {
-          console.error('Failed to poll status:', err);
+          console.error('Failed to poll:', err);
         }
-      }, 2000);
+      }, 1500);
     }
     return () => clearInterval(interval);
-  }, [runId, polling]);
+  }, [runId, polling, selectedDevice]);
 
   const fetchDevices = async () => {
     try {
@@ -435,6 +459,62 @@ export function TestExecutor() {
                 )}
               </div>
             )}
+          </div>
+        )}
+
+        {/* Live Execution View */}
+        {polling && (
+          <div className="grid grid-cols-2 gap-4">
+            {/* Live Device Screen */}
+            <div className="border border-gray-200 rounded-lg overflow-hidden">
+              <div className="px-3 py-2 bg-gray-50 border-b border-gray-200">
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
+                  <span className="text-xs font-medium text-gray-600">LIVE DEVICE SCREEN</span>
+                </div>
+              </div>
+              <div className="p-2 bg-black flex items-center justify-center" style={{ minHeight: '300px' }}>
+                {liveScreenshot ? (
+                  <img
+                    src={`data:image/png;base64,${liveScreenshot}`}
+                    alt="Live device screen"
+                    className="max-h-72 object-contain rounded"
+                  />
+                ) : (
+                  <div className="text-gray-500 text-sm">Connecting to device...</div>
+                )}
+              </div>
+            </div>
+
+            {/* Live Execution Logs */}
+            <div className="border border-gray-200 rounded-lg overflow-hidden">
+              <div className="px-3 py-2 bg-gray-50 border-b border-gray-200">
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+                  <span className="text-xs font-medium text-gray-600">EXECUTION LOG</span>
+                </div>
+              </div>
+              <div className="p-2 bg-gray-900 font-mono text-xs overflow-y-auto" style={{ minHeight: '300px', maxHeight: '300px' }}>
+                {executionLogs.length > 0 ? (
+                  executionLogs.map((log, i) => (
+                    <div
+                      key={i}
+                      className={`py-0.5 ${
+                        log.level === 'error' ? 'text-red-400' :
+                        log.level === 'success' ? 'text-green-400' :
+                        log.level === 'debug' ? 'text-gray-500' :
+                        'text-gray-300'
+                      }`}
+                    >
+                      <span className="text-gray-600">{log.timestamp.split('T')[1]?.slice(0,8)}</span>
+                      {' '}{log.message}
+                    </div>
+                  ))
+                ) : (
+                  <div className="text-gray-500">Waiting for execution logs...</div>
+                )}
+              </div>
+            </div>
           </div>
         )}
 

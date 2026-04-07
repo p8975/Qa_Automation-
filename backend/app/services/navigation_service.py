@@ -91,8 +91,8 @@ class NavigationService:
             
             for pattern in skip_patterns:
                 try:
-                    elements = self.driver.find_elements(AppiumBy.XPATH, 
-                        f"//*[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), '{pattern}')]")
+                    elements = self.driver.find_elements(AppiumBy.XPATH,
+                        f"//*[contains(translate(@text,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), '{pattern}') or contains(translate(@content-desc,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), '{pattern}')]")
                     
                     for elem in elements:
                         try:
@@ -182,7 +182,7 @@ class NavigationService:
             skip_patterns = ['skip', 'get started', 'continue', 'enter app', 'let me in', 'next']
             for pattern in skip_patterns:
                 elements = self.driver.find_elements(AppiumBy.XPATH,
-                    f"//*[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), '{pattern}')]")
+                    f"//*[contains(translate(@text,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), '{pattern}') or contains(translate(@content-desc,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), '{pattern}')]")
                 for elem in elements:
                     try:
                         if elem.is_displayed():
@@ -221,7 +221,7 @@ class NavigationService:
             for pattern in continue_patterns:
                 try:
                     btns = self.driver.find_elements(AppiumBy.XPATH,
-                        f"//*[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), '{pattern}')]")
+                        f"//*[contains(translate(@text,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), '{pattern}') or contains(translate(@content-desc,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), '{pattern}')]")
                     for btn in btns:
                         if btn.is_displayed():
                             btn.click()
@@ -248,7 +248,7 @@ class NavigationService:
             for pattern in verify_patterns:
                 try:
                     btns = self.driver.find_elements(AppiumBy.XPATH,
-                        f"//*[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), '{pattern}')]")
+                        f"//*[contains(translate(@text,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), '{pattern}') or contains(translate(@content-desc,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), '{pattern}')]")
                     for btn in btns:
                         if btn.is_displayed():
                             btn.click()
@@ -382,7 +382,7 @@ class NavigationService:
         """Tap element by visible text."""
         try:
             element = self.wait.until(
-                EC.element_to_be_clickable((AppiumBy.XPATH, f"//*[contains(@text, '{text}')]"))
+                EC.element_to_be_clickable((AppiumBy.XPATH, f"//*[contains(@text, '{text}') or contains(@content-desc, '{text}')]"))
             )
             element.click()
             return True

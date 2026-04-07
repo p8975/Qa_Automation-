@@ -18,10 +18,16 @@ from app.services.ai_step_translator import AIStepTranslator
 from app.services.codebase_analyzer import CodebaseAnalyzer
 from app.services.navigation_service import NavigationService
 from app.services.dynamic_element_discovery import DynamicElementDiscovery
+from app.services.flutter_locator_service import FlutterLocatorService
+from app.services.stage_key_mapper import StageKeyMapper
+from app.services.screen_state_detector import ScreenStateDetector
 from app.repositories.test_run_repository import TestRunRepository
 from app.repositories.element_map_repository import ElementMapRepository
 from app.repositories.build_repository import BuildRepository
 from app.repositories.test_case_repository import TestCaseRepository
+
+# Import execution logger for real-time tracking
+from app.services.execution_logger import add_log as _add_execution_log
 
 
 class TestExecutor:
@@ -82,7 +88,7 @@ class TestExecutor:
         self.run_timeout = 900  # Reduced from 1800 (15 minutes total)
 
         # Configurable delays (in seconds) - OPTIMIZED
-        self.post_action_delay = 0.2  # Reduced from 0.3
+        self.post_action_delay = 0.8  # Increased for UI to settle
         self.screen_settle_delay = 0.5  # Reduced from 1.0
         self.app_launch_delay = 8  # Increased for Flutter apps (fallback only)
         self.app_ready_timeout = 15  # Max wait for app to become ready
@@ -99,6 +105,102 @@ class TestExecutor:
             "Google",  # Google sign-in
             "Continue",
         ]
+
+    def _ensure_app_in_foreground(self, driver, device_id: str = None) -> bool:
+        """Ensure Stage app is actually in foreground, not home screen."""
+        import subprocess
+
+        print("  → Ensuring Stage app is in foreground...")
+
+        # Method 1: Use Appium activate_app
+        try:
+            driver.activate_app("in.stage.dev")
+            time.sleep(2)
+        except Exception as e:
+            print(f"    Warning: activate_app failed: {e}")
+
+        # Method 2: Verify via ADB that Stage app is focused
+        device_arg = f"-s {device_id}" if device_id else ""
+        try:
+            result = subprocess.run(
+                f"adb {device_arg} shell dumpsys window | grep mCurrentFocus",
+                shell=True, capture_output=True, text=True, timeout=5
+            )
+            if "in.stage.dev" in result.stdout:
+                print("    ✓ Stage app is in foreground")
+                return True
+            else:
+                print(f"    ⚠️ Stage app not focused: {result.stdout.strip()[:60]}")
+                # Force launch via ADB
+                subprocess.run(
+                    f"adb {device_arg} shell am start -n in.stage.dev/in.stage.MainActivity",
+                    shell=True, capture_output=True, timeout=5
+                )
+                time.sleep(3)
+                driver.activate_app("in.stage.dev")
+                time.sleep(2)
+                return True
+        except Exception as e:
+            print(f"    Warning: ADB check failed: {e}")
+
+        return False
+
+    def _dismiss_all_dialogs(self, driver, device_id: str = None) -> None:
+        """Dismiss permission dialogs, debug dialogs, and any overlays."""
+        from appium.webdriver.common.appiumby import AppiumBy
+
+        # FIRST: Ensure app is in foreground (not home screen)
+        self._ensure_app_in_foreground(driver, device_id)
+
+        print("  → Dismissing any blocking dialogs...")
+
+        # 1. Dismiss permission dialogs (Allow/Don't allow)
+        for _ in range(3):
+            try:
+                allow_btn = driver.find_elements(AppiumBy.XPATH, "//*[@text='Allow' or @text='ALLOW']")
+                if allow_btn:
+                    allow_btn[0].click()
+                    print("    Clicked 'Allow' permission")
+                    time.sleep(1)
+                    continue
+            except:
+                pass
+
+            try:
+                dont_allow = driver.find_elements(AppiumBy.XPATH, "//*[@text=\"Don't allow\"]")
+                if dont_allow:
+                    dont_allow[0].click()
+                    print("    Clicked 'Don't allow' permission")
+                    time.sleep(1)
+                    continue
+            except:
+                pass
+            break
+
+        # 2. Dismiss debug dialogs (Cancel, Dismiss, Close)
+        for _ in range(2):
+            try:
+                dismiss_btns = driver.find_elements(AppiumBy.XPATH,
+                    "//*[@content-desc='Cancel' or @content-desc='Dismiss' or @content-desc='Close' or @text='Cancel']")
+                if dismiss_btns:
+                    dismiss_btns[0].click()
+                    print("    Dismissed debug dialog")
+                    time.sleep(1)
+                    continue
+            except:
+                pass
+            break
+
+        # 3. Press back to close any remaining overlays
+        try:
+            # Check if we're on a dialog by looking for dialog indicators
+            custom_url = driver.find_elements(AppiumBy.XPATH, "//*[contains(@content-desc, 'Custom URL') or contains(@text, 'Custom URL')]")
+            if custom_url:
+                driver.press_keycode(4)  # BACK
+                print("    Pressed BACK to close dialog")
+                time.sleep(1)
+        except:
+            pass
 
     def _dismiss_permission_dialogs(self, driver, max_attempts: int = 5) -> int:
         """
@@ -528,7 +630,10 @@ class TestExecutor:
             if not app_ready:
                 print("  ⚠️ App may not be fully ready, continuing with fallback delay...")
                 time.sleep(self.app_launch_delay)
-                self._dismiss_permission_dialogs(driver)
+
+            # CRITICAL: Dismiss ALL dialogs (permissions, debug overlays, etc.)
+            self._dismiss_all_dialogs(driver, test_run.device_info.device_id)
+            time.sleep(0.5)
 
             # Log initial screen state for debugging (Phase 2)
             self._log_screen_state(driver, "INITIAL")
@@ -698,7 +803,10 @@ class TestExecutor:
             if not app_ready:
                 print("  ⚠️ App may not be fully ready, continuing with fallback delay...")
                 time.sleep(self.app_launch_delay)
-                self._dismiss_permission_dialogs(driver)
+
+            # CRITICAL: Dismiss ALL dialogs (permissions, debug overlays, etc.)
+            self._dismiss_all_dialogs(driver, device_id)
+            time.sleep(0.5)
 
             # Log initial screen state for debugging (Phase 2)
             self._log_screen_state(driver, "INITIAL")
@@ -786,8 +894,13 @@ class TestExecutor:
         # PHASE 1: Analyze test case context
         print(f"\n🔍 Test case: {test_case.title}")
 
-        # PHASE 2: Initialize element discovery for current screen
+        # PHASE 2: Initialize element discovery (UiAutomator2 - fast and reliable)
+        # NOTE: Skip FlutterLocatorService - it hangs on release builds
         element_discovery = DynamicElementDiscovery(driver)
+
+        # Quick screen detection using native elements (no FlutterLocator)
+        current_screen = self._detect_screen_fast(driver)
+        print(f"  📱 Current screen: {current_screen}")
 
         # Phase 3: Handle preconditions - try to get to required screen
         if test_case.preconditions:
@@ -815,23 +928,50 @@ class TestExecutor:
             command = ""
 
             try:
-                # Re-inspect elements on current screen
-                discovered_elements = element_discovery.inspect_current_screen()
                 print(f"  Step {idx}: {step.description}")
-                print(f"    Found {len(discovered_elements)} elements on screen")
+                _add_execution_log(run_id, f"Step {idx}: {step.description}", "info")
 
                 # Determine action from step description
                 action, text_to_input = self._determine_action(step.description)
+                _add_execution_log(run_id, f"  Action: {action}", "debug")
 
-                # SPECIAL HANDLING: Verification steps should just check text presence
+                # Ensure app is in foreground before each step
+                for retry in range(3):
+                    try:
+                        current_activity = driver.current_activity
+                        print(f"    Current activity: {current_activity}")
+                        if "stage" in current_activity.lower() or "MainActivity" in current_activity:
+                            break
+                        print(f"    ⚠️ NOT IN STAGE APP! Forcing launch (attempt {retry+1})...")
+                        driver.terminate_app("in.stage.dev")
+                        time.sleep(1)
+                        driver.activate_app("in.stage.dev")
+                        time.sleep(3)
+                    except Exception as e:
+                        print(f"    Activity check error: {e}")
+                        # Fallback: Use ADB to force launch
+                        import subprocess
+                        subprocess.run(
+                            f"adb -s {driver.capabilities.get('udid', 'emulator-5554')} shell am start -n in.stage.dev/in.stage.MainActivity",
+                            shell=True, capture_output=True
+                        )
+                        time.sleep(3)
+
+                # Use native element discovery (UiAutomator2)
+                # Note: Flutter driver only works with debug builds, Stage preprod is release
+                discovered_elements = element_discovery.inspect_current_screen()
+                print(f"    Found {len(discovered_elements)} elements on screen")
+                _add_execution_log(run_id, f"  Found {len(discovered_elements)} elements", "debug")
+
                 if action == "is_displayed":
-                    # For verification, search page source for the text
+                    # SPECIAL HANDLING: Verification steps - check text presence
                     verification_passed = self._verify_text_on_screen(step.description, driver, discovered_elements)
                     if verification_passed:
                         print(f"    ✓ Verification passed")
                         command = f"# Verified: {step.description[:50]}..."
                     else:
                         raise ValueError(f"Verification failed: expected content not found on screen")
+
                 else:
                     # Find element using multiple strategies
                     command = None
@@ -886,7 +1026,7 @@ class TestExecutor:
                                 command = f"driver.find_element(AppiumBy.XPATH, \"{element_info}\").click()"
 
                     if not command:
-                        # Phase 2: Enhanced error message with screen state
+                        # Enhanced error message with screen state
                         screen_info = self._log_screen_state(driver, "STEP_FAIL")
                         visible_text = screen_info.get("visible_text", [])
                         element_count = screen_info.get("clickable_elements", 0)
@@ -899,18 +1039,47 @@ class TestExecutor:
                         raise ValueError(error_detail)
 
                     print(f"    Command: {command[:100]}...")
+                    print(f"    DEBUG: element_info type={type(element_info).__name__}, action={action}")
 
-                    # Execute command directly using driver
-                    self._execute_command(driver, command)
+                    # Execute action directly (no string parsing)
+                    if element_info and isinstance(element_info, dict):
+                        # Strategies 1, 2, 3, 5 - element_info is a dict
+                        locator_type, locator_value = self._get_best_locator(element_info)
+                        print(f"    >>> EXECUTING DIRECT: {locator_type}={locator_value[:60]}")
+                        self._execute_action_direct(
+                            driver=driver,
+                            locator_type=locator_type,
+                            locator_value=locator_value,
+                            action=action,
+                            text_input=text_to_input
+                        )
+                        print(f"    >>> EXECUTED SUCCESSFULLY")
+                    elif element_info and isinstance(element_info, str):
+                        # Strategies 4, 6 - element_info is an xpath string
+                        print(f"    >>> EXECUTING XPATH: {element_info[:60]}")
+                        self._execute_action_direct(
+                            driver=driver,
+                            locator_type='XPATH',
+                            locator_value=element_info,
+                            action=action,
+                            text_input=text_to_input
+                        )
+                        print(f"    >>> EXECUTED SUCCESSFULLY")
+                    else:
+                        # Fallback to string parsing (locator_override case)
+                        print(f"    >>> FALLBACK: Using _execute_command")
+                        self._execute_command(driver, command)
 
                 # Brief pause after action to let UI settle
                 time.sleep(self.post_action_delay)
                 print(f"    ✓ Step executed successfully")
+                _add_execution_log(run_id, f"✓ Step {idx} PASSED", "success")
 
             except Exception as e:
                 step_status = StepStatus.ERROR
                 step_error = str(e)
                 overall_status = TestStatus.FAIL
+                _add_execution_log(run_id, f"✗ Step {idx} FAILED: {step_error[:100]}", "error")
 
                 # Capture screenshot on failure
                 try:
@@ -1022,13 +1191,13 @@ class TestExecutor:
         for text in quoted_texts:
             try:
                 # Try exact text match
-                xpath = f"//*[@text='{text}']"
+                xpath = f"//*[@text='{text}' or @content-desc='{text}']"
                 elements = driver.find_elements(AppiumBy.XPATH, xpath)
                 if elements:
                     return xpath
 
                 # Try contains for partial match
-                xpath = f"//*[contains(@text, '{text}')]"
+                xpath = f"//*[contains(@text, '{text}') or contains(@content-desc, '{text}')]"
                 elements = driver.find_elements(AppiumBy.XPATH, xpath)
                 if elements:
                     return xpath
@@ -1100,9 +1269,9 @@ class TestExecutor:
         for keyword in keywords:
             try:
                 # Try XPath by text
-                elements = driver.find_elements(AppiumBy.XPATH, f"//*[contains(@text, '{keyword.title()}')]")
+                elements = driver.find_elements(AppiumBy.XPATH, f"//*[contains(@text, '{keyword.title()}') or contains(@content-desc, '{keyword.title()}')]")
                 if elements:
-                    return f"//*[contains(@text, '{keyword.title()}')]"
+                    return f"//*[contains(@text, '{keyword.title()}') or contains(@content-desc, '{keyword.title()}')]"
             except:
                 continue
         
@@ -1145,6 +1314,102 @@ class TestExecutor:
             return True
         
         return True
+
+    def _execute_action_direct(
+        self,
+        driver,
+        locator_type: str,      # 'XPATH', 'ACCESSIBILITY_ID', 'ID', 'CLASS_NAME'
+        locator_value: str,
+        action: str,            # 'click', 'send_keys', 'is_displayed'
+        text_input: str = None,
+        timeout: int = 10,
+        retries: int = 2
+    ) -> bool:
+        """Execute action directly with WebDriverWait and retries."""
+        from selenium.webdriver.support.ui import WebDriverWait
+        from selenium.webdriver.support import expected_conditions as EC
+        from appium.webdriver.common.appiumby import AppiumBy
+
+        locator_map = {
+            'ID': AppiumBy.ID,
+            'XPATH': AppiumBy.XPATH,
+            'ACCESSIBILITY_ID': AppiumBy.ACCESSIBILITY_ID,
+            'CLASS_NAME': AppiumBy.CLASS_NAME,
+        }
+        by = locator_map.get(locator_type.upper(), AppiumBy.XPATH)
+
+        last_error = None
+        for attempt in range(retries + 1):
+            try:
+                wait = WebDriverWait(driver, timeout)
+
+                if action == 'click':
+                    element = wait.until(EC.element_to_be_clickable((by, locator_value)))
+                    element.click()
+                elif action == 'send_keys':
+                    element = wait.until(EC.presence_of_element_located((by, locator_value)))
+                    element.clear()
+                    element.send_keys(text_input or "")
+                elif action == 'is_displayed':
+                    element = wait.until(EC.presence_of_element_located((by, locator_value)))
+                    if not element.is_displayed():
+                        raise AssertionError("Element not visible")
+                else:
+                    element = wait.until(EC.element_to_be_clickable((by, locator_value)))
+                    element.click()
+
+                time.sleep(0.8)  # Post-action delay for UI to settle
+                return True
+
+            except Exception as e:
+                last_error = e
+                if attempt < retries:
+                    print(f"    Retry {attempt + 1}: {str(e)[:50]}")
+                    time.sleep(0.5)
+
+        raise last_error
+
+    def _detect_screen_fast(self, driver) -> str:
+        """Quick screen detection using native UiAutomator2 (no FlutterLocator)."""
+        from appium.webdriver.common.appiumby import AppiumBy
+
+        screen_indicators = {
+            'login': ['लॉगिन करें', '+91', 'Login', 'phone', 'Continue with Google'],
+            'otp': ['OTP', 'Verify', 'Resend', 'code sent'],
+            'home': ['For You', 'Home', 'Explore', 'Continue Watching'],
+            'profile': ['Profile', 'Account', 'Edit Profile'],
+            'subscription': ['Subscribe', '₹1', 'Trial', 'Premium'],
+        }
+
+        try:
+            page_source = driver.page_source.lower()
+            for screen, indicators in screen_indicators.items():
+                matches = sum(1 for ind in indicators if ind.lower() in page_source)
+                if matches >= 2:
+                    return screen
+        except Exception:
+            pass
+
+        return 'unknown'
+
+    def _get_best_locator(self, element_info: dict) -> tuple:
+        """Get locator from element info. Priority: content_desc > resource_id > text"""
+        content_desc = (element_info.get("content_desc") or "").strip()
+        resource_id = (element_info.get("resource_id") or "").strip()
+        text = (element_info.get("text") or "").strip()
+
+        if content_desc and content_desc.lower() != "null":
+            return ("ACCESSIBILITY_ID", content_desc)
+        if resource_id and resource_id.lower() != "null":
+            return ("ID", resource_id)
+        if text and text.lower() != "null":
+            return ("XPATH", f"//*[@text='{text}' or @content-desc='{text}']")
+
+        element_id = element_info.get("element_id", "")
+        if element_id:
+            return ("ACCESSIBILITY_ID", element_id)
+
+        raise ValueError(f"No valid locator: {element_info}")
 
     def _execute_command(self, driver, command: str) -> None:
         """Execute Appium command directly without using exec()."""
@@ -1207,21 +1472,21 @@ class TestExecutor:
         """Start the app directly using adb activity launch."""
         try:
             import subprocess
-            
+
             package = driver.capabilities.get('appPackage', '')
             if not package:
                 return False
-            
+
             # Try to find the main activity
             result = subprocess.run(
                 ['adb', 'shell', 'cmd', 'package', 'resolve-activity', '--brief', package],
                 capture_output=True,
                 text=True
             )
-            
+
             main_activity = result.stdout.strip()
             print(f"  Main activity: {main_activity}")
-            
+
             if main_activity:
                 # Try to start the activity directly
                 subprocess.run(
@@ -1230,8 +1495,94 @@ class TestExecutor:
                 )
                 time.sleep(2)
                 return True
-                
+
         except Exception as e:
             print(f"  Failed to start app directly: {e}")
-        
+
         return False
+
+    def _build_locator_hints(self, step_description: str, action: str) -> Dict:
+        """
+        Build locator hints from step description for Flutter locator.
+
+        Args:
+            step_description: Natural language step description
+            action: Determined action (click, send_keys, etc.)
+
+        Returns:
+            Dict with keys, text, widget_type, icon hints
+        """
+        import re
+
+        hints = {
+            'keys': StageKeyMapper.get_keys_for_step(step_description),
+            'action': step_description,
+        }
+
+        # Extract quoted text (for Hindi text like 'लॉगिन करें')
+        quoted = re.findall(r'["\']([^"\']+)["\']', step_description)
+        if quoted:
+            hints['text'] = quoted[0]
+
+        # Infer widget type from action
+        if action in ['click', 'tap', 'press']:
+            hints['widget_type'] = 'ElevatedButton'
+        elif action in ['send_keys', 'enter', 'type', 'input']:
+            hints['widget_type'] = 'TextField'
+        elif action == 'scroll':
+            hints['widget_type'] = 'ListView'
+
+        # Check for icon references
+        icon_keywords = {
+            'close': 'close',
+            'back': 'arrow_back',
+            'settings': 'settings',
+            'home': 'home',
+            'search': 'search',
+            'play': 'play',
+            'pause': 'pause',
+            'menu': 'menu',
+            'more': 'more_vert',
+            'favorite': 'favorite',
+            'share': 'share',
+            'download': 'download',
+            'profile': 'person',
+            'notification': 'notifications',
+        }
+        step_lower = step_description.lower()
+        for keyword, icon_name in icon_keywords.items():
+            if keyword in step_lower and 'icon' in step_lower:
+                hints['icon'] = icon_name
+                break
+
+        return hints
+
+    def _execute_flutter_action(
+        self,
+        flutter_locator: FlutterLocatorService,
+        element,
+        action: str,
+        text_to_input: Optional[str] = None
+    ) -> None:
+        """
+        Execute action on a Flutter element.
+
+        Args:
+            flutter_locator: Flutter locator service instance
+            element: Flutter element to act on
+            action: Action to perform (click, send_keys, scroll, is_displayed)
+            text_to_input: Text to input for send_keys action
+        """
+        if action in ['click', 'tap', 'press']:
+            flutter_locator.tap(element)
+        elif action in ['send_keys', 'enter', 'type', 'input']:
+            text = text_to_input or "test_input"
+            flutter_locator.enter_text(element, text)
+        elif action == 'scroll':
+            flutter_locator.scroll(element, dx=0, dy=-300)
+        elif action == 'is_displayed':
+            # Element was found, so it's displayed
+            pass
+        else:
+            # Default to tap
+            flutter_locator.tap(element)
