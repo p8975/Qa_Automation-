@@ -1,0 +1,35 @@
+{
+  "tc_id": "7399d087-9ce6-4c38-80bd-99399fe3823c",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Trial Corner content sections display correctly for an active user",
+  "description": "Tests the dynamic content sections (Engagement, Trending) within the Trial Corner hub are populated as per the PRD logic.",
+  "preconditions": [
+    "User is in an active trial and has acquired content but watched <90% of it.",
+    "User has a primary dialect set."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to the Trial Corner hub.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Observe the 'Engagement' section.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Observe the 'Trending' section.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The 'Engagement' section shows the user's acquired content and auto-plays the trailer. The 'Trending' section shows the Top 10 shows/movies in the user's primary dialect.",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-03-30T10:37:05.517088",
+  "updated_at": "2026-03-30T10:37:05.517089"
+}

@@ -1,0 +1,35 @@
+{
+  "tc_id": "399aae2e-26dd-48d0-887c-b786bb0e7fbe",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify 'Remind me' toggle can be disabled",
+  "description": "Test that a user can disable the 'Remind me' toggle after enabling it.",
+  "preconditions": [
+    "User has an active trial",
+    "The 'Remind me' toggle is ON"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to the Trial Corner hub.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Scroll to the 'Manage Trial' section.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Tap the 'Remind me' toggle to turn it off.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The toggle switches to the 'OFF' state.",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-04-07T18:16:59.945632",
+  "updated_at": "2026-04-07T18:16:59.945634"
+}

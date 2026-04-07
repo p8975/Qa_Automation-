@@ -1,0 +1,42 @@
+{
+  "tc_id": "24ace010-6fd4-4b82-8982-e00dc481c6da",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify opencode command is executable after PATH setup",
+  "description": "Test that sourcing .zshrc makes opencode command accessible from anywhere",
+  "preconditions": [
+    "OpenCode installed",
+    "PATH added to .zshrc",
+    ".zshrc sourced"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Run: source ~/.zshrc",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Run: which opencode",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Run: opencode --version or opencode --help",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Verify command executes without path prefix",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "opencode command is accessible system-wide",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T15:23:56.746555",
+  "updated_at": "2026-03-11T15:23:56.746557"
+}

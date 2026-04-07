@@ -1,0 +1,40 @@
+{
+  "tc_id": "10dd3002-c433-47a1-9702-54b9f5c6bd32",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify password validation rejects weak passwords",
+  "description": "Test that passwords not meeting security requirements are rejected with clear error messages",
+  "preconditions": [
+    "User is on registration page"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Enter valid email",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enter weak password (e.g., 'password123')",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Confirm password",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Click 'Register'",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Error message indicates which password requirements are not met; registration is blocked",
+  "priority": "High",
+  "category": "Error Handling",
+  "created_at": "2026-03-11T13:48:21.462194",
+  "updated_at": "2026-03-11T13:48:21.462200"
+}

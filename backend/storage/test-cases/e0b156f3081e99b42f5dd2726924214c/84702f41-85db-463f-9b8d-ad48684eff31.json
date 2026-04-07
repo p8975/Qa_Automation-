@@ -1,0 +1,41 @@
+{
+  "tc_id": "84702f41-85db-463f-9b8d-ad48684eff31",
+  "prd_hash": "e0b156f3081e99b42f5dd2726924214c",
+  "title": "OTP Screen - Verify OTP auto-fill functionality (if supported)",
+  "description": "Tests if the app can automatically read the OTP from the SMS and fill it in the input fields.",
+  "preconditions": [
+    "User is on the OTP screen.",
+    "The OS supports SMS reading permissions and it has been granted."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. After navigating to the OTP screen, wait for the OTP SMS to arrive.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Observe if a prompt appears to auto-fill the code.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Accept the auto-fill prompt.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Verify the OTP fields are populated with the correct code and verification proceeds.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The OTP is automatically detected from the SMS and filled into the input fields, leading to successful verification.",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-04-06T16:49:40.095019",
+  "updated_at": "2026-04-06T16:49:40.095021"
+}

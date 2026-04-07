@@ -1,0 +1,35 @@
+{
+  "tc_id": "a9ddf326-486f-478b-ba60-65ee7a6401de",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Trial Corner is only shown to the specified user cohort",
+  "description": "Tests that the Trial Corner feature is correctly assigned only to users who haven't started consumption within the first 5 minutes post-activation.",
+  "preconditions": [
+    "User A activated a trial and did not watch content for >5 mins.",
+    "User B activated a trial and started watching content within 2 mins."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Log in as User A and observe the homepage for the Trial Corner widget.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Log out.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Log in as User B and observe the homepage.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "User A sees the new Trial Corner widget/pill and is directed to the Trial Corner hub. User B sees the old trial management flow and does not see any Trial Corner UI components.",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-30T10:37:05.516544",
+  "updated_at": "2026-03-30T10:37:05.516544"
+}

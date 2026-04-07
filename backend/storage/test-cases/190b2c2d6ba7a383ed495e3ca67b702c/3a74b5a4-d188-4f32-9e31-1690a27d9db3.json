@@ -1,0 +1,46 @@
+{
+  "tc_id": "3a74b5a4-d188-4f32-9e31-1690a27d9db3",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify Remember Me extends session to 30 days",
+  "description": "Test that selecting Remember Me option keeps user logged in for 30 days",
+  "preconditions": [
+    "User is on login page"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Enter valid credentials",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Check 'Remember Me' checkbox",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Click 'Login'",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Close browser and reopen",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Navigate to application",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "User remains logged in without re-entering credentials",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-03-11T13:48:21.464118",
+  "updated_at": "2026-03-11T13:48:21.464122"
+}

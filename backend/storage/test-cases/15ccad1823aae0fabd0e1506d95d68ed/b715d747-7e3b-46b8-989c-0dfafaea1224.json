@@ -1,0 +1,54 @@
+{
+  "tc_id": "b715d747-7e3b-46b8-989c-0dfafaea1224",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Full Cancellation Flow: User rejects all offers and cancels the trial",
+  "description": "Tests the complete cancellation path where the user rejects the reminder nudge and the discount offer, successfully canceling their trial.",
+  "preconditions": [
+    "User has an active \u20b91 trial.",
+    "User is in the 'Trial Corner' cohort.",
+    "The discount offer is enabled in the backend."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to the 'Trial Corner' hub and click 'Cancel Trial'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. On the 'Loss Aversion' pop-up, click 'Cancel Anyway & Lose Access'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. On the 'Incentive' offer pop-up, click the secondary action to cancel anyway.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Observe the feedback pop-up.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Submit feedback or close the pop-up.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 6,
+      "description": "6. Verify the 'Trial Corner' hub and homepage widget update to the 'Cancelled' state.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The user's trial is immediately cancelled, access to premium content is revoked, and the UI reflects the 'Cancelled' state. The 'feedback-popup-viewed' event is triggered.",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-31T10:52:09.849013",
+  "updated_at": "2026-03-31T10:52:09.849044"
+}

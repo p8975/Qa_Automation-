@@ -1,0 +1,35 @@
+{
+  "tc_id": "2cba38a1-4df1-4d8d-8a3b-6dfd35b52d58",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify model configuration 'company/auto' is valid",
+  "description": "Test that the configured model name is recognized by the AI Router",
+  "preconditions": [
+    "Config with model set to 'company/auto'",
+    "Valid API key"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Verify config.json has model: 'company/auto'",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Run opencode with debug/verbose mode",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Check which model is selected",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Auto model is selected and used for AI requests",
+  "priority": "Medium",
+  "category": "Integration",
+  "created_at": "2026-03-11T15:23:56.751603",
+  "updated_at": "2026-03-11T15:23:56.751606"
+}

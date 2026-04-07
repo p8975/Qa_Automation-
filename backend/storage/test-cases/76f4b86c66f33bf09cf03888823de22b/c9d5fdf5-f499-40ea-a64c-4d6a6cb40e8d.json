@@ -1,0 +1,32 @@
+{
+  "tc_id": "c9d5fdf5-f499-40ea-a64c-4d6a6cb40e8d",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify EOF marker requires no leading spaces",
+  "description": "Test that EOF marker must have no leading spaces for correct heredoc parsing",
+  "preconditions": [],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Try creating config with leading spaces before EOF",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Run: cat > ~/.config/opencode/config.json /< 'EOF' ... EOF",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Compare with correct version without leading spaces",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "EOF without leading spaces works correctly; with leading spaces may cause issues",
+  "priority": "Medium",
+  "category": "Edge Case",
+  "created_at": "2026-03-11T15:55:47.726525",
+  "updated_at": "2026-03-11T15:55:47.726526"
+}

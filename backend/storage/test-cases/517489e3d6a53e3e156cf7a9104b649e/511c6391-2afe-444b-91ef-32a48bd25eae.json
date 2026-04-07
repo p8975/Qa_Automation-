@@ -1,0 +1,28 @@
+{
+  "tc_id": "511c6391-2afe-444b-91ef-32a48bd25eae",
+  "prd_hash": "517489e3d6a53e3e156cf7a9104b649e",
+  "title": "Verify login using the 'Enter' key",
+  "description": "Validate that the user can submit the login form using the keyboard Enter key.",
+  "preconditions": [
+    "User is on the login screen and has entered valid credentials"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Place focus on the password field",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Press the \"Enter\" key on the keyboard",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "User is successfully authenticated and redirected to the app dashboard",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-04-07T17:10:13.195377",
+  "updated_at": "2026-04-07T17:10:13.195377"
+}

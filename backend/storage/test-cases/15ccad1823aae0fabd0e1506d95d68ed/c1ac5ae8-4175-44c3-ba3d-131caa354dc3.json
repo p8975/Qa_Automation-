@@ -1,0 +1,42 @@
+{
+  "tc_id": "c1ac5ae8-4175-44c3-ba3d-131caa354dc3",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify 'Remind Me' WhatsApp Notification",
+  "description": "Tests that enabling the 'Remind Me' toggle triggers the correct backend process to send a notification 24 hours before trial expiry.",
+  "preconditions": [
+    "User has an active trial with more than 24 hours remaining.",
+    "User has provided a valid WhatsApp number.",
+    "QA has access to backend logs or a test notification service."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to the 'Trial Corner' hub.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click the 'Remind me 24h before trial ends' toggle to enable it.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify the 'remind-me-clicked' event is fired with page source 'trial corner'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Check backend logs or a test message queue to confirm a notification has been scheduled for this user, timed for 24 hours before their trial end date.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "A notification is successfully scheduled in the backend system. A direct test of receiving the message may require time manipulation or a separate test environment.",
+  "priority": "Medium",
+  "category": "Integration",
+  "created_at": "2026-03-31T10:52:09.852700",
+  "updated_at": "2026-03-31T10:52:09.852704"
+}

@@ -1,0 +1,34 @@
+{
+  "tc_id": "a7d987e1-5184-4442-9a07-4e84860d7356",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify re-installation handles existing installation gracefully",
+  "description": "Test that running installation script when OpenCode already exists handles it properly",
+  "preconditions": [
+    "OpenCode is already installed"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Run: curl -fsSL https://opencode.ai/install | bash",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Observe installation behavior",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify existing installation is not corrupted",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Installation either updates existing or skips with appropriate message",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-03-11T14:12:51.648605",
+  "updated_at": "2026-03-11T14:12:51.648605"
+}

@@ -1,0 +1,35 @@
+{
+  "tc_id": "9dbd454f-1f48-4a7b-be3e-09bf5c5bf1b0",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify floating pill displays for Day 2-10 trial users",
+  "description": "Test that the floating pill notification appears on homepage for users on Day 2 to Day 10 of their trial",
+  "preconditions": [
+    "User has an active trial on Day 2-10",
+    "User is logged in"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Log in with a user account that has an active trial on Day 2-10",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Navigate to the homepage",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Observe for floating pill element",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Floating pill with trial status is displayed on the homepage",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T11:16:21.687190",
+  "updated_at": "2026-03-11T11:16:21.687191"
+}

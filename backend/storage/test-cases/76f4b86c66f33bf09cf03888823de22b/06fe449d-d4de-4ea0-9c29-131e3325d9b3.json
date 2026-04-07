@@ -1,0 +1,35 @@
+{
+  "tc_id": "06fe449d-d4de-4ea0-9c29-131e3325d9b3",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify global config directory is created successfully",
+  "description": "Test that mkdir -p creates the ~/.config/opencode directory structure",
+  "preconditions": [
+    "Home directory exists",
+    "User has write permissions"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Run: mkdir -p ~/.config/opencode",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Verify directory exists: ls -la ~/.config/opencode",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify parent .config directory exists",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Directory ~/.config/opencode is created successfully",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T15:23:56.745647",
+  "updated_at": "2026-03-11T15:23:56.745648"
+}

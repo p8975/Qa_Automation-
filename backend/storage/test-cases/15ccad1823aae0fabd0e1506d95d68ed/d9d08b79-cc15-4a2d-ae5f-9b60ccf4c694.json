@@ -1,0 +1,41 @@
+{
+  "tc_id": "d9d08b79-cc15-4a2d-ae5f-9b60ccf4c694",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Test error handling when incentive offer payment fails",
+  "description": "Tests that if a user accepts the incentive offer but the payment fails, they are returned to the offer screen with an error message, and their trial is not canceled.",
+  "preconditions": [
+    "User is in the cancellation flow at the 'Incentive Offer' step.",
+    "A method to simulate a failed payment is available (e.g., test card)."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. At the 'Incentive Offer' pop-up, click to accept the offer.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. On the payment page, use credentials that will trigger a payment failure.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Submit the payment.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Observe the resulting screen and check the user's trial status.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The user should be returned to the offer/payment screen with a clear error message (e.g., 'Payment Failed. Please try again.'). The user's trial should remain active.",
+  "priority": "Medium",
+  "category": "Error Handling",
+  "created_at": "2026-03-30T13:58:41.024608",
+  "updated_at": "2026-03-30T13:58:41.024610"
+}

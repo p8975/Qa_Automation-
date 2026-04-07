@@ -1,0 +1,41 @@
+{
+  "tc_id": "a90204fd-068e-4853-9a82-2bfe63d1ec11",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify rate limiting locks account after 5 failed login attempts",
+  "description": "Test that after 5 failed login attempts, user is locked out for 15 minutes",
+  "preconditions": [
+    "User account exists",
+    "User is on login page"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Enter registered email with wrong password",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click 'Login' button",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Repeat step 2 four more times (total 5 attempts)",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Attempt to login again with correct password",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Account locked, error message about rate limit displayed, 15-minute lockout active",
+  "priority": "High",
+  "category": "Security",
+  "created_at": "2026-03-11T15:41:31.924722",
+  "updated_at": "2026-03-11T15:41:31.924724"
+}

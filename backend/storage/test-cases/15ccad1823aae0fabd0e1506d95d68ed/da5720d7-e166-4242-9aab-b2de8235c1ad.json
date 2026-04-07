@@ -1,0 +1,29 @@
+{
+  "tc_id": "da5720d7-e166-4242-9aab-b2de8235c1ad",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Trial Corner content is locked for a paused trial",
+  "description": "Test that a user with a paused trial cannot access content from the Trial Corner screen.",
+  "preconditions": [
+    "User has a paused trial",
+    "User navigates to the Trial Corner screen"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to the Trial Corner screen",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Observe the content sections (Engagement, Trending, etc.)",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The content sections are displayed in a locked or disabled state, preventing interaction.",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-04-07T22:34:46.306550",
+  "updated_at": "2026-04-07T22:34:46.306553"
+}

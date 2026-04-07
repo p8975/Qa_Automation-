@@ -1,0 +1,42 @@
+{
+  "tc_id": "eb486d96-e984-4750-bd99-dd923b3fb9ec",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify discount offer appears after loss aversion exit gate",
+  "description": "Test that if user proceeds past loss aversion message, the discount offer popup appears with backend-controlled pricing",
+  "preconditions": [
+    "User has active trial",
+    "Cancel flow reaches loss aversion gate",
+    "Discount offer is enabled from backend"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to Trial Corner",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click 'Cancel Trial'",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. At loss aversion popup, click secondary action to proceed",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Observe discount offer popup",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Discount offer popup appears showing discounted first month price with title from backend, 'Grab Offer' button with primary prominence",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T18:39:28.003302",
+  "updated_at": "2026-03-11T18:39:28.003305"
+}

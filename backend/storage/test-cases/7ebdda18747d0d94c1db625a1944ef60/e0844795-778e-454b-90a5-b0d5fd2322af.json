@@ -1,0 +1,52 @@
+{
+  "tc_id": "e0844795-778e-454b-90a5-b0d5fd2322af",
+  "prd_hash": "7ebdda18747d0d94c1db625a1944ef60",
+  "title": "to verify user is able to login into the system with otp flow",
+  "description": "Manual test case: to verify user is able to login into the system with otp flow",
+  "preconditions": [
+    "Manual test case created by user"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Open App",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "Tap on Allow button if permission popup apears.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "Tap on mobile number field",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "Enter a valid mobile number. Use 2022123418 for testing pupose.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "Now tap suubmisson.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 6,
+      "description": "Now enter the OTP received on phone. For testing number use last 4 digits as otp.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "User should be logged into the system.",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-04-03T17:40:16.519198",
+  "updated_at": "2026-04-03T17:40:16.519201"
+}

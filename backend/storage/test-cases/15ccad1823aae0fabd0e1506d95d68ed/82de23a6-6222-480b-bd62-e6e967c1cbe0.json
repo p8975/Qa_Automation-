@@ -1,0 +1,59 @@
+{
+  "tc_id": "82de23a6-6222-480b-bd62-e6e967c1cbe0",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Remind Me toggle can be enabled and persists",
+  "description": "Test that user can enable the 'Remind me 24h before trial ends' toggle and the setting persists",
+  "preconditions": [
+    "User has active trial",
+    "User is on Trial Corner Manage Trial section"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to Trial Corner",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Scroll to Manage Trial section",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Find 'Remind me 24h before trial ends' toggle",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Enable the toggle",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Logout and login again",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 6,
+      "description": "6. Navigate to Trial Corner",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 7,
+      "description": "7. Verify toggle state is persisted",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Toggle is enabled and state persists across sessions. Confirmation message or visual feedback shown when enabled",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T18:39:28.000937",
+  "updated_at": "2026-03-11T18:39:28.000938"
+}

@@ -1,0 +1,26 @@
+{
+  "tc_id": "8ef07672-f611-49e0-822c-b7f92ba70a67",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify model configuration 'company/auto' is accepted in config",
+  "description": "Test that the model configuration format is valid and accepted",
+  "preconditions": [],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Verify config.json contains: \"model\": \"company/auto\"",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Run opencode and verify model is recognized",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Model configuration is accepted without errors",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-03-11T15:55:47.729278",
+  "updated_at": "2026-03-11T15:55:47.729279"
+}

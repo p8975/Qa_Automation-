@@ -1,0 +1,29 @@
+{
+  "tc_id": "6afeed4a-9770-41b3-9acc-6f1679d8079a",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify 'Cancel Anyway' triggers Incentive Offer pop-up (when enabled)",
+  "description": "Test that proceeding with cancellation triggers the discount offer pop-up when it's enabled via backend.",
+  "preconditions": [
+    "User has an active trial",
+    "The incentive offer is enabled in the backend"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. From the hub, click 'Cancel Trial'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. On the Loss Aversion pop-up, click 'Cancel Anyway & Lose Access'.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "A new pop-up appears with the discount offer, e.g., 'Lock in 50% off your first month now.' The offer title and price are displayed as configured in the backend.",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-04-07T18:16:59.949265",
+  "updated_at": "2026-04-07T18:16:59.949267"
+}

@@ -1,0 +1,47 @@
+{
+  "tc_id": "596d2eb8-3e11-45c2-95a3-3aa83d2f4625",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify trial pauses successfully via popup",
+  "description": "Test that user can confirm pausing trial from popup",
+  "preconditions": [
+    "User has active trial",
+    "User clicked Pause button"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Click 'Pause Trial' button",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. In popup, click 'Pause' option",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify popup closes",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Verify Trial Corner updates to paused design",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Verify homepage widget updates to paused design",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Trial is paused and UI reflects paused state",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-04-07T17:17:08.482419",
+  "updated_at": "2026-04-07T17:17:08.482420"
+}

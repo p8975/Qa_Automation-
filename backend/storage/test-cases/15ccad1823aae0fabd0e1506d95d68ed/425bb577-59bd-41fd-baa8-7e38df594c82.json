@@ -1,0 +1,35 @@
+{
+  "tc_id": "425bb577-59bd-41fd-baa8-7e38df594c82",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Remind Me option appears in pause and cancel pop-ups",
+  "description": "Test that the 'Remind Later' option is available in both pause confirmation and cancel confirmation pop-ups",
+  "preconditions": [
+    "User has active trial",
+    "User is on Trial Corner"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Click Pause Trial and verify 'Remind Later' option in pop-up",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Dismiss and click Cancel Trial",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify 'Remind Later' option in cancel pop-up",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Both pause and cancel pop-ups include 'Remind Later' option that returns user to Trial Corner with reminder enabled",
+  "priority": "Medium",
+  "category": "UI",
+  "created_at": "2026-03-11T17:18:37.323399",
+  "updated_at": "2026-03-11T17:18:37.323401"
+}

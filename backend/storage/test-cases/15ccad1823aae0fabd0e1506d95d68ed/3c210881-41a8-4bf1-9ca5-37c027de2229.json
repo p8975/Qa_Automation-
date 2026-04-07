@@ -1,0 +1,46 @@
+{
+  "tc_id": "3c210881-41a8-4bf1-9ca5-37c027de2229",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify user can pause the trial and content access is restricted",
+  "description": "Tests the functionality of pausing the trial and verifies the corresponding UI and content access changes.",
+  "preconditions": [
+    "User is in an active trial and belongs to the target cohort."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to the 'Trial Corner' hub.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click the 'Pause Trial' button.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. On the 'Loss Aversion' pop-up, click 'Pause Anyway & Lose Access'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Navigate back to the homepage.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Re-enter the Trial Corner.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The trial status is updated to 'Paused'. The homepage widget updates to the 'paused design'. In the Trial Corner, all content sections are locked.",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-03-30T10:37:05.516292",
+  "updated_at": "2026-03-30T10:37:05.516292"
+}

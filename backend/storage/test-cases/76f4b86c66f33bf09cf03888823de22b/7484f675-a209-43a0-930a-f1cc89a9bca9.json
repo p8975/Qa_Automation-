@@ -1,0 +1,40 @@
+{
+  "tc_id": "7484f675-a209-43a0-930a-f1cc89a9bca9",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify config.json is created with correct schema and content",
+  "description": "Test that the configuration file is created with all required fields matching the PRD specification",
+  "preconditions": [
+    "~/.config/opencode directory exists"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Execute: cat > ~/.config/opencode/config.json << 'EOF'",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enter the complete JSON configuration as specified in PRD",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify file was created: cat ~/.config/opencode/config.json",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Validate JSON syntax",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "config.json is created with valid JSON containing provider, models, and model fields as specified",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T15:25:37.060410",
+  "updated_at": "2026-03-11T15:25:37.060413"
+}

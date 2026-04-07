@@ -1,0 +1,35 @@
+{
+  "tc_id": "5ca3a252-54a6-4a68-8c29-5d3e874ad47f",
+  "prd_hash": "517489e3d6a53e3e156cf7a9104b649e",
+  "title": "Verify error message for incorrect password",
+  "description": "Test that an error is shown when a valid email is used with the wrong password",
+  "preconditions": [
+    "User account exists",
+    "User is on the login screen"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Enter a valid registered email address",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enter an incorrect password (at least 8 chars)",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Click the \"Login\" button",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "System displays \"Invalid credentials\" error message",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-04-07T17:15:57.652972",
+  "updated_at": "2026-04-07T17:15:57.652973"
+}

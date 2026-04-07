@@ -1,0 +1,41 @@
+{
+  "tc_id": "7d1fbfa5-4a9a-4e1c-9904-705d7b5cf031",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Manage Trial section accessible from multiple entry points",
+  "description": "Test that user can access Trial Corner via different entry points (widget, floating pill, manage subscription)",
+  "preconditions": [
+    "User has active trial",
+    "User is logged in"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Login as user with active trial",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Test entry via homepage header widget",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Test entry via floating pill (Day 2-10)",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Test entry via Manage Trial in profile/settings",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "All entry points lead to same Trial Corner page with consistent state",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-03-11T18:39:28.007719",
+  "updated_at": "2026-03-11T18:39:28.007721"
+}

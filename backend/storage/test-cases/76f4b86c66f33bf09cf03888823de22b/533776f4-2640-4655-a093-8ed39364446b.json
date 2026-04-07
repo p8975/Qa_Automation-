@@ -1,0 +1,40 @@
+{
+  "tc_id": "533776f4-2640-4655-a093-8ed39364446b",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify error handling when using > instead of >> for .zshrc",
+  "description": "Test that using single > overwrites .zshrc content instead of appending",
+  "preconditions": [
+    "Test environment with existing .zshrc content"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Save current .zshrc content",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Run: echo 'export PATH=\"$HOME/.opencode/bin:$PATH\"' > ~/.zshrc (using >)",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Check .zshrc content",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Verify original content was lost",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Using > overwrites .zshrc, demonstrating why >> is required per warning",
+  "priority": "High",
+  "category": "Error Handling",
+  "created_at": "2026-03-11T15:54:35.983032",
+  "updated_at": "2026-03-11T15:54:35.983036"
+}

@@ -1,0 +1,37 @@
+{
+  "tc_id": "9180068d-dc4f-4b85-81dc-115990f352f5",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify user can accept discount offer and convert to paid subscription",
+  "description": "Test that user can accept the discount offer which converts their trial to paid subscription",
+  "preconditions": [
+    "User has active trial",
+    "User is logged in",
+    "User clicked Cancel and Cancel Anyway",
+    "Discount offer popup is displayed"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to discount offer popup after Cancel Anyway",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click 'Grab Offer' button",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Complete payment if required",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "User subscription is converted to paid plan with discount applied, confirmation shown, trial-corner-cancel-clicked event fired",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T09:59:31.934291",
+  "updated_at": "2026-03-11T09:59:31.934292"
+}

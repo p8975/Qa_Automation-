@@ -1,0 +1,41 @@
+{
+  "tc_id": "c7970fae-a6b7-4f88-801b-0372bf49723c",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify successful installation of OpenCode via curl script",
+  "description": "Test that the curl installation script downloads and installs OpenCode correctly to the expected directory",
+  "preconditions": [
+    "Internet connectivity is available",
+    "curl is installed on macOS"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Open Terminal on macOS",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Execute: curl -fsSL https://opencode.ai/install | bash",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify ~/.opencode/bin directory exists",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Verify opencode executable exists in ~/.opencode/bin/",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "OpenCode is successfully installed and executable binary exists at ~/.opencode/bin/opencode",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T15:25:37.058457",
+  "updated_at": "2026-03-11T15:25:37.058463"
+}

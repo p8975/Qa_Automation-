@@ -1,0 +1,35 @@
+{
+  "tc_id": "c3cfb32c-7949-4786-96d0-fd9f3fb82ce7",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify system behavior when config file is missing",
+  "description": "Test that opencode handles absence of config file appropriately",
+  "preconditions": [
+    "OpenCode installed",
+    "No config file present"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Ensure ~/.config/opencode/config.json does not exist",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Execute opencode command",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Observe behavior",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "System either creates default config or provides helpful error about missing configuration",
+  "priority": "Medium",
+  "category": "Error Handling",
+  "created_at": "2026-03-11T15:57:33.278352",
+  "updated_at": "2026-03-11T15:57:33.278353"
+}

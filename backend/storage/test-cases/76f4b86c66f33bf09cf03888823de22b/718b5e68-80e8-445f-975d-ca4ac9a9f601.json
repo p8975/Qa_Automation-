@@ -1,0 +1,43 @@
+{
+  "tc_id": "718b5e68-80e8-445f-975d-ca4ac9a9f601",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify opencode runs successfully with valid configuration",
+  "description": "Test the complete end-to-end flow from installation to running opencode",
+  "preconditions": [
+    "OpenCode installed",
+    "PATH configured",
+    "API key set",
+    "config.json created"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Ensure all setup steps completed",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Run: source ~/.zshrc",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Navigate to a project directory: cd /path/to/project",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Run: opencode (with valid API key)",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "OpenCode executes without errors using the configured AI Router",
+  "priority": "High",
+  "category": "Integration",
+  "created_at": "2026-03-11T15:23:56.747040",
+  "updated_at": "2026-03-11T15:23:56.747045"
+}

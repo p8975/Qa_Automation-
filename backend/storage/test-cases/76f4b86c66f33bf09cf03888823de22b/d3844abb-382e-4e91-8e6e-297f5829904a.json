@@ -1,0 +1,34 @@
+{
+  "tc_id": "d3844abb-382e-4e91-8e6e-297f5829904a",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify EOF closing tag has no leading spaces",
+  "description": "Test that the heredoc EOF marker has no indentation to prevent parsing errors",
+  "preconditions": [
+    "~/.config/opencode directory exists"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Create config.json with proper EOF (no leading spaces)",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Execute: cat ~/.config/opencode/config.json",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Check that EOF line starts at column 1",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "EOF closing tag is at the beginning of the line with no leading spaces",
+  "priority": "High",
+  "category": "Error Handling",
+  "created_at": "2026-03-11T15:25:37.061015",
+  "updated_at": "2026-03-11T15:25:37.061017"
+}

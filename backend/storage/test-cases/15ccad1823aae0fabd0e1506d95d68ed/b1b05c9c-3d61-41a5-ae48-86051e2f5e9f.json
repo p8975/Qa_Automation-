@@ -1,0 +1,40 @@
+{
+  "tc_id": "b1b05c9c-3d61-41a5-ae48-86051e2f5e9f",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify daily decrement of 'Remaining Days' counter",
+  "description": "Test that the 'Remaining Days' counter on the homepage widget and Trial Corner hub decrements by one each day.",
+  "preconditions": [
+    "User has an active trial for more than one day"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Note the remaining days on Day X.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Wait for 24 hours (or simulate time change).",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Re-launch the app and navigate to the homepage/Trial Corner.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Observe the 'Remaining Days' counter.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The counter should show one day less than the previous day.",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-04-07T18:16:59.942753",
+  "updated_at": "2026-04-07T18:16:59.942755"
+}

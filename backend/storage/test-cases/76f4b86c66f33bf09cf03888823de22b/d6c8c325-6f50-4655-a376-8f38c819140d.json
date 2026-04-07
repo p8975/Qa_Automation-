@@ -1,0 +1,29 @@
+{
+  "tc_id": "d6c8c325-6f50-4655-a376-8f38c819140d",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify error handling when OPENCODE_KEY is not set",
+  "description": "Test that appropriate error occurs when API key environment variable is missing",
+  "preconditions": [
+    "OpenCode installed and configured",
+    "OPENCODE_KEY not set in environment"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Unset OPENCODE_KEY",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Try to run opencode",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "OpenCode displays error about missing API key or uses placeholder",
+  "priority": "High",
+  "category": "Error Handling",
+  "created_at": "2026-03-11T16:14:09.167142",
+  "updated_at": "2026-03-11T16:14:09.167143"
+}

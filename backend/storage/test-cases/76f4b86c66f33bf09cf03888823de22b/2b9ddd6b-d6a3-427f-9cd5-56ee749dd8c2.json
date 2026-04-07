@@ -1,0 +1,32 @@
+{
+  "tc_id": "2b9ddd6b-d6a3-427f-9cd5-56ee749dd8c2",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify malformed JSON in config.json is detected",
+  "description": "Test that OpenCode validates JSON and reports syntax errors",
+  "preconditions": [],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Create config.json with intentional JSON syntax error",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Run: opencode --help",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Observe error handling",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "JSON parsing error is reported to user",
+  "priority": "High",
+  "category": "Error Handling",
+  "created_at": "2026-03-11T15:55:47.727603",
+  "updated_at": "2026-03-11T15:55:47.727604"
+}

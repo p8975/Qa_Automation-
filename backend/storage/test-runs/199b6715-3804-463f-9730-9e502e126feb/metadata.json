@@ -1,0 +1,40 @@
+{
+  "run_id": "199b6715-3804-463f-9730-9e502e126feb",
+  "build_id": "64100a0f-4a77-4336-8c69-c599c5e16ccf",
+  "test_case_ids": [
+    "cd532ca2-5adf-4673-8b64-bc7e02a6e682"
+  ],
+  "device_info": {
+    "device_id": "emulator-5554",
+    "device_name": "sdk_gphone64_arm64",
+    "os_version": "16",
+    "is_emulator": true
+  },
+  "status": "completed",
+  "started_at": "2026-04-06T18:47:55.474252",
+  "completed_at": "2026-04-06T18:48:47.710318",
+  "duration_seconds": 52.236066,
+  "results": [
+    {
+      "test_case_id": "cd532ca2-5adf-4673-8b64-bc7e02a6e682",
+      "status": "fail",
+      "duration_ms": 38949,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/199b6715-3804-463f-9730-9e502e126feb/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 325,
+          "screenshot_path": "storage/test-runs/199b6715-3804-463f-9730-9e502e126feb/screenshots/step_1_error.png",
+          "error_message": "Could not find element for step: 1. Verify the default country code is '+91'.",
+          "appium_command": null
+        }
+      ]
+    }
+  ]
+}

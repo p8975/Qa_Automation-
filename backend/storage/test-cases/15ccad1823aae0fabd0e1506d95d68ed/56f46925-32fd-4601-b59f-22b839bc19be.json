@@ -1,0 +1,38 @@
+{
+  "tc_id": "56f46925-32fd-4601-b59f-22b839bc19be",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify discount offer appears after user persists in canceling",
+  "description": "Test that if user clicks 'Cancel Anyway', the incentive offer popup appears with backend-controlled discount",
+  "preconditions": [
+    "User has active trial",
+    "User is logged in",
+    "User is on Trial Corner hub",
+    "Cancel button clicked",
+    "Backend has offer configuration enabled"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to Trial Corner hub",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click Cancel Trial button",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Click 'Cancel Anyway' in intervention modal",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Discount offer popup appears with offer title and discounted price from backend, 'Grab Offer' button with discounted first month price, and trust clause about subscription starting after trial",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T09:59:31.934196",
+  "updated_at": "2026-03-11T09:59:31.934196"
+}

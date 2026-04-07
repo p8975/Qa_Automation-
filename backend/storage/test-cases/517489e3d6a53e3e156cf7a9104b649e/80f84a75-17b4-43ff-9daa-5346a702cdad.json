@@ -1,0 +1,35 @@
+{
+  "tc_id": "80f84a75-17b4-43ff-9daa-5346a702cdad",
+  "prd_hash": "517489e3d6a53e3e156cf7a9104b649e",
+  "title": "Verify email field is case-insensitive",
+  "description": "Validate that the user can log in regardless of the case used for the email address.",
+  "preconditions": [
+    "User account exists with email \"user@example.com\"",
+    "User is on the login screen"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Enter \"USER@EXAMPLE.COM\" in the email field",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enter the valid password",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Click the \"Login\" button",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "User is successfully authenticated",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-04-07T17:10:13.194764",
+  "updated_at": "2026-04-07T17:10:13.194765"
+}

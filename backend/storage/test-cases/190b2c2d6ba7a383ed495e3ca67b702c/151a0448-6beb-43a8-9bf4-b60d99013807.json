@@ -1,0 +1,40 @@
+{
+  "tc_id": "151a0448-6beb-43a8-9bf4-b60d99013807",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Test behavior with an expired password reset link",
+  "description": "Verify that a password reset link is invalid after its 1-hour expiration time and the user is prompted to request a new one.",
+  "preconditions": [
+    "User has requested a password reset link"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Request a password reset link for a valid account",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Wait for more than 1 hour",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Click the expired password reset link from the email",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Attempt to enter a new password",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The user is navigated to a page indicating the link has expired. An error message is displayed, and the user is given an option to request a new password reset link. The API should return an 'INVALID_TOKEN' error.",
+  "priority": "Medium",
+  "category": "Edge Case",
+  "created_at": "2026-03-27T15:38:37.610116",
+  "updated_at": "2026-03-27T15:38:37.610116"
+}

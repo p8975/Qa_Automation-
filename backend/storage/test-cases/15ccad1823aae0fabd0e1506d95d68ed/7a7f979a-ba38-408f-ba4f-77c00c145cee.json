@@ -1,0 +1,58 @@
+{
+  "tc_id": "7a7f979a-ba38-408f-ba4f-77c00c145cee",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Validate Loss Aversion Pop-up Content and Actions",
+  "description": "Test the 'Loss Aversion' pop-up for correct dynamic content, button prominence, and action mapping when trying to cancel.",
+  "preconditions": [
+    "User is in an active trial with 6 days remaining."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to the 'Trial Corner' hub.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click the 'Cancel Trial' button.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify the pop-up headline is 'Wait! Don't lose your free days.'",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Verify the body text correctly states 'You still have 6 days...'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Verify the primary action 'Keep Trial & Set Reminder' is highly prominent.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 6,
+      "description": "6. Click 'Keep Trial & Set Reminder'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 7,
+      "description": "7. Verify the pop-up closes, the trial remains active, and the 'Remind me' toggle in the Trial Corner is now enabled.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The pop-up displays correct, dynamic information and prominent actions. Clicking the primary action successfully sets the reminder and keeps the trial active.",
+  "priority": "Medium",
+  "category": "UI",
+  "created_at": "2026-04-03T12:32:35.179617",
+  "updated_at": "2026-04-03T12:32:35.179618"
+}

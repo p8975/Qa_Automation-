@@ -1,0 +1,41 @@
+{
+  "tc_id": "0951983a-5a56-43a7-9da8-299967a05173",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify user can successfully login with valid credentials",
+  "description": "Test that a registered user with verified email can log into the application",
+  "preconditions": [
+    "User account exists with verified email",
+    "User is on login page"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to login page",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enter registered email address",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Enter correct password",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Click 'Login' button",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "User is authenticated, JWT tokens returned, user redirected to dashboard",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T14:15:28.264891",
+  "updated_at": "2026-03-11T14:15:28.264893"
+}

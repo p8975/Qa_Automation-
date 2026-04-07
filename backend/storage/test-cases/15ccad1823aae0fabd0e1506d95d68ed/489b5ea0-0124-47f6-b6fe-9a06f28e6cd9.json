@@ -1,0 +1,41 @@
+{
+  "tc_id": "489b5ea0-0124-47f6-b6fe-9a06f28e6cd9",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify content is accessible when trial is active",
+  "description": "Test that all content sections are accessible for users with active trial",
+  "preconditions": [
+    "User has active trial",
+    "User is on Trial Corner hub"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to Trial Corner hub",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Verify Engagement section shows acquired content",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify Trending section shows top 10 content",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Try to play content from sections",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "All content sections are accessible and playable",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-04-07T17:17:08.484155",
+  "updated_at": "2026-04-07T17:17:08.484156"
+}

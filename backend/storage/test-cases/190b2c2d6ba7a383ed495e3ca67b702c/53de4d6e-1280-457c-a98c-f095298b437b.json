@@ -1,0 +1,35 @@
+{
+  "tc_id": "53de4d6e-1280-457c-a98c-f095298b437b",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify session auto-logout on token expiration",
+  "description": "Test that user is automatically logged out when access token expires",
+  "preconditions": [
+    "User is logged in with active session",
+    "Access token is set to expire in 15 minutes"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Login with valid credentials",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Wait for access token to expire (15 minutes)",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Attempt to access protected resource",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "User is redirected to login page with session expired message",
+  "priority": "High",
+  "category": "Integration",
+  "created_at": "2026-03-11T15:42:39.040698",
+  "updated_at": "2026-03-11T15:42:39.040700"
+}

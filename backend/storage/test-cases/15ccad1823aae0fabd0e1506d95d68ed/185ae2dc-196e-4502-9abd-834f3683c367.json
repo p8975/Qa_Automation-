@@ -1,0 +1,41 @@
+{
+  "tc_id": "185ae2dc-196e-4502-9abd-834f3683c367",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify key analytics events are triggered with accurate attributes",
+  "description": "Tests that critical tracking events are fired correctly during the Trial Corner flow to ensure accurate success metric measurement.",
+  "preconditions": [
+    "A tool to monitor analytics events is available.",
+    "User is in the target cohort."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Click the homepage widget. (Monitor for 'trial-corner-widget-clicked').",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Arrive at the Trial Corner. (Monitor for 'trial-corner-viewed').",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Click the 'Cancel Trial' button.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. On the 'Loss Aversion' pop-up, click 'Keep Trial & Set Reminder'.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Each action triggers the corresponding event. The final step fires 'remind-me-clicked' with 'page_source: cancel_pop-up'.",
+  "priority": "Medium",
+  "category": "Integration",
+  "created_at": "2026-03-30T10:37:05.516739",
+  "updated_at": "2026-03-30T10:37:05.516739"
+}

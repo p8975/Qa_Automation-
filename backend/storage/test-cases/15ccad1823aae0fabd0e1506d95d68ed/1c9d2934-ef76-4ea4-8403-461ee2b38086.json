@@ -1,0 +1,35 @@
+{
+  "tc_id": "1c9d2934-ef76-4ea4-8403-461ee2b38086",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify content is locked after trial pause",
+  "description": "Test that all premium content is inaccessible when user pauses their trial",
+  "preconditions": [
+    "User has paused their trial",
+    "User is on homepage or content section"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Log in with a user who has paused their trial",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Navigate to homepage or content library",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Try to access any premium content",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "All content sections display locked state. Content is not playable",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T11:16:21.688419",
+  "updated_at": "2026-03-11T11:16:21.688419"
+}

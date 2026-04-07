@@ -1,0 +1,22 @@
+{
+  "tc_id": "2accb771-378c-4b45-aa58-6cb533df4c32",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify event: pause-clicked",
+  "description": "Test that the 'pause-clicked' event is triggered when the user confirms their decision to pause.",
+  "preconditions": [
+    "The Loss Aversion pop-up for pausing is displayed"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Click the 'Pause Anyway & Lose Access' button",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The 'pause-clicked' event is fired with page source 'pause pop-up'.",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-04-07T22:34:46.313356",
+  "updated_at": "2026-04-07T22:34:46.313358"
+}

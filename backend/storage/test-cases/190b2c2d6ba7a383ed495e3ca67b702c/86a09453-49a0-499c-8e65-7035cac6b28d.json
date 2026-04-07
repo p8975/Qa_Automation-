@@ -1,0 +1,46 @@
+{
+  "tc_id": "86a09453-49a0-499c-8e65-7035cac6b28d",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Validate login attempt with an unverified email address",
+  "description": "Ensures a user who has registered but not yet verified their email cannot fully access the application and is prompted to verify.",
+  "preconditions": [
+    "A new user has completed the registration form but has not clicked the verification link."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Register a new account with a valid email and password.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Do not click the verification link sent to the email.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Navigate to the login page.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Enter the credentials for the newly created, unverified account.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Click 'Login'.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Login fails with an 'EMAIL_NOT_VERIFIED' error. The UI clearly informs the user to check their email to verify the account and provides an option to resend the verification email.",
+  "priority": "High",
+  "category": "Error Handling",
+  "created_at": "2026-03-27T15:39:44.152213",
+  "updated_at": "2026-03-27T15:39:44.152213"
+}

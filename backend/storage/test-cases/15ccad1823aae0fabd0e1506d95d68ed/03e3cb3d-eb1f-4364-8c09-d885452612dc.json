@@ -1,0 +1,47 @@
+{
+  "tc_id": "03e3cb3d-eb1f-4364-8c09-d885452612dc",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Validate analytics events are triggered for the cancellation flow",
+  "description": "Tests that the correct `cancel-clicked` and `feedback-submitted` events are fired at the appropriate steps of the cancellation process.",
+  "preconditions": [
+    "User has an active trial and is in the Trial Corner cohort.",
+    "Analytics monitoring tool is active."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to the Trial Corner and click 'Cancel Trial'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. In the 'Loss Aversion' pop-up, click 'Cancel Anyway & Lose Access'. Monitor for `cancel-clicked` event with `page source` as `cancel pop-up`.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Decline the incentive offer (if shown).",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. In the feedback pop-up, select an option and click 'Submit'. Monitor for `feedback-popup-viewed` and `feedback-submitted` events.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Verify the attributes of each event in the analytics tool.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "All specified events are triggered at the correct user action with the correct attributes (e.g., page source, option picked) as defined in the PRD.",
+  "priority": "Medium",
+  "category": "Integration",
+  "created_at": "2026-03-30T13:58:41.025019",
+  "updated_at": "2026-03-30T13:58:41.025021"
+}

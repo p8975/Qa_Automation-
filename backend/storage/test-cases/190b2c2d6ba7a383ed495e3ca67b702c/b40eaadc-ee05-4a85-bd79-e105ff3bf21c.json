@@ -1,0 +1,40 @@
+{
+  "tc_id": "b40eaadc-ee05-4a85-bd79-e105ff3bf21c",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Validate form submission buttons are disabled during API calls",
+  "description": "Ensures that form buttons like 'Register' and 'Login' are disabled after being clicked to prevent duplicate submissions while the backend is processing.",
+  "preconditions": [
+    "User is on the login or registration page."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to the login page.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enter valid credentials.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Click the 'Login' button once.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Immediately try to click the 'Login' button again several times while the request is in flight.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The 'Login' button becomes disabled and/or shows a loading indicator immediately after the first click. Subsequent clicks have no effect. Only one login request is sent to the server.",
+  "priority": "Medium",
+  "category": "UI",
+  "created_at": "2026-03-27T15:39:44.152608",
+  "updated_at": "2026-03-27T15:39:44.152609"
+}

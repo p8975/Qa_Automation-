@@ -1,0 +1,41 @@
+{
+  "tc_id": "77ce69da-d2f8-474b-a207-1bb49ec6c69f",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify homepage floating pill visibility from Day 2 to Day 10",
+  "description": "Test that a floating pill is displayed on the homepage for a user from Day 2 to Day 10 of their trial.",
+  "preconditions": [
+    "User is in the Trial Corner cohort",
+    "User's trial is between Day 2 and Day 10"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Log in as an eligible trial user on Day 2.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Observe the homepage.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Simulate time passing to Day 7.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Refresh the homepage and observe.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "A floating pill acting as the entry point to the Trial Corner is visible on the homepage.",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-04-07T18:16:59.939921",
+  "updated_at": "2026-04-07T18:16:59.939923"
+}

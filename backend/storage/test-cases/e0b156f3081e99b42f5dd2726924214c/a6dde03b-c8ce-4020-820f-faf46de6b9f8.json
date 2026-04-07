@@ -1,0 +1,41 @@
+{
+  "tc_id": "a6dde03b-c8ce-4020-820f-faf46de6b9f8",
+  "prd_hash": "e0b156f3081e99b42f5dd2726924214c",
+  "title": "OTP Screen - Verify handling of expired OTP",
+  "description": "Tests the system's response when a user tries to enter an OTP after its 10-minute validity period.",
+  "preconditions": [
+    "User is on the OTP screen.",
+    "Simulate OTP expiry on the backend or wait for 10 minutes."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Request an OTP.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Wait for more than 10 minutes.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Enter the correct but now expired OTP.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Observe the screen for an error message.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "An error message like 'OTP expired. Please request a new one.' is displayed. The user is prompted to use the 'Resend OTP' link.",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-04-06T16:49:40.088873",
+  "updated_at": "2026-04-06T16:49:40.088878"
+}

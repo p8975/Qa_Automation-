@@ -1,0 +1,41 @@
+{
+  "tc_id": "d4b8d4f5-0966-45c5-bf86-62ccf3caa9a8",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify top content section displays for trial users",
+  "description": "Test that the top content section shows in Trial Corner for engagement",
+  "preconditions": [
+    "User has active trial",
+    "User is on Trial Corner hub"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to Trial Corner hub",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Scroll to Engagement section",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify top content is displayed",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Verify content can be clicked",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Top content section displays relevant content",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-04-07T17:17:08.485753",
+  "updated_at": "2026-04-07T17:17:08.485753"
+}

@@ -1,0 +1,41 @@
+{
+  "tc_id": "4e9e444c-8a9c-482e-8169-403ca55adbae",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify content is locked when trial is paused",
+  "description": "Test that all content sections become locked when user pauses their trial",
+  "preconditions": [
+    "User has active trial",
+    "User is on Trial Corner Hub"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to Trial Corner Hub",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click on 'Pause Trial' button",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Confirm pause action in popup",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Observe content sections on Trial Corner",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "All content sections display locked state with message indicating trial is paused. Homepage widget shows paused design",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T10:02:10.486986",
+  "updated_at": "2026-03-11T10:02:10.486986"
+}

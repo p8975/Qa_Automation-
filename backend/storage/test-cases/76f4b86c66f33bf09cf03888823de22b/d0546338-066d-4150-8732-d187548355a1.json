@@ -1,0 +1,41 @@
+{
+  "tc_id": "d0546338-066d-4150-8732-d187548355a1",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify API key is correctly set in .zshrc using >> operator",
+  "description": "Test that setting OPENCODE_KEY in .zshrc appends without overwriting existing content",
+  "preconditions": [
+    "OpenCode installed",
+    ".zshrc exists with PATH already added"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Run: echo 'export OPENCODE_KEY=YOUR_KEY' >> ~/.zshrc",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Verify both PATH and OPENCODE_KEY lines exist in .zshrc",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Run: source ~/.zshrc",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Verify echo $OPENCODE_KEY returns YOUR_KEY",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "OPENCODE_KEY environment variable is set and accessible",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T15:23:56.744474",
+  "updated_at": "2026-03-11T15:23:56.744480"
+}

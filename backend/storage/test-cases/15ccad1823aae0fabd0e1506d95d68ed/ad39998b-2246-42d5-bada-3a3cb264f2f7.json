@@ -1,0 +1,53 @@
+{
+  "tc_id": "ad39998b-2246-42d5-bada-3a3cb264f2f7",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify dynamic content in the incentive offer pop-up",
+  "description": "Tests that the discount price and offer title in the incentive pop-up are controlled by the backend.",
+  "preconditions": [
+    "User has an active trial.",
+    "QA has access to the backend configuration for the offer."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. In the backend, set the offer title to 'QA Test Offer' and the price to '\u20b999'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. As a user, navigate through the cancellation flow to trigger the incentive pop-up.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify the pop-up displays the title 'QA Test Offer' and the price '\u20b999'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. In the backend, change the title to 'Special Deal' and price to '\u20b949'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Trigger the pop-up again (with a different user or after a reset).",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 6,
+      "description": "6. Verify the pop-up now displays the updated title and price.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The incentive offer pop-up correctly and dynamically displays the content configured in the backend, without requiring a new app build.",
+  "priority": "Medium",
+  "category": "Integration",
+  "created_at": "2026-03-30T10:18:59.233419",
+  "updated_at": "2026-03-30T10:18:59.233419"
+}

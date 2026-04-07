@@ -1,0 +1,35 @@
+{
+  "tc_id": "2c9c47ac-9e7c-4463-bad8-e4a26f960f51",
+  "prd_hash": "e0b156f3081e99b42f5dd2726924214c",
+  "title": "Google Sign-In - Verify handling of authentication failure",
+  "description": "Tests how the app handles a failure during the Google authentication process.",
+  "preconditions": [
+    "User is on the Login screen.",
+    "A scenario that causes Google Auth to fail is simulated (e.g., no network, invalid credentials)."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Tap the Google Sign-In button.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. In the Google Sign-In dialog, perform an action that leads to failure (e.g., enter wrong password, have no internet).",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Observe the application screen after the failure.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "An appropriate error message is displayed to the user, and the user remains on the Login screen.",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-04-06T16:49:40.084428",
+  "updated_at": "2026-04-06T16:49:40.084430"
+}

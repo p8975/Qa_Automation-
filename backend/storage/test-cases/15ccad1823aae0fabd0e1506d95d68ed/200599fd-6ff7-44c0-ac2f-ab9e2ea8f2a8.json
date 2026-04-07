@@ -1,0 +1,46 @@
+{
+  "tc_id": "200599fd-6ff7-44c0-ac2f-ab9e2ea8f2a8",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify State and Copy for Paused/Cancelled Trial Corner",
+  "description": "Tests the UI state of the Trial Corner hub after a user has paused or cancelled their trial.",
+  "preconditions": [
+    "User has already paused or cancelled their trial."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to the homepage and click the 'paused' or 'cancelled' state widget.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Verify the user is taken to the Trial Corner hub.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify the Hero section correctly displays the 'Paused' or 'Cancelled' trial status.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Verify the 'Progress & Benefits', 'Engagement', and 'Trending' content sections are visually locked or disabled.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Verify the 'Manage Trial' section shows appropriate options for the state (e.g., 'Resume' for paused, 'Re-subscribe' for cancelled).",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The Trial Corner hub accurately reflects the user's trial status (Paused/Cancelled) with all content sections locked and appropriate management options displayed.",
+  "priority": "Medium",
+  "category": "UI",
+  "created_at": "2026-03-31T10:52:09.854014",
+  "updated_at": "2026-03-31T10:52:09.854016"
+}

@@ -1,0 +1,34 @@
+{
+  "tc_id": "49075aef-2bc0-4a95-bd51-cae1f74a4e09",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify source command reloads .zshrc in current session",
+  "description": "Test that sourcing .zshrc makes environment variables available in current shell",
+  "preconditions": [
+    "PATH and OPENCODE_KEY are added to .zshrc but not sourced yet"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Verify opencode is not found before sourcing",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Execute: source ~/.zshrc",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify opencode is now accessible",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "After sourcing, PATH and OPENCODE_KEY are available in current session",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-03-11T15:25:37.065492",
+  "updated_at": "2026-03-11T15:25:37.065494"
+}

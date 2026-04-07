@@ -1,0 +1,29 @@
+{
+  "tc_id": "a760ee38-4506-4fa3-8721-6adede69cef4",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify 'Manage Trial' section navigates to the Trial Corner hub",
+  "description": "Test that the existing 'Manage Trial' functionality is replaced and now redirects users in the cohort to the Trial Corner.",
+  "preconditions": [
+    "User is in the Trial Corner cohort",
+    "User is logged in"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to the user Profile or Settings",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Locate and click on the 'Manage Trial' option",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The user is navigated to the 'Trial Corner' screen, not the old trial management page.",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-04-07T22:34:46.298394",
+  "updated_at": "2026-04-07T22:34:46.298398"
+}

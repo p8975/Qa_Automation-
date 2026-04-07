@@ -1,0 +1,40 @@
+{
+  "run_id": "914c3e54-586b-4fc7-a5cd-f92fc193650c",
+  "build_id": "fd683994-963c-4638-b677-67adc121274b",
+  "test_case_ids": [
+    "22707156-deb9-4e59-b8fe-4981aba2dd10"
+  ],
+  "device_info": {
+    "device_id": "emulator-5554",
+    "device_name": "sdk_gphone64_arm64",
+    "os_version": "16",
+    "is_emulator": true
+  },
+  "status": "completed",
+  "started_at": "2026-03-11T18:55:36.956911",
+  "completed_at": "2026-03-11T18:57:25.408420",
+  "duration_seconds": 108.451509,
+  "results": [
+    {
+      "test_case_id": "22707156-deb9-4e59-b8fe-4981aba2dd10",
+      "status": "fail",
+      "duration_ms": 91192,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/914c3e54-586b-4fc7-a5cd-f92fc193650c/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 409,
+          "screenshot_path": "storage/test-runs/914c3e54-586b-4fc7-a5cd-f92fc193650c/screenshots/step_1_error.png",
+          "error_message": "Could not parse command: driver.find_element(AppiumBy.ACCESSIBILITY ID, \"null\").click()",
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY ID, \"null\").click()"
+        }
+      ]
+    }
+  ]
+}

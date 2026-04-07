@@ -1,0 +1,41 @@
+{
+  "tc_id": "29a4c250-8b80-40a1-9990-254babb02b4f",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify homepage widget visibility on Day 0 and Day 1 of trial",
+  "description": "Test that the persistent, high-visibility widget is displayed on the homepage for a user on Day 0 and Day 1 of their trial.",
+  "preconditions": [
+    "User is in the Trial Corner cohort",
+    "User's trial is on Day 0 or Day 1"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Log in as an eligible trial user on Day 0.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Observe the homepage header.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Simulate time passing to Day 1.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Refresh the homepage and observe the header.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "A persistent widget with the text \"Trial Mode: X Days Remaining. Manage Control Center \u2192\" and a shield/clock icon is visible on both days.",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-04-07T18:16:59.939435",
+  "updated_at": "2026-04-07T18:16:59.939438"
+}

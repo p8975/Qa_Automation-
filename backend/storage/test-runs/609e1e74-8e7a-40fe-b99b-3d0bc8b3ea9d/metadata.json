@@ -1,0 +1,40 @@
+{
+  "run_id": "609e1e74-8e7a-40fe-b99b-3d0bc8b3ea9d",
+  "build_id": "64100a0f-4a77-4336-8c69-c599c5e16ccf",
+  "test_case_ids": [
+    "e0844795-778e-454b-90a5-b0d5fd2322af"
+  ],
+  "device_info": {
+    "device_id": "emulator-5554",
+    "device_name": "sdk_gphone64_arm64",
+    "os_version": "16",
+    "is_emulator": true
+  },
+  "status": "completed",
+  "started_at": "2026-04-06T09:52:21.341140",
+  "completed_at": "2026-04-06T09:52:44.168877",
+  "duration_seconds": 22.827737,
+  "results": [
+    {
+      "test_case_id": "e0844795-778e-454b-90a5-b0d5fd2322af",
+      "status": "fail",
+      "duration_ms": 9641,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/609e1e74-8e7a-40fe-b99b-3d0bc8b3ea9d/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 1071,
+          "screenshot_path": "storage/test-runs/609e1e74-8e7a-40fe-b99b-3d0bc8b3ea9d/screenshots/step_1_error.png",
+          "error_message": "Could not find element for step: 1. Open App",
+          "appium_command": null
+        }
+      ]
+    }
+  ]
+}

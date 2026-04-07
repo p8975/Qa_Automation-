@@ -1,0 +1,28 @@
+{
+  "tc_id": "31bd83ff-ad65-4e08-808c-9b07f4c44942",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Manage Trial section replaces existing trial management flow",
+  "description": "Test that the Manage Trial option in profile/settings now navigates to Trial Corner instead of old flow",
+  "preconditions": [
+    "User is on profile or settings page"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to Profile > Manage Subscription/Trial",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Observe the flow",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "User is directed to Trial Corner instead of legacy trial management flow",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T09:56:39.864646",
+  "updated_at": "2026-03-11T09:56:39.864646"
+}

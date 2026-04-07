@@ -1,0 +1,52 @@
+{
+  "tc_id": "bc762e6f-d49f-49ed-accd-2836903b11b3",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify incentive offer is controlled by backend configuration",
+  "description": "Tests that the discount offer during the cancellation flow is only shown when it is enabled via a backend flag or configuration.",
+  "preconditions": [
+    "User has an active trial and is in the Trial Corner cohort."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Ensure the 'Incentive Offer' is disabled in the backend.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. As the user, proceed through the cancellation flow past the 'Loss Aversion' gate.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Observe the next screen.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Enable the 'Incentive Offer' in the backend.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. With a different test user, repeat the cancellation flow.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 6,
+      "description": "6. Observe the screen after the 'Loss Aversion' gate.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "In step 3, the user should be taken directly to the feedback pop-up after confirming cancellation. In step 6, the user should be presented with the 'Incentive Offer' pop-up.",
+  "priority": "High",
+  "category": "Integration",
+  "created_at": "2026-03-30T13:58:41.024107",
+  "updated_at": "2026-03-30T13:58:41.024109"
+}

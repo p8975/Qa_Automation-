@@ -1,0 +1,35 @@
+{
+  "tc_id": "6f85798b-49f2-43f6-8ec6-38699ecbf0ce",
+  "prd_hash": "517489e3d6a53e3e156cf7a9104b649e",
+  "title": "Verify login with password exactly 8 characters",
+  "description": "Boundary test to ensure the minimum password length of 8 characters is accepted",
+  "preconditions": [
+    "User account exists with 8-char password",
+    "User is on login screen"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Enter valid email address",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enter exactly 8 characters in the password field",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Click the \"Login\" button",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "User is successfully authenticated",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-04-07T17:15:57.652733",
+  "updated_at": "2026-04-07T17:15:57.652735"
+}

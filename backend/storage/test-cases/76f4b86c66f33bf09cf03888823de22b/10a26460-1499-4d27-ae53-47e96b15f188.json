@@ -1,0 +1,40 @@
+{
+  "tc_id": "10a26460-1499-4d27-ae53-47e96b15f188",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify source command loads OpenCode PATH and API key",
+  "description": "Test that sourcing ~/.zshrc makes OpenCode accessible and API key available as environment variable",
+  "preconditions": [
+    "PATH and OPENCODE_KEY are added to ~/.zshrc"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Run: source ~/.zshrc",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Verify $PATH includes ~/.opencode/bin",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify $OPENCODE_KEY is set",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Type 'opencode' to verify command is available",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "OpenCode command is accessible and OPENCODE_KEY environment variable is set",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T16:14:09.164955",
+  "updated_at": "2026-03-11T16:14:09.164956"
+}

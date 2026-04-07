@@ -1,0 +1,47 @@
+{
+  "tc_id": "57410dec-8a09-4bd4-bbee-6f6c4b955b5d",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Pause Trial flow shows confirmation popup and updates UI",
+  "description": "Test the complete pause trial flow including popup and state updates",
+  "preconditions": [
+    "User is on Trial Corner",
+    "Trial is active"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to Trial Corner > Manage Trial section",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click 'Pause Trial' button",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify popup appears with 'Remind later' and 'Pause' options",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Click 'Pause' option",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Observe trial status update",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Popup appears with both options, clicking Pause updates trial to paused state, widget shows paused design",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T10:04:15.369544",
+  "updated_at": "2026-03-11T10:04:15.369544"
+}

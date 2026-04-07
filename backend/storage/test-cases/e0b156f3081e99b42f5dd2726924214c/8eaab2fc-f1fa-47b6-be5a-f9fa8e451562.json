@@ -1,0 +1,29 @@
+{
+  "tc_id": "8eaab2fc-f1fa-47b6-be5a-f9fa8e451562",
+  "prd_hash": "e0b156f3081e99b42f5dd2726924214c",
+  "title": "OTP Screen - Verify entering an incorrect OTP",
+  "description": "Tests the system's response to an incorrect OTP entry.",
+  "preconditions": [
+    "User is on the OTP screen.",
+    "User has received a valid OTP."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Enter a 4-digit OTP that is different from the one received.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Observe the screen after the 4th digit is entered.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "An 'Invalid OTP' error message is displayed. The OTP input fields are cleared, and the user can retry.",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-04-06T16:49:40.085840",
+  "updated_at": "2026-04-06T16:49:40.085843"
+}

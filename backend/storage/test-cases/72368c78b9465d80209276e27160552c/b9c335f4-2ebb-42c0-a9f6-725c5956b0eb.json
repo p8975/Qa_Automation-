@@ -1,0 +1,40 @@
+{
+  "tc_id": "b9c335f4-2ebb-42c0-a9f6-725c5956b0eb",
+  "prd_hash": "72368c78b9465d80209276e27160552c",
+  "title": "Test Login",
+  "description": "Manual test case: Test Login",
+  "preconditions": [
+    "Manual test case created by user"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "Open app",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "Enter email",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "Enter password",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "Click login",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "User should see home screen",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-04-03T16:23:23.283567",
+  "updated_at": "2026-04-03T16:23:23.283567"
+}

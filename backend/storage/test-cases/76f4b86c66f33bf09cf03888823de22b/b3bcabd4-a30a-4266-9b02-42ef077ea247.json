@@ -1,0 +1,34 @@
+{
+  "tc_id": "b3bcabd4-a30a-4266-9b02-42ef077ea247",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify source command loads .zshrc environment variables",
+  "description": "Test that running source ~/.zshrc makes PATH and OPENCODE_KEY available in current session",
+  "preconditions": [
+    "PATH and OPENCODE_KEY added to .zshrc"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Run: source ~/.zshrc",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Check: echo $PATH includes ~/.opencode/bin",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Check: echo $OPENCODE_KEY returns the API key",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Environment variables are loaded and accessible in current shell session",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T15:36:35.979770",
+  "updated_at": "2026-03-11T15:36:35.979775"
+}

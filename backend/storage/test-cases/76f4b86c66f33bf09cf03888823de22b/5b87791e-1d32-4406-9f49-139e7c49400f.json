@@ -1,0 +1,34 @@
+{
+  "tc_id": "5b87791e-1d32-4406-9f49-139e7c49400f",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify error handling with malformed JSON config file",
+  "description": "Test that system handles corrupted or invalid JSON config gracefully",
+  "preconditions": [
+    "OpenCode installed"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Create config directory: mkdir -p ~/.config/opencode",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Write invalid JSON to config.json",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Attempt to run opencode",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "System provides clear error about JSON parsing failure with line number if possible",
+  "priority": "High",
+  "category": "Error Handling",
+  "created_at": "2026-03-11T15:57:33.278129",
+  "updated_at": "2026-03-11T15:57:33.278130"
+}

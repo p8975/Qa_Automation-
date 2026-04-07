@@ -1,0 +1,46 @@
+{
+  "tc_id": "aa6f241e-7898-49bb-b6c7-925fe6e98402",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify UI and Entry Points based on Trial Day",
+  "description": "Tests that the correct entry point UI (widget vs. pill) is displayed on the homepage based on the number of days the trial has been active.",
+  "preconditions": [
+    "User has an active trial and is in the 'Trial Corner' cohort."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. As a Day 0 or Day 1 user, navigate to the homepage.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Verify the persistent, high-visibility widget ('Trial Mode: X Days Remaining') is displayed.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. As a Day 2 user, navigate to the homepage.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Verify the homepage floating pill is displayed instead of the widget.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Click on both the widget (Step 2) and the pill (Step 4) and verify they navigate to the 'Trial Corner' hub.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The correct UI component is displayed based on the trial day, and both entry points correctly link to the Trial Corner. The 'trial-corner-widget-viewed' and 'trial-corner-widget-clicked' events are fired with the correct 'which varient' attribute.",
+  "priority": "Medium",
+  "category": "UI",
+  "created_at": "2026-03-31T10:52:09.849937",
+  "updated_at": "2026-03-31T10:52:09.849942"
+}

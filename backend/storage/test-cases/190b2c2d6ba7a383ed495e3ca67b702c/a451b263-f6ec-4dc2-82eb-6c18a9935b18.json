@@ -1,0 +1,35 @@
+{
+  "tc_id": "a451b263-f6ec-4dc2-82eb-6c18a9935b18",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify loading indicator displays during login request",
+  "description": "Test that UI shows loading state while authentication request is in progress",
+  "preconditions": [
+    "User is on login page",
+    "User account exists"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Enter valid credentials",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click 'Login' button",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Observe UI immediately after click",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Loading spinner or indicator displayed, button disabled during request",
+  "priority": "Medium",
+  "category": "UI",
+  "created_at": "2026-03-11T15:41:31.926521",
+  "updated_at": "2026-03-11T15:41:31.926523"
+}

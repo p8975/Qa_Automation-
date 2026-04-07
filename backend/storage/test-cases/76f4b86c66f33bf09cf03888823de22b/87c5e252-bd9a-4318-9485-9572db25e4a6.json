@@ -1,0 +1,28 @@
+{
+  "tc_id": "87c5e252-bd9a-4318-9485-9572db25e4a6",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify security of API key in config file",
+  "description": "Test that sensitive API key is not exposed in plain text in config file",
+  "preconditions": [
+    "Config file created with environment variable reference"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Check config.json content for plain text API key",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Verify only {env:OPENCODE_KEY} placeholder is present",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "API key is stored securely using environment variable reference, not hardcoded",
+  "priority": "High",
+  "category": "Security",
+  "created_at": "2026-03-11T15:36:35.983418",
+  "updated_at": "2026-03-11T15:36:35.983420"
+}

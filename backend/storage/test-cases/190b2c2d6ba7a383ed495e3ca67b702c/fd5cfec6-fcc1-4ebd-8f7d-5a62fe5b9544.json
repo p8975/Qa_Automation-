@@ -1,0 +1,77 @@
+{
+  "tc_id": "fd5cfec6-fcc1-4ebd-8f7d-5a62fe5b9544",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify end-to-end user registration, email verification, and successful login",
+  "description": "Tests the complete happy path for a new user, from creating an account and verifying their email to successfully logging in for the first time.",
+  "preconditions": [
+    "User has a valid, unused email address.",
+    "User can access the inbox for the specified email."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to the registration page.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enter a unique email address.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Enter a password that meets all security criteria (e.g., 'ValidPass1!').",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Confirm the password.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Click the 'Register' button.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 6,
+      "description": "6. Check the email inbox for the verification email.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 7,
+      "description": "7. Click the verification link within the email.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 8,
+      "description": "8. After being redirected, navigate to the login page.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 9,
+      "description": "9. Enter the newly registered email and password.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 10,
+      "description": "10. Click the 'Login' button.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "User account is created, the email is verified, and the user is successfully logged in and redirected to the application dashboard.",
+  "priority": "High",
+  "category": "Integration",
+  "created_at": "2026-03-27T15:39:44.149879",
+  "updated_at": "2026-03-27T15:39:44.149890"
+}

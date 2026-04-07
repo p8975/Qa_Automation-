@@ -1,0 +1,22 @@
+{
+  "tc_id": "300b0208-a6eb-480f-b504-fa1cbf3de930",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify 'trial-corner-widget-clicked' event",
+  "description": "Test that the widget clicked event is fired correctly.",
+  "preconditions": [
+    "The Trial Corner widget is visible on the homepage"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Click on the Trial Corner widget on the homepage.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The 'trial-corner-widget-clicked' event is fired with the correct 'which varient' attribute.",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-04-07T18:16:59.955074",
+  "updated_at": "2026-04-07T18:16:59.955075"
+}

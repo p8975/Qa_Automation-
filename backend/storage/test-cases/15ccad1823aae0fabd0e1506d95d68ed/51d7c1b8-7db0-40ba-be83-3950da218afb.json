@@ -1,0 +1,47 @@
+{
+  "tc_id": "51d7c1b8-7db0-40ba-be83-3950da218afb",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify discount offer appears when user persists in cancelling",
+  "description": "Test that the incentive offer appears when user continues to cancel after loss aversion",
+  "preconditions": [
+    "User has active trial",
+    "User clicked Cancel and kept cancelling"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Click 'Cancel Trial' button",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. On loss aversion screen, click 'Cancel Anyway' secondary action",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify discount offer popup appears",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Verify offer displays discount percentage and price",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Verify Trust Clause is visible",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Discount offer appears with offer details",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-04-07T17:17:08.483329",
+  "updated_at": "2026-04-07T17:17:08.483330"
+}

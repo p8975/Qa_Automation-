@@ -1,0 +1,40 @@
+{
+  "tc_id": "78bff4da-481e-4549-be0e-a8a5c9fe518e",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify invalid email format is rejected",
+  "description": "Test that email addresses with invalid format are rejected during registration",
+  "preconditions": [
+    "User is on registration page"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Enter invalid email format (e.g., 'useratexample.com')",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enter valid password",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Confirm password",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Click 'Register'",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Error message indicates invalid email format; registration is blocked",
+  "priority": "High",
+  "category": "Error Handling",
+  "created_at": "2026-03-11T13:48:21.462749",
+  "updated_at": "2026-03-11T13:48:21.462754"
+}

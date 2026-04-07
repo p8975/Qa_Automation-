@@ -1,0 +1,60 @@
+{
+  "tc_id": "42b150ae-455e-45c2-8432-ac0e681d9d42",
+  "prd_hash": "1d9d7e38d3c60bd9403fc65a91cdb7f6",
+  "title": "Login with Mobile Number and OTP",
+  "description": "Verify that a user can successfully log into the application using a valid mobile number and OTP verification flow.",
+  "preconditions": [
+    "App STAGE_2Mar2026_0910AM_preprod.apk is installed",
+    "Package in.stage.dev is launched",
+    "User is on the login/landing screen"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Tap on the 'Login' button",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enter '9876543210' in the mobile number input field",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Tap on the 'Continue' button",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Verify that the OTP verification screen is displayed",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Enter '123456' in the OTP input field",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 6,
+      "description": "6. Tap on the 'Verify and Proceed' button",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 7,
+      "description": "7. Verify that the home screen is displayed",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "User should be successfully authenticated and redirected to the app's home dashboard.",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-04-07T18:14:51.957099",
+  "updated_at": "2026-04-07T18:14:51.957100"
+}

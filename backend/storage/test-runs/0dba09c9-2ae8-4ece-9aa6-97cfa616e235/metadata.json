@@ -1,0 +1,916 @@
+{
+  "run_id": "0dba09c9-2ae8-4ece-9aa6-97cfa616e235",
+  "build_id": "64100a0f-4a77-4336-8c69-c599c5e16ccf",
+  "test_case_ids": [
+    "cd532ca2-5adf-4673-8b64-bc7e02a6e682",
+    "a89f0b22-0095-44d8-a630-2f4dc24f9bff",
+    "84702f41-85db-463f-9b8d-ad48684eff31",
+    "b05ba6d7-235c-4878-806d-59cfc4596d39",
+    "5213a77b-f5fd-47dd-8b6e-88c85305ac7d",
+    "33d53507-f022-49f0-b0dc-9e18343eb6c0",
+    "86220811-2d27-4b70-8a3a-947b4da5e072",
+    "386e0ae6-4e38-42e4-8c26-b837aaf2db0a",
+    "6d61a7e9-bb59-460b-9ae4-910f661b2af4",
+    "d331a451-dbc0-40ee-91a9-a525570876e9",
+    "0f72dfe9-c944-4641-bcc9-43e6fa82bd10",
+    "891ed813-697c-4c8c-9311-00443642078f",
+    "8404a43c-4d12-456e-ad9f-ea1910f055e7",
+    "8ae35dec-b7d3-49fe-bafc-3307e9a75e11",
+    "a6dde03b-c8ce-4020-820f-faf46de6b9f8",
+    "3fd1d615-0926-403d-bfb0-4a99a817668c",
+    "04282e0f-7e8c-4bca-a5be-519b922ef1fb",
+    "7e54d76b-2198-4825-b0f4-6eed702139ee",
+    "1af79ddb-7a73-4b91-8725-469fdaaf2693",
+    "8eaab2fc-f1fa-47b6-be5a-f9fa8e451562",
+    "33066bfb-8313-4b39-8a3f-15ec23376495",
+    "2c9c47ac-9e7c-4463-bad8-e4a26f960f51",
+    "b71571e3-8d70-43f4-90ba-90efdaa4f59e",
+    "8946b9b5-e1c4-49df-993d-62c5376805db",
+    "5e4efb82-0d87-4c81-8b1e-f93007d758b5",
+    "12ce8ad6-85bf-4f9d-8dea-c11ac4192af0",
+    "fcc0f2fb-b995-4f5e-981a-f8f6f41ca37d",
+    "1834f2aa-4f7f-4807-a5b2-77076739dbb3",
+    "9d3453d6-c61b-40c8-90d4-0b13a117cda0",
+    "a97a1ad9-0466-4c6b-b5cb-92310c1dd10b"
+  ],
+  "device_info": {
+    "device_id": "emulator-5554",
+    "device_name": "sdk_gphone64_arm64",
+    "os_version": "16",
+    "is_emulator": true
+  },
+  "status": "completed",
+  "started_at": "2026-04-07T12:04:52.056678",
+  "completed_at": "2026-04-07T12:12:06.498897",
+  "duration_seconds": 434.442219,
+  "results": [
+    {
+      "test_case_id": "cd532ca2-5adf-4673-8b64-bc7e02a6e682",
+      "status": "pass",
+      "duration_ms": 18428,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "pass",
+          "duration_ms": 3239,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"Add Custom URL\").is_displayed()"
+        },
+        {
+          "step_number": 2,
+          "status": "pass",
+          "duration_ms": 5096,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"Add Custom URL\").click()"
+        },
+        {
+          "step_number": 3,
+          "status": "pass",
+          "duration_ms": 1089,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"Enter Custom URLs\").is_displayed()"
+        }
+      ]
+    },
+    {
+      "test_case_id": "a89f0b22-0095-44d8-a630-2f4dc24f9bff",
+      "status": "pass",
+      "duration_ms": 14326,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "pass",
+          "duration_ms": 995,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"Add Custom URL\").send_keys(\"\u0932\u0949\u0917\u093f\u0928 \u0915\u0930\u0947\u0902\")"
+        },
+        {
+          "step_number": 2,
+          "status": "pass",
+          "duration_ms": 1104,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"\u0932\u0949\u0917\u093f\u0928 \u0915\u0930\u0947\u0902, Add Custom URL\").is_displayed()"
+        },
+        {
+          "step_number": 3,
+          "status": "pass",
+          "duration_ms": 819,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"\u0932\u0949\u0917\u093f\u0928 \u0915\u0930\u0947\u0902, Add Custom URL\").send_keys(\"test_input\")"
+        },
+        {
+          "step_number": 4,
+          "status": "pass",
+          "duration_ms": 1297,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"test_input, Add Custom URL\").is_displayed()"
+        }
+      ]
+    },
+    {
+      "test_case_id": "84702f41-85db-463f-9b8d-ad48684eff31",
+      "status": "pass",
+      "duration_ms": 11235,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "pass",
+          "duration_ms": 3271,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"Add Custom URL\").click()"
+        },
+        {
+          "step_number": 2,
+          "status": "pass",
+          "duration_ms": 912,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"Enter Custom URLs\").send_keys(\"test_input\")"
+        },
+        {
+          "step_number": 3,
+          "status": "pass",
+          "duration_ms": 919,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"test_input, Enter Custom URLs\").send_keys(\"test_input\")"
+        },
+        {
+          "step_number": 4,
+          "status": "pass",
+          "duration_ms": 952,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"test_input, Enter Custom URLs\").is_displayed()"
+        }
+      ]
+    },
+    {
+      "test_case_id": "b05ba6d7-235c-4878-806d-59cfc4596d39",
+      "status": "pass",
+      "duration_ms": 13905,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "pass",
+          "duration_ms": 3062,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"Add Custom URL\").click()"
+        },
+        {
+          "step_number": 2,
+          "status": "pass",
+          "duration_ms": 783,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"Enter Custom URLs\").click()"
+        }
+      ]
+    },
+    {
+      "test_case_id": "5213a77b-f5fd-47dd-8b6e-88c85305ac7d",
+      "status": "pass",
+      "duration_ms": 9660,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "pass",
+          "duration_ms": 3182,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"Add Custom URL\").click()"
+        },
+        {
+          "step_number": 2,
+          "status": "pass",
+          "duration_ms": 766,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"Enter Custom URLs\").click()"
+        }
+      ]
+    },
+    {
+      "test_case_id": "33d53507-f022-49f0-b0dc-9e18343eb6c0",
+      "status": "pass",
+      "duration_ms": 9879,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "pass",
+          "duration_ms": 3140,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"Add Custom URL\").click()"
+        },
+        {
+          "step_number": 2,
+          "status": "pass",
+          "duration_ms": 757,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"Enter Custom URLs\").click()"
+        }
+      ]
+    },
+    {
+      "test_case_id": "86220811-2d27-4b70-8a3a-947b4da5e072",
+      "status": "pass",
+      "duration_ms": 9500,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "pass",
+          "duration_ms": 3595,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"Add Custom URL\").click()"
+        },
+        {
+          "step_number": 2,
+          "status": "pass",
+          "duration_ms": 781,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"Enter Custom URLs\").click()"
+        }
+      ]
+    },
+    {
+      "test_case_id": "386e0ae6-4e38-42e4-8c26-b837aaf2db0a",
+      "status": "pass",
+      "duration_ms": 12679,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "pass",
+          "duration_ms": 3883,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"Add Custom URL\").click()"
+        },
+        {
+          "step_number": 2,
+          "status": "pass",
+          "duration_ms": 731,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"Enter Custom URLs\").is_displayed()"
+        },
+        {
+          "step_number": 3,
+          "status": "pass",
+          "duration_ms": 1537,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"Enter Custom URLs\").click()"
+        },
+        {
+          "step_number": 4,
+          "status": "pass",
+          "duration_ms": 747,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"Enter Custom URLs\").is_displayed()"
+        }
+      ]
+    },
+    {
+      "test_case_id": "6d61a7e9-bb59-460b-9ae4-910f661b2af4",
+      "status": "pass",
+      "duration_ms": 16385,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "pass",
+          "duration_ms": 2851,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"Add Custom URL\").click()"
+        },
+        {
+          "step_number": 2,
+          "status": "pass",
+          "duration_ms": 851,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"Enter Custom URLs\").is_displayed()"
+        },
+        {
+          "step_number": 3,
+          "status": "pass",
+          "duration_ms": 1478,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"Enter Custom URLs\").click()"
+        },
+        {
+          "step_number": 4,
+          "status": "pass",
+          "duration_ms": 791,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"Enter Custom URLs\").is_displayed()"
+        }
+      ]
+    },
+    {
+      "test_case_id": "d331a451-dbc0-40ee-91a9-a525570876e9",
+      "status": "pass",
+      "duration_ms": 18430,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "pass",
+          "duration_ms": 3019,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"Add Custom URL\").click()"
+        },
+        {
+          "step_number": 2,
+          "status": "pass",
+          "duration_ms": 1552,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"Enter Custom URLs\").click()"
+        },
+        {
+          "step_number": 3,
+          "status": "pass",
+          "duration_ms": 1525,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"Enter Custom URLs\").click()"
+        },
+        {
+          "step_number": 4,
+          "status": "pass",
+          "duration_ms": 1533,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"Enter Custom URLs\").click()"
+        },
+        {
+          "step_number": 5,
+          "status": "pass",
+          "duration_ms": 794,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"Enter Custom URLs\").click()"
+        }
+      ]
+    },
+    {
+      "test_case_id": "0f72dfe9-c944-4641-bcc9-43e6fa82bd10",
+      "status": "pass",
+      "duration_ms": 16530,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "pass",
+          "duration_ms": 861,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"Add Custom URL\").send_keys(\"test_input\")"
+        },
+        {
+          "step_number": 2,
+          "status": "pass",
+          "duration_ms": 3015,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"test_input, Add Custom URL\").click()"
+        },
+        {
+          "step_number": 3,
+          "status": "pass",
+          "duration_ms": 1541,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"Enter Custom URLs\").click()"
+        },
+        {
+          "step_number": 4,
+          "status": "pass",
+          "duration_ms": 714,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"Enter Custom URLs\").send_keys(\"test_input\")"
+        }
+      ]
+    },
+    {
+      "test_case_id": "891ed813-697c-4c8c-9311-00443642078f",
+      "status": "pass",
+      "duration_ms": 12001,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "pass",
+          "duration_ms": 2862,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"Add Custom URL\").send_keys(\"test_input\")"
+        },
+        {
+          "step_number": 2,
+          "status": "pass",
+          "duration_ms": 2855,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"test_input, Add Custom URL\").click()"
+        },
+        {
+          "step_number": 3,
+          "status": "pass",
+          "duration_ms": 741,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"Enter Custom URLs\").send_keys(\"test_input\")"
+        },
+        {
+          "step_number": 4,
+          "status": "pass",
+          "duration_ms": 773,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"test_input, Enter Custom URLs\").click()"
+        }
+      ]
+    },
+    {
+      "test_case_id": "8404a43c-4d12-456e-ad9f-ea1910f055e7",
+      "status": "fail",
+      "duration_ms": 14741,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/0dba09c9-2ae8-4ece-9aa6-97cfa616e235/screenshots/step_3_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "pass",
+          "duration_ms": 3075,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"Add Custom URL\").click()"
+        },
+        {
+          "step_number": 2,
+          "status": "pass",
+          "duration_ms": 702,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"Enter Custom URLs\").send_keys(\"test_input\")"
+        },
+        {
+          "step_number": 3,
+          "status": "error",
+          "duration_ms": 498,
+          "screenshot_path": "storage/test-runs/0dba09c9-2ae8-4ece-9aa6-97cfa616e235/screenshots/step_3_error.png",
+          "error_message": "Could not find element for step: 3. Tap the '\u0932\u0949\u0917\u093f\u0928 \u0915\u0930\u0947\u0902' button.",
+          "appium_command": null
+        }
+      ]
+    },
+    {
+      "test_case_id": "8ae35dec-b7d3-49fe-bafc-3307e9a75e11",
+      "status": "pass",
+      "duration_ms": 10603,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "pass",
+          "duration_ms": 827,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"Add Custom URL\").send_keys(\"Invalid OTP\")"
+        },
+        {
+          "step_number": 2,
+          "status": "pass",
+          "duration_ms": 799,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"Invalid OTP, Add Custom URL\").send_keys(\"Invalid OTP\")"
+        },
+        {
+          "step_number": 3,
+          "status": "pass",
+          "duration_ms": 803,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"Invalid OTP, Add Custom URL\").send_keys(\"Invalid OTP\")"
+        },
+        {
+          "step_number": 4,
+          "status": "pass",
+          "duration_ms": 2186,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"Invalid OTP, Add Custom URL\").click()"
+        }
+      ]
+    },
+    {
+      "test_case_id": "a6dde03b-c8ce-4020-820f-faf46de6b9f8",
+      "status": "fail",
+      "duration_ms": 4978,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/0dba09c9-2ae8-4ece-9aa6-97cfa616e235/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 17,
+          "screenshot_path": "storage/test-runs/0dba09c9-2ae8-4ece-9aa6-97cfa616e235/screenshots/step_1_error.png",
+          "error_message": "Could not find element for step: 1. Request an OTP.",
+          "appium_command": null
+        }
+      ]
+    },
+    {
+      "test_case_id": "3fd1d615-0926-403d-bfb0-4a99a817668c",
+      "status": "fail",
+      "duration_ms": 3019,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/0dba09c9-2ae8-4ece-9aa6-97cfa616e235/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 4,
+          "screenshot_path": "storage/test-runs/0dba09c9-2ae8-4ece-9aa6-97cfa616e235/screenshots/step_1_error.png",
+          "error_message": "Could not find element for step: 1. Enter the first 3 digits of the correct OTP.",
+          "appium_command": null
+        }
+      ]
+    },
+    {
+      "test_case_id": "04282e0f-7e8c-4bca-a5be-519b922ef1fb",
+      "status": "fail",
+      "duration_ms": 3018,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/0dba09c9-2ae8-4ece-9aa6-97cfa616e235/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 4,
+          "screenshot_path": "storage/test-runs/0dba09c9-2ae8-4ece-9aa6-97cfa616e235/screenshots/step_1_error.png",
+          "error_message": "Could not find element for step: 1. Tap the first OTP input box.",
+          "appium_command": null
+        }
+      ]
+    },
+    {
+      "test_case_id": "7e54d76b-2198-4825-b0f4-6eed702139ee",
+      "status": "fail",
+      "duration_ms": 3136,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/0dba09c9-2ae8-4ece-9aa6-97cfa616e235/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 10,
+          "screenshot_path": "storage/test-runs/0dba09c9-2ae8-4ece-9aa6-97cfa616e235/screenshots/step_1_error.png",
+          "error_message": "Could not find element for step: 1. Tap the Back Button (arrow icon) on the top left of the OTP screen.",
+          "appium_command": null
+        }
+      ]
+    },
+    {
+      "test_case_id": "1af79ddb-7a73-4b91-8725-469fdaaf2693",
+      "status": "fail",
+      "duration_ms": 3023,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/0dba09c9-2ae8-4ece-9aa6-97cfa616e235/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 8,
+          "screenshot_path": "storage/test-runs/0dba09c9-2ae8-4ece-9aa6-97cfa616e235/screenshots/step_1_error.png",
+          "error_message": "Could not find element for step: 1. Wait for the 30-second resend timer to expire.",
+          "appium_command": null
+        }
+      ]
+    },
+    {
+      "test_case_id": "8eaab2fc-f1fa-47b6-be5a-f9fa8e451562",
+      "status": "fail",
+      "duration_ms": 3021,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/0dba09c9-2ae8-4ece-9aa6-97cfa616e235/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 5,
+          "screenshot_path": "storage/test-runs/0dba09c9-2ae8-4ece-9aa6-97cfa616e235/screenshots/step_1_error.png",
+          "error_message": "Could not find element for step: 1. Enter a 4-digit OTP that is different from the one received.",
+          "appium_command": null
+        }
+      ]
+    },
+    {
+      "test_case_id": "33066bfb-8313-4b39-8a3f-15ec23376495",
+      "status": "fail",
+      "duration_ms": 3021,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/0dba09c9-2ae8-4ece-9aa6-97cfa616e235/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 9,
+          "screenshot_path": "storage/test-runs/0dba09c9-2ae8-4ece-9aa6-97cfa616e235/screenshots/step_1_error.png",
+          "error_message": "Could not find element for step: 1. On the OTP screen, verify the Back Button (arrow icon) is visible.",
+          "appium_command": null
+        }
+      ]
+    },
+    {
+      "test_case_id": "2c9c47ac-9e7c-4463-bad8-e4a26f960f51",
+      "status": "fail",
+      "duration_ms": 3024,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/0dba09c9-2ae8-4ece-9aa6-97cfa616e235/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 4,
+          "screenshot_path": "storage/test-runs/0dba09c9-2ae8-4ece-9aa6-97cfa616e235/screenshots/step_1_error.png",
+          "error_message": "Could not find element for step: 1. Tap the Google Sign-In button.",
+          "appium_command": null
+        }
+      ]
+    },
+    {
+      "test_case_id": "b71571e3-8d70-43f4-90ba-90efdaa4f59e",
+      "status": "fail",
+      "duration_ms": 3028,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/0dba09c9-2ae8-4ece-9aa6-97cfa616e235/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 3,
+          "screenshot_path": "storage/test-runs/0dba09c9-2ae8-4ece-9aa6-97cfa616e235/screenshots/step_1_error.png",
+          "error_message": "Could not find element for step: 1. Tap the Google Sign-In button.",
+          "appium_command": null
+        }
+      ]
+    },
+    {
+      "test_case_id": "8946b9b5-e1c4-49df-993d-62c5376805db",
+      "status": "fail",
+      "duration_ms": 3125,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/0dba09c9-2ae8-4ece-9aa6-97cfa616e235/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 2,
+          "screenshot_path": "storage/test-runs/0dba09c9-2ae8-4ece-9aa6-97cfa616e235/screenshots/step_1_error.png",
+          "error_message": "Could not find element for step: 1. Tap the Google Sign-In button.",
+          "appium_command": null
+        }
+      ]
+    },
+    {
+      "test_case_id": "5e4efb82-0d87-4c81-8b1e-f93007d758b5",
+      "status": "fail",
+      "duration_ms": 3119,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/0dba09c9-2ae8-4ece-9aa6-97cfa616e235/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 3,
+          "screenshot_path": "storage/test-runs/0dba09c9-2ae8-4ece-9aa6-97cfa616e235/screenshots/step_1_error.png",
+          "error_message": "Could not find element for step: 1. Tap on the phone number input field.",
+          "appium_command": null
+        }
+      ]
+    },
+    {
+      "test_case_id": "12ce8ad6-85bf-4f9d-8dea-c11ac4192af0",
+      "status": "fail",
+      "duration_ms": 3155,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/0dba09c9-2ae8-4ece-9aa6-97cfa616e235/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 5,
+          "screenshot_path": "storage/test-runs/0dba09c9-2ae8-4ece-9aa6-97cfa616e235/screenshots/step_1_error.png",
+          "error_message": "Could not find element for step: 1. Attempt to enter an 11-digit number (e.g., '12345678901') in the input field.",
+          "appium_command": null
+        }
+      ]
+    },
+    {
+      "test_case_id": "fcc0f2fb-b995-4f5e-981a-f8f6f41ca37d",
+      "status": "fail",
+      "duration_ms": 3117,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/0dba09c9-2ae8-4ece-9aa6-97cfa616e235/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 8,
+          "screenshot_path": "storage/test-runs/0dba09c9-2ae8-4ece-9aa6-97cfa616e235/screenshots/step_1_error.png",
+          "error_message": "Could not find element for step: 1. Enter a 9-digit number (e.g., '123456789') in the input field.",
+          "appium_command": null
+        }
+      ]
+    },
+    {
+      "test_case_id": "1834f2aa-4f7f-4807-a5b2-77076739dbb3",
+      "status": "fail",
+      "duration_ms": 3118,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/0dba09c9-2ae8-4ece-9aa6-97cfa616e235/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 6,
+          "screenshot_path": "storage/test-runs/0dba09c9-2ae8-4ece-9aa6-97cfa616e235/screenshots/step_1_error.png",
+          "error_message": "Could not find element for step: 1. Do not enter any text in the phone number input field.",
+          "appium_command": null
+        }
+      ]
+    },
+    {
+      "test_case_id": "9d3453d6-c61b-40c8-90d4-0b13a117cda0",
+      "status": "fail",
+      "duration_ms": 3118,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/0dba09c9-2ae8-4ece-9aa6-97cfa616e235/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 6,
+          "screenshot_path": "storage/test-runs/0dba09c9-2ae8-4ece-9aa6-97cfa616e235/screenshots/step_1_error.png",
+          "error_message": "Could not find element for step: 1. Enter a valid 10-digit mobile number in the input field.",
+          "appium_command": null
+        }
+      ]
+    },
+    {
+      "test_case_id": "a97a1ad9-0466-4c6b-b5cb-92310c1dd10b",
+      "status": "fail",
+      "duration_ms": 3118,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/0dba09c9-2ae8-4ece-9aa6-97cfa616e235/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 2,
+          "screenshot_path": "storage/test-runs/0dba09c9-2ae8-4ece-9aa6-97cfa616e235/screenshots/step_1_error.png",
+          "error_message": "Could not find element for step: 1. Launch the STAGE application.",
+          "appium_command": null
+        }
+      ]
+    }
+  ]
+}

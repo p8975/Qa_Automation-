@@ -1,0 +1,40 @@
+{
+  "tc_id": "c94c133b-aa06-45a1-ad3b-83494b657b0d",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify password validation rejects 7 characters",
+  "description": "Test that password with only 7 characters is rejected regardless of other criteria",
+  "preconditions": [
+    "User is on registration page"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Enter valid email address",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enter password with 7 characters (e.g., Abc123!)",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Enter same password in confirm field",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Click 'Register' button",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Password rejected with error message about minimum length",
+  "priority": "High",
+  "category": "Edge Case",
+  "created_at": "2026-03-11T15:41:31.921380",
+  "updated_at": "2026-03-11T15:41:31.921384"
+}

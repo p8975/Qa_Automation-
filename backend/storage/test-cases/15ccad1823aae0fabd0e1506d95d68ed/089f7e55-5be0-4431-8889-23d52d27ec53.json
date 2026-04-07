@@ -1,0 +1,35 @@
+{
+  "tc_id": "089f7e55-5be0-4431-8889-23d52d27ec53",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify trial corner widget displays for Day 0-1 trial users",
+  "description": "Test that the persistent homepage widget displays correctly for users on Day 0 or Day 1 of their trial with remaining days counter",
+  "preconditions": [
+    "User has activated a trial within last 24 hours",
+    "User is on homepage"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Create user account with trial activated",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Navigate to homepage within 24 hours of trial activation",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Observe the trial corner widget",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Widget displays with shield/clock icon showing 'Trial Mode: X Days Remaining' and links to manage control center",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-10T19:16:40.858127",
+  "updated_at": "2026-03-10T19:16:40.858137"
+}

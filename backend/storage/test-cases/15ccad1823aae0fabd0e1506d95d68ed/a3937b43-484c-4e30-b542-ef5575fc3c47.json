@@ -1,0 +1,46 @@
+{
+  "tc_id": "a3937b43-484c-4e30-b542-ef5575fc3c47",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Validate experiment cohort targeting based on initial consumption",
+  "description": "Tests the rule that the Trial Corner is only assigned to users who do not start consumption within the first 5 minutes of their trial.",
+  "preconditions": [
+    "Two new user accounts are created and have just activated a \u20b91 trial."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. For User A, do not play any content within the first 5 minutes after activating the trial.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. For User B, start playing a video within 2 minutes of activating the trial.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. After 6 minutes, have both users navigate to the homepage.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Verify that User A sees the 'Trial Corner' widget.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Verify that User B sees the standard trial experience (or a different experiment) and NOT the 'Trial Corner' widget.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The Trial Corner feature is correctly assigned only to the user who met the non-consumption criteria, confirming the cohort targeting logic works.",
+  "priority": "High",
+  "category": "Edge Case",
+  "created_at": "2026-03-30T10:18:59.233108",
+  "updated_at": "2026-03-30T10:18:59.233108"
+}

@@ -1,0 +1,46 @@
+{
+  "tc_id": "048c8844-8f6a-4fa7-8ad5-21569b567c11",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify weak password is rejected with clear error message",
+  "description": "Test that passwords not meeting security criteria are rejected with specific feedback",
+  "preconditions": [
+    "User is on registration page"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to registration page",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enter valid email address",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Enter weak password (e.g., 'password123' - missing uppercase and special character)",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Enter same password in confirm password field",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Click 'Register' button",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Error message displayed: WEAK_PASSWORD with details about missing requirements",
+  "priority": "High",
+  "category": "Error Handling",
+  "created_at": "2026-03-11T15:38:47.294084",
+  "updated_at": "2026-03-11T15:38:47.294085"
+}

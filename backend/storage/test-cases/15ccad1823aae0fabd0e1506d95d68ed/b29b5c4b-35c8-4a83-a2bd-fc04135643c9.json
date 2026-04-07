@@ -1,0 +1,35 @@
+{
+  "tc_id": "b29b5c4b-35c8-4a83-a2bd-fc04135643c9",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify trial widget updates to paused design after pausing",
+  "description": "Test that homepage widget reflects paused trial state visually",
+  "preconditions": [
+    "User has paused trial",
+    "User is on homepage"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Pause the trial",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Navigate to homepage",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Observe trial widget appearance",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Widget displays paused design (different color/icon) indicating trial is paused",
+  "priority": "Medium",
+  "category": "UI",
+  "created_at": "2026-03-11T10:04:15.370289",
+  "updated_at": "2026-03-11T10:04:15.370289"
+}

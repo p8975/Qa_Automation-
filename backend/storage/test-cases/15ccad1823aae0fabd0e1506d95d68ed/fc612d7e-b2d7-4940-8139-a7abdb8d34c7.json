@@ -1,0 +1,40 @@
+{
+  "tc_id": "fc612d7e-b2d7-4940-8139-a7abdb8d34c7",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Experiment Targeting Cohort Logic",
+  "description": "Tests the core condition for entering the 'Trial Corner' experiment: user does not start consumption within 5 minutes of trial activation.",
+  "preconditions": [
+    "Two new users are created to start a trial."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. User A: Start the trial and immediately start watching any content for more than 10 seconds (within the first 5 minutes).",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. User B: Start the trial and do not watch any content for at least 6 minutes.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. For User A, navigate the app and verify the 'Trial Corner' widget/pill does NOT appear.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. For User B, navigate to the homepage and verify the 'Trial Corner' widget DOES appear.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Only User B, who did not consume content, is assigned to the Trial Corner experiment. User A sees the standard trial experience.",
+  "priority": "High",
+  "category": "Edge Case",
+  "created_at": "2026-03-31T10:52:09.851035",
+  "updated_at": "2026-03-31T10:52:09.851038"
+}

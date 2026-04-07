@@ -1,0 +1,28 @@
+{
+  "tc_id": "1315515e-7c0c-4267-9116-8071e1a9936e",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify widget displays correctly for trial with 1 day remaining",
+  "description": "Test edge case where trial has minimal time remaining",
+  "preconditions": [
+    "User has trial with exactly 1 day remaining"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. User with 1 day trial logs in",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Navigate to homepage",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Widget displays 'Trial Mode: 1 Day Remaining' and Loss Aversion messaging emphasizes urgency",
+  "priority": "Medium",
+  "category": "Edge Case",
+  "created_at": "2026-03-11T16:33:03.575114",
+  "updated_at": "2026-03-11T16:33:03.575115"
+}

@@ -1,0 +1,62 @@
+{
+  "run_id": "abd31c7f-e81a-404e-8c62-3029b1e32cb2",
+  "build_id": "858332ec-7a84-458a-bb77-3825210317ea",
+  "test_case_ids": [
+    "b1158c1a-15af-4c02-a13d-bc5b7164b1a2",
+    "798c7e9a-bcaf-4fe4-a50d-27e2f215443c"
+  ],
+  "device_info": {
+    "device_id": "10BF5314JZ008N5",
+    "device_name": "I2403",
+    "os_version": "15",
+    "is_emulator": false
+  },
+  "status": "completed",
+  "started_at": "2026-03-11T10:33:58.830168",
+  "completed_at": "2026-03-11T10:35:29.380399",
+  "duration_seconds": 90.550231,
+  "results": [
+    {
+      "test_case_id": "b1158c1a-15af-4c02-a13d-bc5b7164b1a2",
+      "status": "fail",
+      "duration_ms": 38465,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/abd31c7f-e81a-404e-8c62-3029b1e32cb2/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 38465,
+          "screenshot_path": "storage/test-runs/abd31c7f-e81a-404e-8c62-3029b1e32cb2/screenshots/step_1_error.png",
+          "error_message": "Message: \nStacktrace:\nNoSuchElementError: An element could not be located on the page using the given search parameters.\n    at AndroidUiautomator2Driver.findElOrEls (/Users/prakashkumar/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/lib/commands/find.ts:93:11)\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at AndroidUiautomator2Driver.findElOrElsWithProcessing (/opt/homebrew/lib/node_modules/appium/node_modules/@appium/base-driver/lib/basedriver/commands/find.ts:60:12)\n    at AndroidUiautomator2Driver.findElement (/opt/homebrew/lib/node_modules/appium/node_modules/@appium/base-driver/lib/basedriver/commands/find.ts:75:12)",
+          "appium_command": "from appium.webdriver.common.appiumby import AppiumBy\nfrom selenium.webdriver.support.ui import WebDriverWait\nfrom selenium.webdriver.support import expected_conditions as EC\n\n# Try common cancel/dismiss button patterns\ntry:\n    cancel_button = WebDriverWait(driver, 10).until(\n        EC.element_to_be_clickable((AppiumBy.ACCESSIBILITY_ID, \"cancel_trial\"))\n    )\n    cancel_button.click()\nexcept:\n    try:\n        cancel_button = WebDriverWait(driver, 10).until(\n            EC.element_to_be_clickable((AppiumBy.ACCESSIBILITY_ID, \"no_thanks\"))\n        )\n        cancel_button.click()\n    except:\n        cancel_button = WebDriverWait(driver, 10).until(\n            EC.element_to_be_clickable((AppiumBy.ACCESSIBILITY_ID, \"dismiss\"))\n        )\n        cancel_button.click()"
+        }
+      ]
+    },
+    {
+      "test_case_id": "798c7e9a-bcaf-4fe4-a50d-27e2f215443c",
+      "status": "fail",
+      "duration_ms": 24089,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/abd31c7f-e81a-404e-8c62-3029b1e32cb2/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 24088,
+          "screenshot_path": "storage/test-runs/abd31c7f-e81a-404e-8c62-3029b1e32cb2/screenshots/step_1_error.png",
+          "error_message": "Message: \nStacktrace:\nNoSuchElementError: An element could not be located on the page using the given search parameters.\n    at AndroidUiautomator2Driver.findElOrEls (/Users/prakashkumar/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/lib/commands/find.ts:93:11)\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at AndroidUiautomator2Driver.findElOrElsWithProcessing (/opt/homebrew/lib/node_modules/appium/node_modules/@appium/base-driver/lib/basedriver/commands/find.ts:60:12)\n    at AndroidUiautomator2Driver.findElement (/opt/homebrew/lib/node_modules/appium/node_modules/@appium/base-driver/lib/basedriver/commands/find.ts:75:12)",
+          "appium_command": "from appium.webdriver.common.appiumby import AppiumBy\nfrom selenium.webdriver.support.ui import WebDriverWait\nfrom selenium.webdriver.support import expected_conditions as EC\n\nWebDriverWait(driver, 10).until(EC.element_to_be_clickable((AppiumBy.ACCESSIBILITY_ID, \"pause_trial_button\"))).click()"
+        }
+      ]
+    }
+  ]
+}

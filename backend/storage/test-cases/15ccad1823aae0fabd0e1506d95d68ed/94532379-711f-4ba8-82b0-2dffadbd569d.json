@@ -1,0 +1,22 @@
+{
+  "tc_id": "94532379-711f-4ba8-82b0-2dffadbd569d",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify 'cancel-clicked' event from Loss Aversion pop-up",
+  "description": "Test that the cancel event is fired when user proceeds from the Loss Aversion pop-up.",
+  "preconditions": [
+    "User is on the Cancel confirmation pop-up"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Click 'Cancel Anyway & Lose Access'.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The 'cancel-clicked' event is fired with 'page source' as 'cancel pop-up'.",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-04-07T18:16:59.956825",
+  "updated_at": "2026-04-07T18:16:59.956825"
+}

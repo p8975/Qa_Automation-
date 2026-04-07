@@ -1,0 +1,22 @@
+{
+  "tc_id": "9b0b5717-1dce-4ee6-8b1f-c1e3e21f90e8",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify content is inaccessible after cancelling a trial",
+  "description": "Test that a user with a cancelled trial loses immediate access to premium content.",
+  "preconditions": [
+    "User has a cancelled trial"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Try to play any premium content from anywhere in the app.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The content does not play, and a message/paywall is displayed indicating the trial has been cancelled and access is lost.",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-04-07T18:16:59.954451",
+  "updated_at": "2026-04-07T18:16:59.954455"
+}

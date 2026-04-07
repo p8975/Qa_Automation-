@@ -1,0 +1,29 @@
+{
+  "tc_id": "2b75e20a-e177-44aa-84d2-606bb3ca7ae4",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify cancellation flow when Incentive Offer is disabled",
+  "description": "Test the cancellation flow when the discount offer is disabled in the backend.",
+  "preconditions": [
+    "User has an active trial",
+    "The incentive offer is disabled in the backend"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. From the hub, click 'Cancel Trial'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. On the Loss Aversion pop-up, click 'Cancel Anyway & Lose Access'.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The trial is immediately cancelled (no offer pop-up is shown), and the feedback pop-up is displayed.",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-04-07T18:16:59.950222",
+  "updated_at": "2026-04-07T18:16:59.950223"
+}

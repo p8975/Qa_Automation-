@@ -1,0 +1,35 @@
+{
+  "tc_id": "9dc21f5b-69b3-4364-84c1-cdb075a892fa",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Cancellation Flow with Incentive Offer Rejection",
+  "description": "Test the flow where a user rejects all retention efforts (reminder and incentive) and successfully cancels their trial.",
+  "preconditions": [
+    "User has an active trial and is in the experiment cohort.",
+    "The 'First Month Discount' offer is enabled in the backend."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to the 'Trial Corner' hub and click 'Cancel Trial'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. On the 'Loss Aversion' pop-up, click 'Cancel Anyway & Lose Access'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. On the 'Incentive' offer pop-up, click the secondary action to cancel (e.g., 'No thanks, cancel anyway').",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The trial is immediately cancelled. The user loses access to premium content. A feedback pop-up is displayed. The homepage widget updates to the 'cancelled' state.",
+  "priority": "High",
+  "category": "Edge Case",
+  "created_at": "2026-03-30T16:16:22.749488",
+  "updated_at": "2026-03-30T16:16:22.749492"
+}

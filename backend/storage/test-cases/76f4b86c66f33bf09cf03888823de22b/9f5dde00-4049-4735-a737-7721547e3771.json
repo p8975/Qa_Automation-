@@ -1,0 +1,40 @@
+{
+  "tc_id": "9f5dde00-4049-4735-a737-7721547e3771",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify EOF with leading spaces causes heredoc issues",
+  "description": "Test that EOF marker must have no leading spaces as documented",
+  "preconditions": [
+    "Terminal access"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Attempt to create config with leading space: cat > test.json << EOF",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Add JSON content",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Add ' EOF' with leading space",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Observe if heredoc terminates correctly",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "EOF with leading spaces may cause unexpected behavior or errors",
+  "priority": "Low",
+  "category": "Edge Case",
+  "created_at": "2026-03-11T13:51:23.507218",
+  "updated_at": "2026-03-11T13:51:23.507221"
+}

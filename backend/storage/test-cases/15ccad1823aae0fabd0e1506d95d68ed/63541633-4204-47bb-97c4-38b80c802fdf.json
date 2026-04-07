@@ -1,0 +1,41 @@
+{
+  "tc_id": "63541633-4204-47bb-97c4-38b80c802fdf",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Mutual Exclusivity with Other Experiments",
+  "description": "Tests that users who are part of the Trial Corner cohort do not see other conflicting onboarding or post-trial experiments.",
+  "preconditions": [
+    "There is another active experiment, e.g., 'Onboarding Pop-up'.",
+    "A user is created who qualifies for both experiments (new user, no consumption)."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. As the new user, start a trial and do not watch content for 6 minutes.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Navigate through the app, specifically to areas where the 'Onboarding Pop-up' would normally trigger.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify the 'Onboarding Pop-up' does NOT appear.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Navigate to the homepage and verify the 'Trial Corner' widget DOES appear.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The Trial Corner experiment correctly takes precedence, and the user is excluded from other potentially conflicting experiments as specified in the PRD.",
+  "priority": "High",
+  "category": "Edge Case",
+  "created_at": "2026-03-31T10:52:09.854532",
+  "updated_at": "2026-03-31T10:52:09.854534"
+}

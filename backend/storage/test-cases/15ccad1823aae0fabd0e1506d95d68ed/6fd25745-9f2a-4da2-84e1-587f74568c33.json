@@ -1,0 +1,41 @@
+{
+  "tc_id": "6fd25745-9f2a-4da2-84e1-587f74568c33",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Remind Me toggle can be disabled",
+  "description": "Test that user can disable the reminder toggle after enabling it",
+  "preconditions": [
+    "User has active trial with Remind Me enabled",
+    "User is on Trial Corner hub"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to Trial Corner hub",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Locate Remind Me toggle in ON state",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Toggle the switch to OFF",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Verify toggle is in OFF state",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Remind Me toggle is disabled and persisted",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-04-07T17:17:08.481699",
+  "updated_at": "2026-04-07T17:17:08.481701"
+}

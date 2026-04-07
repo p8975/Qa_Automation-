@@ -1,0 +1,41 @@
+{
+  "tc_id": "832e7e2f-0541-459c-a00b-1976373080cf",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify the full cancellation flow including all user nudges",
+  "description": "Test the end-to-end cancellation flow where the user rejects the 'Loss Aversion' and 'Incentive' offers, successfully cancels, and sees a feedback pop-up.",
+  "preconditions": [
+    "User has an active trial and is in the Trial Corner.",
+    "The 'First Month Discount' offer is enabled in the backend."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. In the Trial Corner, click the 'Cancel Trial' button.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. On the 'Loss Aversion' pop-up, click the secondary action 'Cancel Anyway & Lose Access'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. On the 'Incentive' offer pop-up, click the secondary action to cancel.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Observe the feedback pop-up.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The user's trial is immediately cancelled. The Trial Corner and home widget update to a 'Cancelled' state. All content becomes locked. The feedback pop-up is displayed.",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-30T13:51:34.955044",
+  "updated_at": "2026-03-30T13:51:34.955046"
+}

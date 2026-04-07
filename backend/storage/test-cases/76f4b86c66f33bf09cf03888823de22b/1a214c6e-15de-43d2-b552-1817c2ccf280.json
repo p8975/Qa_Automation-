@@ -1,0 +1,35 @@
+{
+  "tc_id": "1a214c6e-15de-43d2-b552-1817c2ccf280",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify config directory creation when .config does not exist",
+  "description": "Test that mkdir -p creates nested directory structure correctly",
+  "preconditions": [
+    ".config directory does not exist",
+    "~/.config/opencode path is new"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Ensure ~/.config does not exist",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Run: mkdir -p ~/.config/opencode",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify directory structure was created",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Full directory path ~/.config/opencode is created successfully",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T15:54:35.985452",
+  "updated_at": "2026-03-11T15:54:35.985454"
+}

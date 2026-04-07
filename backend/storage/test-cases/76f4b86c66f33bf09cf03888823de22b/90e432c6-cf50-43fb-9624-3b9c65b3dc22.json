@@ -1,0 +1,28 @@
+{
+  "tc_id": "90e432c6-cf50-43fb-9624-3b9c65b3dc22",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify config file permissions are restrictive",
+  "description": "Test that config file has appropriate permissions to prevent unauthorized access",
+  "preconditions": [
+    "Config file created"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Run: ls -la ~/.config/opencode/config.json",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Check file permissions",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "File permissions prevent world-readable access (should be 600 or similar)",
+  "priority": "Medium",
+  "category": "Security",
+  "created_at": "2026-03-11T15:36:35.983712",
+  "updated_at": "2026-03-11T15:36:35.983714"
+}

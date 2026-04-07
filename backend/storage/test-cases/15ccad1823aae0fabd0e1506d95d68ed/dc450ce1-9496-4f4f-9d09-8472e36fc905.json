@@ -1,0 +1,35 @@
+{
+  "tc_id": "dc450ce1-9496-4f4f-9d09-8472e36fc905",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify analytics event for clicking the cancel button",
+  "description": "Test that the `cancel-clicked` event is fired with the correct `page_source` attribute from multiple locations within the flow.",
+  "preconditions": [
+    "User has an active trial.",
+    "Analytics debugger/monitoring tool is active."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to the Trial Corner and click 'Cancel Trial'. Verify `cancel-clicked` event with `page_source: trial_corner` is fired.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. On the Loss Aversion pop-up, click 'Cancel Anyway'. Verify `cancel-clicked` event with `page_source: cancel_pop-up` is fired.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. If the incentive pop-up appears, click 'Cancel Anyway'. Verify `cancel-clicked` event with `page_source: discount_pop-up` is fired.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Each cancellation action triggers a `cancel-clicked` event, and the `page_source` attribute correctly identifies the UI context where the click occurred.",
+  "priority": "Medium",
+  "category": "Integration",
+  "created_at": "2026-04-03T12:22:38.479815",
+  "updated_at": "2026-04-03T12:22:38.479817"
+}

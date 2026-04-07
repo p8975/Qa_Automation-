@@ -1,0 +1,35 @@
+{
+  "tc_id": "34d9e688-d200-4c7c-ab40-d749bf059d4d",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify support chat accessible from Trial Corner",
+  "description": "Test that user can access support chat from Trial Corner Manage Trial section",
+  "preconditions": [
+    "User has active trial",
+    "User is on Trial Corner hub"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to Trial Corner hub",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. In Manage Trial section, click 'Support' option",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify user is redirected to chat support or WhatsApp support",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Support chat opens successfully",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-04-07T17:17:08.486189",
+  "updated_at": "2026-04-07T17:17:08.486190"
+}

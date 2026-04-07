@@ -1,0 +1,40 @@
+{
+  "tc_id": "386e0ae6-4e38-42e4-8c26-b837aaf2db0a",
+  "prd_hash": "e0b156f3081e99b42f5dd2726924214c",
+  "title": "UI/UX - Verify screen layout on device rotation (OTP Screen)",
+  "description": "Checks for UI breakages or layout issues on the OTP screen during device rotation.",
+  "preconditions": [
+    "User is on the OTP screen."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. On the OTP screen, rotate the device to landscape mode.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Verify all UI elements are visible and not overlapping.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Rotate the device back to portrait mode.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Verify the layout returns to its original state without issues.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The OTP screen layout adapts correctly to both portrait and landscape orientations without any visual glitches.",
+  "priority": "Low",
+  "category": "Functional",
+  "created_at": "2026-04-06T16:49:40.091970",
+  "updated_at": "2026-04-06T16:49:40.091973"
+}

@@ -1,0 +1,41 @@
+{
+  "tc_id": "afb3d413-1156-48ef-94ea-159fda55a112",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify feedback popup appears after final cancellation",
+  "description": "Test that after cancelling without grabbing offer, feedback popup displays",
+  "preconditions": [
+    "User has active trial",
+    "User completes cancellation without offer"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to Trial Corner > Manage Trial",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click Cancel Trial > Cancel Anyway",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. If offer appears, click Cancel Anyway again",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Observe feedback popup",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Feedback popup appears requesting user feedback, feedback-popup-viewed event fires, on submission feedback-submitted event fires with selected option",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-03-10T19:16:40.859378",
+  "updated_at": "2026-03-10T19:16:40.859378"
+}

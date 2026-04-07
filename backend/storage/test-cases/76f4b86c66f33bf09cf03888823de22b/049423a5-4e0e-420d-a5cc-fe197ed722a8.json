@@ -1,0 +1,34 @@
+{
+  "tc_id": "049423a5-4e0e-420d-a5cc-fe197ed722a8",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify security of API key in config.json",
+  "description": "Test that API key reference uses environment variable pattern correctly",
+  "preconditions": [
+    "config.json created with {env:OPENCODE_KEY} pattern"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Check config.json content: cat ~/.config/opencode/config.json",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Verify API key is stored as {env:OPENCODE_KEY} not as raw key",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify actual key is only in OPENCODE_KEY environment variable",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "API key is not exposed in config.json file, uses environment variable reference",
+  "priority": "High",
+  "category": "Security",
+  "created_at": "2026-03-11T13:51:23.505442",
+  "updated_at": "2026-03-11T13:51:23.505443"
+}

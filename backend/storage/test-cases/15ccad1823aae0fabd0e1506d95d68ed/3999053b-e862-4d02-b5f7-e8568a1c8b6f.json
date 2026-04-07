@@ -1,0 +1,35 @@
+{
+  "tc_id": "3999053b-e862-4d02-b5f7-e8568a1c8b6f",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Engagement Section Logic: Trailer autoplay",
+  "description": "Tests the specific logic in the Engagement section where a trailer autoplays if the user has completed more than 90% of their previously acquired content.",
+  "preconditions": [
+    "User has an active trial and is in the target cohort.",
+    "User has acquired content and watched >90% of it."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to the 'Trial Corner' hub.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Scroll to the 'Engagement' section.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Observe the content displayed.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The section should display the top recommended content in a similar genre, and its trailer should begin playing automatically. The 'trial-corner-topcontent-played' event should be fired with 'autoplay' as an attribute.",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-03-31T12:24:36.082236",
+  "updated_at": "2026-03-31T12:24:36.082238"
+}

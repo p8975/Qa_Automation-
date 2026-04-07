@@ -1,0 +1,35 @@
+{
+  "tc_id": "195fef9d-4868-4b3b-8aca-2b8fdec0e1bf",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify login fails with incorrect password",
+  "description": "Test that login attempt with correct email but wrong password shows error",
+  "preconditions": [
+    "User account exists and is verified",
+    "User is on login page"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Enter registered email address",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enter incorrect password",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Click 'Login' button",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Error message: INVALID_CREDENTIALS displayed",
+  "priority": "High",
+  "category": "Error Handling",
+  "created_at": "2026-03-11T15:41:31.924203",
+  "updated_at": "2026-03-11T15:41:31.924205"
+}

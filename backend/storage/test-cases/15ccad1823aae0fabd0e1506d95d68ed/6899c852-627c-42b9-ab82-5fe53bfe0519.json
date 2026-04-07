@@ -1,0 +1,40 @@
+{
+  "tc_id": "6899c852-627c-42b9-ab82-5fe53bfe0519",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Trial Corner is mutually exclusive with onboarding experiments",
+  "description": "Test that users seeing Trial Corner do not see any onboarding experiments",
+  "preconditions": [
+    "User qualifies for Trial Corner (did not start consumption in first 5 mins)"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. User activates trial but does not consume content in first 5 minutes",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. User logs in after 5 minutes",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Check if Trial Corner is visible",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Check if any onboarding experiment is displayed",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Trial Corner widget is visible, no onboarding experiments are shown to user",
+  "priority": "Medium",
+  "category": "Integration",
+  "created_at": "2026-03-11T16:33:03.577494",
+  "updated_at": "2026-03-11T16:33:03.577495"
+}

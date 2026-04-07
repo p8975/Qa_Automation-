@@ -1,0 +1,41 @@
+{
+  "tc_id": "708856c7-e5d8-4a6f-aa23-0c39490ec24c",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify the correct entry point widget/pill is displayed based on trial day",
+  "description": "Tests that the UI correctly displays the persistent widget on Day 0/1 and switches to the floating pill from Day 2 onwards.",
+  "preconditions": [
+    "User has an active trial.",
+    "User is part of the 'Trial Corner' experiment cohort."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. As a Day 0 or Day 1 trial user, navigate to the homepage.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Verify the persistent, high-visibility widget ('Trial Mode: X Days Remaining...') is displayed.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Log in as a Day 2 (or later) trial user and navigate to the homepage.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Verify the homepage now displays a floating pill entry point instead of the larger widget.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The correct entry point UI is shown based on the number of days the user has been in their trial. Both entry points should navigate to the Trial Corner hub when clicked.",
+  "priority": "Medium",
+  "category": "UI",
+  "created_at": "2026-03-30T10:18:59.232519",
+  "updated_at": "2026-03-30T10:18:59.232520"
+}

@@ -1,0 +1,53 @@
+{
+  "tc_id": "c1efc5f4-86cc-4b32-928b-e8902c56b278",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify widget variant changes based on trial state",
+  "description": "Test that homepage widget and floating pill display correct variant based on trial status (active/paused/canceled)",
+  "preconditions": [
+    "Users with different trial states exist (active, paused, canceled)",
+    "Users are logged in"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Log in with user having active trial",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Check widget variant",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Log in with user having paused trial",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Check widget variant",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Log in with user having canceled trial",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 6,
+      "description": "6. Check widget variant",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Each trial state shows corresponding widget variant (home-trial active/pause/cancel) with appropriate design and messaging",
+  "priority": "Medium",
+  "category": "UI",
+  "created_at": "2026-03-11T09:59:31.935186",
+  "updated_at": "2026-03-11T09:59:31.935187"
+}

@@ -1,0 +1,34 @@
+{
+  "tc_id": "5ab40359-5c21-4cfa-9ec5-bb40fa2a974c",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify opencode fails gracefully with invalid baseURL in config",
+  "description": "Test error handling when provider baseURL is malformed or unreachable",
+  "preconditions": [
+    "Config with invalid baseURL value"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Edit config.json with invalid baseURL",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Run opencode",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Observe error handling",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "OpenCode reports error about invalid baseURL or connection failure",
+  "priority": "Medium",
+  "category": "Error Handling",
+  "created_at": "2026-03-11T15:54:35.986612",
+  "updated_at": "2026-03-11T15:54:35.986614"
+}

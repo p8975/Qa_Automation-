@@ -1,0 +1,41 @@
+{
+  "tc_id": "b6193bbb-5c12-4e2e-b152-8ef309cbc712",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Mutual Exclusivity with Other Experiments",
+  "description": "Test that a user who is assigned to the Trial Corner experiment is not concurrently shown any other onboarding or post-trial experiments.",
+  "preconditions": [
+    "User is eligible for and assigned to the Trial Corner experiment.",
+    "There is another active experiment, such as a different onboarding flow."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Log in as the user assigned to the Trial Corner cohort.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Navigate through the standard user flow (homepage, content pages, etc.).",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify the user sees the Trial Corner widget.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Actively look for UI elements or pop-ups related to other known, active experiments.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The user is only exposed to the Trial Corner experience. No elements from other mutually exclusive experiments are visible, confirming the targeting rules are working correctly.",
+  "priority": "High",
+  "category": "Integration",
+  "created_at": "2026-04-03T12:32:35.180832",
+  "updated_at": "2026-04-03T12:32:35.180832"
+}

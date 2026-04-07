@@ -1,0 +1,47 @@
+{
+  "tc_id": "c6585c25-07bf-44d2-851a-bdad1a8c02d7",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify the cancellation flow when the user declines the 'Incentive Offer'",
+  "description": "Tests that a user who persists in canceling and declines the discount offer successfully cancels their trial and loses access immediately.",
+  "preconditions": [
+    "User has an active trial and is in the Trial Corner cohort.",
+    "The 'Incentive Offer' is enabled in the backend."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to the 'Trial Corner' Hub and click 'Cancel Trial'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. In the 'Loss Aversion' pop-up, click 'Cancel Anyway & Lose Access'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. In the 'Incentive Offer' pop-up, click the secondary 'Cancel Anyway' option.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Observe the feedback pop-up.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Navigate back to the homepage or Trial Corner.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The user's trial is immediately canceled. The homepage widget updates to the 'cancelled trial' design. All premium content in the Trial Corner becomes locked. The `feedback-popup-viewed` event is triggered.",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-03-30T13:58:41.020890",
+  "updated_at": "2026-03-30T13:58:41.020894"
+}

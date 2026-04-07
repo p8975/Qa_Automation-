@@ -1,0 +1,53 @@
+{
+  "tc_id": "7c24c31b-b2c6-4366-80a6-aac3728d0a51",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify pause trial flow with confirmation popup",
+  "description": "Test that clicking pause trial shows confirmation popup with options to remind later or confirm pause",
+  "preconditions": [
+    "User has active trial",
+    "User is on Trial Corner Manage Trial section"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to Trial Corner",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Scroll to Manage Trial section",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Click 'Pause Trial' button",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Observe popup with 'Remind Later' and 'Pause Anyway' options",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Click 'Pause Anyway'",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 6,
+      "description": "6. Verify trial is paused",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Popup appears with both options. After confirming pause, trial status changes to paused and UI updates accordingly",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T18:39:28.001287",
+  "updated_at": "2026-03-11T18:39:28.001289"
+}

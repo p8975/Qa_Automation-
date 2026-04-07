@@ -1,0 +1,40 @@
+{
+  "tc_id": "97dc8dcd-eb31-4829-84d7-b79a0ac7ae01",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify API key with special characters is handled correctly",
+  "description": "Test that API keys containing special characters are properly escaped and accepted",
+  "preconditions": [
+    "API key with special characters ($, &, !, etc.) is available"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Create API key with special characters",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Add to .zshrc with proper quoting: export OPENCODE_KEY='key$with&special!chars'",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Source .zshrc",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Verify key is correctly stored and accessible",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "API key with special characters is stored and retrieved correctly without shell interpretation",
+  "priority": "Medium",
+  "category": "Security",
+  "created_at": "2026-03-11T14:12:51.648756",
+  "updated_at": "2026-03-11T14:12:51.648757"
+}

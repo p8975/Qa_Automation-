@@ -1,0 +1,40 @@
+{
+  "tc_id": "fd98ca9c-edf3-41de-8f6c-401b9b748796",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Validate error handling for registration with an existing email",
+  "description": "Test that the system prevents a new user from registering with an email address that is already in use and provides a clear error message.",
+  "preconditions": [
+    "An account with the email 'existing@example.com' already exists"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to the registration page",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enter the email 'existing@example.com'",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Enter a valid password and confirm it",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Click the 'Register' button",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The registration fails. An error message 'Email already exists' is displayed, and the API response contains the 'EMAIL_ALREADY_EXISTS' error code.",
+  "priority": "High",
+  "category": "Error Handling",
+  "created_at": "2026-03-27T15:38:37.609893",
+  "updated_at": "2026-03-27T15:38:37.609894"
+}

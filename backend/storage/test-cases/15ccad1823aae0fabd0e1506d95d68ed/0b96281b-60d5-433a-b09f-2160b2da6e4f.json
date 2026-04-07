@@ -1,0 +1,48 @@
+{
+  "tc_id": "0b96281b-60d5-433a-b09f-2160b2da6e4f",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify 'Set a Reminder' happy path for an eligible user",
+  "description": "Test that a user who has not watched content within 5 minutes of starting a trial sees the Trial Corner and can successfully set a 24-hour reminder.",
+  "preconditions": [
+    "User has an active \u20b91 trial.",
+    "User has not consumed any content within the first 5 minutes of trial activation.",
+    "User is on the app homepage."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Observe the 'Trial Mode' widget on the homepage.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click the widget to navigate to the 'Trial Corner' hub.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Locate the 'Manage Trial' section.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Click the toggle for 'Remind me 24h before trial ends.'",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Verify the 'remind-me-clicked' event is fired with 'trial corner' as page source.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The toggle activates successfully, a confirmation message is shown, and the system is set to send a notification 24 hours before the trial ends. The analytics event is correctly logged.",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-30T13:51:34.953159",
+  "updated_at": "2026-03-30T13:51:34.953172"
+}

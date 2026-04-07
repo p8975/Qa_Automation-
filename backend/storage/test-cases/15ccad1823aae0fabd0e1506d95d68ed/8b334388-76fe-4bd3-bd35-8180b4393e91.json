@@ -1,0 +1,35 @@
+{
+  "tc_id": "8b334388-76fe-4bd3-bd35-8180b4393e91",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify homepage widget updates to paused design after trial pause",
+  "description": "Test that after pausing trial, the homepage widget reflects the paused state with appropriate design",
+  "preconditions": [
+    "User paused their trial",
+    "User navigates to homepage"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Pause the trial through Trial Corner",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Navigate to homepage",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Observe the trial widget/pill",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Homepage widget displays paused design indicating trial is paused",
+  "priority": "High",
+  "category": "UI",
+  "created_at": "2026-03-11T09:56:39.863341",
+  "updated_at": "2026-03-11T09:56:39.863341"
+}

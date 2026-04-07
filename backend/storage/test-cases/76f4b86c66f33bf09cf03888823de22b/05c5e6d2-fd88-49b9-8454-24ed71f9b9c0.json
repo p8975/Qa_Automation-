@@ -1,0 +1,34 @@
+{
+  "tc_id": "05c5e6d2-fd88-49b9-8454-24ed71f9b9c0",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify config.json handles incorrect baseURL gracefully",
+  "description": "Test that incorrect baseURL in configuration is handled appropriately",
+  "preconditions": [
+    "Config.json exists with valid structure"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Modify baseURL to incorrect value in config.json",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Run: opencode --help",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Observe error handling",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "OpenCode handles connection error gracefully with clear message",
+  "priority": "Medium",
+  "category": "Error Handling",
+  "created_at": "2026-03-11T15:55:47.727338",
+  "updated_at": "2026-03-11T15:55:47.727339"
+}

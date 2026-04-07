@@ -1,0 +1,40 @@
+{
+  "tc_id": "ee227bbd-8183-4e1b-b894-5eaa4c9e4f06",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify running each line separately works correctly",
+  "description": "Test that executing commands individually (as recommended) produces expected results",
+  "preconditions": [
+    "All prerequisites met for running commands"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Execute echo PATH command separately",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Execute echo OPENCODE_KEY command separately",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Execute source ~/.zshrc separately",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Verify each command succeeds",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Each command executes independently without interference",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-03-11T14:12:51.649520",
+  "updated_at": "2026-03-11T14:12:51.649520"
+}

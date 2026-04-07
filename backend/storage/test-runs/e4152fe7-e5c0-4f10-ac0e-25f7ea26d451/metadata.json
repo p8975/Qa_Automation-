@@ -1,0 +1,78 @@
+{
+  "run_id": "e4152fe7-e5c0-4f10-ac0e-25f7ea26d451",
+  "build_id": "a342c848-83d2-4dea-9863-c21108a5bb57",
+  "test_case_ids": [
+    "2d467e5f-adc5-4f65-b338-8dd060bc6d8c"
+  ],
+  "device_info": {
+    "device_id": "emulator-5554",
+    "device_name": "sdk_gphone64_arm64",
+    "os_version": "16",
+    "is_emulator": true
+  },
+  "status": "completed",
+  "started_at": "2026-03-31T11:29:43.914924",
+  "completed_at": "2026-03-31T11:30:09.469825",
+  "duration_seconds": 25.554901,
+  "results": [
+    {
+      "test_case_id": "2d467e5f-adc5-4f65-b338-8dd060bc6d8c",
+      "status": "pass",
+      "duration_ms": 17061,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "pass",
+          "duration_ms": 1954,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ID, \"com.android.permissioncontroller:id/permission_message\").click()"
+        },
+        {
+          "step_number": 2,
+          "status": "pass",
+          "duration_ms": 774,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ID, \"com.android.permissioncontroller:id/permission_message\").is_displayed()"
+        },
+        {
+          "step_number": 3,
+          "status": "pass",
+          "duration_ms": 781,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ID, \"com.android.permissioncontroller:id/permission_message\").is_displayed()"
+        },
+        {
+          "step_number": 4,
+          "status": "pass",
+          "duration_ms": 2671,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ID, \"com.android.permissioncontroller:id/permission_message\").click()"
+        },
+        {
+          "step_number": 5,
+          "status": "pass",
+          "duration_ms": 813,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ID, \"com.android.permissioncontroller:id/permission_message\").is_displayed()"
+        },
+        {
+          "step_number": 6,
+          "status": "pass",
+          "duration_ms": 768,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ID, \"com.android.permissioncontroller:id/permission_message\").is_displayed()"
+        }
+      ]
+    }
+  ]
+}

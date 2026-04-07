@@ -1,0 +1,46 @@
+{
+  "tc_id": "115728cc-9f93-4882-9557-c612a6f800c5",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify the full cancellation flow without accepting the incentive offer",
+  "description": "Test that a user can cancel their trial completely by declining all retention offers and that the UI updates correctly.",
+  "preconditions": [
+    "User has an active trial and is in the Trial Corner."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Click the 'Cancel Trial' button.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. On the 'Loss Aversion' pop-up, click 'Cancel Anyway & Lose Access'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. If the 'Incentive' pop-up appears, click the secondary 'Cancel Anyway' option.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Observe the feedback pop-up.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Close the feedback pop-up and observe the Trial Corner and Homepage widget.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The user's trial is immediately cancelled. Access to premium content is revoked. The Trial Corner and Homepage widget update to the 'cancelled trial' design, showing content sections as locked.",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-04-03T12:22:38.475825",
+  "updated_at": "2026-04-03T12:22:38.475829"
+}

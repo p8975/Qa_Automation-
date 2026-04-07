@@ -1,0 +1,34 @@
+{
+  "tc_id": "96f223bf-6b8b-402b-88e8-ab1ad60faf40",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Entry Point Logic for Different Trial Days",
+  "description": "Tests that the correct UI entry point is displayed based on the age of the user's trial.",
+  "preconditions": [
+    "User is eligible for the Trial Corner."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. For a user on Day 0 or Day 1 of their trial, load the homepage.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. For a user on Day 2 of their trial, load the homepage.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. For a user on Day 6 of their trial, load the homepage.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "On Day 0/1, the user sees the 'Homepage widget'. On Day 2 and Day 6, the user sees the 'Homepage floating pill'. Both entry points should lead to the Trial Corner.",
+  "priority": "Medium",
+  "category": "UI",
+  "created_at": "2026-03-30T16:01:09.535467",
+  "updated_at": "2026-03-30T16:01:09.535469"
+}

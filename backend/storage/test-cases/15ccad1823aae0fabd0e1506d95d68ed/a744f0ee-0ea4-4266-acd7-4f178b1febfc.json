@@ -1,0 +1,35 @@
+{
+  "tc_id": "a744f0ee-0ea4-4266-acd7-4f178b1febfc",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify mutual exclusivity with other experiments",
+  "description": "Test to ensure that a user who is bucketed into the 'Trial Corner' experiment is not simultaneously shown other conflicting onboarding experiments.",
+  "preconditions": [
+    "User is eligible for multiple experiments, including 'Trial Corner' and another 'Onboarding Tour'.",
+    "User is bucketed into the 'Trial Corner' experiment by the system."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Log in as the test user and land on the homepage.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Observe the UI for any onboarding elements.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Navigate through the app's initial screens.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The user should only see the 'Trial Corner' widget and its associated flow. No elements from the conflicting 'Onboarding Tour' experiment (e.g., coach marks, pop-ups) should be visible.",
+  "priority": "Medium",
+  "category": "Edge Case",
+  "created_at": "2026-04-03T12:22:38.480461",
+  "updated_at": "2026-04-03T12:22:38.480462"
+}

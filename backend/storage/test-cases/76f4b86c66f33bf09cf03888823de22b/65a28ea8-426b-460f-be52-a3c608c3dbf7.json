@@ -1,0 +1,35 @@
+{
+  "tc_id": "65a28ea8-426b-460f-be52-a3c608c3dbf7",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify .zshrc is not overwritten when using > instead of >>",
+  "description": "Test the critical error case where single > operator overwrites entire .zshrc file",
+  "preconditions": [
+    "OpenCode installed",
+    ".zshrc has existing content"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Backup current .zshrc content",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Run: echo 'export PATH=\"$HOME/.opencode/bin:$PATH\"' > ~/.zshrc",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Check .zshrc content",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Original .zshrc content is completely lost - this is the documented error condition users must avoid",
+  "priority": "High",
+  "category": "Edge Case",
+  "created_at": "2026-03-11T15:36:35.978715",
+  "updated_at": "2026-03-11T15:36:35.978717"
+}

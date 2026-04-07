@@ -1,0 +1,47 @@
+{
+  "tc_id": "90ff407d-5de8-4e22-911d-5e7dff895c5b",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Pause Flow and Content Locking",
+  "description": "Tests the user's ability to pause their trial and confirms that premium content becomes inaccessible.",
+  "preconditions": [
+    "User has an active \u20b91 trial.",
+    "User is in the 'Trial Corner' cohort."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to the 'Trial Corner' hub and click 'Pause Trial'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. On the 'Loss Aversion' pop-up, click 'Pause Anyway & Lose Access'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify the homepage widget and Trial Corner hub UI update to a 'Paused' state.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. In the Trial Corner hub, attempt to click on content in the 'Engagement' or 'Trending' sections.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Attempt to play any premium content from anywhere in the app.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The trial status is successfully changed to 'Paused'. All premium content sections on the Trial Corner hub are locked/disabled, and the user is blocked from playing premium content.",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-03-31T10:52:09.850563",
+  "updated_at": "2026-03-31T10:52:09.850565"
+}

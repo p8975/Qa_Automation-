@@ -1,0 +1,40 @@
+{
+  "run_id": "3c057651-12dd-426e-a9ce-b96e820e92c1",
+  "build_id": "858332ec-7a84-458a-bb77-3825210317ea",
+  "test_case_ids": [
+    "571e2854-3af5-451b-9372-7f3ac3dfc92c"
+  ],
+  "device_info": {
+    "device_id": "10BF5314JZ008N5",
+    "device_name": "I2403",
+    "os_version": "15",
+    "is_emulator": false
+  },
+  "status": "completed",
+  "started_at": "2026-03-11T16:15:42.964238",
+  "completed_at": "2026-03-11T16:17:47.822023",
+  "duration_seconds": 124.857785,
+  "results": [
+    {
+      "test_case_id": "571e2854-3af5-451b-9372-7f3ac3dfc92c",
+      "status": "fail",
+      "duration_ms": 93967,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/3c057651-12dd-426e-a9ce-b96e820e92c1/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 3133,
+          "screenshot_path": "storage/test-runs/3c057651-12dd-426e-a9ce-b96e820e92c1/screenshots/step_1_error.png",
+          "error_message": "Could not parse command: driver.find_element(AppiumBy.ACCESSIBILITY ID, \"Watch for 4 days & win Kranti medal\").click()",
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY ID, \"Watch for 4 days & win Kranti medal\").click()"
+        }
+      ]
+    }
+  ]
+}

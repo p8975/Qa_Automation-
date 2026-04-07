@@ -1,0 +1,46 @@
+{
+  "tc_id": "f90de427-503b-4d2a-8bd3-177a1025fe9b",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Validate password complexity rules during registration",
+  "description": "Test that the system rejects passwords that do not meet the specified security criteria and displays a clear error message.",
+  "preconditions": [
+    "User is on the registration page"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Enter a valid email address",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Attempt to register with a password missing an uppercase letter (e.g., 'invalidpass1!')",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Attempt to register with a password missing a number (e.g., 'Invalidpass!')",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Attempt to register with a password missing a special character (e.g., 'Invalidpass1')",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Attempt to register with a password less than 8 characters (e.g., 'Val1!')",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "For each invalid attempt, the registration fails and an inline error message is displayed clearly stating which password requirement was not met. The error code should be 'WEAK_PASSWORD'.",
+  "priority": "High",
+  "category": "Error Handling",
+  "created_at": "2026-03-27T15:38:37.608561",
+  "updated_at": "2026-03-27T15:38:37.608563"
+}

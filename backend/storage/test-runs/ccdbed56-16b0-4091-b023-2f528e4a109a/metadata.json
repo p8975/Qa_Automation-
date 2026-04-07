@@ -1,0 +1,40 @@
+{
+  "run_id": "ccdbed56-16b0-4091-b023-2f528e4a109a",
+  "build_id": "858332ec-7a84-458a-bb77-3825210317ea",
+  "test_case_ids": [
+    "9dbd454f-1f48-4a7b-be3e-09bf5c5bf1b0"
+  ],
+  "device_info": {
+    "device_id": "10BF5314JZ008N5",
+    "device_name": "I2403",
+    "os_version": "15",
+    "is_emulator": false
+  },
+  "status": "completed",
+  "started_at": "2026-03-11T11:17:37.644014",
+  "completed_at": "2026-03-11T11:19:45.468620",
+  "duration_seconds": 127.824606,
+  "results": [
+    {
+      "test_case_id": "9dbd454f-1f48-4a7b-be3e-09bf5c5bf1b0",
+      "status": "fail",
+      "duration_ms": 105239,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/ccdbed56-16b0-4091-b023-2f528e4a109a/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 13975,
+          "screenshot_path": "storage/test-runs/ccdbed56-16b0-4091-b023-2f528e4a109a/screenshots/step_1_error.png",
+          "error_message": "unexpected EOF while parsing (<string>, line 18)",
+          "appium_command": "from appium import webdriver\nfrom appium.webdriver.common.appiumby import AppiumBy\nfrom selenium.webdriver.support.ui import WebDriverWait\nfrom selenium.webdriver.support import expected_conditions as EC\n\ndef login_trial_user(driver, username=\"trial_user\", password=\"trial_password\"):\n    wait = WebDriverWait(driver, 10)\n    \n    # Enter username/email\n    username_field = wait.until(EC.presence_of_element_located((AppiumBy.ACCESSIBILITY_ID, \"username_field\")))\n    username_field.send_keys(username)\n    \n    # Enter password\n    password_field = driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"password_field\")\n    password_field.send_keys(password)\n    \n    # Tap login button\n    login_button = wait.until(EC.element"
+        }
+      ]
+    }
+  ]
+}

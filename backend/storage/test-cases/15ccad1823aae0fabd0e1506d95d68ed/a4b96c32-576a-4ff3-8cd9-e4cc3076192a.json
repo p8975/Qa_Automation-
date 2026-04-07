@@ -1,0 +1,52 @@
+{
+  "tc_id": "a4b96c32-576a-4ff3-8cd9-e4cc3076192a",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify content is accessible during active trial and locked after pause/cancel",
+  "description": "Test that premium content is accessible during active trial but becomes locked when trial is paused or cancelled",
+  "preconditions": [
+    "User has trial active"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Verify content is accessible with active trial",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Pause the trial",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Try to access content",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Resume trial",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Cancel the trial",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 6,
+      "description": "6. Try to access content",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Content accessible during active trial, locked after pause, locked after cancellation with appropriate messaging",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T09:56:39.863566",
+  "updated_at": "2026-03-11T09:56:39.863567"
+}

@@ -1,0 +1,36 @@
+{
+  "tc_id": "dee21cfc-aaa4-48a9-aa44-4e30f7f4d844",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify opencode command is executable after PATH configuration",
+  "description": "Test that opencode binary can be executed from any directory after PATH setup",
+  "preconditions": [
+    "OpenCode installed",
+    "PATH configured in .zshrc",
+    "Terminal restarted or sourced"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Open new terminal session or source .zshrc",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Execute: which opencode",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Execute: opencode --version or opencode --help",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "opencode command is found in PATH and executable",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T15:57:33.277436",
+  "updated_at": "2026-03-11T15:57:33.277437"
+}

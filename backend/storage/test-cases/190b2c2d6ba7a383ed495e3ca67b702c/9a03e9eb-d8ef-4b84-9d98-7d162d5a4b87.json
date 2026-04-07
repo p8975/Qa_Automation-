@@ -1,0 +1,34 @@
+{
+  "tc_id": "9a03e9eb-d8ef-4b84-9d98-7d162d5a4b87",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify password reset link expires after 1 hour",
+  "description": "Test that expired reset links are rejected",
+  "preconditions": [
+    "User has requested password reset"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Request password reset email",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Wait 61 minutes (or use expired test token)",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Click reset link in email",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Error message: INVALID_TOKEN or token expired message displayed",
+  "priority": "High",
+  "category": "Security",
+  "created_at": "2026-03-11T14:15:28.266635",
+  "updated_at": "2026-03-11T14:15:28.266636"
+}

@@ -1,0 +1,53 @@
+{
+  "tc_id": "db9995d7-0812-4828-8446-d0f36ef947cf",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify the 'Pause Trial' flow and subsequent content locking",
+  "description": "Tests the user's ability to pause their trial and confirms that the UI state and content access are updated correctly.",
+  "preconditions": [
+    "User has an active trial.",
+    "User is on the 'Trial Corner' hub page."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Click the 'Pause Trial' button.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. On the 'Loss Aversion' pop-up, click 'Pause Anyway & Lose Access'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify the trial is now paused.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Navigate to the homepage and verify the widget has updated to the 'Paused' design.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Navigate back to the Trial Corner hub.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 6,
+      "description": "6. Verify all content sections (Engagement, Trending, etc.) are locked and display a message indicating the trial is paused.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The trial status changes to paused. The homepage widget and Trial Corner UI update to reflect this paused state, and access to premium content is blocked.",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-03-30T10:18:59.232950",
+  "updated_at": "2026-03-30T10:18:59.232951"
+}

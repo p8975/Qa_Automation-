@@ -1,0 +1,42 @@
+{
+  "tc_id": "a03e8a70-a767-4cb2-b3e7-21c0cf646545",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Incentive Offer appears during cancellation flow",
+  "description": "Test that if backend has offer enabled, user sees discount offer after clicking 'Cancel Anyway'",
+  "preconditions": [
+    "User has active trial",
+    "Offer is activated in backend with 50% discount",
+    "User proceeds to cancel anyway"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to Trial Corner > Manage Trial",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click Cancel Trial",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Click 'Cancel Anyway' on Exit Gate",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Observe offer popup",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Offer popup displays with discount (e.g., 'Lock in 50% off your first month now'), shows trust clause about payment starting after trial ends, 'Grab Offer' and 'Cancel Anyway' options shown",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-10T19:16:40.859258",
+  "updated_at": "2026-03-10T19:16:40.859259"
+}

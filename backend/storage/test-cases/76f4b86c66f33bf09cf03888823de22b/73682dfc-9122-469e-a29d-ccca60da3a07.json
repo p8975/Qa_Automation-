@@ -1,0 +1,47 @@
+{
+  "tc_id": "73682dfc-9122-469e-a29d-ccca60da3a07",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify config.json is created with valid JSON structure",
+  "description": "Test that config file is created with correct JSON format and all required fields",
+  "preconditions": [
+    "~/.config/opencode directory exists",
+    "OPENCODE_KEY environment variable is set"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Execute: cat > ~/.config/opencode/config.json << 'EOF'",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Paste the complete JSON configuration",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Ensure EOF has no leading spaces",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Verify file exists: ls -la ~/.config/opencode/config.json",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Validate JSON syntax: cat ~/.config/opencode/config.json | python3 -m json.tool",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "config.json file is created with valid JSON structure containing all required fields",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T13:51:23.500825",
+  "updated_at": "2026-03-11T13:51:23.500828"
+}

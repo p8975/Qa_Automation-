@@ -1,0 +1,35 @@
+{
+  "tc_id": "2902f24b-63e9-4380-96e4-9afa7f8aa486",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify discount offer popup appears after loss aversion screen",
+  "description": "Test that users who proceed past the loss aversion screen see the incentive offer",
+  "preconditions": [
+    "User is on Loss Aversion Exit Gate",
+    "Offer is activated in backend"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to Cancel Trial flow",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click 'Cancel Anyway' or proceed past loss aversion",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Observe offer popup",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Offer popup displays with discount percentage, price, offer title from backend, and trust clause about paid subscription starting after trial",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T10:04:15.369805",
+  "updated_at": "2026-03-11T10:04:15.369806"
+}

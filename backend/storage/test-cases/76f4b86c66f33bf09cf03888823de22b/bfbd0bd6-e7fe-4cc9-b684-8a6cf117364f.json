@@ -1,0 +1,29 @@
+{
+  "tc_id": "bfbd0bd6-e7fe-4cc9-b684-8a6cf117364f",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify opencode command is executable after PATH configuration",
+  "description": "Test that opencode can be invoked from any directory after PATH is configured",
+  "preconditions": [
+    "OpenCode installed",
+    "PATH configured and sourced"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Run: which opencode",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Run: opencode --version or opencode --help",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "opencode command is found and executes without command not found error",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T15:36:35.981714",
+  "updated_at": "2026-03-11T15:36:35.981716"
+}

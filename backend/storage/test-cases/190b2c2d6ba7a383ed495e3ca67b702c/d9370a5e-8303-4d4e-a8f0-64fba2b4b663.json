@@ -1,0 +1,41 @@
+{
+  "tc_id": "d9370a5e-8303-4d4e-a8f0-64fba2b4b663",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify duplicate email registration is rejected",
+  "description": "Test that registering with an already existing email address shows appropriate error",
+  "preconditions": [
+    "User account already exists",
+    "User is on registration page"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Enter email address of existing account",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enter valid password meeting all criteria",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Enter same password in confirm field",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Click 'Register' button",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Error message displayed: EMAIL_ALREADY_EXISTS",
+  "priority": "High",
+  "category": "Error Handling",
+  "created_at": "2026-03-11T15:41:31.922090",
+  "updated_at": "2026-03-11T15:41:31.922093"
+}

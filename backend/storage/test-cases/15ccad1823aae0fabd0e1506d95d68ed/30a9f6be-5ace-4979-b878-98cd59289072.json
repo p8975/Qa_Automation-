@@ -1,0 +1,40 @@
+{
+  "tc_id": "30a9f6be-5ace-4979-b878-98cd59289072",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Engagement section shows content based on consumption threshold",
+  "description": "Test that content recommendation logic works for pre and post 90% consumption",
+  "preconditions": [
+    "User is on Trial Corner with active trial"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Check Engagement section with less than 90% content consumed",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Verify acquired content is displayed",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Simulate 90%+ consumption scenario",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Check Engagement section again",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Pre-90%: Shows acquired content for continuation. Post-90%: Shows top 1 content in similar genre with trailer autoplay option",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-03-11T10:04:15.370168",
+  "updated_at": "2026-03-11T10:04:15.370169"
+}

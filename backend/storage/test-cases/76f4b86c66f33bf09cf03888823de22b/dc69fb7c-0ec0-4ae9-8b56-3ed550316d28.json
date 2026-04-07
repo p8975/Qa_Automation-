@@ -1,0 +1,40 @@
+{
+  "tc_id": "dc69fb7c-0ec0-4ae9-8b56-3ed550316d28",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify config.json is created with correct content",
+  "description": "Test that config file is created with valid JSON and all required fields including provider, models, and baseURL",
+  "preconditions": [
+    "~/.config/opencode directory exists"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Run: cat > ~/.config/opencode/config.json << 'EOF' (with proper content)",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Verify file is created",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Validate JSON syntax",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Check all required fields are present",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "config.json file is created with valid JSON containing provider, baseURL, and model configuration",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T14:12:51.647416",
+  "updated_at": "2026-03-11T14:12:51.647417"
+}

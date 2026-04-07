@@ -1,0 +1,41 @@
+{
+  "tc_id": "acb4082c-5b3f-4aac-9720-80d986ad2c3a",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Trending section displays top 10 shows/movies in user's dialect",
+  "description": "Test that the trending section shows dialect-appropriate content",
+  "preconditions": [
+    "User has active trial",
+    "User's primary dialect is set"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to Trial Corner",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Locate Trending section",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify 10 content items are displayed",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Verify content is in user's primary dialect",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Trending section shows exactly 10 items in user's primary dialect",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-03-11T10:04:15.370509",
+  "updated_at": "2026-03-11T10:04:15.370509"
+}

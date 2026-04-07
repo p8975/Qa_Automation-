@@ -1,0 +1,22 @@
+{
+  "tc_id": "78d344e6-5840-4ab1-acf2-7a50fa96a00c",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify event: trial-corner-viewed",
+  "description": "Test that the 'trial-corner-viewed' event is triggered when the Trial Corner screen is displayed.",
+  "preconditions": [
+    "User is navigating to the Trial Corner"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Click on the homepage widget to navigate to the Trial Corner",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The 'trial-corner-viewed' event is fired when the screen loads.",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-04-07T22:34:46.312307",
+  "updated_at": "2026-04-07T22:34:46.312309"
+}

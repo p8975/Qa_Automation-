@@ -1,0 +1,36 @@
+{
+  "tc_id": "fca5a524-697e-4b24-84ec-3ca3d34d05c2",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Loss Aversion message appears when user clicks Pause",
+  "description": "Test that when user clicks Pause Trial button, loss aversion intervention modal appears with correct messaging",
+  "preconditions": [
+    "User has active trial",
+    "User is logged in",
+    "User is on Trial Corner hub"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to Trial Corner hub",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click on 'Pause Trial' button in Manage Trial section",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Observe the intervention modal",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Modal displays headline 'Wait! Don't lose your free days', shows remaining days, with 'Keep Trial & Set Reminder' as primary action and 'Pause Anyway' as secondary action",
+  "priority": "High",
+  "category": "UI",
+  "created_at": "2026-03-11T09:59:31.933842",
+  "updated_at": "2026-03-11T09:59:31.933843"
+}

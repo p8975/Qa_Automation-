@@ -1,0 +1,26 @@
+{
+  "tc_id": "04efa27c-b0a9-4dd7-ba66-88d68c7f83e8",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify config.json schema URL is accessible",
+  "description": "Test that the JSON schema URL in config can be resolved",
+  "preconditions": [],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Extract schema URL from config.json",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Run: curl -I https://opencode.ai/config.json",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Schema URL returns HTTP 200 or valid response",
+  "priority": "Low",
+  "category": "Integration",
+  "created_at": "2026-03-11T15:55:47.728735",
+  "updated_at": "2026-03-11T15:55:47.728736"
+}

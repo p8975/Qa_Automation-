@@ -1,0 +1,40 @@
+{
+  "tc_id": "cf9c87f2-0522-4117-a48d-b708d3dfa0f7",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify password validation accepts minimum 8 characters",
+  "description": "Test that password with exactly 8 characters meeting all other criteria is accepted",
+  "preconditions": [
+    "User is on registration page"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Enter valid email address",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enter password with exactly 8 characters (e.g., Pass123!)",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Enter same password in confirm field",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Click 'Register' button",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Password accepted, registration proceeds",
+  "priority": "High",
+  "category": "Edge Case",
+  "created_at": "2026-03-11T15:41:31.920603",
+  "updated_at": "2026-03-11T15:41:31.920607"
+}

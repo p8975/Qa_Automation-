@@ -1,0 +1,34 @@
+{
+  "tc_id": "000d293d-b411-41c8-8914-058a4944c47f",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify installation completes within reasonable time",
+  "description": "Test that curl download and installation script execution completes quickly",
+  "preconditions": [
+    "Stable internet connection"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Measure start time",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Run: curl -fsSL https://opencode.ai/install | bash",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Measure end time and calculate duration",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Installation completes within 30 seconds on typical connection",
+  "priority": "Low",
+  "category": "Performance",
+  "created_at": "2026-03-11T15:54:35.988518",
+  "updated_at": "2026-03-11T15:54:35.988520"
+}

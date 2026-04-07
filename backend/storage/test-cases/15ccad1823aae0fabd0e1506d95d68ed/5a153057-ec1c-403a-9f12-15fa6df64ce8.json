@@ -1,0 +1,53 @@
+{
+  "tc_id": "5a153057-ec1c-403a-9f12-15fa6df64ce8",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Trial Corner Hub displays correct status information",
+  "description": "Test that when user clicks the trial widget/pill, the Trial Corner page displays status, promise copy, and action buttons correctly",
+  "preconditions": [
+    "User has an active trial",
+    "User is on homepage with visible trial widget"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Click on the trial widget/pill in the header",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Wait for Trial Corner page to load",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify the Hero section shows trial status with remaining days",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Verify 'Your \u20b91 trial is active' status is displayed",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Verify 'Easy cancellation anytime. No hidden loops' promise is shown",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 6,
+      "description": "6. Verify Cancel & Pause buttons are visible",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Trial Corner displays all expected sections: Hero with remaining days, status message, cancellation promise, and action buttons",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T17:18:37.316679",
+  "updated_at": "2026-03-11T17:18:37.316682"
+}

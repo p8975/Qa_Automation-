@@ -1,0 +1,35 @@
+{
+  "tc_id": "750a63af-c4bd-427f-bfed-e835363373bd",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify login response time meets performance requirement",
+  "description": "Test that login authentication completes within 500ms at 95th percentile",
+  "preconditions": [
+    "User account exists and is verified",
+    "Performance testing tool available"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Prepare test environment with 1000 concurrent requests capability",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Execute login request with valid credentials",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Measure response time for 95th percentile",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Login response completes in less than 500ms for 95% of requests",
+  "priority": "Medium",
+  "category": "Performance",
+  "created_at": "2026-03-11T15:42:39.039999",
+  "updated_at": "2026-03-11T15:42:39.040000"
+}

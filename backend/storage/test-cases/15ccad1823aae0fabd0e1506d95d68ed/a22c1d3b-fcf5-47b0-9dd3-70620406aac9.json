@@ -1,0 +1,47 @@
+{
+  "tc_id": "a22c1d3b-fcf5-47b0-9dd3-70620406aac9",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Pause Trial updates widget to paused design",
+  "description": "Test that when user pauses their trial, the homepage widget and Trial Corner reflect the paused state",
+  "preconditions": [
+    "User has active trial",
+    "User is in Trial Corner Hub"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to Trial Corner Hub",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click 'Pause Trial' button",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. In popup, confirm pause action",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Navigate to homepage and observe widget",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Return to Trial Corner and observe design",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Homepage widget and Trial Corner display paused design state indicating trial is paused",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T10:00:04.286125",
+  "updated_at": "2026-03-11T10:00:04.286126"
+}

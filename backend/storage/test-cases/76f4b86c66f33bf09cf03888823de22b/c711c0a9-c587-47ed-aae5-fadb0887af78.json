@@ -1,0 +1,34 @@
+{
+  "tc_id": "c711c0a9-c587-47ed-aae5-fadb0887af78",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify model configuration with auto model selection",
+  "description": "Test that the auto model configuration works correctly in the provider settings",
+  "preconditions": [
+    "Valid config.json created"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Verify config has model set to company/auto",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Verify provider has models.auto.name set to Auto",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Run opencode with this configuration",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Auto model selection works as configured in provider settings",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-03-11T15:57:33.280505",
+  "updated_at": "2026-03-11T15:57:33.280506"
+}

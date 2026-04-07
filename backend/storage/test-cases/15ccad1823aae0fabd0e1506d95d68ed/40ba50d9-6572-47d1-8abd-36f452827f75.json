@@ -1,0 +1,35 @@
+{
+  "tc_id": "40ba50d9-6572-47d1-8abd-36f452827f75",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify content is locked when trial is cancelled",
+  "description": "Test that all content sections become locked after user cancels their trial",
+  "preconditions": [
+    "User has active trial",
+    "User completed cancellation flow"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Complete full cancellation flow including discount offer rejection",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Navigate to Trial Corner",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Observe content sections",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "All content sections display locked state with message indicating trial is cancelled. Homepage widget shows cancelled design",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T10:02:10.487089",
+  "updated_at": "2026-03-11T10:02:10.487089"
+}

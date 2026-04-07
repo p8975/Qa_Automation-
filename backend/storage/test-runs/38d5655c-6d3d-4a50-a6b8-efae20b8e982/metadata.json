@@ -1,0 +1,19 @@
+{
+  "run_id": "38d5655c-6d3d-4a50-a6b8-efae20b8e982",
+  "build_id": "64100a0f-4a77-4336-8c69-c599c5e16ccf",
+  "test_case_ids": [
+    "acc719f1-6064-444e-b70f-4240e2f69113",
+    "a6675324-e6de-48dd-9741-cc1610217301"
+  ],
+  "device_info": {
+    "device_id": "emulator-5554",
+    "device_name": "sdk_gphone64_arm64",
+    "os_version": "16",
+    "is_emulator": true
+  },
+  "status": "failed",
+  "started_at": "2026-04-07T12:09:49.172836",
+  "completed_at": "2026-04-07T12:09:54.978766",
+  "duration_seconds": null,
+  "results": []
+}

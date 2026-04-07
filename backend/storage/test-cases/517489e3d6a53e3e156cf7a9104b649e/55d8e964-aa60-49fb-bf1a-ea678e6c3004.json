@@ -1,0 +1,35 @@
+{
+  "tc_id": "55d8e964-aa60-49fb-bf1a-ea678e6c3004",
+  "prd_hash": "517489e3d6a53e3e156cf7a9104b649e",
+  "title": "Verify user can successfully login with valid email and 8-character password",
+  "description": "Validate that the minimum password length boundary of 8 characters allows successful authentication.",
+  "preconditions": [
+    "User account exists with password of exactly 8 characters",
+    "User is on the login screen"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Enter a valid email address in the email field",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enter a valid 8-character password in the password field",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Click the \"Login\" button",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "User is successfully authenticated and redirected to the app dashboard",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-04-07T17:10:13.191571",
+  "updated_at": "2026-04-07T17:10:13.191586"
+}

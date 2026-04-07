@@ -1,0 +1,41 @@
+{
+  "tc_id": "24e5f7a0-b80e-40c8-ba58-16513975b2e2",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Locked Content State for Paused/Cancelled Users",
+  "description": "Tests that a user who has paused or cancelled their trial sees the content sections in the Trial Corner as locked and inaccessible.",
+  "preconditions": [
+    "User has a paused or cancelled trial.",
+    "User is in the target cohort."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Log in and navigate to the Homepage.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click the widget/pill for the paused/cancelled trial.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. On the Trial Corner hub, scroll down to the content sections (Engagement, Trending).",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Attempt to click or interact with a content item.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The content sections should be visually locked (e.g., greyed out with a lock icon). Clicking on content should not initiate playback or lead to a content details page.",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-03-31T12:24:36.081391",
+  "updated_at": "2026-03-31T12:24:36.081393"
+}

@@ -1,0 +1,35 @@
+{
+  "tc_id": "cfb61442-b90c-40c5-ae58-d83b379a2297",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify error handling when PATH is incorrectly configured",
+  "description": "Test that opencode fails gracefully when PATH does not include installation directory",
+  "preconditions": [
+    "OpenCode installed",
+    "PATH not configured or incorrectly configured"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Remove opencode from PATH if present",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Execute: opencode",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Observe error message",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Command not found error is displayed",
+  "priority": "High",
+  "category": "Error Handling",
+  "created_at": "2026-03-11T13:51:23.503684",
+  "updated_at": "2026-03-11T13:51:23.503685"
+}

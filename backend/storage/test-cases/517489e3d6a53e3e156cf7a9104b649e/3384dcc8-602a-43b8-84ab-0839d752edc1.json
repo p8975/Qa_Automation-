@@ -1,0 +1,34 @@
+{
+  "tc_id": "3384dcc8-602a-43b8-84ab-0839d752edc1",
+  "prd_hash": "517489e3d6a53e3e156cf7a9104b649e",
+  "title": "Verify login fails with valid email but empty password",
+  "description": "Test that the user cannot log in when providing a valid email but leaving the password field empty.",
+  "preconditions": [
+    "User is on the login page"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Enter 'test@example.com' into the email field",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Leave the password field empty",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Click the 'Login' button",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "A validation error message is displayed for the password field. User remains on the login page.",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-04-07T17:40:52.837074",
+  "updated_at": "2026-04-07T17:40:52.837074"
+}

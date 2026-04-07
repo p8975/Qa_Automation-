@@ -1,0 +1,36 @@
+{
+  "tc_id": "fddbf908-b81e-4776-bc7d-3fdc903ab3af",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify floating pill appears from Day 2 to Day 10 for active trial",
+  "description": "Test that the floating pill widget appears on homepage for users in Day 2-10 of their trial period",
+  "preconditions": [
+    "User has activated a trial",
+    "Current day is between Day 2 and Day 10 of trial",
+    "User is on homepage"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Login with a user account that has an active trial on Day 2-10",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Navigate to the homepage",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Observe the floating pill widget",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Floating pill with trial remaining days appears and is clickable",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T17:18:37.315725",
+  "updated_at": "2026-03-11T17:18:37.315732"
+}

@@ -1,0 +1,28 @@
+{
+  "tc_id": "72ab5abd-b686-4c11-a7bd-edccbaeb9fb3",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify accepting the Incentive Offer",
+  "description": "Test that a user can successfully accept the discount offer during the cancellation flow.",
+  "preconditions": [
+    "The Incentive Offer pop-up is displayed"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. On the offer pop-up, click the primary action button (e.g., 'Grab Offer' or 'Lock in 50% off...').",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Complete the payment for the discounted amount.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Payment is successful. The user's trial remains active, and their first month's subscription is scheduled to start at the discounted rate after the trial ends.",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-04-07T18:16:59.949554",
+  "updated_at": "2026-04-07T18:16:59.949555"
+}

@@ -1,0 +1,22 @@
+{
+  "tc_id": "06fe9b52-b911-49d4-9498-d73636a5de52",
+  "prd_hash": "517489e3d6a53e3e156cf7a9104b649e",
+  "title": "Verify UI elements presence on Login screen",
+  "description": "Ensure all critical UI components are visible to the user",
+  "preconditions": [
+    "User navigates to the app"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Observe the Login screen elements",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Email input, password input, and Login button are clearly visible",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-04-07T17:15:57.654445",
+  "updated_at": "2026-04-07T17:15:57.654445"
+}

@@ -1,0 +1,35 @@
+{
+  "tc_id": "26041d8e-f31b-43bc-9416-dcae4da563d3",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify baseURL accessibility for AI Router endpoint",
+  "description": "Test that the configured baseURL (https://airouter.stage.in/v1/) is accessible",
+  "preconditions": [
+    "OPENCODE_KEY is configured",
+    "Network is available"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Configure config.json with correct baseURL",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Run opencode with network connectivity test",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify endpoint is reachable",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Connection to AI Router endpoint is established or clear error if unreachable",
+  "priority": "High",
+  "category": "Integration",
+  "created_at": "2026-03-11T14:12:51.649371",
+  "updated_at": "2026-03-11T14:12:51.649372"
+}

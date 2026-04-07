@@ -1,0 +1,35 @@
+{
+  "tc_id": "6bcb1ffd-f548-4839-9649-1e56c850b4e7",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify {env:OPENCODE_KEY} placeholder is correctly resolved",
+  "description": "Test that environment variable placeholder in config is properly substituted at runtime",
+  "preconditions": [
+    "Config file uses {env:OPENCODE_KEY}",
+    "OPENCODE_KEY is set"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Verify config contains {env:OPENCODE_KEY}",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Run OpenCode with debug mode",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Check that API key is correctly used",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Environment variable is correctly resolved from OPENCODE_KEY",
+  "priority": "High",
+  "category": "Integration",
+  "created_at": "2026-03-11T16:14:09.169223",
+  "updated_at": "2026-03-11T16:14:09.169227"
+}

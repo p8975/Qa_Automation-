@@ -1,0 +1,23 @@
+{
+  "tc_id": "a59acead-93b7-48ad-a8ac-e40948a6dae3",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify 'Cancel Anyway' triggers Incentive Offer pop-up (when enabled)",
+  "description": "Test that if the incentive offer is enabled via backend, clicking 'Cancel Anyway' on the Loss Aversion pop-up shows the discount offer.",
+  "preconditions": [
+    "User is on the 'Loss Aversion' pop-up for cancellation",
+    "The incentive offer is enabled in the backend"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Click the 'Cancel Anyway & Lose Access' button",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "A new pop-up appears with the discount offer, e.g., 'Lock in 50% off your first month now.' The offer details should match the backend configuration.",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-04-07T22:34:46.307649",
+  "updated_at": "2026-04-07T22:34:46.307652"
+}

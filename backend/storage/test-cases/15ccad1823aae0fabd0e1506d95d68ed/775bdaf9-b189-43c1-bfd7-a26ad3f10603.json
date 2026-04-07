@@ -1,0 +1,40 @@
+{
+  "tc_id": "775bdaf9-b189-43c1-bfd7-a26ad3f10603",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify the 'Pause Trial' functionality and subsequent content locking",
+  "description": "Test that a user can pause their trial, which updates the UI state and immediately revokes access to premium content.",
+  "preconditions": [
+    "User has an active trial and is in the Trial Corner."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Click the 'Pause Trial' button.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. On the 'Loss Aversion' pop-up, click 'Pause Anyway & Lose Access'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify the home widget and Trial Corner UI update to a 'Paused' state.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Attempt to play any content from the 'Engagement' or 'Trending' sections.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The trial status is updated to 'Paused'. The UI reflects this change. All premium content is locked and cannot be played.",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-03-30T13:51:34.955480",
+  "updated_at": "2026-03-30T13:51:34.955481"
+}

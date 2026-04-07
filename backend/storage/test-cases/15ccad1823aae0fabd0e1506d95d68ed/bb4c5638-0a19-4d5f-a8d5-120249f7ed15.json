@@ -1,0 +1,22 @@
+{
+  "tc_id": "bb4c5638-0a19-4d5f-a8d5-120249f7ed15",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify 'trial-corner-widget-viewed' event",
+  "description": "Test that the widget viewed event is fired correctly when the user sees any variant of the widget.",
+  "preconditions": [
+    "User is eligible for Trial Corner"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to the homepage where the widget is visible.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The 'trial-corner-widget-viewed' event is fired with the correct 'which varient' attribute (e.g., 'home-trial-active').",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-04-07T18:16:59.954821",
+  "updated_at": "2026-04-07T18:16:59.954822"
+}

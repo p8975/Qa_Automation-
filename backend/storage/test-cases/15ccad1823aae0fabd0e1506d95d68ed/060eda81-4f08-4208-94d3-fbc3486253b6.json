@@ -1,0 +1,35 @@
+{
+  "tc_id": "060eda81-4f08-4208-94d3-fbc3486253b6",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify WhatsApp notification is sent when reminder is set and trial ends",
+  "description": "Test end-to-end flow where user sets reminder and receives WhatsApp notification 24 hours before trial ends",
+  "preconditions": [
+    "User has enabled reminder toggle",
+    "User is near trial end date (within 24 hours)"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. User enables 'Remind me 24h before trial ends' toggle",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Wait until 24 hours before trial end",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify WhatsApp notification is delivered",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "User receives WhatsApp notification 24 hours before trial ends saying they can decide then with no accidental charges",
+  "priority": "High",
+  "category": "Integration",
+  "created_at": "2026-03-11T18:39:28.008311",
+  "updated_at": "2026-03-11T18:39:28.008313"
+}

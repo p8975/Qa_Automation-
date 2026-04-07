@@ -1,0 +1,41 @@
+{
+  "tc_id": "2f05aa8a-f7af-4562-baea-7dab75757ae0",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Measure login API response time to ensure it meets performance requirements",
+  "description": "Validates that the /auth/login endpoint responds within the 500ms threshold at the 95th percentile under simulated load.",
+  "preconditions": [
+    "A performance testing environment is configured.",
+    "A pool of at least 1000 test user accounts is available."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Configure a performance testing tool (e.g., k6, JMeter) to simulate 1000 concurrent users.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Create a script to send POST requests to the /auth/login endpoint with valid credentials from the user pool.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Run the test for a duration of 10 minutes.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Collect and analyze the response time metrics.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The 95th percentile (p95) response time for the login request is less than 500ms. The overall error rate during the test is less than 1%.",
+  "priority": "Low",
+  "category": "Performance",
+  "created_at": "2026-03-27T15:39:44.153192",
+  "updated_at": "2026-03-27T15:39:44.153192"
+}

@@ -1,0 +1,47 @@
+{
+  "tc_id": "888696ad-c85a-4ebb-940a-0efcf793fc36",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify the full cancellation flow with incentive offer acceptance",
+  "description": "Test that a user attempting to cancel is shown the loss aversion gate, proceeds, accepts the discount offer, and successfully converts to a paid subscription.",
+  "preconditions": [
+    "User has an active trial and is in the Trial Corner.",
+    "The 'First Month Discount' offer is enabled via backend configuration."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. In Trial Corner, click the 'Cancel Trial' button.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. On the 'Loss Aversion' pop-up, click the secondary action 'Cancel Anyway & Lose Access'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. On the 'Incentive' offer pop-up, click the primary action to 'Grab Offer' or 'Lock in 50% off'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Complete the payment for the discounted amount.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Check the trial status in the Trial Corner hub.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The payment is successful. The user's account is upgraded to a discounted first-month subscription which will start after the trial ends. The UI reflects the new subscription status.",
+  "priority": "High",
+  "category": "Integration",
+  "created_at": "2026-04-03T12:22:38.475123",
+  "updated_at": "2026-04-03T12:22:38.475129"
+}

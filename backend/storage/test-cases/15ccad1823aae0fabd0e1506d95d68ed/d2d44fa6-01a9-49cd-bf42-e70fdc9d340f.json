@@ -1,0 +1,40 @@
+{
+  "tc_id": "d2d44fa6-01a9-49cd-bf42-e70fdc9d340f",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Validate correct entry point display based on trial age",
+  "description": "Test that the homepage entry point changes from a widget to a floating pill after Day 1 of the trial.",
+  "preconditions": [
+    "User has an active trial and is in the Trial Corner cohort."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. On Day 0 or Day 1 of the trial, load the homepage.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Verify the presence of the high-visibility widget.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Using a test environment, advance the user's trial age to Day 2.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Reload the homepage.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "On Day 2, the widget is replaced by a less intrusive 'floating pill' as the entry point. The `trial-corner-widget-viewed` event should fire with the correct `which_varient` attribute ('home-trial-active' vs 'pill').",
+  "priority": "Medium",
+  "category": "UI",
+  "created_at": "2026-04-03T12:22:38.478841",
+  "updated_at": "2026-04-03T12:22:38.478846"
+}

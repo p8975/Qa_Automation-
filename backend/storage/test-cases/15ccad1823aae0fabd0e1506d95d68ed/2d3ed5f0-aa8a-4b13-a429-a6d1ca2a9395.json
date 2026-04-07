@@ -1,0 +1,40 @@
+{
+  "tc_id": "2d3ed5f0-aa8a-4b13-a429-a6d1ca2a9395",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Validate cohort exclusion for users with immediate content consumption",
+  "description": "Test that users who start consuming content within 5 minutes of activating their trial are excluded from the 'Trial Corner' experiment.",
+  "preconditions": [
+    "User has just activated a new \u20b91 trial."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Within 4 minutes of activating the trial, start playing any video content.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Watch the content for at least 1 minute.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Navigate back to the homepage and check for the 'Trial Mode' widget.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Navigate to the 'Manage Subscription' section of the profile.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The user does NOT see the 'Trial Corner' widget or pill on the homepage. The 'Manage Subscription' section shows the old/standard trial management UI, not the new Trial Corner flow.",
+  "priority": "High",
+  "category": "Edge Case",
+  "created_at": "2026-03-30T13:51:34.955648",
+  "updated_at": "2026-03-30T13:51:34.955648"
+}

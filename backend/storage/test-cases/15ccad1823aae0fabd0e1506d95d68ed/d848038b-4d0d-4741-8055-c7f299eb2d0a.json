@@ -1,0 +1,41 @@
+{
+  "tc_id": "d848038b-4d0d-4741-8055-c7f299eb2d0a",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify the 'Remind Me' toggle triggers the correct backend action and notification",
+  "description": "Tests the functionality of the 'Remind me 24h before trial ends' toggle and confirms a notification is scheduled.",
+  "preconditions": [
+    "User has an active trial with more than 24 hours remaining.",
+    "User is on the Trial Corner hub page."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Ensure the 'Remind me...' toggle is OFF.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click the toggle to switch it ON.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Observe the micro-copy confirming a notification will be sent.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Check application logs or a debug panel to confirm an API call was made to schedule a WhatsApp/Push notification for 24 hours before the trial's expiration time.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The toggle state is saved, and a backend job is successfully scheduled to send the user a notification at the correct time. The 'remind-me-clicked' event is fired with page source 'trial corner'.",
+  "priority": "High",
+  "category": "Integration",
+  "created_at": "2026-03-30T10:18:59.232767",
+  "updated_at": "2026-03-30T10:18:59.232767"
+}

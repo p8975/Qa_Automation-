@@ -1,0 +1,47 @@
+{
+  "tc_id": "2fe1adc7-6c91-41cb-9197-e0c303b18976",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify discount offer details are controlled by backend configuration",
+  "description": "Test that different discount offers can be configured from backend and display correctly",
+  "preconditions": [
+    "Backend has multiple discount configurations",
+    "User has active trial"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Configure different discount offer in backend (e.g., 30%, 40%, 50%)",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Navigate to Trial Corner and attempt cancellation",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify displayed offer matches backend configuration",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Change backend configuration",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Repeat cancellation flow and verify updated offer",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Discount offer displays exactly as configured in backend including offer title and discounted price",
+  "priority": "Medium",
+  "category": "Integration",
+  "created_at": "2026-03-11T10:02:10.488253",
+  "updated_at": "2026-03-11T10:02:10.488253"
+}

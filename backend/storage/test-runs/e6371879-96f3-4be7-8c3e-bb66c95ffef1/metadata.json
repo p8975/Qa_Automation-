@@ -1,0 +1,48 @@
+{
+  "run_id": "e6371879-96f3-4be7-8c3e-bb66c95ffef1",
+  "build_id": "64100a0f-4a77-4336-8c69-c599c5e16ccf",
+  "test_case_ids": [
+    "fcc0f2fb-b995-4f5e-981a-f8f6f41ca37d"
+  ],
+  "device_info": {
+    "device_id": "emulator-5554",
+    "device_name": "sdk_gphone64_arm64",
+    "os_version": "16",
+    "is_emulator": true
+  },
+  "status": "completed",
+  "started_at": "2026-04-07T12:40:10.271248",
+  "completed_at": "2026-04-07T12:40:26.100670",
+  "duration_seconds": 15.829422,
+  "results": [
+    {
+      "test_case_id": "fcc0f2fb-b995-4f5e-981a-f8f6f41ca37d",
+      "status": "fail",
+      "duration_ms": 9768,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/e6371879-96f3-4be7-8c3e-bb66c95ffef1/screenshots/step_2_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "pass",
+          "duration_ms": 881,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"Enter Custom URLs\").send_keys(\"123456789\")"
+        },
+        {
+          "step_number": 2,
+          "status": "error",
+          "duration_ms": 450,
+          "screenshot_path": "storage/test-runs/e6371879-96f3-4be7-8c3e-bb66c95ffef1/screenshots/step_2_error.png",
+          "error_message": "Could not find element for step: 2. Tap the '\u0932\u0949\u0917\u093f\u0928 \u0915\u0930\u0947\u0902' button.",
+          "appium_command": null
+        }
+      ]
+    }
+  ]
+}

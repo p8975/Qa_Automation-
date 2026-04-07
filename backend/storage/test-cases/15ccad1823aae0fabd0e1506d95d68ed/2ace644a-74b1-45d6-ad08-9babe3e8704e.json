@@ -1,0 +1,41 @@
+{
+  "tc_id": "2ace644a-74b1-45d6-ad08-9babe3e8704e",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Engagement section shows personalized content based on consumption level",
+  "description": "Test that Engagement section displays acquired content before 90% consumption and similar genre recommendations after 90%",
+  "preconditions": [
+    "User has active trial",
+    "User has some content in library"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to Trial Corner Hub",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Check Engagement section with consumption below 90%",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Simulate consumption reaching 90%",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Check Engagement section again",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Below 90%: Shows acquired content library. At 90%+: Shows top 1 content in similar genre of acquired content with auto-play trailer",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-03-11T10:02:10.487386",
+  "updated_at": "2026-03-11T10:02:10.487386"
+}

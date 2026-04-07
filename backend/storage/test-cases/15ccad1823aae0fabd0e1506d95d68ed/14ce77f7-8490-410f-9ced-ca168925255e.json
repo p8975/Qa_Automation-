@@ -1,0 +1,35 @@
+{
+  "tc_id": "14ce77f7-8490-410f-9ced-ca168925255e",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Engagement section shows top similar genre content after 90% consumption",
+  "description": "Test that users with 90%+ consumption see recommended similar genre content",
+  "preconditions": [
+    "User has active trial",
+    "User has completed content at 90%+ consumption"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Complete content consumption above 90%",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Navigate to Trial Corner",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Locate Engagement section",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Engagement section displays top 1 content in similar genre of acquired content with trailer autoplay",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-03-11T17:29:07.549640",
+  "updated_at": "2026-03-11T17:29:07.549643"
+}

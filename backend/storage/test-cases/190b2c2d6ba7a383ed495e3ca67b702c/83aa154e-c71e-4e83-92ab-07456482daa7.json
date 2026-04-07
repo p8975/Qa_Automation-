@@ -1,0 +1,34 @@
+{
+  "tc_id": "83aa154e-c71e-4e83-92ab-07456482daa7",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify email format validation rejects invalid addresses",
+  "description": "Test that registration rejects improperly formatted email addresses",
+  "preconditions": [
+    "User is on registration page"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to registration page",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enter invalid email (e.g., notanemail, @example.com, user@)",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Attempt to submit form",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Validation error for invalid email format displayed",
+  "priority": "High",
+  "category": "Error Handling",
+  "created_at": "2026-03-11T14:15:28.267744",
+  "updated_at": "2026-03-11T14:15:28.267745"
+}

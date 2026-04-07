@@ -1,0 +1,41 @@
+{
+  "tc_id": "24f63193-211f-4810-8044-b2a642ee8088",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify user can successfully login with valid credentials",
+  "description": "Test that a registered and verified user can log into the application using correct email and password",
+  "preconditions": [
+    "User account exists and is email-verified",
+    "User is on login page"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to login page",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enter valid email address",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Enter valid password",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Click 'Login' button",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "User is successfully authenticated, receives tokens, and is redirected to dashboard",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T15:42:39.032043",
+  "updated_at": "2026-03-11T15:42:39.032052"
+}

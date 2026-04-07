@@ -1,0 +1,40 @@
+{
+  "tc_id": "6861d48e-7472-43b6-8491-dbc96a3921c3",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Trial Corner is not shown to users who start consumption within 5 minutes",
+  "description": "Test that the experiment correctly excludes users who consume content immediately after trial activation",
+  "preconditions": [
+    "User activates trial and starts consuming content within 5 minutes"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Activate new trial account",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Start watching content within 5 minutes of activation",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Navigate to homepage",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Observe for Trial Corner widgets",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Trial Corner widget is not shown. User sees normal homepage without trial intervention widgets",
+  "priority": "High",
+  "category": "Edge Case",
+  "created_at": "2026-03-11T10:02:10.487943",
+  "updated_at": "2026-03-11T10:02:10.487943"
+}

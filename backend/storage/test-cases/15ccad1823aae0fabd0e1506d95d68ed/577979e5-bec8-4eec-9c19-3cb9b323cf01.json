@@ -1,0 +1,52 @@
+{
+  "tc_id": "577979e5-bec8-4eec-9c19-3cb9b323cf01",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Backend Controlled Incentive Offer",
+  "description": "Tests that the discount offer is correctly shown or hidden based on a backend configuration.",
+  "preconditions": [
+    "User has an active trial."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Ensure the 'First Month Discount' offer is DISABLED in the backend.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. As the user, navigate through the cancellation flow past the 'Loss Aversion' pop-up.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Observe the next screen.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Now, ensure the 'First Month Discount' offer is ENABLED in the backend.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Repeat the cancellation flow.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 6,
+      "description": "6. Observe the next screen.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "In step 3, the user should be taken directly to the feedback pop-up after confirming cancellation. In step 6, the user should be shown the discount offer pop-up.",
+  "priority": "Medium",
+  "category": "Integration",
+  "created_at": "2026-03-30T16:01:09.534287",
+  "updated_at": "2026-03-30T16:01:09.534291"
+}

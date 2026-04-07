@@ -1,0 +1,35 @@
+{
+  "tc_id": "eb2ba7a0-8c16-45f4-985f-d29d2d41aee2",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify pause-clicked event tracks page source correctly",
+  "description": "Test that 'pause-clicked' event includes correct page source attribute",
+  "preconditions": [
+    "Analytics tracking implemented",
+    "User is on Trial Corner or pause popup"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to Trial Corner",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click Pause button",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Capture analytics event",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Event 'pause-clicked' is fired with page source attribute (trial corner or pause pop-up)",
+  "priority": "Medium",
+  "category": "Integration",
+  "created_at": "2026-03-11T11:16:21.689450",
+  "updated_at": "2026-03-11T11:16:21.689451"
+}

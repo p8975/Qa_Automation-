@@ -1,0 +1,46 @@
+{
+  "tc_id": "e5e81d02-f1a6-4bf9-8f62-cf1df7dd78c3",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify trial widget is visible on Day 0 and Day 1 with specific design",
+  "description": "Test that the header widget appears for trial users on Day 0 and Day 1 with appropriate visual treatment",
+  "preconditions": [
+    "User has activated trial within last 24 hours"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Activate trial account",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Navigate to homepage on Day 0",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Observe header widget",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Wait and check on Day 1",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Observe header widget",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Header widget is visible on Day 0 and Day 1 showing trial status with shield or clock icon visual",
+  "priority": "Medium",
+  "category": "UI",
+  "created_at": "2026-03-11T10:02:10.488358",
+  "updated_at": "2026-03-11T10:02:10.488359"
+}

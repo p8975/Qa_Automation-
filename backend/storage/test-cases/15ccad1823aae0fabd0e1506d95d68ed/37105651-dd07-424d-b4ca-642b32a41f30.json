@@ -1,0 +1,42 @@
+{
+  "tc_id": "37105651-dd07-424d-b4ca-642b32a41f30",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify trial widget displays correct remaining days on Day 0",
+  "description": "Test that the persistent homepage widget shows accurate trial days remaining starting from Day 0",
+  "preconditions": [
+    "User has activated a \u20b91 trial",
+    "User is on homepage",
+    "Trial is active"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Complete trial activation flow",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Navigate to homepage",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Locate the trial widget in header area",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Verify the displayed remaining days count",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Widget displays '7 Days Remaining' or accurate day count based on trial start time",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T10:04:15.368484",
+  "updated_at": "2026-03-11T10:04:15.368504"
+}

@@ -1,0 +1,28 @@
+{
+  "tc_id": "b3099676-bf84-4853-8122-92046631a0c0",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify 'trial-corner-trending-clicked' event",
+  "description": "Test that the trending content clicked event is fired.",
+  "preconditions": [
+    "User is on the Trial Corner hub"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Scroll to the Trending section.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click on any content thumbnail.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The 'trial-corner-trending-clicked' event is fired with the correct 'content id'.",
+  "priority": "Low",
+  "category": "Functional",
+  "created_at": "2026-04-07T18:16:59.955786",
+  "updated_at": "2026-04-07T18:16:59.955787"
+}

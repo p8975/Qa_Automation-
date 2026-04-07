@@ -1,0 +1,53 @@
+{
+  "tc_id": "b25386ed-8657-4eb0-87c0-476df7e16d4c",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify user can fully cancel the trial after rejecting all retention offers",
+  "description": "Tests the complete cancellation flow where the user rejects both the reminder nudge and the incentive offer.",
+  "preconditions": [
+    "User has an active trial.",
+    "User is on the 'Trial Corner' hub page."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Click the 'Cancel Trial' button.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. On the 'Loss Aversion' pop-up, click 'Cancel Anyway & Lose Access'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. On the 'Incentive' pop-up, click the secondary action to reject the offer (e.g., 'Cancel Anyway').",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Observe the feedback pop-up.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Submit a feedback option.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 6,
+      "description": "6. Navigate back to the homepage and the Trial Corner.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The user's trial is immediately cancelled and all premium access is revoked. The homepage widget and Trial Corner hub update to the 'Cancelled Trial' design, with content sections locked. The `feedback-popup-viewed` and `feedback-submitted` events are fired.",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-30T10:18:59.232158",
+  "updated_at": "2026-03-30T10:18:59.232158"
+}

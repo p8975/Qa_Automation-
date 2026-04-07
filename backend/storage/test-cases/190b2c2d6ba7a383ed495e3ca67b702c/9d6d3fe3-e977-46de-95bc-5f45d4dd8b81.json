@@ -1,0 +1,42 @@
+{
+  "tc_id": "9d6d3fe3-e977-46de-95bc-5f45d4dd8b81",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify loading indicator displays during login process",
+  "description": "Test that UI shows appropriate loading state while authentication request is in progress",
+  "preconditions": [
+    "User account exists and is verified",
+    "User is on login page",
+    "Network latency simulation available"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to login page",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enter valid credentials",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Click 'Login' button",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Observe UI state immediately after click",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Login button is disabled and loading indicator is displayed",
+  "priority": "Medium",
+  "category": "UI",
+  "created_at": "2026-03-11T15:42:39.038965",
+  "updated_at": "2026-03-11T15:42:39.038966"
+}

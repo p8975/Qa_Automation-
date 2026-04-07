@@ -1,0 +1,65 @@
+{
+  "tc_id": "9d3453d6-c61b-40c8-90d4-0b13a117cda0",
+  "prd_hash": "e0b156f3081e99b42f5dd2726924214c",
+  "title": "Phone Login - Verify successful login with a valid 10-digit phone number",
+  "description": "Tests the complete happy path for phone number based OTP authentication.",
+  "preconditions": [
+    "User has a valid, active 10-digit Indian mobile number.",
+    "User is on the Login screen."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Enter a valid 10-digit mobile number in the input field.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Tap the '\u0932\u0949\u0917\u093f\u0928 \u0915\u0930\u0947\u0902' button.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify a loading indicator is shown.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Verify navigation to the OTP Verification screen.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Receive the 4-digit OTP via SMS.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 6,
+      "description": "6. Enter the correct 4-digit OTP in the input fields.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 7,
+      "description": "7. Verify a loading indicator is shown upon entering the 4th digit.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 8,
+      "description": "8. Verify the user is successfully logged in and navigated to the Home screen.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "User is authenticated and redirected to the Home screen after entering a valid phone number and the correct OTP.",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-04-06T16:49:40.079386",
+  "updated_at": "2026-04-06T16:49:40.079390"
+}

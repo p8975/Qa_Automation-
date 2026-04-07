@@ -1,0 +1,35 @@
+{
+  "tc_id": "199ffab4-d59f-4371-8e8a-280b67d7b858",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify config handles invalid baseURL gracefully",
+  "description": "Test that invalid baseURL in provider configuration is handled appropriately at runtime",
+  "preconditions": [
+    "OpenCode is installed",
+    "Config exists with invalid baseURL"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Modify config.json with invalid baseURL: https://invalid-url-that-does-not-exist.in/",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Execute: opencode",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Observe error handling for invalid endpoint",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Error message indicates connection failure to AI Router endpoint",
+  "priority": "Medium",
+  "category": "Error Handling",
+  "created_at": "2026-03-11T15:25:37.064043",
+  "updated_at": "2026-03-11T15:25:37.064044"
+}

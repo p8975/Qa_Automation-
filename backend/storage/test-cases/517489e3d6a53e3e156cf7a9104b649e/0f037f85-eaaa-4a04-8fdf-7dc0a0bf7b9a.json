@@ -1,0 +1,28 @@
+{
+  "tc_id": "0f037f85-eaaa-4a04-8fdf-7dc0a0bf7b9a",
+  "prd_hash": "517489e3d6a53e3e156cf7a9104b649e",
+  "title": "Verify UI elements are present on the login screen",
+  "description": "Check for the presence of all required UI components on the login screen.",
+  "preconditions": [
+    "User is on the login page"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to the login page",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Visually inspect the screen",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The screen displays an email input field, a password input field, and a 'Login' button.",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-04-07T17:40:52.836972",
+  "updated_at": "2026-04-07T17:40:52.836972"
+}

@@ -1,0 +1,40 @@
+{
+  "tc_id": "595f5af2-4fdf-45fa-86b9-dec7018cacf2",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify running each installation line separately works correctly",
+  "description": "Test that executing commands sequentially produces correct results as per PRD warning",
+  "preconditions": [
+    "Terminal is open"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Execute line 1: curl command",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Execute line 2: PATH addition",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Execute line 3: API key setting",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Execute line 4: source ~/.zshrc",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Each command executes successfully in sequence without errors",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-03-11T15:25:37.063507",
+  "updated_at": "2026-03-11T15:25:37.063509"
+}

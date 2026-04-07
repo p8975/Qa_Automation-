@@ -1,0 +1,65 @@
+{
+  "tc_id": "70bda7c7-49fe-4f5c-830b-2cf1319c610c",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Cancellation Flow with Incentive Conversion",
+  "description": "Test that a user attempting to cancel is shown the loss aversion gate, proceeds, sees the discount offer, and successfully converts to a paid subscriber.",
+  "preconditions": [
+    "User is in an active trial and part of the Trial Corner cohort.",
+    "The 'First Month Discount' offer is enabled in the backend."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to the 'Trial Corner' hub.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click the 'Cancel Trial' button.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify the 'Loss Aversion' pop-up appears with the headline 'Wait! Don't lose your free days.'",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Click the secondary action 'Cancel Anyway & Lose Access'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Verify the 'Incentive' pop-up appears with the backend-configured discount (e.g., '50% off your first month').",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 6,
+      "description": "6. Click the primary action to accept the offer (e.g., 'Grab Offer').",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 7,
+      "description": "7. Complete the payment for the discounted amount.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 8,
+      "description": "8. Verify the user's trial remains active and their next billing cycle is updated with the discount.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The user successfully accepts the discount offer, their trial is not cancelled, and their subscription is set to renew at the discounted price after the trial ends.",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-04-03T12:32:35.178879",
+  "updated_at": "2026-04-03T12:32:35.178880"
+}

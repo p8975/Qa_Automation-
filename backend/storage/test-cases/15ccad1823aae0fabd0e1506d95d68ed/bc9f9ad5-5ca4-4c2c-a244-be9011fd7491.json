@@ -1,0 +1,40 @@
+{
+  "tc_id": "bc9f9ad5-5ca4-4c2c-a244-be9011fd7491",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify trust copy messaging is non-threatening and transparent",
+  "description": "Test that all copy throughout Trial Corner follows the transparency and non-threatening tone guidelines",
+  "preconditions": [
+    "User has active trial"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Review Trial Corner Hub for trust copy",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Review Loss Aversion popup messaging",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Review discount offer trust clause",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Review Remind Me micro-copy",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "All copy uses transparent, empowering language. Power statement 'You're in control. Explore in peace' and Value Warning are present. No hidden terms or threatening language",
+  "priority": "Low",
+  "category": "UI",
+  "created_at": "2026-03-11T10:02:10.488460",
+  "updated_at": "2026-03-11T10:02:10.488461"
+}

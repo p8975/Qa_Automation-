@@ -1,0 +1,34 @@
+{
+  "tc_id": "06cab108-51e6-4f32-bf7b-844b1ab68059",
+  "prd_hash": "517489e3d6a53e3e156cf7a9104b649e",
+  "title": "Verify login failure with empty password field",
+  "description": "Validate that the login process cannot proceed without a password.",
+  "preconditions": [
+    "User is on the login screen"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Enter a valid email address",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Leave the password field empty",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Click the \"Login\" button",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "System displays a required field error for the password input",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-04-07T17:10:13.194276",
+  "updated_at": "2026-04-07T17:10:13.194277"
+}

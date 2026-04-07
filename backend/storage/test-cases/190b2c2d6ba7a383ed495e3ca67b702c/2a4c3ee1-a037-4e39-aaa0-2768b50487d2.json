@@ -1,0 +1,65 @@
+{
+  "tc_id": "2a4c3ee1-a037-4e39-aaa0-2768b50487d2",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify user can successfully reset their forgotten password",
+  "description": "Tests the complete password reset flow, from requesting a reset link to setting a new password and logging in with it.",
+  "preconditions": [
+    "A registered and verified user account exists.",
+    "User can access the account's email inbox."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to the login page and click 'Forgot Password'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enter the registered email address and click 'Send Reset Link'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Check the email inbox for the password reset email.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Click the reset link within 1 hour.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. On the reset page, enter a new password that meets security criteria and is not one of the last 5 used.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 6,
+      "description": "6. Confirm the new password.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 7,
+      "description": "7. Click 'Reset Password'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 8,
+      "description": "8. Log in with the email and the new password.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The password is successfully updated. The user is redirected to the login page and can log in with the new password. All previous active sessions for this user are invalidated.",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-27T15:39:44.151550",
+  "updated_at": "2026-03-27T15:39:44.151551"
+}

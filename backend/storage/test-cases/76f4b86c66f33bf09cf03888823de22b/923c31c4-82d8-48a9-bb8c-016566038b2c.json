@@ -1,0 +1,35 @@
+{
+  "tc_id": "923c31c4-82d8-48a9-bb8c-016566038b2c",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify API key is correctly read from environment variable",
+  "description": "Test that opencode can access OPENCODE_KEY from the environment",
+  "preconditions": [
+    "OPENCODE_KEY set in .zshrc",
+    "Config file references {env:OPENCODE_KEY}"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Source .zshrc",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Run opencode command that requires API authentication",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Check for successful authentication",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "API key is correctly retrieved from OPENCODE_KEY environment variable",
+  "priority": "High",
+  "category": "Integration",
+  "created_at": "2026-03-11T15:36:35.982143",
+  "updated_at": "2026-03-11T15:36:35.982145"
+}

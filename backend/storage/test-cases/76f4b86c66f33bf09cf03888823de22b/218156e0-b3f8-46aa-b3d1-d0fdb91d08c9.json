@@ -1,0 +1,34 @@
+{
+  "tc_id": "218156e0-b3f8-46aa-b3d1-d0fdb91d08c9",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify security of API key storage in ~/.zshrc",
+  "description": "Test that API key is properly handled and not exposed in process listings",
+  "preconditions": [
+    "OPENCODE_KEY is set in ~/.zshrc"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Source ~/.zshrc",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Check environment variables are set",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify API key is not visible in process list",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "API key is accessible as environment variable but not visible in plain text processes",
+  "priority": "High",
+  "category": "Security",
+  "created_at": "2026-03-11T16:14:09.167424",
+  "updated_at": "2026-03-11T16:14:09.167425"
+}

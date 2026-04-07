@@ -1,0 +1,35 @@
+{
+  "tc_id": "0ae99408-6ad7-4b08-b30b-550bdc176bc2",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Trending section displays top 10 content in user's primary dialect",
+  "description": "Test that the Trending section is correctly populated based on the user's language preference.",
+  "preconditions": [
+    "User has an active trial",
+    "User's primary dialect is set (e.g., Hindi)"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Set user's primary dialect to Hindi.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Navigate to the Trial Corner hub.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Scroll to and observe the 'Trending' section.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The section displays a list of the Top 10 trending shows and movies available in Hindi.",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-04-07T18:16:59.944618",
+  "updated_at": "2026-04-07T18:16:59.944619"
+}

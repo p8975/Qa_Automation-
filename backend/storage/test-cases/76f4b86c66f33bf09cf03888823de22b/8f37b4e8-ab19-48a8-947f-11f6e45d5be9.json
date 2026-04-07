@@ -1,0 +1,35 @@
+{
+  "tc_id": "8f37b4e8-ab19-48a8-947f-11f6e45d5be9",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify API key is correctly set in .zshrc environment variable",
+  "description": "Test that OPENCODE_KEY environment variable is properly exported in .zshrc",
+  "preconditions": [
+    "OpenCode installed",
+    ".zshrc exists"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Execute: echo 'export OPENCODE_KEY=YOUR_KEY' >> ~/.zshrc",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Source .zshrc: source ~/.zshrc",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Check echo $OPENCODE_KEY",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "OPENCODE_KEY environment variable is accessible after sourcing .zshrc",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T15:57:33.276868",
+  "updated_at": "2026-03-11T15:57:33.276869"
+}

@@ -1,0 +1,59 @@
+{
+  "tc_id": "d4f55cd6-d57e-45cb-9ddd-81056f28315a",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify analytics events are fired correctly throughout the user journey",
+  "description": "Tests that key analytics events are triggered with the correct attributes at various points in the Trial Corner flow.",
+  "preconditions": [
+    "User has an active trial.",
+    "Analytics debugging tool is active."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to the homepage. Verify 'trial-corner-widget-viewed' event is fired.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click the widget. Verify 'trial-corner-widget-clicked' event is fired.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. On the Trial Corner page, verify 'trial-corner-viewed' event is fired.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Click the 'Cancel' button. Click 'Keep Trial & Set Reminder'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Verify 'remind-me-clicked' event is fired with 'page_source: cancel pop-up'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 6,
+      "description": "6. Click the 'Cancel' button again. Click 'Cancel Anyway'. Click 'Cancel Anyway' on the offer pop-up.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 7,
+      "description": "7. Verify 'cancel-clicked' event is fired with 'page_source: discount pop-up'.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "All specified analytics events are fired at the correct user interaction points with the correct attributes as defined in the PRD.",
+  "priority": "Medium",
+  "category": "Integration",
+  "created_at": "2026-03-30T10:18:59.233253",
+  "updated_at": "2026-03-30T10:18:59.233253"
+}

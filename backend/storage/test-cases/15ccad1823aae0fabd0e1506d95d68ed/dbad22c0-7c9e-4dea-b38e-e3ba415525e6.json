@@ -1,0 +1,28 @@
+{
+  "tc_id": "dbad22c0-7c9e-4dea-b38e-e3ba415525e6",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify UI update after cancelling a trial - Homepage",
+  "description": "Test that the homepage widget updates to reflect the 'Cancelled' trial status.",
+  "preconditions": [
+    "User has just cancelled their trial"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Complete the flow to cancel the trial.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Navigate back to the homepage.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The homepage widget now displays a 'Cancelled' design and corresponding copy.",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-04-07T18:16:59.951416",
+  "updated_at": "2026-04-07T18:16:59.951420"
+}

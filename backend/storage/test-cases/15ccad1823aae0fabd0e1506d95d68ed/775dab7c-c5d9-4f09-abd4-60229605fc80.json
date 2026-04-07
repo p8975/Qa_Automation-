@@ -1,0 +1,41 @@
+{
+  "tc_id": "775dab7c-c5d9-4f09-abd4-60229605fc80",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify trial gets paused when user confirms pause action",
+  "description": "Test that pausing a trial updates the trial state and UI accordingly",
+  "preconditions": [
+    "User has active trial",
+    "User is on Trial Corner or clicked Pause"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to Trial Corner",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click Pause Trial button",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Click Confirm Pause on popup",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Verify trial state changes to paused",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Trial state updates to Paused, homepage widget and Trial Corner reflect paused design, all content sections become locked",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T17:29:07.547463",
+  "updated_at": "2026-03-11T17:29:07.547465"
+}

@@ -1,0 +1,40 @@
+{
+  "tc_id": "c5d14e96-c54e-45a8-96f3-b9111df23dcb",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify SQL injection attack is prevented on login",
+  "description": "Test that malicious SQL injection payloads in email or password fields are sanitized and not executed",
+  "preconditions": [
+    "User is on login page"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to login page",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enter SQL injection payload in email field (e.g., \" OR 1=1 --)",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Enter any password",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Click 'Login' button",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Request handled safely, error message for invalid email format or credentials, no database error exposed",
+  "priority": "High",
+  "category": "Security",
+  "created_at": "2026-03-11T15:38:47.297335",
+  "updated_at": "2026-03-11T15:38:47.297336"
+}

@@ -1,0 +1,52 @@
+{
+  "tc_id": "6bc9c60f-2697-4750-aab6-48f2044c876d",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Pause Trial Functionality and UI Update",
+  "description": "Test that a user can successfully pause their trial and that the homepage widget and Trial Corner hub reflect the 'Paused' state.",
+  "preconditions": [
+    "User is in an active trial and part of the Trial Corner cohort."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to the 'Trial Corner' hub.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click the 'Pause Trial' button.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. In the confirmation pop-up, click 'Pause' again.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Verify the Trial Corner hub UI updates to a 'Paused' state and content sections become locked.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Navigate back to the homepage.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 6,
+      "description": "6. Verify the homepage widget now shows a 'Paused' status.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The user's trial is paused. All relevant UI components reflect this new state, and content access is revoked. A 'pause-clicked' event is fired.",
+  "priority": "High",
+  "category": "UI",
+  "created_at": "2026-04-03T12:32:35.179258",
+  "updated_at": "2026-04-03T12:32:35.179260"
+}

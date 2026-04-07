@@ -1,0 +1,28 @@
+{
+  "tc_id": "35c67198-556c-45ee-9ffa-4db1e691d9fc",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Trial Corner Hub - Hero Section UI",
+  "description": "Test the UI elements of the Hero section in the Trial Corner for an active trial.",
+  "preconditions": [
+    "User has an active trial and is in the Trial Corner cohort"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to the Trial Corner hub.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Observe the top section of the screen.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The screen displays 'Your \u20b91 trial is active.' and the correct number of 'Remaining Days' for the trial.",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-04-07T18:16:59.942030",
+  "updated_at": "2026-04-07T18:16:59.942031"
+}

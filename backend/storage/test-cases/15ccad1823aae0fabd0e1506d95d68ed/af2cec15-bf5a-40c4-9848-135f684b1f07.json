@@ -1,0 +1,35 @@
+{
+  "tc_id": "af2cec15-bf5a-40c4-9848-135f684b1f07",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Manage Trial replaces existing trial management flow",
+  "description": "Test that the new Trial Corner replaces the old Manage Trial section",
+  "preconditions": [
+    "User has active trial",
+    "Old Manage Trial section exists"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Locate old 'Manage Trial' or 'Manage Subscription' option",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click on it",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify it redirects to Trial Corner",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Old Manage Trial link navigates to new Trial Corner instead of old flow",
+  "priority": "High",
+  "category": "Integration",
+  "created_at": "2026-03-11T10:04:15.370851",
+  "updated_at": "2026-03-11T10:04:15.370851"
+}

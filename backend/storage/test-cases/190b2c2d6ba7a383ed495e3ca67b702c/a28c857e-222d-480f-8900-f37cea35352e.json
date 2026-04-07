@@ -1,0 +1,46 @@
+{
+  "tc_id": "a28c857e-222d-480f-8900-f37cea35352e",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify password validation rejects password without special character",
+  "description": "Test that the system correctly rejects passwords missing at least one special character",
+  "preconditions": [
+    "User is on registration page"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to registration page",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enter valid email address",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Enter password without special character (e.g., Password123)",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Confirm password",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Click 'Register' button",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Error message displayed indicating password must contain at least one special character",
+  "priority": "High",
+  "category": "Error Handling",
+  "created_at": "2026-03-11T15:42:39.035760",
+  "updated_at": "2026-03-11T15:42:39.035763"
+}

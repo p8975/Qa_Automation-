@@ -1,0 +1,40 @@
+{
+  "tc_id": "639181bd-7c3d-4fe4-ac54-7d574852c9df",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify environment variables persist across terminal sessions",
+  "description": "Test that PATH and OPENCODE_KEY are available in new terminal sessions",
+  "preconditions": [
+    "Setup completed in one terminal session"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Close current terminal",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Open new terminal",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Execute: echo $PATH",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Execute: echo $OPENCODE_KEY",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Environment variables are available without needing to source .zshrc again",
+  "priority": "Medium",
+  "category": "Integration",
+  "created_at": "2026-03-11T13:51:23.506603",
+  "updated_at": "2026-03-11T13:51:23.506606"
+}

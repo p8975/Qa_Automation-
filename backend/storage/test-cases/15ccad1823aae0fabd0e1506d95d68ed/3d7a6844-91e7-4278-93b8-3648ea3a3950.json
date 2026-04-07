@@ -1,0 +1,41 @@
+{
+  "tc_id": "3d7a6844-91e7-4278-93b8-3648ea3a3950",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Trial Corner not shown for users who consumed within 5 minutes",
+  "description": "Test that users who start consumption within 5 minutes of trial activation do not see Trial Corner (experiment targeting)",
+  "preconditions": [
+    "User activates trial",
+    "User starts content consumption within 5 minutes"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Activate trial for user",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Start playing content within 5 minutes",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Navigate to homepage",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Check for Trial Corner widget",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Trial Corner widget does not appear for this user (mutually exclusive to experiment cohort)",
+  "priority": "High",
+  "category": "Edge Case",
+  "created_at": "2026-03-10T19:16:40.859742",
+  "updated_at": "2026-03-10T19:16:40.859742"
+}

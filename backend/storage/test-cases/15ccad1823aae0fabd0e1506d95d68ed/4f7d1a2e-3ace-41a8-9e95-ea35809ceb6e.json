@@ -1,0 +1,28 @@
+{
+  "tc_id": "4f7d1a2e-3ace-41a8-9e95-ea35809ceb6e",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify submitting feedback from the post-cancellation pop-up",
+  "description": "Test that a user can select a reason and submit the feedback form.",
+  "preconditions": [
+    "The post-cancellation feedback pop-up is displayed"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Select one of the cancellation reasons from the list.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click the 'Submit' button.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The feedback is submitted, the pop-up closes, and the 'feedback-submitted' event is fired with the selected option.",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-04-07T18:16:59.950882",
+  "updated_at": "2026-04-07T18:16:59.950883"
+}

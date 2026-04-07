@@ -1,0 +1,41 @@
+{
+  "tc_id": "68410309-650d-4908-a994-efcf4803f492",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify PATH is correctly added to .zshrc using >> operator",
+  "description": "Test that appending PATH to .zshrc preserves existing content",
+  "preconditions": [
+    "OpenCode installed",
+    ".zshrc file may contain existing content"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Check existing content of ~/.zshrc",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Execute: echo 'export PATH=\"$HOME/.opencode/bin:$PATH\"' >> ~/.zshrc",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify original content is preserved",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Verify new PATH export is appended",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "PATH is appended to .zshrc without overwriting existing configurations",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T13:51:23.498229",
+  "updated_at": "2026-03-11T13:51:23.498234"
+}

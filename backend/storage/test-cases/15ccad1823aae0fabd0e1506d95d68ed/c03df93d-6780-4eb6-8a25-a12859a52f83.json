@@ -1,0 +1,46 @@
+{
+  "tc_id": "c03df93d-6780-4eb6-8a25-a12859a52f83",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Validate UI and content locking after pausing a trial",
+  "description": "Tests that pausing the trial correctly updates the UI on the homepage and Trial Corner, and locks access to premium content as specified.",
+  "preconditions": [
+    "User has an active trial and is in the Trial Corner cohort."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to the 'Trial Corner' Hub and click 'Pause Trial'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. In the 'Loss Aversion' pop-up, click 'Pause Anyway & Lose Access'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Observe the homepage widget.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Navigate back to the Trial Corner.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Attempt to play content from the 'Engagement' or 'Trending' sections.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The homepage widget updates to the 'paused design'. The Trial Corner shows a paused state. All content sections (Engagement, Trending) are visually locked and unplayable. The `pause-clicked` event is triggered.",
+  "priority": "Medium",
+  "category": "UI",
+  "created_at": "2026-03-30T13:58:41.021459",
+  "updated_at": "2026-03-30T13:58:41.021462"
+}

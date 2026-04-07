@@ -1,0 +1,36 @@
+{
+  "tc_id": "ee019354-ba16-4a39-8dee-94968f1ccd03",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify the reminder notification is successfully delivered 24 hours before trial expiry",
+  "description": "Tests the end-to-end flow of the 'Remind Me' feature, culminating in the user receiving the notification via WhatsApp/Push.",
+  "preconditions": [
+    "User has enabled the 'Remind me' toggle.",
+    "User's trial is configured to expire in approximately 24 hours.",
+    "User has granted notification permissions."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. As a user with a trial expiring in ~24 hours, ensure the 'Remind me' toggle is active.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Wait until the 24-hour pre-expiry mark is reached.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Check the user's device for a Push Notification and/or WhatsApp message.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The user receives a notification with clear copy informing them their trial is ending soon and providing instructions on how to cancel.",
+  "priority": "High",
+  "category": "Integration",
+  "created_at": "2026-03-30T10:37:05.516976",
+  "updated_at": "2026-03-30T10:37:05.516976"
+}

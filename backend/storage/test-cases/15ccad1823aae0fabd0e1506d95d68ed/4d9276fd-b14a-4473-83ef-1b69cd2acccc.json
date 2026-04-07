@@ -1,0 +1,47 @@
+{
+  "tc_id": "4d9276fd-b14a-4473-83ef-1b69cd2acccc",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Trial Corner displays Hero section with accurate trial status",
+  "description": "Test that the Hero section shows correct trial status, remaining days, and trial promise",
+  "preconditions": [
+    "User is on Trial Corner page",
+    "Trial is active"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to Trial Corner",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Locate Hero section at top",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify trial status text is displayed",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Verify remaining days count is accurate",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Verify 'Easy cancellation anytime' promise text is visible",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Hero section displays 'Your \u20b91 trial is active', correct remaining days, and promise copy",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T10:04:15.369275",
+  "updated_at": "2026-03-11T10:04:15.369275"
+}

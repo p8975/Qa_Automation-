@@ -1,0 +1,62 @@
+{
+  "run_id": "2f0c92ae-f2eb-4197-b9a1-f32048879e97",
+  "build_id": "64100a0f-4a77-4336-8c69-c599c5e16ccf",
+  "test_case_ids": [
+    "acc719f1-6064-444e-b70f-4240e2f69113",
+    "a6675324-e6de-48dd-9741-cc1610217301"
+  ],
+  "device_info": {
+    "device_id": "emulator-5554",
+    "device_name": "sdk_gphone64_arm64",
+    "os_version": "16",
+    "is_emulator": true
+  },
+  "status": "completed",
+  "started_at": "2026-04-07T04:39:05.997025",
+  "completed_at": "2026-04-07T05:05:14.701991",
+  "duration_seconds": 1568.704966,
+  "results": [
+    {
+      "test_case_id": "acc719f1-6064-444e-b70f-4240e2f69113",
+      "status": "fail",
+      "duration_ms": 573931,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/2f0c92ae-f2eb-4197-b9a1-f32048879e97/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 12,
+          "screenshot_path": "storage/test-runs/2f0c92ae-f2eb-4197-b9a1-f32048879e97/screenshots/step_1_error.png",
+          "error_message": "Could not find element for step: 1. As User A, navigate to the Trial Corner.",
+          "appium_command": null
+        }
+      ]
+    },
+    {
+      "test_case_id": "a6675324-e6de-48dd-9741-cc1610217301",
+      "status": "fail",
+      "duration_ms": 3690,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/2f0c92ae-f2eb-4197-b9a1-f32048879e97/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 21,
+          "screenshot_path": "storage/test-runs/2f0c92ae-f2eb-4197-b9a1-f32048879e97/screenshots/step_1_error.png",
+          "error_message": "Could not find element for step: 1. Set the user's trial to expire in approximately 24 hours.",
+          "appium_command": null
+        }
+      ]
+    }
+  ]
+}

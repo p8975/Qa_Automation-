@@ -1,0 +1,35 @@
+{
+  "tc_id": "f0c07388-5f74-4f79-ab1f-84d6ccbe2189",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify manage trial entry point shows Trial Corner flow",
+  "description": "Test that clicking 'Manage Trial' in settings navigates to the new Trial Corner flow instead of old interface",
+  "preconditions": [
+    "User has active trial",
+    "Manage Trial option exists in settings"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Log in with trial user account",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Navigate to Manage Trial section (from settings or profile)",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Observe the displayed interface",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "User sees Trial Corner flow with all 5 sections, not the old Manage Trial interface",
+  "priority": "High",
+  "category": "Integration",
+  "created_at": "2026-03-11T11:16:21.689659",
+  "updated_at": "2026-03-11T11:16:21.689659"
+}

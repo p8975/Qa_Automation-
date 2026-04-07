@@ -1,0 +1,46 @@
+{
+  "tc_id": "d78d5f08-00df-4094-bf2c-17e1c8d501ec",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Validate Analytics Event Triggering for Key Actions",
+  "description": "Tests that critical analytics events are fired correctly with the specified attributes during the user journey.",
+  "preconditions": [
+    "User has an active trial and is eligible for the Trial Corner."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. View the homepage widget.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click the homepage widget to navigate to the Trial Corner.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. In the 'Trial Corner', click the 'Remind me' toggle.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Click the 'Cancel Trial' button.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. In the pop-up, click 'Cancel Anyway & Lose Access'.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The following events must be fired in order: 1. 'trial-corner-widget-viewed'. 2. 'trial-corner-widget-clicked'. 3. 'trial-corner-viewed'. 4. 'remind-me-clicked' with 'page_source: trial_corner'. 5. 'cancel-clicked' with 'page_source: cancel_pop-up'.",
+  "priority": "High",
+  "category": "Integration",
+  "created_at": "2026-03-30T16:01:09.534811",
+  "updated_at": "2026-03-30T16:01:09.534814"
+}

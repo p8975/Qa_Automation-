@@ -1,0 +1,35 @@
+{
+  "tc_id": "8e2b8021-6a1e-452f-b52e-8e035493ba06",
+  "prd_hash": "517489e3d6a53e3e156cf7a9104b649e",
+  "title": "Verify system trims leading and trailing spaces from email",
+  "description": "Validate that white spaces at the start or end of the email string are ignored.",
+  "preconditions": [
+    "User account exists with email \"user@example.com\"",
+    "User is on the login screen"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Enter \" user@example.com \" (with spaces) in the email field",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enter the valid password",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Click the \"Login\" button",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "User is successfully authenticated",
+  "priority": "Low",
+  "category": "Functional",
+  "created_at": "2026-04-07T17:10:13.195092",
+  "updated_at": "2026-04-07T17:10:13.195092"
+}

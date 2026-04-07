@@ -1,0 +1,41 @@
+{
+  "tc_id": "462f6e53-c7e7-43d2-ad6b-f4fcdeb3e3e8",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify discount offer appears when user persists in canceling",
+  "description": "Test that if user continues to cancel after loss aversion gate, a discount offer popup appears with backend-controlled pricing",
+  "preconditions": [
+    "User has active trial",
+    "User clicked Cancel and passed loss aversion gate"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to Trial Corner > Manage Trial",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click 'Cancel Trial'",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Click 'Cancel Anyway' on exit gate",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Observe the offer popup",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Offer popup appears with 'Lock in 50% off your first month now' or similar backend-controlled offer, displays discounted price, shows trust clause about paid subscription starting after trial ends",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T09:56:39.863117",
+  "updated_at": "2026-03-11T09:56:39.863117"
+}

@@ -1,0 +1,40 @@
+{
+  "tc_id": "998a3f3c-6195-47e8-8d2e-53244455074d",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify password validation enforces all security requirements",
+  "description": "Test that password field validates all security criteria before accepting",
+  "preconditions": [
+    "User is on registration page"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to registration page",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enter valid email address",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Enter password missing uppercase (e.g., password1!)",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Observe validation feedback",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Error message displayed indicating password must contain uppercase letter",
+  "priority": "High",
+  "category": "Error Handling",
+  "created_at": "2026-03-11T14:15:28.265340",
+  "updated_at": "2026-03-11T14:15:28.265343"
+}

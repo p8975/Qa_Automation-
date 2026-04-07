@@ -1,0 +1,41 @@
+{
+  "tc_id": "3d6cefcb-2a33-4d3b-b047-c6873cb05bd2",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify trial status updates correctly after cancellation",
+  "description": "Test that after trial is canceled, the Trial Corner and homepage widget reflect cancelled design and content is locked",
+  "preconditions": [
+    "User has canceled trial",
+    "User is logged in"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Complete trial cancellation flow without accepting offer",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Navigate to homepage",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Check widget appearance",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Navigate to Trial Corner",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Homepage widget shows cancelled trial design, Trial Corner shows cancelled status, all content sections display locked state",
+  "priority": "High",
+  "category": "Integration",
+  "created_at": "2026-03-11T09:59:31.934490",
+  "updated_at": "2026-03-11T09:59:31.934490"
+}

@@ -1,0 +1,52 @@
+{
+  "tc_id": "2d467e5f-adc5-4f65-b338-8dd060bc6d8c",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Engagement Content Logic",
+  "description": "Tests the logic for the 'Engagement' section, ensuring it shows in-progress content correctly and suggests new content post-completion.",
+  "preconditions": [
+    "Two users (C and D) are in the Trial Corner cohort."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. User C: Watch 50% of a movie titled 'Action Hero'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Navigate to the Trial Corner hub and check the 'Engagement' section.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify 'Action Hero' is displayed with an option to 'Resume Consuming'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. User D: Watch 95% of a movie titled 'Comedy Gold'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Navigate to the Trial Corner hub and check the 'Engagement' section.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 6,
+      "description": "6. Verify the section now shows the top-rated content in the 'Comedy' genre, not 'Comedy Gold'.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The Engagement section correctly displays content with <90% consumption for resuming and suggests new, relevant content once consumption is >90%.",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-03-31T10:52:09.854958",
+  "updated_at": "2026-03-31T10:52:09.854960"
+}

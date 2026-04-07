@@ -1,0 +1,150 @@
+{
+  "run_id": "a73f86a2-410d-4221-90a2-6799bbb300e9",
+  "build_id": "64100a0f-4a77-4336-8c69-c599c5e16ccf",
+  "test_case_ids": [
+    "b6193bbb-5c12-4e2e-b152-8ef309cbc712",
+    "e093e1a2-d704-4503-a2e6-e90911153838",
+    "18cfb8f5-04c5-4a81-8c12-c479dc17d6c6",
+    "1267389b-209d-472e-9e8b-d1ebd4717327",
+    "f5bfb499-df12-4864-98dc-4b81fc02719d",
+    "0b2cb3a8-936f-4a6f-ae7d-872f511359f1"
+  ],
+  "device_info": {
+    "device_id": "emulator-5554",
+    "device_name": "sdk_gphone64_arm64",
+    "os_version": "16",
+    "is_emulator": true
+  },
+  "status": "completed",
+  "started_at": "2026-04-03T12:34:05.481308",
+  "completed_at": "2026-04-03T12:35:57.051328",
+  "duration_seconds": 111.57002,
+  "results": [
+    {
+      "test_case_id": "b6193bbb-5c12-4e2e-b152-8ef309cbc712",
+      "status": "fail",
+      "duration_ms": 9495,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/a73f86a2-410d-4221-90a2-6799bbb300e9/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 849,
+          "screenshot_path": "storage/test-runs/a73f86a2-410d-4221-90a2-6799bbb300e9/screenshots/step_1_error.png",
+          "error_message": "Could not parse command: driver.find_element(AppiumBy.ACCESSIBILITY ID, \"Add Custom URL\").click()",
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY ID, \"Add Custom URL\").click()"
+        }
+      ]
+    },
+    {
+      "test_case_id": "e093e1a2-d704-4503-a2e6-e90911153838",
+      "status": "fail",
+      "duration_ms": 11284,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/a73f86a2-410d-4221-90a2-6799bbb300e9/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 953,
+          "screenshot_path": "storage/test-runs/a73f86a2-410d-4221-90a2-6799bbb300e9/screenshots/step_1_error.png",
+          "error_message": "Could not parse command: driver.find_element(AppiumBy.ACCESSIBILITY ID, \"Add Custom URL\").click()",
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY ID, \"Add Custom URL\").click()"
+        }
+      ]
+    },
+    {
+      "test_case_id": "18cfb8f5-04c5-4a81-8c12-c479dc17d6c6",
+      "status": "fail",
+      "duration_ms": 11640,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/a73f86a2-410d-4221-90a2-6799bbb300e9/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 1021,
+          "screenshot_path": "storage/test-runs/a73f86a2-410d-4221-90a2-6799bbb300e9/screenshots/step_1_error.png",
+          "error_message": "Could not parse command: driver.find_element(AppiumBy.ACCESSIBILITY ID, \"Add Custom URL\").click()",
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY ID, \"Add Custom URL\").click()"
+        }
+      ]
+    },
+    {
+      "test_case_id": "1267389b-209d-472e-9e8b-d1ebd4717327",
+      "status": "fail",
+      "duration_ms": 11702,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/a73f86a2-410d-4221-90a2-6799bbb300e9/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 1031,
+          "screenshot_path": "storage/test-runs/a73f86a2-410d-4221-90a2-6799bbb300e9/screenshots/step_1_error.png",
+          "error_message": "Could not parse command: driver.find_element(AppiumBy.ACCESSIBILITY ID, \"Add Custom URL\").click()",
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY ID, \"Add Custom URL\").click()"
+        }
+      ]
+    },
+    {
+      "test_case_id": "f5bfb499-df12-4864-98dc-4b81fc02719d",
+      "status": "fail",
+      "duration_ms": 11655,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/a73f86a2-410d-4221-90a2-6799bbb300e9/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 999,
+          "screenshot_path": "storage/test-runs/a73f86a2-410d-4221-90a2-6799bbb300e9/screenshots/step_1_error.png",
+          "error_message": "Could not parse command: driver.find_element(AppiumBy.ACCESSIBILITY ID, \"Add Custom URL\").click()",
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY ID, \"Add Custom URL\").click()"
+        }
+      ]
+    },
+    {
+      "test_case_id": "0b2cb3a8-936f-4a6f-ae7d-872f511359f1",
+      "status": "fail",
+      "duration_ms": 11303,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/a73f86a2-410d-4221-90a2-6799bbb300e9/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 1060,
+          "screenshot_path": "storage/test-runs/a73f86a2-410d-4221-90a2-6799bbb300e9/screenshots/step_1_error.png",
+          "error_message": "Could not parse command: driver.find_element(AppiumBy.ACCESSIBILITY ID, \"Add Custom URL\").click()",
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY ID, \"Add Custom URL\").click()"
+        }
+      ]
+    }
+  ]
+}

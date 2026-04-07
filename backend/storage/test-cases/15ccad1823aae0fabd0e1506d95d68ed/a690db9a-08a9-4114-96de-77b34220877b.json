@@ -1,0 +1,41 @@
+{
+  "tc_id": "a690db9a-08a9-4114-96de-77b34220877b",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify mutual exclusivity with other onboarding experiments",
+  "description": "Tests that a user assigned to the Trial Corner experiment is not simultaneously shown other conflicting experiments.",
+  "preconditions": [
+    "Multiple experiments are active: 'Trial Corner', 'Onboarding Flow A', 'Post-Trial Offer B'.",
+    "A new user qualifies for all three experiments."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Create a new user who activates a trial and does not consume content in the first 5 minutes, ensuring they are assigned to the 'Trial Corner' cohort.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Navigate through the app, specifically to areas where other experiments would be triggered.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify that the user is NOT shown 'Onboarding Flow A'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Verify that the user is NOT shown prompts for 'Post-Trial Offer B'.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The user is only exposed to the 'Trial Corner' experience. The system correctly enforces the mutual exclusivity rule, preventing a confusing or broken user experience.",
+  "priority": "Medium",
+  "category": "Integration",
+  "created_at": "2026-03-30T10:18:59.233875",
+  "updated_at": "2026-03-30T10:18:59.233876"
+}

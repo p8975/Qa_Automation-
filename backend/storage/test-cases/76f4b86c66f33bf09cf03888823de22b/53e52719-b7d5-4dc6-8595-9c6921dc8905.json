@@ -1,0 +1,34 @@
+{
+  "tc_id": "53e52719-b7d5-4dc6-8595-9c6921dc8905",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify OpenCode behavior with invalid API key format",
+  "description": "Test how OpenCode handles improperly formatted API keys",
+  "preconditions": [
+    "Setup is complete with config.json"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Set OPENCODE_KEY to an invalid format (empty, special characters)",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Run: opencode --help",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Observe error handling",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "OpenCode provides appropriate error message for invalid API key",
+  "priority": "Medium",
+  "category": "Error Handling",
+  "created_at": "2026-03-11T15:55:47.726804",
+  "updated_at": "2026-03-11T15:55:47.726805"
+}

@@ -1,0 +1,41 @@
+{
+  "tc_id": "4c98611e-3155-432a-bc14-baa91df9b3e2",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify backend-controlled offer configuration reflects in discount popup",
+  "description": "Test that changing offer settings in backend updates the discount offer UI",
+  "preconditions": [
+    "Backend has offer configuration capability",
+    "User initiates cancellation"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Configure offer in backend (e.g., 30% off, 50% off)",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Initiate trial cancellation",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Reach discount offer popup",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Verify displayed offer matches backend configuration",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Discount popup displays the exact offer title and discounted price configured in backend",
+  "priority": "Medium",
+  "category": "Integration",
+  "created_at": "2026-03-11T17:29:07.551122",
+  "updated_at": "2026-03-11T17:29:07.551125"
+}

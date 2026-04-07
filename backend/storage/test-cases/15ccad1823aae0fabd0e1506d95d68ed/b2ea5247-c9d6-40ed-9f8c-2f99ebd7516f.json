@@ -1,0 +1,41 @@
+{
+  "tc_id": "b2ea5247-c9d6-40ed-9f8c-2f99ebd7516f",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify no offer popup when offer is disabled in backend",
+  "description": "Test that cancellation flow skips offer popup when backend has offer disabled",
+  "preconditions": [
+    "User has active trial",
+    "Offer is disabled in backend configuration"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to Trial Corner > Manage Trial",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click Cancel Trial",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Click Cancel Anyway on Exit Gate",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Observe next screen",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Directly proceeds to feedback popup without showing discount offer",
+  "priority": "Medium",
+  "category": "Edge Case",
+  "created_at": "2026-03-10T19:16:40.859856",
+  "updated_at": "2026-03-10T19:16:40.859856"
+}

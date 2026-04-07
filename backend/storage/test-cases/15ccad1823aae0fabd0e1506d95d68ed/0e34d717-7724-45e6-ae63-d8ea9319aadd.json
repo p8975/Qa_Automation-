@@ -1,0 +1,41 @@
+{
+  "tc_id": "0e34d717-7724-45e6-ae63-d8ea9319aadd",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify discount offer appears when user persists in canceling",
+  "description": "Test that the Conversion Bridge offer appears after user dismisses Loss Aversion warning",
+  "preconditions": [
+    "User has active trial",
+    "User clicked Cancel and saw Loss Aversion popup"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to Trial Corner",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click Cancel Trial",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Click 'Cancel Anyway' on Loss Aversion popup",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Observe discount offer popup",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Discount offer popup appears with discounted price, offer title from backend, and Grab Offer button",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T17:29:07.546950",
+  "updated_at": "2026-03-11T17:29:07.546954"
+}

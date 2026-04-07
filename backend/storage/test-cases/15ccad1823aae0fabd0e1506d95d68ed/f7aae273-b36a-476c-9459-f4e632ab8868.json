@@ -1,0 +1,46 @@
+{
+  "tc_id": "f7aae273-b36a-476c-9459-f4e632ab8868",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Locked State Content in Trial Corner",
+  "description": "Test that for a user with a paused or cancelled trial, the content sections in the Trial Corner are visually locked and non-interactive.",
+  "preconditions": [
+    "User has previously cancelled their trial via the Trial Corner flow."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Log in as the user and navigate to the homepage.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click the 'Cancelled' state widget to enter the Trial Corner.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Observe the 'Progress & Benefits', 'Engagement', and 'Trending' sections.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Verify these sections have a visual overlay (e.g., a lock icon, greyed out) indicating they are inaccessible.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Attempt to click on any content within these sections.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "All content sections are visually locked and clicking them has no effect or prompts the user to re-subscribe. The 'Manage Trial' section remains active.",
+  "priority": "Medium",
+  "category": "UI",
+  "created_at": "2026-04-03T12:32:35.180051",
+  "updated_at": "2026-04-03T12:32:35.180051"
+}

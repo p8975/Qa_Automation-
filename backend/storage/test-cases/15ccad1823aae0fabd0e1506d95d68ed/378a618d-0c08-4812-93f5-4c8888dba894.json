@@ -1,0 +1,40 @@
+{
+  "tc_id": "378a618d-0c08-4812-93f5-4c8888dba894",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify offer content is controlled by backend",
+  "description": "Test that offer title, discount percentage, and price come from backend configuration",
+  "preconditions": [
+    "Backend has offer configuration set"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Configure different offer in backend (e.g., 30% instead of 50%)",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Initiate cancel flow",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. View offer popup",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Verify offer matches backend configuration",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Offer popup displays values exactly as configured in backend",
+  "priority": "Medium",
+  "category": "Integration",
+  "created_at": "2026-03-11T10:04:15.371099",
+  "updated_at": "2026-03-11T10:04:15.371100"
+}

@@ -1,0 +1,28 @@
+{
+  "tc_id": "22707156-deb9-4e59-b8fe-4981aba2dd10",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify feedback popup appears after trial cancellation",
+  "description": "Test that user is prompted for feedback after completing cancellation",
+  "preconditions": [
+    "User has completed cancellation flow"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Complete full cancellation flow",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Observe feedback popup",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Feedback popup appears with options for user to select and submit feedback",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-03-11T17:29:07.551967",
+  "updated_at": "2026-03-11T17:29:07.551972"
+}

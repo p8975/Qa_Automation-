@@ -1,0 +1,54 @@
+{
+  "run_id": "19e74ef8-c8be-464f-b4d3-d169b7c6ed34",
+  "build_id": "64100a0f-4a77-4336-8c69-c599c5e16ccf",
+  "test_case_ids": [
+    "cd532ca2-5adf-4673-8b64-bc7e02a6e682"
+  ],
+  "device_info": {
+    "device_id": "emulator-5554",
+    "device_name": "sdk_gphone64_arm64",
+    "os_version": "16",
+    "is_emulator": true
+  },
+  "status": "completed",
+  "started_at": "2026-04-07T12:27:19.125720",
+  "completed_at": "2026-04-07T12:27:36.584638",
+  "duration_seconds": 17.458918,
+  "results": [
+    {
+      "test_case_id": "cd532ca2-5adf-4673-8b64-bc7e02a6e682",
+      "status": "pass",
+      "duration_ms": 11554,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "pass",
+          "duration_ms": 797,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"Enter Custom URLs\").is_displayed()"
+        },
+        {
+          "step_number": 2,
+          "status": "pass",
+          "duration_ms": 1593,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"Enter Custom URLs\").click()"
+        },
+        {
+          "step_number": 3,
+          "status": "pass",
+          "duration_ms": 773,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"Enter Custom URLs\").is_displayed()"
+        }
+      ]
+    }
+  ]
+}

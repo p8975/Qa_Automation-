@@ -1,0 +1,34 @@
+{
+  "tc_id": "f89cb506-d91d-4740-ac7d-361126f34025",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Trial Corner mutually exclusive with other onboarding experiments",
+  "description": "Test that users assigned to Trial Corner experiment do not see other onboarding experiments",
+  "preconditions": [
+    "User is assigned to Trial Corner experiment cohort"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Create user assigned to Trial Corner cohort (no consumption in first 5 mins)",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Check for presence of Trial Corner widget",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Check for presence of other onboarding experiments",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Trial Corner widget appears, other onboarding experiments are not shown (mutually exclusive)",
+  "priority": "High",
+  "category": "Integration",
+  "created_at": "2026-03-10T19:16:40.860844",
+  "updated_at": "2026-03-10T19:16:40.860844"
+}

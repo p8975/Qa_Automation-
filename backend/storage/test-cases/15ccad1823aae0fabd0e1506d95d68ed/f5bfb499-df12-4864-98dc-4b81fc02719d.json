@@ -1,0 +1,47 @@
+{
+  "tc_id": "f5bfb499-df12-4864-98dc-4b81fc02719d",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Full Cancellation Flow: User rejects all offers and cancels trial",
+  "description": "Tests that a user can successfully cancel their trial after rejecting the reminder nudge and the discount offer.",
+  "preconditions": [
+    "User has an active trial and is in the target cohort.",
+    "The 'First Month Discount' offer is enabled via the backend."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to the 'Trial Corner' hub and click 'Cancel Trial'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. On the 'Loss Aversion' pop-up, click 'Cancel Anyway & Lose Access'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. On the 'Incentive' offer pop-up, click the secondary action to cancel anyway.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Verify a feedback pop-up is displayed.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Submit feedback or close the pop-up.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The user's trial is immediately cancelled. Access to premium content is revoked. The homepage widget updates to the 'cancelled trial' design. The 'feedback-popup-viewed' event is triggered.",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-31T12:24:36.077144",
+  "updated_at": "2026-03-31T12:24:36.077150"
+}

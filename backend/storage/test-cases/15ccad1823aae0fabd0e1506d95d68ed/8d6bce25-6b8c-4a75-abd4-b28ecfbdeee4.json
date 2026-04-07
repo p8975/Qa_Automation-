@@ -1,0 +1,41 @@
+{
+  "tc_id": "8d6bce25-6b8c-4a75-abd4-b28ecfbdeee4",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Remind Me toggle sends notification 24 hours before trial ends",
+  "description": "Test that enabling the Remind Me option triggers appropriate notification scheduling",
+  "preconditions": [
+    "User is on Trial Corner",
+    "Trial is active with at least 1 day remaining"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to Trial Corner",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Locate 'Remind me 24h before trial ends' toggle in Manage Trial section",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Toggle the Remind Me option to ON",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Verify confirmation or visual feedback is shown",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Toggle changes to enabled state, and system schedules WhatsApp/Push notification for 24 hours before trial end",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T10:04:15.369405",
+  "updated_at": "2026-03-11T10:04:15.369406"
+}

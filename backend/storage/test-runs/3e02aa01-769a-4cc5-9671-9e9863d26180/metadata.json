@@ -1,0 +1,62 @@
+{
+  "run_id": "3e02aa01-769a-4cc5-9671-9e9863d26180",
+  "build_id": "64100a0f-4a77-4336-8c69-c599c5e16ccf",
+  "test_case_ids": [
+    "acc719f1-6064-444e-b70f-4240e2f69113",
+    "a6675324-e6de-48dd-9741-cc1610217301"
+  ],
+  "device_info": {
+    "device_id": "emulator-5554",
+    "device_name": "sdk_gphone64_arm64",
+    "os_version": "16",
+    "is_emulator": true
+  },
+  "status": "completed",
+  "started_at": "2026-04-03T11:48:56.085145",
+  "completed_at": "2026-04-03T11:49:41.297621",
+  "duration_seconds": 45.212476,
+  "results": [
+    {
+      "test_case_id": "acc719f1-6064-444e-b70f-4240e2f69113",
+      "status": "fail",
+      "duration_ms": 9529,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/3e02aa01-769a-4cc5-9671-9e9863d26180/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 903,
+          "screenshot_path": "storage/test-runs/3e02aa01-769a-4cc5-9671-9e9863d26180/screenshots/step_1_error.png",
+          "error_message": "Could not parse command: driver.find_element(AppiumBy.ACCESSIBILITY ID, \"Add Custom URL\").click()",
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY ID, \"Add Custom URL\").click()"
+        }
+      ]
+    },
+    {
+      "test_case_id": "a6675324-e6de-48dd-9741-cc1610217301",
+      "status": "fail",
+      "duration_ms": 11207,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/3e02aa01-769a-4cc5-9671-9e9863d26180/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 915,
+          "screenshot_path": "storage/test-runs/3e02aa01-769a-4cc5-9671-9e9863d26180/screenshots/step_1_error.png",
+          "error_message": "Could not parse command: driver.find_element(AppiumBy.ACCESSIBILITY ID, \"Add Custom URL\").click()",
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY ID, \"Add Custom URL\").click()"
+        }
+      ]
+    }
+  ]
+}

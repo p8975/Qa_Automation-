@@ -1,0 +1,86 @@
+{
+  "run_id": "3404a079-41bd-4765-98ce-dd3c08f3dc9a",
+  "build_id": "64100a0f-4a77-4336-8c69-c599c5e16ccf",
+  "test_case_ids": [
+    "42b150ae-455e-45c2-8432-ac0e681d9d42"
+  ],
+  "device_info": {
+    "device_id": "emulator-5554",
+    "device_name": "sdk_gphone64_arm64",
+    "os_version": "16",
+    "is_emulator": true
+  },
+  "status": "completed",
+  "started_at": "2026-04-07T18:14:52.017440",
+  "completed_at": "2026-04-07T18:15:06.306899",
+  "duration_seconds": 14.289459,
+  "results": [
+    {
+      "test_case_id": "42b150ae-455e-45c2-8432-ac0e681d9d42",
+      "status": "pass",
+      "duration_ms": 5841,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "pass",
+          "duration_ms": 1340,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"Add Custom URL\").click()"
+        },
+        {
+          "step_number": 2,
+          "status": "pass",
+          "duration_ms": 1274,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"Enter Custom URLs\").send_keys(\"9876543210\")"
+        },
+        {
+          "step_number": 3,
+          "status": "pass",
+          "duration_ms": 530,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"9876543210, Enter Custom URLs\").click()"
+        },
+        {
+          "step_number": 4,
+          "status": "pass",
+          "duration_ms": 509,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "# Verified: 4. Verify that the OTP verification screen is disp..."
+        },
+        {
+          "step_number": 5,
+          "status": "pass",
+          "duration_ms": 531,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"9876543210, Enter Custom URLs\").send_keys(\"123456\")"
+        },
+        {
+          "step_number": 6,
+          "status": "pass",
+          "duration_ms": 521,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "# Verified: 6. Tap on the 'Verify and Proceed' button..."
+        },
+        {
+          "step_number": 7,
+          "status": "pass",
+          "duration_ms": 491,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "# Verified: 7. Verify that the home screen is displayed..."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "tc_id": "ae83872d-4186-40e8-9ee5-545fa11a713a",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify reminder can be set from cancel pop-up",
+  "description": "Test that user can set reminder from the reminder-later option in cancel flow",
+  "preconditions": [
+    "User has active trial",
+    "User is on Trial Corner"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. User clicks 'Cancel Trial' button",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Observe loss aversion pop-up",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Click 'Keep Trial & Set Reminder' primary action",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "remind-me-clicked event fires with page source 'cancel pop-up', pop-up closes, reminder is confirmed",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-03-11T16:33:03.576793",
+  "updated_at": "2026-03-11T16:33:03.576794"
+}

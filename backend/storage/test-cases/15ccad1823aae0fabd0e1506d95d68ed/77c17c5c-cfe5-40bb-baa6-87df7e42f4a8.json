@@ -1,0 +1,35 @@
+{
+  "tc_id": "77c17c5c-cfe5-40bb-baa6-87df7e42f4a8",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Remind Me toggle sends WhatsApp notification 24hrs before trial ends",
+  "description": "Test that when user enables 'Remind me 24h before trial ends' toggle, system schedules a WhatsApp notification",
+  "preconditions": [
+    "User has active trial with remaining days",
+    "User is in Trial Corner Manage Trial section"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to Trial Corner",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click on 'Remind me 24h before trial ends' toggle",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify toggle changes to enabled state",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Toggle is enabled, micro-copy displays 'We will send a WhatsApp/Push notification so you can decide then. No accidental charges.'",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T09:56:39.862725",
+  "updated_at": "2026-03-11T09:56:39.862726"
+}

@@ -1,0 +1,47 @@
+{
+  "tc_id": "cb50b544-8446-4328-b089-440d932a0fa6",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify trial widget updates correctly after pause action",
+  "description": "Test that homepage widget and Trial Corner reflect paused state after user pauses trial",
+  "preconditions": [
+    "User has active trial",
+    "User is on Trial Corner Hub"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to Trial Corner Hub",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click Pause Trial button",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. In popup, click 'Pause Trial' to confirm",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Check homepage widget appearance",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Check Trial Corner page appearance",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Homepage widget shows paused design with 'Trial Paused' status. Trial Corner shows paused state with appropriate messaging",
+  "priority": "High",
+  "category": "Integration",
+  "created_at": "2026-03-11T10:02:10.487710",
+  "updated_at": "2026-03-11T10:02:10.487710"
+}

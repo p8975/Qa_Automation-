@@ -1,0 +1,35 @@
+{
+  "tc_id": "cd21973d-7ec8-472b-b436-16ce499cd232",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify baseURL in config points to correct AI Router endpoint",
+  "description": "Test that the configured baseURL is valid and accessible",
+  "preconditions": [
+    "Config created with staging URL",
+    "Internet connection available"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Check baseURL in config.json",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Test connectivity: curl -I https://airouter.stage.in/v1/",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify endpoint responds",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "AI Router endpoint is reachable and responds",
+  "priority": "Medium",
+  "category": "Integration",
+  "created_at": "2026-03-11T15:23:56.750018",
+  "updated_at": "2026-03-11T15:23:56.750019"
+}

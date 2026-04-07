@@ -1,0 +1,46 @@
+{
+  "tc_id": "f95f544f-7336-4187-a7a2-d1415ddc89bd",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify password confirmation mismatch shows error",
+  "description": "Test that the system shows an error when password and confirm password do not match",
+  "preconditions": [
+    "User is on registration page"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to registration page",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enter valid email address",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Enter valid password",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Enter different password in confirm field",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Click 'Register' button",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Error message displayed indicating passwords do not match",
+  "priority": "High",
+  "category": "Error Handling",
+  "created_at": "2026-03-11T15:42:39.038208",
+  "updated_at": "2026-03-11T15:42:39.038210"
+}

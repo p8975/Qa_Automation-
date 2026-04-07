@@ -1,0 +1,41 @@
+{
+  "tc_id": "52b8ea85-e45f-47e6-a802-db50f4d7895d",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify expired password reset link is rejected",
+  "description": "Test that password reset links expire after 1 hour and cannot be used after expiration",
+  "preconditions": [
+    "User requested password reset more than 1 hour ago",
+    "User has expired reset link"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to expired password reset link from email",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enter new valid password",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Confirm new password",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Click 'Reset Password' button",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Error message displayed: INVALID_TOKEN, link cannot be used",
+  "priority": "High",
+  "category": "Security",
+  "created_at": "2026-03-11T15:38:47.295505",
+  "updated_at": "2026-03-11T15:38:47.295505"
+}

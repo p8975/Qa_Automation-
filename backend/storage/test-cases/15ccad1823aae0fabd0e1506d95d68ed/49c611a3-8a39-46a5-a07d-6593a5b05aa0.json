@@ -1,0 +1,41 @@
+{
+  "tc_id": "49c611a3-8a39-46a5-a07d-6593a5b05aa0",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify analytics events are triggered for key actions in the Trial Corner",
+  "description": "Test that viewing the widget, clicking it, viewing the corner, and clicking cancel/pause/remind buttons trigger the specified analytics events with correct attributes.",
+  "preconditions": [
+    "User has an active trial and is eligible for the Trial Corner.",
+    "Analytics logging tool is active."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Load the homepage and verify 'trial-corner-widget-viewed' event is fired.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click the widget and verify 'trial-corner-widget-clicked' and 'trial-corner-viewed' events are fired.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. In the Trial Corner, click 'Pause Trial'. Verify 'pause-clicked' event is fired with 'trial corner' as page_source.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. On the pop-up, click 'Cancel Anyway & Lose Access'. Verify 'cancel-clicked' event is fired with 'cancel pop-up' as page_source.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "All specified events are logged correctly in the analytics system with the right attributes (variant, page source, etc.) corresponding to each user action.",
+  "priority": "High",
+  "category": "Integration",
+  "created_at": "2026-03-30T13:51:34.956251",
+  "updated_at": "2026-03-30T13:51:34.956252"
+}

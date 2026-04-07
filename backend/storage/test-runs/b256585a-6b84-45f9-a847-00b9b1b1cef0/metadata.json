@@ -1,0 +1,678 @@
+{
+  "run_id": "b256585a-6b84-45f9-a847-00b9b1b1cef0",
+  "build_id": "64100a0f-4a77-4336-8c69-c599c5e16ccf",
+  "test_case_ids": [
+    "cd532ca2-5adf-4673-8b64-bc7e02a6e682",
+    "a89f0b22-0095-44d8-a630-2f4dc24f9bff",
+    "84702f41-85db-463f-9b8d-ad48684eff31",
+    "b05ba6d7-235c-4878-806d-59cfc4596d39",
+    "5213a77b-f5fd-47dd-8b6e-88c85305ac7d",
+    "33d53507-f022-49f0-b0dc-9e18343eb6c0",
+    "86220811-2d27-4b70-8a3a-947b4da5e072",
+    "386e0ae6-4e38-42e4-8c26-b837aaf2db0a",
+    "6d61a7e9-bb59-460b-9ae4-910f661b2af4",
+    "d331a451-dbc0-40ee-91a9-a525570876e9",
+    "0f72dfe9-c944-4641-bcc9-43e6fa82bd10",
+    "891ed813-697c-4c8c-9311-00443642078f",
+    "8404a43c-4d12-456e-ad9f-ea1910f055e7",
+    "8ae35dec-b7d3-49fe-bafc-3307e9a75e11",
+    "a6dde03b-c8ce-4020-820f-faf46de6b9f8",
+    "3fd1d615-0926-403d-bfb0-4a99a817668c",
+    "04282e0f-7e8c-4bca-a5be-519b922ef1fb",
+    "7e54d76b-2198-4825-b0f4-6eed702139ee",
+    "1af79ddb-7a73-4b91-8725-469fdaaf2693",
+    "8eaab2fc-f1fa-47b6-be5a-f9fa8e451562",
+    "33066bfb-8313-4b39-8a3f-15ec23376495",
+    "2c9c47ac-9e7c-4463-bad8-e4a26f960f51",
+    "b71571e3-8d70-43f4-90ba-90efdaa4f59e",
+    "8946b9b5-e1c4-49df-993d-62c5376805db",
+    "5e4efb82-0d87-4c81-8b1e-f93007d758b5",
+    "12ce8ad6-85bf-4f9d-8dea-c11ac4192af0",
+    "fcc0f2fb-b995-4f5e-981a-f8f6f41ca37d",
+    "1834f2aa-4f7f-4807-a5b2-77076739dbb3",
+    "9d3453d6-c61b-40c8-90d4-0b13a117cda0",
+    "a97a1ad9-0466-4c6b-b5cb-92310c1dd10b"
+  ],
+  "device_info": {
+    "device_id": "10BF5314JZ008N5",
+    "device_name": "I2403",
+    "os_version": "15",
+    "is_emulator": false
+  },
+  "status": "completed",
+  "started_at": "2026-04-07T12:40:58.616375",
+  "completed_at": "2026-04-07T13:06:04.458579",
+  "duration_seconds": 1505.842204,
+  "results": [
+    {
+      "test_case_id": "cd532ca2-5adf-4673-8b64-bc7e02a6e682",
+      "status": "fail",
+      "duration_ms": 40452,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 1036,
+          "screenshot_path": "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png",
+          "error_message": "Could not find element for step: 1. Verify the default country code is '+91'.",
+          "appium_command": null
+        }
+      ]
+    },
+    {
+      "test_case_id": "a89f0b22-0095-44d8-a630-2f4dc24f9bff",
+      "status": "fail",
+      "duration_ms": 42039,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 1008,
+          "screenshot_path": "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png",
+          "error_message": "Could not find element for step: 1. On the Login screen, enter a valid phone number and tap '\u0932\u0949\u0917\u093f\u0928 \u0915\u0930\u0947\u0902'.",
+          "appium_command": null
+        }
+      ]
+    },
+    {
+      "test_case_id": "84702f41-85db-463f-9b8d-ad48684eff31",
+      "status": "fail",
+      "duration_ms": 35705,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 1493,
+          "screenshot_path": "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png",
+          "error_message": "Could not find element for step: 1. After navigating to the OTP screen, wait for the OTP SMS to arrive.",
+          "appium_command": null
+        }
+      ]
+    },
+    {
+      "test_case_id": "b05ba6d7-235c-4878-806d-59cfc4596d39",
+      "status": "fail",
+      "duration_ms": 42109,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 869,
+          "screenshot_path": "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png",
+          "error_message": "Could not find element for step: 1. Tap the 'Add Custom URL' button.",
+          "appium_command": null
+        }
+      ]
+    },
+    {
+      "test_case_id": "5213a77b-f5fd-47dd-8b6e-88c85305ac7d",
+      "status": "fail",
+      "duration_ms": 34759,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 968,
+          "screenshot_path": "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png",
+          "error_message": "Could not find element for step: 1. Tap the 'Refund Policy' link at the bottom of the screen.",
+          "appium_command": null
+        }
+      ]
+    },
+    {
+      "test_case_id": "33d53507-f022-49f0-b0dc-9e18343eb6c0",
+      "status": "fail",
+      "duration_ms": 22741,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 1079,
+          "screenshot_path": "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png",
+          "error_message": "Could not find element for step: 1. Tap the 'Privacy Policy' link at the bottom of the screen.",
+          "appium_command": null
+        }
+      ]
+    },
+    {
+      "test_case_id": "86220811-2d27-4b70-8a3a-947b4da5e072",
+      "status": "fail",
+      "duration_ms": 35643,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 913,
+          "screenshot_path": "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png",
+          "error_message": "Could not find element for step: 1. Tap the 'Terms & Conditions' link at the bottom of the screen.",
+          "appium_command": null
+        }
+      ]
+    },
+    {
+      "test_case_id": "386e0ae6-4e38-42e4-8c26-b837aaf2db0a",
+      "status": "fail",
+      "duration_ms": 34712,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 990,
+          "screenshot_path": "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png",
+          "error_message": "Could not find element for step: 1. On the OTP screen, rotate the device to landscape mode.",
+          "appium_command": null
+        }
+      ]
+    },
+    {
+      "test_case_id": "6d61a7e9-bb59-460b-9ae4-910f661b2af4",
+      "status": "fail",
+      "duration_ms": 40498,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 894,
+          "screenshot_path": "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png",
+          "error_message": "Could not find element for step: 1. On the Login screen, rotate the device to landscape mode.",
+          "appium_command": null
+        }
+      ]
+    },
+    {
+      "test_case_id": "d331a451-dbc0-40ee-91a9-a525570876e9",
+      "status": "fail",
+      "duration_ms": 39959,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 989,
+          "screenshot_path": "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png",
+          "error_message": "Could not find element for step: 1. On the OTP screen, note the current value of the resend timer.",
+          "appium_command": null
+        }
+      ]
+    },
+    {
+      "test_case_id": "0f72dfe9-c944-4641-bcc9-43e6fa82bd10",
+      "status": "fail",
+      "duration_ms": 40937,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 1422,
+          "screenshot_path": "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png",
+          "error_message": "Could not find element for step: 1. Enter a 10-digit phone number in the input field.",
+          "appium_command": null
+        }
+      ]
+    },
+    {
+      "test_case_id": "891ed813-697c-4c8c-9311-00443642078f",
+      "status": "fail",
+      "duration_ms": 35100,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 968,
+          "screenshot_path": "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png",
+          "error_message": "Could not find element for step: 1. Enter a valid phone number and navigate to the OTP screen.",
+          "appium_command": null
+        }
+      ]
+    },
+    {
+      "test_case_id": "8404a43c-4d12-456e-ad9f-ea1910f055e7",
+      "status": "fail",
+      "duration_ms": 40873,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 867,
+          "screenshot_path": "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png",
+          "error_message": "Could not find element for step: 1. Disable Wi-Fi and mobile data on the device.",
+          "appium_command": null
+        }
+      ]
+    },
+    {
+      "test_case_id": "8ae35dec-b7d3-49fe-bafc-3307e9a75e11",
+      "status": "fail",
+      "duration_ms": 34607,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 608,
+          "screenshot_path": "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png",
+          "error_message": "Could not find element for step: 1. Enter an incorrect OTP. Verify 'Invalid OTP' error. (Attempt 1)",
+          "appium_command": null
+        }
+      ]
+    },
+    {
+      "test_case_id": "a6dde03b-c8ce-4020-820f-faf46de6b9f8",
+      "status": "fail",
+      "duration_ms": 34226,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 506,
+          "screenshot_path": "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png",
+          "error_message": "Could not find element for step: 1. Request an OTP.",
+          "appium_command": null
+        }
+      ]
+    },
+    {
+      "test_case_id": "3fd1d615-0926-403d-bfb0-4a99a817668c",
+      "status": "fail",
+      "duration_ms": 34257,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 548,
+          "screenshot_path": "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png",
+          "error_message": "Could not find element for step: 1. Enter the first 3 digits of the correct OTP.",
+          "appium_command": null
+        }
+      ]
+    },
+    {
+      "test_case_id": "04282e0f-7e8c-4bca-a5be-519b922ef1fb",
+      "status": "fail",
+      "duration_ms": 34206,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 990,
+          "screenshot_path": "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png",
+          "error_message": "Could not find element for step: 1. Tap the first OTP input box.",
+          "appium_command": null
+        }
+      ]
+    },
+    {
+      "test_case_id": "7e54d76b-2198-4825-b0f4-6eed702139ee",
+      "status": "fail",
+      "duration_ms": 40297,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 578,
+          "screenshot_path": "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png",
+          "error_message": "Could not find element for step: 1. Tap the Back Button (arrow icon) on the top left of the OTP screen.",
+          "appium_command": null
+        }
+      ]
+    },
+    {
+      "test_case_id": "1af79ddb-7a73-4b91-8725-469fdaaf2693",
+      "status": "fail",
+      "duration_ms": 33990,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 565,
+          "screenshot_path": "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png",
+          "error_message": "Could not find element for step: 1. Wait for the 30-second resend timer to expire.",
+          "appium_command": null
+        }
+      ]
+    },
+    {
+      "test_case_id": "8eaab2fc-f1fa-47b6-be5a-f9fa8e451562",
+      "status": "fail",
+      "duration_ms": 33764,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 563,
+          "screenshot_path": "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png",
+          "error_message": "Could not find element for step: 1. Enter a 4-digit OTP that is different from the one received.",
+          "appium_command": null
+        }
+      ]
+    },
+    {
+      "test_case_id": "33066bfb-8313-4b39-8a3f-15ec23376495",
+      "status": "fail",
+      "duration_ms": 34434,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 616,
+          "screenshot_path": "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png",
+          "error_message": "Could not find element for step: 1. On the OTP screen, verify the Back Button (arrow icon) is visible.",
+          "appium_command": null
+        }
+      ]
+    },
+    {
+      "test_case_id": "2c9c47ac-9e7c-4463-bad8-e4a26f960f51",
+      "status": "fail",
+      "duration_ms": 34127,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 509,
+          "screenshot_path": "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png",
+          "error_message": "Could not find element for step: 1. Tap the Google Sign-In button.",
+          "appium_command": null
+        }
+      ]
+    },
+    {
+      "test_case_id": "b71571e3-8d70-43f4-90ba-90efdaa4f59e",
+      "status": "fail",
+      "duration_ms": 33787,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 520,
+          "screenshot_path": "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png",
+          "error_message": "Could not find element for step: 1. Tap the Google Sign-In button.",
+          "appium_command": null
+        }
+      ]
+    },
+    {
+      "test_case_id": "8946b9b5-e1c4-49df-993d-62c5376805db",
+      "status": "fail",
+      "duration_ms": 40402,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 637,
+          "screenshot_path": "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png",
+          "error_message": "Could not find element for step: 1. Tap the Google Sign-In button.",
+          "appium_command": null
+        }
+      ]
+    },
+    {
+      "test_case_id": "5e4efb82-0d87-4c81-8b1e-f93007d758b5",
+      "status": "fail",
+      "duration_ms": 40018,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 620,
+          "screenshot_path": "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png",
+          "error_message": "Could not find element for step: 1. Tap on the phone number input field.",
+          "appium_command": null
+        }
+      ]
+    },
+    {
+      "test_case_id": "12ce8ad6-85bf-4f9d-8dea-c11ac4192af0",
+      "status": "fail",
+      "duration_ms": 40516,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 599,
+          "screenshot_path": "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png",
+          "error_message": "Could not find element for step: 1. Attempt to enter an 11-digit number (e.g., '12345678901') in the input field.",
+          "appium_command": null
+        }
+      ]
+    },
+    {
+      "test_case_id": "fcc0f2fb-b995-4f5e-981a-f8f6f41ca37d",
+      "status": "fail",
+      "duration_ms": 39289,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 607,
+          "screenshot_path": "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png",
+          "error_message": "Could not find element for step: 1. Enter a 9-digit number (e.g., '123456789') in the input field.",
+          "appium_command": null
+        }
+      ]
+    },
+    {
+      "test_case_id": "1834f2aa-4f7f-4807-a5b2-77076739dbb3",
+      "status": "fail",
+      "duration_ms": 40558,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 715,
+          "screenshot_path": "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png",
+          "error_message": "Could not find element for step: 1. Do not enter any text in the phone number input field.",
+          "appium_command": null
+        }
+      ]
+    },
+    {
+      "test_case_id": "9d3453d6-c61b-40c8-90d4-0b13a117cda0",
+      "status": "fail",
+      "duration_ms": 40022,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 1270,
+          "screenshot_path": "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png",
+          "error_message": "Could not find element for step: 1. Enter a valid 10-digit mobile number in the input field.",
+          "appium_command": null
+        }
+      ]
+    },
+    {
+      "test_case_id": "a97a1ad9-0466-4c6b-b5cb-92310c1dd10b",
+      "status": "fail",
+      "duration_ms": 39131,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 558,
+          "screenshot_path": "storage/test-runs/b256585a-6b84-45f9-a847-00b9b1b1cef0/screenshots/step_1_error.png",
+          "error_message": "Could not find element for step: 1. Launch the STAGE application.",
+          "appium_command": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "id": "5b1c6fe4-2f6e-4af2-924b-b1472087a0f1",
+  "input_type": "prd_upload",
+  "filename": "sample_prd.md",
+  "file_path": "storage/uploads/2026-04-07/5b1c6fe4-2f6e-4af2-924b-b1472087a0f1_sample_prd.md",
+  "content_preview": "# Sample PRD\n\n## Feature: Login\n\nUsers should be able to log into the app with email and password.\n\n### Requirements\n- Email validation\n- Password minimum 8 characters\n- Show error on invalid credentials\n\n",
+  "content_hash": "517489e3d6a53e3e156cf7a9104b649e",
+  "file_size_bytes": 205,
+  "test_cases_generated": 15,
+  "created_at": "2026-04-07T17:40:52.837355",
+  "metadata": {
+    "original_filename": "sample_prd.md",
+    "content_length": 205
+  }
+}

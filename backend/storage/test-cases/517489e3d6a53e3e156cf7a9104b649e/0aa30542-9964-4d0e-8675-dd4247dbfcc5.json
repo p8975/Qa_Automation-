@@ -1,0 +1,35 @@
+{
+  "tc_id": "0aa30542-9964-4d0e-8675-dd4247dbfcc5",
+  "prd_hash": "517489e3d6a53e3e156cf7a9104b649e",
+  "title": "Verify password field is case-sensitive",
+  "description": "Validate that the password field correctly distinguishes between uppercase and lowercase letters.",
+  "preconditions": [
+    "User account exists with password \"Password123\"",
+    "User is on the login screen"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Enter the valid email address",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enter \"password123\" (all lowercase) in the password field",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Click the \"Login\" button",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "System displays an \"invalid credentials\" error message",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-04-07T17:10:13.194930",
+  "updated_at": "2026-04-07T17:10:13.194930"
+}

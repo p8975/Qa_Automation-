@@ -1,0 +1,41 @@
+{
+  "tc_id": "805388dc-f762-4990-9196-926430e2bf40",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify password history prevents password reuse",
+  "description": "Test that a user cannot reset their password to one of the last 5 previously used passwords.",
+  "preconditions": [
+    "A user account exists",
+    "The user has a known password (e.g., 'OldPass123!')"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Log in and initiate the password change/reset process",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Change the password from 'OldPass123!' to 'NewPass123!'",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Initiate the password reset process again",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Attempt to set the new password back to 'OldPass123!'",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The system rejects the password change, displaying an error message indicating that the password has been used recently and cannot be reused.",
+  "priority": "High",
+  "category": "Security",
+  "created_at": "2026-03-27T15:38:37.610775",
+  "updated_at": "2026-03-27T15:38:37.610776"
+}

@@ -1,0 +1,46 @@
+{
+  "tc_id": "1cac751b-3478-4c05-a0ac-296cf78b145a",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify access token expiration and refresh token rotation",
+  "description": "Test the automatic and transparent refreshing of an access token using a refresh token when the access token expires.",
+  "preconditions": [
+    "User is logged into the application"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Log in to the application and capture the initial access and refresh tokens",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Wait for the access token to expire (e.g., > 15 minutes)",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Attempt to make an API call to a protected endpoint using the expired access token",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Observe the network traffic to confirm a token refresh request is made",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Verify the original API call succeeds after the token refresh",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The initial API call with the expired token fails, triggering a silent request to the token refresh endpoint. A new access token and a new refresh token are issued and stored. The original API call is retried with the new access token and succeeds without interrupting the user.",
+  "priority": "High",
+  "category": "Security",
+  "created_at": "2026-03-27T15:38:37.610338",
+  "updated_at": "2026-03-27T15:38:37.610338"
+}

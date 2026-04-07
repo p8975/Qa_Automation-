@@ -1,0 +1,41 @@
+{
+  "tc_id": "61894056-869a-4a00-b2b0-014881c71f2a",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify content is accessible during active trial",
+  "description": "Test that all content sections (Engagement, Trending) are accessible when trial is active",
+  "preconditions": [
+    "User has active trial",
+    "User is in Trial Corner"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to Trial Corner with active trial",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Browse Engagement section",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Browse Trending section",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Try to play content",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "All content is accessible and playable, progress & benefits section shows library exploration status",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-10T19:16:40.859497",
+  "updated_at": "2026-03-10T19:16:40.859497"
+}

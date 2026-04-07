@@ -1,0 +1,34 @@
+{
+  "tc_id": "55efa721-aa20-4d27-85be-10e0743f3fb7",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify file permissions are correctly set for config file",
+  "description": "Test that config.json has appropriate read permissions for the user",
+  "preconditions": [
+    "Config file created"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Check permissions: ls -la ~/.config/opencode/config.json",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Verify user has read access",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify sensitive data is not world-readable",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Config file has secure permissions (600 or 640)",
+  "priority": "Medium",
+  "category": "Security",
+  "created_at": "2026-03-11T15:23:56.749634",
+  "updated_at": "2026-03-11T15:23:56.749636"
+}

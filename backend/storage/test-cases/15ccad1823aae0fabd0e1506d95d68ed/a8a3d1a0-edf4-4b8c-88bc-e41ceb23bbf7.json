@@ -1,0 +1,29 @@
+{
+  "tc_id": "a8a3d1a0-edf4-4b8c-88bc-e41ceb23bbf7",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify event tracking for all Trial Corner interactions",
+  "description": "Test that all specified events fire correctly with proper attributes during user journey",
+  "preconditions": [
+    "Analytics system is operational",
+    "User has active trial"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Perform multiple Trial Corner interactions (view widget, click widget, view corner, click top content, set reminder, pause, cancel)",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Check analytics events",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "All events fire with correct attributes: trial-corner-widget-viewed, trial-corner-widget-clicked, trial-corner-viewed, trial-corner-topcontent-viewed, trial-corner-topcontent-played, trial-corner-trending-viewed, trial-corner-trending-clicked, remind-me-clicked, pause-clicked, cancel-clicked",
+  "priority": "High",
+  "category": "Integration",
+  "created_at": "2026-03-10T19:16:40.860752",
+  "updated_at": "2026-03-10T19:16:40.860752"
+}

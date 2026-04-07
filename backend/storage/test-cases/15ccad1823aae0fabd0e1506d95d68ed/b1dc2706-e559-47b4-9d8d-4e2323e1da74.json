@@ -1,0 +1,35 @@
+{
+  "tc_id": "b1dc2706-e559-47b4-9d8d-4e2323e1da74",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify trial-corner-widget-viewed event triggers correctly",
+  "description": "Test that the analytics event 'trial-corner-widget-viewed' fires when user views the widget",
+  "preconditions": [
+    "Analytics tracking is implemented",
+    "User has active trial"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Log in with trial user account",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Navigate to homepage where trial widget appears",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify event fires in network/console",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Event 'trial-corner-widget-viewed' is triggered with correct variant attribute (home-trial active/pause/cancel, pill, manage subscription)",
+  "priority": "Medium",
+  "category": "Integration",
+  "created_at": "2026-03-11T11:16:21.689339",
+  "updated_at": "2026-03-11T11:16:21.689339"
+}

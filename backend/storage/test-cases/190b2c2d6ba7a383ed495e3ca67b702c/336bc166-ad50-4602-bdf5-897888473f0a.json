@@ -1,0 +1,35 @@
+{
+  "tc_id": "336bc166-ad50-4602-bdf5-897888473f0a",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify login request completes within performance threshold",
+  "description": "Test that login authentication completes within 500ms at 95th percentile",
+  "preconditions": [
+    "User account exists",
+    "Performance testing tools available"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Execute login request with valid credentials",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Measure response time",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Repeat for statistical sample (100+ attempts)",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "95% of requests complete in under 500ms",
+  "priority": "Medium",
+  "category": "Performance",
+  "created_at": "2026-03-11T13:48:21.466056",
+  "updated_at": "2026-03-11T13:48:21.466057"
+}

@@ -1,0 +1,34 @@
+{
+  "tc_id": "4a4b7361-7772-40b4-a279-8f31e66ba65f",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify refresh token rotation extends session",
+  "description": "Test that using refresh token generates new valid tokens",
+  "preconditions": [
+    "User is logged in with valid refresh token"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Login and obtain access and refresh tokens",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Access token expires",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Use refresh token to obtain new access token",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "New valid access token returned, old refresh token rotated",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-03-11T14:15:28.268213",
+  "updated_at": "2026-03-11T14:15:28.268214"
+}

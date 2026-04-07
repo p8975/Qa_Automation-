@@ -1,0 +1,41 @@
+{
+  "tc_id": "18bdf101-0ddb-44cb-a7b6-a4e23d13aaab",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify user can successfully accept the 'Incentive' discount offer",
+  "description": "Test that a user who proceeds to cancel is presented with a discount offer and can successfully accept it, updating their subscription plan without ending the trial period.",
+  "preconditions": [
+    "User has an active trial and is in the Trial Corner.",
+    "The 'First Month Discount' offer is enabled in the backend with a specified price."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Click 'Cancel Trial', then 'Cancel Anyway & Lose Access' on the Loss Aversion pop-up.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. On the 'Incentive' offer pop-up, observe the discounted price and offer title from the backend.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Click the primary action 'Lock in 50% off your first month now'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Complete the payment for the discounted amount.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The user is charged the discounted amount, but the trial remains active for its full duration. The user's next billing cycle is confirmed at the discounted rate. The user is returned to the Trial Corner, which remains in an 'Active' state.",
+  "priority": "High",
+  "category": "Integration",
+  "created_at": "2026-03-30T13:51:34.955294",
+  "updated_at": "2026-03-30T13:51:34.955295"
+}

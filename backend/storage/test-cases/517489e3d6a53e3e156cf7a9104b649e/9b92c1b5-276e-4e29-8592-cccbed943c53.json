@@ -1,0 +1,34 @@
+{
+  "tc_id": "9b92c1b5-276e-4e29-8592-cccbed943c53",
+  "prd_hash": "517489e3d6a53e3e156cf7a9104b649e",
+  "title": "Verify login failure with invalid email format (missing domain)",
+  "description": "Validate that the email field rejects strings missing a domain after the @ symbol.",
+  "preconditions": [
+    "User is on the login screen"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Enter \"testuser@\" in the email field",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enter a valid 8-character password",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Click the \"Login\" button",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "System displays an email validation error message",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-04-07T17:10:13.193566",
+  "updated_at": "2026-04-07T17:10:13.193567"
+}

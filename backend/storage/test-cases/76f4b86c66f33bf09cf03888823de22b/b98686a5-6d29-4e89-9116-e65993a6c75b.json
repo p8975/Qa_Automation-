@@ -1,0 +1,34 @@
+{
+  "tc_id": "b98686a5-6d29-4e89-9116-e65993a6c75b",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify error handling with invalid JSON in config file",
+  "description": "Test that OpenCode handles malformed JSON configuration",
+  "preconditions": [
+    "OpenCode installed"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Create config.json with invalid JSON: missing quotes, brackets, etc.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Execute: opencode",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Observe error handling",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "OpenCode displays JSON parsing error with helpful message",
+  "priority": "High",
+  "category": "Error Handling",
+  "created_at": "2026-03-11T13:51:23.504389",
+  "updated_at": "2026-03-11T13:51:23.504391"
+}

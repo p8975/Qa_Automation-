@@ -1,0 +1,35 @@
+{
+  "tc_id": "05b1b87f-f5d2-4c67-9074-3692e6f3accd",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify JWT access token expires after 15 minutes",
+  "description": "Test that access tokens become invalid after their configured expiration time",
+  "preconditions": [
+    "User is logged in",
+    "Access token is available"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Login and obtain access token",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Wait 15 minutes (or use expired token)",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Make API request with expired access token",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Request is rejected with 401 Unauthorized; user must refresh token",
+  "priority": "High",
+  "category": "Security",
+  "created_at": "2026-03-11T13:48:21.464513",
+  "updated_at": "2026-03-11T13:48:21.464515"
+}

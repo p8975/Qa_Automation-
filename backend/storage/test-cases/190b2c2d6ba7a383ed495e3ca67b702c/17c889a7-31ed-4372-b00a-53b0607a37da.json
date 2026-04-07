@@ -1,0 +1,35 @@
+{
+  "tc_id": "17c889a7-31ed-4372-b00a-53b0607a37da",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify new verification email can be requested",
+  "description": "Test that users can request a new verification email if the original expired or was not received",
+  "preconditions": [
+    "User registered but email not verified",
+    "Original verification link expired or lost"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to resend verification page",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enter registered email address",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Click 'Resend Verification Email' button",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "New verification email sent, success message displayed",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-03-11T15:38:47.297955",
+  "updated_at": "2026-03-11T15:38:47.297956"
+}

@@ -1,0 +1,36 @@
+{
+  "tc_id": "9343a63c-fe66-4b9a-8dec-b80a2dd219f6",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify WhatsApp/Push Notification for Reminder",
+  "description": "Test the integration that sends a notification 24 hours before trial expiry after a user sets a reminder.",
+  "preconditions": [
+    "User has set a reminder.",
+    "User's trial is configured to end in 24 hours and 1 minute.",
+    "User has provided consent for WhatsApp/Push notifications."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Set the reminder for the user account.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Wait for the system time to pass the 24-hour-to-expiry threshold.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Check the user's registered device/WhatsApp for a notification.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The user receives a notification on the correct channel (WhatsApp/Push) with a message informing them their trial is ending soon and providing an option to manage their subscription.",
+  "priority": "High",
+  "category": "Integration",
+  "created_at": "2026-03-30T16:16:22.755284",
+  "updated_at": "2026-03-30T16:16:22.755286"
+}

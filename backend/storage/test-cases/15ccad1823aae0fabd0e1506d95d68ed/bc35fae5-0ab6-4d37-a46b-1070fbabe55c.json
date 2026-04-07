@@ -1,0 +1,59 @@
+{
+  "tc_id": "bc35fae5-0ab6-4d37-a46b-1070fbabe55c",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify the full cancellation flow with acceptance of the 'Incentive Offer'",
+  "description": "Tests that a user attempting to cancel is shown the loss aversion gate, proceeds to cancel, is presented with a discount offer, accepts it, and completes the payment to convert to a subscriber.",
+  "preconditions": [
+    "User has an active trial and is in the Trial Corner cohort.",
+    "The 'Incentive Offer' is enabled in the backend."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to the 'Trial Corner' Hub.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click the 'Cancel Trial' button.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. In the 'Loss Aversion' pop-up, click 'Cancel Anyway & Lose Access'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Observe the 'Incentive Offer' pop-up (e.g., 'Lock in 50% off your first month').",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Click the primary action to 'Grab Offer'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 6,
+      "description": "6. Complete the payment for the discounted first month.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 7,
+      "description": "7. Check the subscription status.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The user's trial remains active for the remaining duration, and their subscription is scheduled to begin at a discounted rate after the trial ends. A `cancel-clicked` event is fired from the discount pop-up.",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-30T13:58:41.019987",
+  "updated_at": "2026-03-30T13:58:41.019994"
+}

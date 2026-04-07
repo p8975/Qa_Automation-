@@ -1,0 +1,41 @@
+{
+  "tc_id": "c823da62-fb20-404b-a396-5361791f7e19",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify login is blocked for unverified email accounts",
+  "description": "Test that users who have not verified their email cannot log in",
+  "preconditions": [
+    "User has registered but not verified email",
+    "User is on login page"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to login page",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enter email of unverified account",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Enter correct password",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Click 'Login' button",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Error message displayed indicating email must be verified first",
+  "priority": "High",
+  "category": "Security",
+  "created_at": "2026-03-11T15:42:39.041075",
+  "updated_at": "2026-03-11T15:42:39.041077"
+}

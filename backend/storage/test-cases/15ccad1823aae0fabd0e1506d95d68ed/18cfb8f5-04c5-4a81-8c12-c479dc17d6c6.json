@@ -1,0 +1,46 @@
+{
+  "tc_id": "18cfb8f5-04c5-4a81-8c12-c479dc17d6c6",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Analytics Events for Engagement Actions",
+  "description": "Test that key user engagement events within the Trial Corner hub are triggered with the correct attributes.",
+  "preconditions": [
+    "User is in an active trial and viewing the Trial Corner hub."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Scroll to the 'Trending' section, triggering a `trial-corner-trending-viewed` event.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click on the first content item in the 'Trending' section.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify a `trial-corner-trending-clicked` event is fired with the correct 'content id'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Scroll up to the 'Engagement' section where a trailer auto-plays.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Verify a `trial-corner-topcontent-played` event is fired with the correct 'content id' and 'autoplay' attribute.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "All specified analytics events are correctly triggered in the data layer/analytics backend with their respective attributes as the user interacts with the page.",
+  "priority": "Medium",
+  "category": "Integration",
+  "created_at": "2026-04-03T12:32:35.180323",
+  "updated_at": "2026-04-03T12:32:35.180323"
+}

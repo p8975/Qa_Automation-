@@ -1,0 +1,53 @@
+{
+  "tc_id": "e6ed0421-2eca-4a4d-ba99-8a1048720da2",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Remind Me toggle sends WhatsApp notification 24 hours before trial ends",
+  "description": "Test that enabling the Remind Me option triggers a WhatsApp notification delivery 24 hours prior to trial expiration",
+  "preconditions": [
+    "User has active trial with remaining days",
+    "User is on Trial Corner Hub"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to Trial Corner Hub",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Locate the 'Remind me 24h before trial ends' toggle",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Enable the toggle",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Verify confirmation message displayed",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Wait for 24 hours before trial end or simulate time",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 6,
+      "description": "6. Check for WhatsApp notification delivery",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "User receives WhatsApp notification 24 hours before trial ends confirming reminder is set, and toggle shows as enabled",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T10:02:10.486534",
+  "updated_at": "2026-03-11T10:02:10.486534"
+}

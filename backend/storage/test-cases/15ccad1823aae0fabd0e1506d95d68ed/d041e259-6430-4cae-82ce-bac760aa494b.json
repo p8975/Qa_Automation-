@@ -1,0 +1,28 @@
+{
+  "tc_id": "d041e259-6430-4cae-82ce-bac760aa494b",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify UI update after pausing a trial - Trial Corner",
+  "description": "Test that the Trial Corner hub updates to reflect the 'Paused' trial status.",
+  "preconditions": [
+    "User has just paused their trial"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Complete the flow to pause the trial.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Navigate to the Trial Corner hub.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The Trial Corner hub displays a 'Paused' status, and all content sections (Progress, Engagement, Trending) are locked.",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-04-07T18:16:59.948146",
+  "updated_at": "2026-04-07T18:16:59.948148"
+}

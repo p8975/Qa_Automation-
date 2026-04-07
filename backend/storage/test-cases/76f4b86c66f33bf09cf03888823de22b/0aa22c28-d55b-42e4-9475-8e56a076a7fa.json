@@ -1,0 +1,34 @@
+{
+  "tc_id": "0aa22c28-d55b-42e4-9475-8e56a076a7fa",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify re-installation does not corrupt existing setup",
+  "description": "Test running installation command when OpenCode is already installed",
+  "preconditions": [
+    "OpenCode already installed"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Run installation command again",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Verify existing config is not overwritten",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Check opencode still works",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Re-installation completes without breaking existing configuration",
+  "priority": "Medium",
+  "category": "Edge Case",
+  "created_at": "2026-03-11T15:36:35.985000",
+  "updated_at": "2026-03-11T15:36:35.985001"
+}

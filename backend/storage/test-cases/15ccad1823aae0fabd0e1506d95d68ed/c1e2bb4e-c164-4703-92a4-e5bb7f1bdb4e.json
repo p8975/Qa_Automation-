@@ -1,0 +1,46 @@
+{
+  "tc_id": "c1e2bb4e-c164-4703-92a4-e5bb7f1bdb4e",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Experiment Cohort Targeting: Non-Targeted User Experience",
+  "description": "Tests that a user who watches content within the first 5 minutes of their trial does NOT see the Trial Corner flow.",
+  "preconditions": [
+    "User has just started a \u20b91 trial."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Within 5 minutes of starting the trial, start watching any premium content.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Watch for at least 1 minute.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Navigate to the Homepage.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Check for the 'Trial Mode' widget associated with the Trial Corner.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Navigate to the 'Manage Subscription' section in the user profile.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The user should NOT see the Trial Corner widget or floating pill. The 'Manage Subscription' section should show the old/standard trial management UI, not the Trial Corner hub.",
+  "priority": "High",
+  "category": "Edge Case",
+  "created_at": "2026-03-31T12:24:36.079112",
+  "updated_at": "2026-03-31T12:24:36.079115"
+}

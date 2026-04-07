@@ -1,0 +1,41 @@
+{
+  "tc_id": "f0a08210-ea7d-4ccc-b1bf-6d89be49aedd",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify login performance under load",
+  "description": "Test that the POST /auth/login endpoint response time remains under 500ms at the 95th percentile during a load test.",
+  "preconditions": [
+    "A load testing environment is set up",
+    "A pool of test user accounts is available"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Configure a load testing tool (e.g., JMeter, k6) to simulate 1000 concurrent users",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Create a test script that sends POST requests to the /auth/login endpoint with valid credentials",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Run the load test for a sustained period (e.g., 5 minutes)",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Analyze the results, specifically the 95th percentile response time for the login requests",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The 95th percentile response time for the /auth/login endpoint is less than 500ms, and the error rate is below an acceptable threshold (e.g., < 1%).",
+  "priority": "Medium",
+  "category": "Performance",
+  "created_at": "2026-03-27T15:38:37.610989",
+  "updated_at": "2026-03-27T15:38:37.610989"
+}

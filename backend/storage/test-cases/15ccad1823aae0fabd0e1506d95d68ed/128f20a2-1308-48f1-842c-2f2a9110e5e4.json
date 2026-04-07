@@ -1,0 +1,53 @@
+{
+  "tc_id": "128f20a2-1308-48f1-842c-2f2a9110e5e4",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify correct events trigger when user interacts with Trial Corner",
+  "description": "Test that analytics events fire correctly for all user interactions in Trial Corner",
+  "preconditions": [
+    "User has active trial",
+    "Analytics tracking is enabled"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. View Trial Corner widget - check event fired",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click Trial Corner widget - check event fired",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. View Trial Corner page - check event fired",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Click Remind Me toggle - check event fired",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Click Pause button - check event fired",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 6,
+      "description": "6. Click Cancel button - check event fired",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Events fire with correct attributes: trial-corner-widget-viewed, trial-corner-widget-clicked, trial-corner-viewed, remind-me-clicked, pause-clicked, cancel-clicked with correct page source attributes",
+  "priority": "Medium",
+  "category": "Integration",
+  "created_at": "2026-03-11T10:02:10.487824",
+  "updated_at": "2026-03-11T10:02:10.487825"
+}

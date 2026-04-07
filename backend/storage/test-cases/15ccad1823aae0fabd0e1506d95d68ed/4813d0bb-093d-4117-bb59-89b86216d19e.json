@@ -1,0 +1,29 @@
+{
+  "tc_id": "4813d0bb-093d-4117-bb59-89b86216d19e",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify 'Pause Anyway & Lose Access' button pauses the trial",
+  "description": "Test the secondary action on the Loss Aversion pop-up to confirm trial pause.",
+  "preconditions": [
+    "User has an active trial",
+    "The 'Pause Trial' Loss Aversion pop-up is open"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. From the hub, click 'Pause Trial'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. On the pop-up, click the 'Pause Anyway & Lose Access' button.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The user's trial is set to a 'Paused' state. The 'pause-clicked' event is fired.",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-04-07T18:16:59.947424",
+  "updated_at": "2026-04-07T18:16:59.947425"
+}

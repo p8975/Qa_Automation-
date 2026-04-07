@@ -1,0 +1,41 @@
+{
+  "tc_id": "8915caba-d81a-441b-82de-f17e27bcedfd",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify pause confirmation popup appears when clicking pause",
+  "description": "Test that clicking pause button shows confirmation popup with options",
+  "preconditions": [
+    "User has active trial",
+    "User is on Trial Corner hub"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to Trial Corner hub",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click 'Pause Trial' button in Manage Trial section",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify popup/modal appears",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Verify popup has 'Remind later' and 'Pause' options",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Pause confirmation popup appears with correct options",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-04-07T17:17:08.482069",
+  "updated_at": "2026-04-07T17:17:08.482070"
+}

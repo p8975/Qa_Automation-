@@ -1,0 +1,34 @@
+{
+  "tc_id": "28f77cc7-20f1-4317-90db-6bb645f4b489",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify cancelled trial UI state displays correctly on widgets",
+  "description": "Test that homepage widgets show correct cancelled design after user cancels their trial",
+  "preconditions": [
+    "User has cancelled their trial"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Login as user with cancelled trial",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Navigate to homepage",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Observe homepage widget",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Widget shows cancelled trial design state, different from active and paused states",
+  "priority": "High",
+  "category": "UI",
+  "created_at": "2026-03-11T18:39:28.005250",
+  "updated_at": "2026-03-11T18:39:28.005253"
+}

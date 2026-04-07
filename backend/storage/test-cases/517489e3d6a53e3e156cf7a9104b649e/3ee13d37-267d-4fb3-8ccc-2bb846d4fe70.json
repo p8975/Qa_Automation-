@@ -1,0 +1,35 @@
+{
+  "tc_id": "3ee13d37-267d-4fb3-8ccc-2bb846d4fe70",
+  "prd_hash": "517489e3d6a53e3e156cf7a9104b649e",
+  "title": "Verify user can login with valid credentials",
+  "description": "Test that a registered user can log into the application using a valid email and a password of at least 8 characters",
+  "preconditions": [
+    "User account is registered",
+    "User is on the login screen"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Enter valid email address",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enter valid password (8 characters or more)",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Click the \"Login\" button",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "User is successfully authenticated and redirected to the main dashboard",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-04-07T17:15:57.650656",
+  "updated_at": "2026-04-07T17:15:57.650663"
+}

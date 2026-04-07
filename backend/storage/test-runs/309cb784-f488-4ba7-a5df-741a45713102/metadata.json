@@ -1,0 +1,37 @@
+{
+  "run_id": "309cb784-f488-4ba7-a5df-741a45713102",
+  "build_id": "858332ec-7a84-458a-bb77-3825210317ea",
+  "test_case_ids": [
+    "f89cb506-d91d-4740-ac7d-361126f34025",
+    "a8a3d1a0-edf4-4b8c-88bc-e41ceb23bbf7",
+    "3216c3f8-6b6c-4a86-a7c4-8e63a10973bd",
+    "c75258cf-301a-4bd8-8030-7de6629b380e",
+    "fd4b7dae-9c44-4f9e-8f03-73926e29417e",
+    "ce1838ea-27f3-4e4e-a001-a512638b75c2",
+    "37fd846c-fb41-4a53-8e3d-8c1223dc798e",
+    "fbe5f19b-ac96-4b3a-ba69-bb8ff2c7155e",
+    "b2ea5247-c9d6-40ed-9f8c-2f99ebd7516f",
+    "3d7a6844-91e7-4278-93b8-3648ea3a3950",
+    "17818f72-b755-4a25-89de-2b26ad381b25",
+    "61894056-869a-4a00-b2b0-014881c71f2a",
+    "afb3d413-1156-48ef-94ea-159fda55a112",
+    "a03e8a70-a767-4cb2-b3e7-21c0cf646545",
+    "0ef2fef0-ca5e-4e1b-9daf-a57c0e9c02ed",
+    "3b75244e-7b0b-4812-af92-81c3272d64c0",
+    "915849d9-990e-4a8b-b176-2f4c3ee5fc79",
+    "b14ccbea-8ab8-4b39-9fa4-0d634b831f4a",
+    "27871d62-8984-4255-8ada-3ddf0f48e28b",
+    "089f7e55-5be0-4431-8889-23d52d27ec53"
+  ],
+  "device_info": {
+    "device_id": "5D45UKAYLFWK8TPN",
+    "device_name": "DN2101",
+    "os_version": "13",
+    "is_emulator": false
+  },
+  "status": "failed",
+  "started_at": "2026-03-10T19:29:58.870817",
+  "completed_at": "2026-03-10T19:29:59.072190",
+  "duration_seconds": null,
+  "results": []
+}

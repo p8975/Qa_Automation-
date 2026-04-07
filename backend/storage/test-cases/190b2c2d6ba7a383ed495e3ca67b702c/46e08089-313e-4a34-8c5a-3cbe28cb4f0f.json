@@ -1,0 +1,58 @@
+{
+  "tc_id": "46e08089-313e-4a34-8c5a-3cbe28cb4f0f",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify 'Remember Me' functionality creates a persistent session",
+  "description": "Tests that checking the 'Remember Me' box during login results in a session that persists after closing and reopening the browser.",
+  "preconditions": [
+    "A valid user account exists."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to the login page.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enter valid email and password.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Check the 'Remember Me' checkbox.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Click 'Login'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Verify successful login and redirection to the dashboard.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 6,
+      "description": "6. Close the browser completely (not just the tab).",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 7,
+      "description": "7. Re-open the browser and navigate directly to the application's dashboard URL.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The user remains logged in and can see the dashboard without needing to re-enter credentials. The session should persist for 30 days.",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-03-27T15:39:44.151987",
+  "updated_at": "2026-03-27T15:39:44.151988"
+}

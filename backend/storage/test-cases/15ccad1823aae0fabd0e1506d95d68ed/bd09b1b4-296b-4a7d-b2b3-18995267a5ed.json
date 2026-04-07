@@ -1,0 +1,41 @@
+{
+  "tc_id": "bd09b1b4-296b-4a7d-b2b3-18995267a5ed",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Remind Me option available from Pause and Cancel intervention modals",
+  "description": "Test that 'Keep Trial & Set Reminder' option is available in both Pause and Cancel intervention modals",
+  "preconditions": [
+    "User has active trial",
+    "User is on Trial Corner hub"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Click Pause Trial button",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Verify 'Keep Trial & Set Reminder' option exists",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Go back and click Cancel Trial button",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Verify 'Keep Trial & Set Reminder' option exists",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Both intervention modals display 'Keep Trial & Set Reminder' as high prominence primary action",
+  "priority": "Medium",
+  "category": "UI",
+  "created_at": "2026-03-11T09:59:31.935078",
+  "updated_at": "2026-03-11T09:59:31.935079"
+}

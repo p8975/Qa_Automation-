@@ -1,0 +1,47 @@
+{
+  "tc_id": "c361d4e1-0950-480e-ac10-744b3ad86991",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify duplicate email registration is prevented",
+  "description": "Test that registering with an already existing email returns appropriate error",
+  "preconditions": [
+    "User account already exists",
+    "User is on registration page"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to registration page",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enter email address of existing account",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Enter valid password",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Confirm password",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Click 'Register'",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Error message 'EMAIL_ALREADY_EXISTS' is displayed; account is not created",
+  "priority": "High",
+  "category": "Error Handling",
+  "created_at": "2026-03-11T13:48:21.461301",
+  "updated_at": "2026-03-11T13:48:21.461303"
+}

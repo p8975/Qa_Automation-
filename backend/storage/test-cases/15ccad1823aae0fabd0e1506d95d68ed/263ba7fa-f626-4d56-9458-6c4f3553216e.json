@@ -1,0 +1,47 @@
+{
+  "tc_id": "263ba7fa-f626-4d56-9458-6c4f3553216e",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify trial cancellation flow completes with feedback",
+  "description": "Test that user can complete cancellation after dismissing discount offer and provide feedback",
+  "preconditions": [
+    "User has an active trial",
+    "User clicked Cancel Anyway on discount offer"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. User is on discount offer pop-up",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click 'No thanks, cancel anyway' or dismiss offer",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Observe feedback pop-up",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Select a feedback option",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Submit feedback",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Trial is cancelled, feedback-popup-viewed and feedback-submitted events fire, trial corner and homepage widget update to cancelled design, all content becomes locked",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T16:33:03.574826",
+  "updated_at": "2026-03-11T16:33:03.574827"
+}

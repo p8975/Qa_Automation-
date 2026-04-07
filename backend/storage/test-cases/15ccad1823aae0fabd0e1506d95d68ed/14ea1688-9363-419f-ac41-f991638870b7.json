@@ -1,0 +1,28 @@
+{
+  "tc_id": "14ea1688-9363-419f-ac41-f991638870b7",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify cancelled trial widget displays on homepage",
+  "description": "Test that users with cancelled trials see appropriate widget design",
+  "preconditions": [
+    "User has cancelled their trial"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. User with cancelled trial logs in",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Navigate to homepage",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Homepage widget displays cancelled trial design (different visual from active/paused), Trial Corner shows locked content state",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T16:33:03.576050",
+  "updated_at": "2026-03-11T16:33:03.576051"
+}

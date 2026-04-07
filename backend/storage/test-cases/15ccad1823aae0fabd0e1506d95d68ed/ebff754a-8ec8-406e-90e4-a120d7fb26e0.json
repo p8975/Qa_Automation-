@@ -1,0 +1,47 @@
+{
+  "tc_id": "ebff754a-8ec8-406e-90e4-a120d7fb26e0",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify content is locked when trial is paused",
+  "description": "Test that all content sections are inaccessible when user pauses trial",
+  "preconditions": [
+    "User has paused their trial",
+    "User is on Trial Corner"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Pause the trial",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Navigate to Trial Corner",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Try to access content in Progress & Benefits section",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Try to access content in Engagement section",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Try to access content in Trending section",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "All content sections display locked state with appropriate messaging",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T10:04:15.370041",
+  "updated_at": "2026-03-11T10:04:15.370042"
+}

@@ -1,0 +1,34 @@
+{
+  "tc_id": "cff94ced-761c-4b69-81c3-f88d9c8cbe2c",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify password without uppercase is rejected",
+  "description": "Test that passwords missing uppercase letter are rejected",
+  "preconditions": [
+    "User is on registration page"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Enter valid email address",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enter password without uppercase (e.g., password123!)",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Click 'Register' button",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Error message about missing uppercase letter displayed",
+  "priority": "High",
+  "category": "Error Handling",
+  "created_at": "2026-03-11T15:41:31.923207",
+  "updated_at": "2026-03-11T15:41:31.923210"
+}

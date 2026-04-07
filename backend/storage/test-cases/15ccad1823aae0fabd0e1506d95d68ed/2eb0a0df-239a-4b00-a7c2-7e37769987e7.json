@@ -1,0 +1,28 @@
+{
+  "tc_id": "2eb0a0df-239a-4b00-a7c2-7e37769987e7",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Trial Corner Hub - Progress & Benefits Section UI",
+  "description": "Test that the Progress & Benefits section displays correctly.",
+  "preconditions": [
+    "User has an active trial and is on the Trial Corner hub"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to the Trial Corner hub.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Scroll to the 'Progress & Benefits' section.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The section correctly shows how much of the library the user has explored and lists the key benefits of the trial.",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-04-07T18:16:59.943200",
+  "updated_at": "2026-04-07T18:16:59.943202"
+}

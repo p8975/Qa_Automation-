@@ -1,0 +1,53 @@
+{
+  "tc_id": "09f76252-cfd9-4e0b-80a3-12f35f6abd20",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Analytics Events for Key User Actions",
+  "description": "Tests that critical analytics events are fired with the correct attributes at each stage of the Trial Corner flow.",
+  "preconditions": [
+    "User has an active trial and is in the 'Trial Corner' cohort.",
+    "QA has access to an analytics debugging tool."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. View the homepage widget. Verify 'trial-corner-widget-viewed' fires.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click the homepage widget. Verify 'trial-corner-widget-clicked' fires.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. On the Trial Corner hub, scroll to the trending section. Verify 'trial-corner-trending-viewed' fires.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Click a trending content item. Verify 'trial-corner-trending-clicked' fires with the content ID.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Click 'Cancel Trial'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 6,
+      "description": "6. On the pop-up, click 'Cancel Anyway & Lose Access'. Verify 'cancel-clicked' fires with page source 'cancel pop-up'.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "All specified events are tracked correctly with the appropriate attributes, allowing for accurate measurement of the feature's success metrics.",
+  "priority": "High",
+  "category": "Integration",
+  "created_at": "2026-03-31T10:52:09.853346",
+  "updated_at": "2026-03-31T10:52:09.853349"
+}

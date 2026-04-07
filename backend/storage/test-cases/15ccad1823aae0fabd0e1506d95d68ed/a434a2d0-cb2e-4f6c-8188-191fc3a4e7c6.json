@@ -1,0 +1,36 @@
+{
+  "tc_id": "a434a2d0-cb2e-4f6c-8188-191fc3a4e7c6",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify trial widget displays correctly on homepage for Day 0-1 users",
+  "description": "Test that the persistent high-visibility trial widget appears on homepage for users in first 2 days of trial with correct copy and icon",
+  "preconditions": [
+    "User has active trial (Day 0 or Day 1)",
+    "User is logged in",
+    "User is on homepage"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Log in with user having active trial",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Navigate to homepage",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Locate trial widget in header",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Widget displays with shield/clock icon, shows 'Trial Mode: X Days Remaining' and 'Manage Control Center \u2192' link",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T09:59:31.933110",
+  "updated_at": "2026-03-11T09:59:31.933115"
+}

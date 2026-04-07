@@ -1,0 +1,40 @@
+{
+  "tc_id": "92ba24ba-c539-4a9f-b0b4-8b92856d6aec",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify .zshrc is properly sourced after modification",
+  "description": "Test that sourcing .zshrc applies all environment changes",
+  "preconditions": [
+    "PATH and OPENCODE_KEY added to .zshrc"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Open new terminal window",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Run: source ~/.zshrc",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify PATH includes opencode: echo $PATH",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Verify OPENCODE_KEY is set: echo $OPENCODE_KEY",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "All environment variables are loaded correctly",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T15:23:56.750860",
+  "updated_at": "2026-03-11T15:23:56.750863"
+}

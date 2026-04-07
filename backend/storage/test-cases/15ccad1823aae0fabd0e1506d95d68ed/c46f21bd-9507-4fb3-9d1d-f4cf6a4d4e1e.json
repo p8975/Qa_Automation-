@@ -1,0 +1,35 @@
+{
+  "tc_id": "c46f21bd-9507-4fb3-9d1d-f4cf6a4d4e1e",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify graceful handling when APIs for Trial Corner data fail to load",
+  "description": "Tests the system's behavior when backend services for the Trial Corner are unavailable.",
+  "preconditions": [
+    "User is in the target cohort.",
+    "Network interception tool is used to simulate a server error for the Trial Corner data API."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Log in and land on the homepage.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enable network interception to force a server error response for the Trial Corner API.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Click the Trial Corner widget.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The application does not crash. A user-friendly error message is displayed (e.g., 'Could not load your trial information. Please try again later.') or the page shows loading skeletons.",
+  "priority": "Medium",
+  "category": "Error Handling",
+  "created_at": "2026-03-30T10:37:05.517263",
+  "updated_at": "2026-03-30T10:37:05.517264"
+}

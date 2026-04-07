@@ -1,0 +1,35 @@
+{
+  "tc_id": "fbe5f19b-ac96-4b3a-ba69-bb8ff2c7155e",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Remind Later option in Pause popup",
+  "description": "Test that clicking 'Remind Later' on pause popup returns user to Trial Corner without pausing",
+  "preconditions": [
+    "User has active trial",
+    "User clicks Pause button"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to Trial Corner > Manage Trial",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click Pause Trial",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Click 'Remind Later' on popup",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Popup closes, user returns to Trial Corner, trial remains active, no pause-clicked event fires",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-03-10T19:16:40.859973",
+  "updated_at": "2026-03-10T19:16:40.859973"
+}

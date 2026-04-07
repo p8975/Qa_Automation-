@@ -1,0 +1,48 @@
+{
+  "tc_id": "e093e1a2-d704-4503-a2e6-e90911153838",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Validate Widget Transition from Day 1 to Day 2",
+  "description": "Test that the persistent header widget on Day 0/1 correctly changes to the floating pill widget starting on Day 2 of the trial.",
+  "preconditions": [
+    "User is in the Trial Corner cohort.",
+    "User is on Day 1 of their trial and sees the header widget.",
+    "Test environment allows for advancing the user's trial day."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Observe the persistent header widget for the user on Day 1.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Advance the system time or user's trial status to Day 2.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Hard refresh the homepage.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Verify the persistent header widget is no longer present.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Verify a floating pill with similar messaging now appears on the homepage.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The UI correctly transitions the trial entry point from the header widget to the floating pill as the user progresses from Day 1 to Day 2 of their trial.",
+  "priority": "Low",
+  "category": "UI",
+  "created_at": "2026-04-03T12:32:35.180450",
+  "updated_at": "2026-04-03T12:32:35.180450"
+}

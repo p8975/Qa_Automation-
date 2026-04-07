@@ -1,0 +1,35 @@
+{
+  "tc_id": "fd4b7dae-9c44-4f9e-8f03-73926e29417e",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify top content recommendations post 90% consumption",
+  "description": "Test that after user has consumed 90% of content, Engagement section shows top 1 content in similar genre",
+  "preconditions": [
+    "User has consumed 90% of their acquired content",
+    "User has active trial"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Simulate user consumption reaching 90%",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Navigate to Trial Corner",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Observe Engagement section",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Engagement section shows top 1 content recommendation in similar genre to previously consumed content instead of acquired content list",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-03-10T19:16:40.860459",
+  "updated_at": "2026-03-10T19:16:40.860459"
+}

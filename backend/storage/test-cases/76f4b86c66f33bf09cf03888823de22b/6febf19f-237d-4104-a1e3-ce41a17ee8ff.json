@@ -1,0 +1,34 @@
+{
+  "tc_id": "6febf19f-237d-4104-a1e3-ce41a17ee8ff",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify error handling when using > instead of >> for .zshrc",
+  "description": "Test that using single > overwrites .zshrc and document how to avoid this",
+  "preconditions": [
+    "Backup of original .zshrc is recommended"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Create test .zshrc with existing content",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Run: echo 'test' > ~/.zshrc (single >)",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify original content is lost",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Single > overwrites entire file, demonstrating why >> must be used",
+  "priority": "High",
+  "category": "Error Handling",
+  "created_at": "2026-03-11T14:12:51.647785",
+  "updated_at": "2026-03-11T14:12:51.647786"
+}

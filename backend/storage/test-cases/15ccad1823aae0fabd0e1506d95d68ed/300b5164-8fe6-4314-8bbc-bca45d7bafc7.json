@@ -1,0 +1,53 @@
+{
+  "tc_id": "300b5164-8fe6-4314-8bbc-bca45d7bafc7",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify trial gets cancelled after user completes cancellation flow",
+  "description": "Test that canceling trial after dismissing all offers completes the cancellation",
+  "preconditions": [
+    "User has active trial",
+    "User has dismissed discount offer"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to Trial Corner",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click Cancel Trial",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Click Cancel Anyway on Loss Aversion popup",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Dismiss discount offer",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Confirm final cancellation",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 6,
+      "description": "6. Observe feedback popup",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Feedback popup appears, trial state updates to Cancelled, UI reflects cancelled design with locked content",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T17:29:07.548004",
+  "updated_at": "2026-03-11T17:29:07.548006"
+}

@@ -1,0 +1,52 @@
+{
+  "tc_id": "f7c01dbf-3135-4501-886e-21dbc9124df9",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify login rate limiting is triggered after 5 failed attempts",
+  "description": "Tests that a user's account is temporarily locked for 15 minutes after 5 consecutive failed login attempts from the same IP address.",
+  "preconditions": [
+    "A valid user account exists (e.g., 'testuser@example.com')."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to the login page.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enter the valid email 'testuser@example.com' and an incorrect password.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Click 'Login'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Repeat steps 2-3 four more times for a total of 5 failed attempts.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. On the 6th attempt, enter the correct credentials for the account.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 6,
+      "description": "6. Click 'Login'.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The first 5 attempts show an 'INVALID_CREDENTIALS' error. The 6th attempt fails with a 'RATE_LIMIT_EXCEEDED' error message indicating a 15-minute lockout. The user cannot log in during this period.",
+  "priority": "High",
+  "category": "Security",
+  "created_at": "2026-03-27T15:39:44.151309",
+  "updated_at": "2026-03-27T15:39:44.151309"
+}

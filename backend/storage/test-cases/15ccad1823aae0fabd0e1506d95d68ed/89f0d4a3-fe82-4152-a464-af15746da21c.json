@@ -1,0 +1,48 @@
+{
+  "tc_id": "89f0d4a3-fe82-4152-a464-af15746da21c",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Cancellation Flow: User accepts the First Month Discount offer",
+  "description": "Tests the conversion bridge where a user persists in canceling and is successfully converted to a subscriber by accepting the discount offer.",
+  "preconditions": [
+    "User has an active \u20b91 trial.",
+    "User is in the 'Trial Corner' cohort.",
+    "The 'First Month Discount' offer is enabled in the backend."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to the 'Trial Corner' hub and click 'Cancel Trial'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. On the 'Loss Aversion' pop-up, click the secondary action 'Cancel Anyway & Lose Access'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Observe the 'Incentive' offer pop-up (e.g., 'Lock in 50% off your first month now').",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Click the primary action to 'Grab Offer'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Complete the payment for the discounted amount.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Payment is successful, the user's first month mandate is updated with the discount, but the trial remains active for the remaining duration. The user is not immediately converted to a paid subscriber.",
+  "priority": "High",
+  "category": "Integration",
+  "created_at": "2026-03-31T10:52:09.848055",
+  "updated_at": "2026-03-31T10:52:09.848060"
+}

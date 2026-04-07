@@ -1,0 +1,41 @@
+{
+  "tc_id": "a5bb2c56-f43d-4b47-9714-4499ca17bb41",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify account locks after 5 failed login attempts",
+  "description": "Test that rate limiting locks the account after maximum failed attempts",
+  "preconditions": [
+    "User account exists",
+    "User is on login page"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to login page",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enter registered email",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Enter wrong password 5 times consecutively",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Attempt 6th login",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Account locked for 15 minutes, RATE_LIMIT_EXCEEDED error displayed",
+  "priority": "High",
+  "category": "Security",
+  "created_at": "2026-03-11T14:15:28.266037",
+  "updated_at": "2026-03-11T14:15:28.266038"
+}

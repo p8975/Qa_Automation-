@@ -1,0 +1,53 @@
+{
+  "tc_id": "695d4b63-f0b4-4209-a2b4-cacac68611ce",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify installation works on fresh macOS system",
+  "description": "Test complete installation flow on a new macOS system with zsh as default shell",
+  "preconditions": [
+    "Fresh macOS installation",
+    "zsh is default shell"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Run curl installation command",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Configure PATH in .zshrc",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Set OPENCODE_KEY",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Source .zshrc",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Create config file",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 6,
+      "description": "6. Run opencode",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Complete setup works on fresh system without errors",
+  "priority": "High",
+  "category": "Integration",
+  "created_at": "2026-03-11T15:36:35.984493",
+  "updated_at": "2026-03-11T15:36:35.984495"
+}

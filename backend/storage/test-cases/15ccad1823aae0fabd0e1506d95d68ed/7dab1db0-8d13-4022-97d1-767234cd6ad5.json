@@ -1,0 +1,35 @@
+{
+  "tc_id": "7dab1db0-8d13-4022-97d1-767234cd6ad5",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Trial Corner is mutually exclusive to other onboarding experiments",
+  "description": "Test that users targeted for Trial Corner experiment do not see other onboarding experiments",
+  "preconditions": [
+    "Backend experiment configuration is set",
+    "User is in Trial Corner cohort (no consumption in first 5 mins)"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Create a new trial user who does not start consumption within 5 minutes",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Log in and observe the experience",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Check for absence of other onboarding experiments",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "User sees Trial Corner and no other onboarding experiment flows are displayed",
+  "priority": "Medium",
+  "category": "Integration",
+  "created_at": "2026-03-11T11:16:21.689760",
+  "updated_at": "2026-03-11T11:16:21.689760"
+}

@@ -1,0 +1,35 @@
+{
+  "tc_id": "17015782-86a7-4e27-bed3-303934c968d2",
+  "prd_hash": "517489e3d6a53e3e156cf7a9104b649e",
+  "title": "Verify login succeeds with leading/trailing spaces in email",
+  "description": "Test that the system trims leading or trailing whitespace from the email field before authentication.",
+  "preconditions": [
+    "User account exists with email 'test@example.com' and password 'validPassword123'",
+    "User is on the login page"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Enter '  test@example.com  ' into the email field",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enter 'validPassword123' into the password field",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Click the 'Login' button",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "User is successfully authenticated and redirected to the application's home/dashboard screen.",
+  "priority": "Low",
+  "category": "Functional",
+  "created_at": "2026-04-07T17:40:52.836861",
+  "updated_at": "2026-04-07T17:40:52.836862"
+}

@@ -1,0 +1,28 @@
+{
+  "tc_id": "56cf1081-dbce-473c-afec-93b5478de720",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify 'Support' button redirection",
+  "description": "Test that clicking the 'Support' button redirects the user to the designated chat/WhatsApp support section.",
+  "preconditions": [
+    "User is on the Trial Corner screen"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Locate the 'Support' button in the 'Manage Trial' section",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click the 'Support' button",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The user is redirected to the support chat interface.",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-04-07T22:34:46.303596",
+  "updated_at": "2026-04-07T22:34:46.303602"
+}

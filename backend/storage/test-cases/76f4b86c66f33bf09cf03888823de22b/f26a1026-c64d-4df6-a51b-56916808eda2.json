@@ -1,0 +1,40 @@
+{
+  "tc_id": "f26a1026-c64d-4df6-a51b-56916808eda2",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify overwriting .zshrc with > operator causes data loss",
+  "description": "Test edge case where using > instead of >> overwrites .zshrc content",
+  "preconditions": [
+    ".zshrc contains existing configuration"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Note current .zshrc content",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Execute incorrectly: echo 'export PATH=...' > ~/.zshrc",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Check .zshrc content",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Verify previous content is lost",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Original .zshrc content is lost, demonstrating the importance of using >>",
+  "priority": "Medium",
+  "category": "Edge Case",
+  "created_at": "2026-03-11T13:51:23.502163",
+  "updated_at": "2026-03-11T13:51:23.502165"
+}

@@ -1,0 +1,40 @@
+{
+  "tc_id": "08224dc2-d6a4-44a2-a5bd-e34412757747",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify UI and copy across all components for tone and accuracy",
+  "description": "Test that all UI components (widget, hub, pop-ups) display the correct, non-threatening, and empowering copy as specified in the PRD.",
+  "preconditions": [
+    "User has an active trial with 6 days remaining."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. View the homepage widget and verify copy: 'Trial Mode: 6 Days Remaining. Manage Control Center \u2192'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Navigate to the Trial Corner and verify copy: 'Your \u20b91 trial is active.' and 'Easy cancellation anytime. No hidden loops.'",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Initiate cancellation and verify Loss Aversion pop-up copy: 'Wait! Don't lose your free days.'",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Proceed to the incentive offer and verify Trust Clause copy.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "All copy on all components matches the PRD exactly, maintaining the intended transparent and empowering tone.",
+  "priority": "Medium",
+  "category": "UI",
+  "created_at": "2026-03-30T13:51:34.956100",
+  "updated_at": "2026-03-30T13:51:34.956100"
+}

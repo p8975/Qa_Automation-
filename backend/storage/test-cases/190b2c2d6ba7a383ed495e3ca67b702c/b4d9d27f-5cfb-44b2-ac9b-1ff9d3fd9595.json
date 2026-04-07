@@ -1,0 +1,40 @@
+{
+  "tc_id": "b4d9d27f-5cfb-44b2-ac9b-1ff9d3fd9595",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify invalid email format is rejected",
+  "description": "Test that the system validates email format and rejects malformed email addresses",
+  "preconditions": [
+    "User is on registration page"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to registration page",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enter invalid email format (e.g., notanemail, missing@domain.com)",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Enter valid password",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Click 'Register' button",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Inline validation error displayed for invalid email format",
+  "priority": "High",
+  "category": "Error Handling",
+  "created_at": "2026-03-11T15:38:47.293754",
+  "updated_at": "2026-03-11T15:38:47.293755"
+}

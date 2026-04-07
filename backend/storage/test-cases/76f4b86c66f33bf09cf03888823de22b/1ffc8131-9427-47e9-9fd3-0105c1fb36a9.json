@@ -1,0 +1,37 @@
+{
+  "tc_id": "1ffc8131-9427-47e9-9fd3-0105c1fb36a9",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify OpenCode runs successfully after complete setup",
+  "description": "Test the end-to-end flow from installation to running opencode command",
+  "preconditions": [
+    "OpenCode is installed",
+    "PATH is set",
+    "API key is configured",
+    "config.json exists"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Source ~/.zshrc: source ~/.zshrc",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Verify opencode is in PATH: which opencode",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Run: opencode --version",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "OpenCode command executes successfully",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T15:55:47.725929",
+  "updated_at": "2026-03-11T15:55:47.725930"
+}

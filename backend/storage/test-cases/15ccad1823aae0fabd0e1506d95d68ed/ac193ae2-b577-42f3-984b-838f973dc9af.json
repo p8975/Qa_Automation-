@@ -1,0 +1,35 @@
+{
+  "tc_id": "ac193ae2-b577-42f3-984b-838f973dc9af",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Loss Aversion warning appears when user clicks Cancel button",
+  "description": "Test that the exit intervention page displays when user attempts to cancel trial",
+  "preconditions": [
+    "User has active trial",
+    "User is on Trial Corner page"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to Trial Corner",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click on Cancel Trial button in Manage Trial section",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Observe the Loss Aversion popup",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Popup displays with headline 'Wait! Don't lose your free days', body text about losing access, and both Keep Trial and Cancel Anyway options",
+  "priority": "High",
+  "category": "UI",
+  "created_at": "2026-03-11T17:29:07.546144",
+  "updated_at": "2026-03-11T17:29:07.546147"
+}

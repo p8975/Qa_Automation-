@@ -1,0 +1,29 @@
+{
+  "tc_id": "748f47c8-ac27-4eb6-a635-7d689abb0f67",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Backend Control: Incentive offer is disabled",
+  "description": "Tests the cancellation flow when the 'First Month Discount' offer is turned off from the backend.",
+  "preconditions": [
+    "User has an active trial and is in the target cohort.",
+    "The 'First Month Discount' offer is DISABLED via the backend."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to the 'Trial Corner' hub and click 'Cancel Trial'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. On the 'Loss Aversion' pop-up, click 'Cancel Anyway & Lose Access'.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The flow should skip the 'Incentive' offer pop-up. The user should be taken directly to the feedback pop-up, and the trial is immediately cancelled.",
+  "priority": "Medium",
+  "category": "Integration",
+  "created_at": "2026-03-31T12:24:36.079703",
+  "updated_at": "2026-03-31T12:24:36.079705"
+}

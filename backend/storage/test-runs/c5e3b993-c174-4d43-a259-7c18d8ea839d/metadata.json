@@ -1,0 +1,54 @@
+{
+  "run_id": "c5e3b993-c174-4d43-a259-7c18d8ea839d",
+  "build_id": "64100a0f-4a77-4336-8c69-c599c5e16ccf",
+  "test_case_ids": [
+    "3999053b-e862-4d02-b5f7-e8568a1c8b6f"
+  ],
+  "device_info": {
+    "device_id": "emulator-5554",
+    "device_name": "sdk_gphone64_arm64",
+    "os_version": "16",
+    "is_emulator": true
+  },
+  "status": "completed",
+  "started_at": "2026-03-31T12:29:35.177226",
+  "completed_at": "2026-03-31T12:29:57.275569",
+  "duration_seconds": 22.098343,
+  "results": [
+    {
+      "test_case_id": "3999053b-e862-4d02-b5f7-e8568a1c8b6f",
+      "status": "pass",
+      "duration_ms": 13447,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "pass",
+          "duration_ms": 1795,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ID, \"com.android.permissioncontroller:id/permission_message\").click()"
+        },
+        {
+          "step_number": 2,
+          "status": "pass",
+          "duration_ms": 1195,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ID, \"com.android.permissioncontroller:id/permission_message\").click()"
+        },
+        {
+          "step_number": 3,
+          "status": "pass",
+          "duration_ms": 1188,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ID, \"com.android.permissioncontroller:id/permission_message\").click()"
+        }
+      ]
+    }
+  ]
+}

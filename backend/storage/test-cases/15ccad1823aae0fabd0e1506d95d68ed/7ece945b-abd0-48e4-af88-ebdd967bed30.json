@@ -1,0 +1,41 @@
+{
+  "tc_id": "7ece945b-abd0-48e4-af88-ebdd967bed30",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Progress & Benefits section shows exploration metrics",
+  "description": "Test that Progress & Benefits section displays user's library exploration",
+  "preconditions": [
+    "User has active trial",
+    "User is on Trial Corner hub"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to Trial Corner hub",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Locate Progress & Benefits section",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify section displays library exploration information",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Verify trial benefits are listed",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Progress & Benefits section shows exploration metrics",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-04-07T17:17:08.486631",
+  "updated_at": "2026-04-07T17:17:08.486632"
+}

@@ -1,0 +1,53 @@
+{
+  "tc_id": "eeeb6dcb-568c-482d-beae-7f43b368a8b4",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Final Cancellation after Rejecting Incentive",
+  "description": "Test that a user who rejects the incentive offer can complete the cancellation process, sees the feedback form, and loses access immediately.",
+  "preconditions": [
+    "User is in an active trial and part of the Trial Corner cohort.",
+    "The 'First Month Discount' offer is enabled in the backend."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Follow steps 1-4 from TC002 to reach the 'Incentive' pop-up.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click the secondary action to reject the offer (e.g., 'Cancel Anyway').",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify a feedback pop-up appears.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Submit the feedback form.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Verify the trial is immediately cancelled and the user loses access to premium content.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 6,
+      "description": "6. Verify the Trial Corner and homepage widget update to the 'Cancelled' state.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The user's trial is cancelled, access is revoked, and UI updates to 'Cancelled'. 'cancel-clicked', 'feedback-popup-viewed', and 'feedback-submitted' events are triggered.",
+  "priority": "Medium",
+  "category": "Edge Case",
+  "created_at": "2026-04-03T12:32:35.179457",
+  "updated_at": "2026-04-03T12:32:35.179458"
+}

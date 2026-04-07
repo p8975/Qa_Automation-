@@ -1,0 +1,28 @@
+{
+  "tc_id": "1f394c5f-aee1-4385-9d54-c9d3c5c6d114",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify clicking 'Pause Trial' opens the Loss Aversion pop-up",
+  "description": "Test that clicking the 'Pause Trial' button on the hub triggers the 'Loss Aversion' pop-up.",
+  "preconditions": [
+    "User has an active trial"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to the Trial Corner hub.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click the 'Pause Trial' button.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "A pop-up appears with the headline 'Wait! Don't lose your free days.' and two buttons: 'Keep Trial & Set Reminder' and 'Pause Anyway & Lose Access'.",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-04-07T18:16:59.946713",
+  "updated_at": "2026-04-07T18:16:59.946717"
+}

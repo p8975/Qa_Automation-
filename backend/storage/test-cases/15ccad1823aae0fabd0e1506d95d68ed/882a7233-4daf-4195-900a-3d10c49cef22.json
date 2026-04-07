@@ -1,0 +1,22 @@
+{
+  "tc_id": "882a7233-4daf-4195-900a-3d10c49cef22",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify feedback pop-up appears after cancellation",
+  "description": "Test that a feedback collection pop-up is displayed immediately after the trial is successfully cancelled.",
+  "preconditions": [
+    "A user has just completed the cancellation flow"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Complete the steps to cancel the trial",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "A pop-up asking for feedback on why the user cancelled is displayed.",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-04-07T22:34:46.309003",
+  "updated_at": "2026-04-07T22:34:46.309004"
+}

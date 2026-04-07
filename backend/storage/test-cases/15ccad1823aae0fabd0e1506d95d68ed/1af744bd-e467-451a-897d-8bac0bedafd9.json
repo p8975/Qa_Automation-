@@ -1,0 +1,41 @@
+{
+  "tc_id": "1af744bd-e467-451a-897d-8bac0bedafd9",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify floating pill appears from Day 2 to Day 10 of trial",
+  "description": "Test that the floating pill widget is visible during the correct trial days",
+  "preconditions": [
+    "User has trial active on Day 2-10",
+    "User is on homepage"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Activate trial and simulate Day 2",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Navigate to homepage",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Check for floating pill widget",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Repeat for Day 3, Day 10",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Floating pill is visible from Day 2 through Day 10, hidden on Day 0-1 and after Day 10",
+  "priority": "Medium",
+  "category": "UI",
+  "created_at": "2026-03-11T17:29:07.548691",
+  "updated_at": "2026-03-11T17:29:07.548693"
+}

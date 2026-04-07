@@ -1,0 +1,48 @@
+{
+  "tc_id": "3fda092b-af2f-4d1e-8d02-bdf1fa91b71b",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify user successfully converts to a paid subscription via the incentive offer",
+  "description": "Tests the conversion flow where a user persists in canceling and accepts the 'First Month Discount' offer.",
+  "preconditions": [
+    "User has an active trial.",
+    "User is on the 'Trial Corner' hub page.",
+    "The incentive offer is enabled in the backend."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Click the 'Cancel Trial' button.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. On the 'Loss Aversion' pop-up, click the secondary action: 'Cancel Anyway & Lose Access'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Observe the 'Incentive' pop-up with a discount offer (e.g., 'Lock in 50% off...').",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Click the primary action button to accept the offer (e.g., 'Grab Offer').",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Complete the payment for the discounted amount.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "User's first month mandate is updated with the discounted price. The trial remains active for the remaining duration, and the paid subscription will start after the trial ends. The UI reflects the successful conversion.",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-30T10:18:59.231856",
+  "updated_at": "2026-03-30T10:18:59.231860"
+}

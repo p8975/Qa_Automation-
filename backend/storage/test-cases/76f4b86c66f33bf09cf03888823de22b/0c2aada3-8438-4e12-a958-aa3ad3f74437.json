@@ -1,0 +1,53 @@
+{
+  "tc_id": "0c2aada3-8438-4e12-a958-aa3ad3f74437",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify installation works on fresh macOS with zsh",
+  "description": "Test complete installation flow on a clean system",
+  "preconditions": [
+    "Fresh macOS installation",
+    "zsh as default shell"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Run curl installation command",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Add PATH to ~/.zshrc using >>",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Add API key to ~/.zshrc using >>",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Source ~/.zshrc",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Create config directory and file",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 6,
+      "description": "6. Run opencode",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Complete installation succeeds and OpenCode runs",
+  "priority": "High",
+  "category": "Integration",
+  "created_at": "2026-03-11T16:14:09.167963",
+  "updated_at": "2026-03-11T16:14:09.167964"
+}

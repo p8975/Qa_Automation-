@@ -1,0 +1,48 @@
+{
+  "tc_id": "feb9bc7d-a2c1-464a-9698-28ce585dbef7",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify events are fired correctly during Trial Corner interactions",
+  "description": "Test that all specified events are fired with correct attributes during user interactions",
+  "preconditions": [
+    "User has active trial",
+    "User is logged in",
+    "Event tracking system is operational"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. View trial widget - check trial-corner-widget-viewed event",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click trial widget - check trial-corner-widget-clicked event",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. View Trial Corner - check trial-corner-viewed event",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Enable reminder - check remind-me-clicked event",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Click trending item - check trial-corner-trending-clicked event",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "All events fired with correct attributes including variant type, page source, and content IDs as specified in PRD",
+  "priority": "Medium",
+  "category": "Integration",
+  "created_at": "2026-03-11T09:59:31.935293",
+  "updated_at": "2026-03-11T09:59:31.935294"
+}

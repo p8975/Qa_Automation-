@@ -1,0 +1,35 @@
+{
+  "tc_id": "0bbf2d60-aa9f-4b3b-a8be-2302d92bbaf0",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify user can verify email address",
+  "description": "Test that user can activate account by clicking email verification link",
+  "preconditions": [
+    "User registered but email not verified",
+    "Verification email received"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Open verification email",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click verification link",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Wait for verification confirmation",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Email verified successfully, account activated, user can login",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T15:41:31.919819",
+  "updated_at": "2026-03-11T15:41:31.919823"
+}

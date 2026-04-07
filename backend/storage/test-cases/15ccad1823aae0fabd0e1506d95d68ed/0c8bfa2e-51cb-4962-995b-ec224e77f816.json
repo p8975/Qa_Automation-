@@ -1,0 +1,40 @@
+{
+  "tc_id": "0c8bfa2e-51cb-4962-995b-ec224e77f816",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify experiment cohort targeting logic",
+  "description": "Test that the Trial Corner feature is only shown to users who do not consume content within the first 5 minutes of their trial.",
+  "preconditions": [
+    "Create two new trial users, User A and User B."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. For User A, start playing any content within 2 minutes of activating the trial.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. For User B, activate the trial and do not play any content for 6 minutes.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Check the homepage for both users.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Navigate to the 'Manage Subscription' section for both users.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "User A (consumed content) should NOT see the Trial Corner widget or flow. User B (no consumption) SHOULD see the Trial Corner widget and have the new flow in 'Manage Subscription'.",
+  "priority": "High",
+  "category": "Edge Case",
+  "created_at": "2026-04-03T12:22:38.477500",
+  "updated_at": "2026-04-03T12:22:38.477502"
+}

@@ -1,0 +1,42 @@
+{
+  "tc_id": "d75074ce-2d1e-43c8-a5d1-30c93171c9e7",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify trial corner widget displays correct remaining days on homepage",
+  "description": "Test that the persistent trial corner widget shows accurate remaining days count from trial activation date",
+  "preconditions": [
+    "User has activated a paid trial",
+    "Trial is in active state",
+    "User is on homepage"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Activate a trial subscription",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Navigate to homepage",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Locate the trial corner widget in header",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Verify the remaining days displayed matches actual trial days left",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Widget displays accurate number of remaining trial days (e.g., 6 Days Remaining)",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T17:29:07.541525",
+  "updated_at": "2026-03-11T17:29:07.541557"
+}

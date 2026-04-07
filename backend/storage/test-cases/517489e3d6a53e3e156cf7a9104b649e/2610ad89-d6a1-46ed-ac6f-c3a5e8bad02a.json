@@ -1,0 +1,41 @@
+{
+  "tc_id": "2610ad89-d6a1-46ed-ac6f-c3a5e8bad02a",
+  "prd_hash": "517489e3d6a53e3e156cf7a9104b649e",
+  "title": "Verify login after a previous failed attempt",
+  "description": "Test that the user can still log in successfully after entering wrong credentials once",
+  "preconditions": [
+    "User account exists",
+    "User is on login screen"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Enter correct email and wrong password",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click \"Login\" and verify error",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Clear password field and enter correct password",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Click \"Login\" button",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "User is successfully authenticated on the second attempt",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-04-07T17:15:57.654707",
+  "updated_at": "2026-04-07T17:15:57.654708"
+}

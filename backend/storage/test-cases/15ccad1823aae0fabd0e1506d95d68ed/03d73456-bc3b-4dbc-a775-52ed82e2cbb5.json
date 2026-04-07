@@ -1,0 +1,28 @@
+{
+  "tc_id": "03d73456-bc3b-4dbc-a775-52ed82e2cbb5",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify feedback popup appears after final cancellation",
+  "description": "Test that after cancelling the trial (accepting offer or cancelling anyway), a feedback popup is displayed",
+  "preconditions": [
+    "User has completed cancellation flow"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Complete the cancel trial flow (through discount offer or cancel anyway)",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Observe for feedback popup",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Feedback popup appears asking for cancellation reason with selectable options",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-03-11T11:16:21.688773",
+  "updated_at": "2026-03-11T11:16:21.688773"
+}

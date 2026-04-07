@@ -1,0 +1,22 @@
+{
+  "tc_id": "ab7de31e-8665-4800-af2e-ea2b14b0f6e1",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify declining the Incentive Offer and proceeding to cancel",
+  "description": "Test that a user can decline the discount offer and finalize the cancellation.",
+  "preconditions": [
+    "The Incentive Offer pop-up is displayed"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. On the offer pop-up, click the secondary 'Cancel Anyway' button.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The offer pop-up closes, the trial is immediately cancelled, and the feedback pop-up is displayed. The 'cancel-clicked' event is fired.",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-04-07T18:16:59.949833",
+  "updated_at": "2026-04-07T18:16:59.949834"
+}

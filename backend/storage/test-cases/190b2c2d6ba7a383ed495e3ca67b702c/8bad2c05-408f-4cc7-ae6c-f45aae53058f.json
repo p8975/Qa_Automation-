@@ -1,0 +1,53 @@
+{
+  "tc_id": "8bad2c05-408f-4cc7-ae6c-f45aae53058f",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify the password reset flow and subsequent session invalidation",
+  "description": "Test that a user can successfully reset their password via the 'Forgot Password' link and that this action invalidates all their existing active sessions on other devices.",
+  "preconditions": [
+    "User has a registered and verified account",
+    "User is logged into the application in a separate browser/session"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. On the login page, click 'Forgot Password'",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enter the user's registered email address and submit",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Click the password reset link from the received email",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Enter a new, valid password that has not been used in the last 5 times",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Confirm the new password and submit",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 6,
+      "description": "6. Try to perform an action in the other browser/session where the user was previously logged in",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Password is successfully reset. The user is redirected to the login page. The other active session is invalidated, and any action attempted should result in the user being redirected to the login page.",
+  "priority": "High",
+  "category": "Integration",
+  "created_at": "2026-03-27T15:38:37.609357",
+  "updated_at": "2026-03-27T15:38:37.609358"
+}

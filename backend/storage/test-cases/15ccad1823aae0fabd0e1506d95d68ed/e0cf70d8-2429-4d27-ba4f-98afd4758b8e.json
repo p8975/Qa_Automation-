@@ -1,0 +1,28 @@
+{
+  "tc_id": "e0cf70d8-2429-4d27-ba4f-98afd4758b8e",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify network error during pause trial flow",
+  "description": "Test the system's behavior when a network error occurs while attempting to pause the trial.",
+  "preconditions": [
+    "User is on the Loss Aversion pop-up for pausing"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Turn on airplane mode or disable network",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click the 'Pause Anyway & Lose Access' button",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "An appropriate error message (e.g., 'No internet connection') is displayed. The trial status remains active. The user can retry once the network is restored.",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-04-07T22:34:46.310575",
+  "updated_at": "2026-04-07T22:34:46.310577"
+}

@@ -1,0 +1,40 @@
+{
+  "tc_id": "45c6b155-23eb-4574-a27e-18923e5bdb0d",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify registration rate limiting per IP address",
+  "description": "Test that the system limits registration attempts to 3 per hour per IP address",
+  "preconditions": [
+    "Testing from specific IP address"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to registration page",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enter valid email and password",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Click 'Register' button",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Repeat 3 times within the same hour",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "After 3rd registration attempt, subsequent attempts blocked with RATE_LIMIT_EXCEEDED error",
+  "priority": "Medium",
+  "category": "Security",
+  "created_at": "2026-03-11T15:38:47.297771",
+  "updated_at": "2026-03-11T15:38:47.297771"
+}

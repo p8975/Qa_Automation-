@@ -1,0 +1,41 @@
+{
+  "tc_id": "5f3c7a78-32c3-48df-93a7-1526a8c3e4b6",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify all content sections are locked for paused or cancelled users",
+  "description": "Test that content in Engagement and Trending sections is locked when user has paused or cancelled their trial",
+  "preconditions": [
+    "User has paused or cancelled trial",
+    "User navigates to Trial Corner"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Login as user with paused trial",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Navigate to Trial Corner",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Observe Engagement and Trending sections",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Attempt to play any content",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Content sections display locked state. User cannot play or access premium content. Clear messaging shown about trial status",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T18:39:28.005614",
+  "updated_at": "2026-03-11T18:39:28.005615"
+}

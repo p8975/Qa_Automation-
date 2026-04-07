@@ -1,0 +1,35 @@
+{
+  "tc_id": "9b1ef395-27b5-41c4-9ae5-cd748c6ed8ff",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Engagement section shows acquired content before 90% consumption",
+  "description": "Test that Engagement section displays user's acquired content when consumption is below 90%",
+  "preconditions": [
+    "User has active trial and acquired content",
+    "User consumption is below 90%"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Acquire content during trial",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Navigate to Trial Corner",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Observe Engagement section",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Engagement section shows acquired content with option to start or resume consumption",
+  "priority": "Medium",
+  "category": "UI",
+  "created_at": "2026-03-11T09:56:39.864211",
+  "updated_at": "2026-03-11T09:56:39.864211"
+}

@@ -1,0 +1,28 @@
+{
+  "tc_id": "15e5066a-1d66-4cac-9bd3-aea4aa6176d6",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify clicking 'Cancel Trial' opens the Loss Aversion pop-up",
+  "description": "Test that clicking the 'Cancel Trial' button on the hub triggers the 'Loss Aversion' pop-up.",
+  "preconditions": [
+    "User has an active trial"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to the Trial Corner hub.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click the 'Cancel Trial' button.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "A pop-up appears with the headline 'Wait! Don't lose your free days.' and two buttons: 'Keep Trial & Set Reminder' and 'Cancel Anyway & Lose Access'.",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-04-07T18:16:59.948721",
+  "updated_at": "2026-04-07T18:16:59.948722"
+}

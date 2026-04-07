@@ -1,0 +1,41 @@
+{
+  "tc_id": "b33e14b5-0c53-4d26-8dff-7af8589e82e8",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify user can logout from all devices",
+  "description": "Test that logout from all devices invalidates all active sessions",
+  "preconditions": [
+    "User is logged in on multiple devices",
+    "User has access to session management"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to session management or account settings",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Select 'Logout from all devices' option",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Confirm action",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Attempt to use application on other devices",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "All sessions invalidated, user logged out from all devices",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-03-11T15:41:31.928486",
+  "updated_at": "2026-03-11T15:41:31.928488"
+}

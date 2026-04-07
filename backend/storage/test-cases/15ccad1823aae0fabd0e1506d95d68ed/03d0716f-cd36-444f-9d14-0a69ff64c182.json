@@ -1,0 +1,41 @@
+{
+  "tc_id": "03d0716f-cd36-444f-9d14-0a69ff64c182",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify trial widget displays correct remaining days on homepage for active trial",
+  "description": "Test that the persistent trial widget on homepage shows accurate remaining days for users with active trial",
+  "preconditions": [
+    "User has activated a trial",
+    "User is on homepage"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Activate a trial account with 7-day duration",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Navigate to homepage",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Locate the trial widget in header area",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Verify the displayed remaining days match the trial activation date",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Trial widget displays 'X Days Remaining' with correct count and includes 'Manage Control Center' link",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T10:02:10.486005",
+  "updated_at": "2026-03-11T10:02:10.486009"
+}

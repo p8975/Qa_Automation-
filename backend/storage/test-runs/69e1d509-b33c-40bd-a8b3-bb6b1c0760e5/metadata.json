@@ -1,0 +1,496 @@
+{
+  "run_id": "69e1d509-b33c-40bd-a8b3-bb6b1c0760e5",
+  "build_id": "858332ec-7a84-458a-bb77-3825210317ea",
+  "test_case_ids": [
+    "f89cb506-d91d-4740-ac7d-361126f34025",
+    "a8a3d1a0-edf4-4b8c-88bc-e41ceb23bbf7",
+    "3216c3f8-6b6c-4a86-a7c4-8e63a10973bd",
+    "c75258cf-301a-4bd8-8030-7de6629b380e",
+    "fd4b7dae-9c44-4f9e-8f03-73926e29417e",
+    "ce1838ea-27f3-4e4e-a001-a512638b75c2",
+    "37fd846c-fb41-4a53-8e3d-8c1223dc798e",
+    "fbe5f19b-ac96-4b3a-ba69-bb8ff2c7155e",
+    "b2ea5247-c9d6-40ed-9f8c-2f99ebd7516f",
+    "3d7a6844-91e7-4278-93b8-3648ea3a3950",
+    "17818f72-b755-4a25-89de-2b26ad381b25",
+    "61894056-869a-4a00-b2b0-014881c71f2a",
+    "afb3d413-1156-48ef-94ea-159fda55a112",
+    "a03e8a70-a767-4cb2-b3e7-21c0cf646545",
+    "0ef2fef0-ca5e-4e1b-9daf-a57c0e9c02ed",
+    "3b75244e-7b0b-4812-af92-81c3272d64c0",
+    "915849d9-990e-4a8b-b176-2f4c3ee5fc79",
+    "b14ccbea-8ab8-4b39-9fa4-0d634b831f4a",
+    "27871d62-8984-4255-8ada-3ddf0f48e28b",
+    "089f7e55-5be0-4431-8889-23d52d27ec53"
+  ],
+  "device_info": {
+    "device_id": "5D45UKAYLFWK8TPN",
+    "device_name": "DN2101",
+    "os_version": "13",
+    "is_emulator": false
+  },
+  "status": "completed",
+  "started_at": "2026-03-10T19:31:57.584760",
+  "completed_at": "2026-03-11T09:55:10.946238",
+  "duration_seconds": 51793.361478,
+  "results": [
+    {
+      "test_case_id": "f89cb506-d91d-4740-ac7d-361126f34025",
+      "status": "pass",
+      "duration_ms": 26525,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "pass",
+          "duration_ms": 10152,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "from appium import webdriver\nfrom appium.webdriver.common.appiumby import AppiumBy\nfrom selenium.webdriver.support.ui import WebDriverWait\nfrom selenium.webdriver.support import expected_conditions as EC\n\n# Initialize driver (assuming driver is already initialized in test setup)\n# driver = webdriver.Remote(\"http://localhost:4723/wd/hub\", desired_caps)\n\n# This test step appears to be a backend/API operation (user creation with cohort assignment)\n#"
+        },
+        {
+          "step_number": 2,
+          "status": "pass",
+          "duration_ms": 7852,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": ""
+        },
+        {
+          "step_number": 3,
+          "status": "pass",
+          "duration_ms": 8521,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "# Since no specific elements are"
+        }
+      ]
+    },
+    {
+      "test_case_id": "a8a3d1a0-edf4-4b8c-88bc-e41ceb23bbf7",
+      "status": "fail",
+      "duration_ms": 14817,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/69e1d509-b33c-40bd-a8b3-bb6b1c0760e5/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 14816,
+          "screenshot_path": "storage/test-runs/69e1d509-b33c-40bd-a8b3-bb6b1c0760e5/screenshots/step_1_error.png",
+          "error_message": "invalid syntax (<string>, line 29)",
+          "appium_command": "from appium import webdriver\nfrom appium.webdriver.common.appiumby import AppiumBy\nfrom selenium.webdriver.support.ui import WebDriverWait\nfrom selenium.webdriver.support import expected_conditions as EC\nimport time\n\n# Initialize driver (assuming driver is already initialized)\ndriver = None  # Replace with actual driver instance\n\nwait = WebDriverWait(driver, 10)\n\n# 1. View widget - wait for widget to be visible\nwidget_element = wait.until(EC.presence_of_element_located((AppiumBy.ACCESSIBILITY_ID, \"widget_id\")))\nwidget_element = wait.until(EC.visibility_of_element_located((AppiumBy.ACCESSIBILITY_ID, \"widget_id\")))\n\n# 2. Click widget\ndriver.find_element(AppiumBy.ACCESSIBILITY_ID, \"widget_id\").click()\n\n# 3. View corner - wait for corner element to be visible\ncorner_element = wait.until(EC.visibility_of_element_located((AppiumBy.ACCESSIBILITY_ID, \"corner_id\")))\n\n# 4. Click top content\ndriver.find_element(AppiumBy.ACCESSIBILITY_ID, \"top_content_id\").click()\n\n# 5. Set reminder\ndriver.find_element(AppiumBy.ACCESSIBILITY_ID, \"set_reminder_id\").click()\n\n# Wait for reminder dialog to appear\nwait."
+        }
+      ]
+    },
+    {
+      "test_case_id": "3216c3f8-6b6c-4a86-a7c4-8e63a10973bd",
+      "status": "fail",
+      "duration_ms": 15430,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/69e1d509-b33c-40bd-a8b3-bb6b1c0760e5/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 15430,
+          "screenshot_path": "storage/test-runs/69e1d509-b33c-40bd-a8b3-bb6b1c0760e5/screenshots/step_1_error.png",
+          "error_message": "Message: \nStacktrace:\nNoSuchElementError: An element could not be located on the page using the given search parameters.\n    at AndroidUiautomator2Driver.findElOrEls (/Users/prakashkumar/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/lib/commands/find.ts:93:11)\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at AndroidUiautomator2Driver.findElOrElsWithProcessing (/opt/homebrew/lib/node_modules/appium/node_modules/@appium/base-driver/lib/basedriver/commands/find.ts:60:12)\n    at AndroidUiautomator2Driver.findElement (/opt/homebrew/lib/node_modules/appium/node_modules/@appium/base-driver/lib/basedriver/commands/find.ts:75:12)",
+          "appium_command": "from appium.webdriver.common.appiumby import AppiumBy\nfrom selenium.webdriver.support.ui import WebDriverWait\nfrom selenium.webdriver.support import expected_conditions as EC\n\nWebDriverWait(driver, 10).until(EC.presence_of_element_located((AppiumBy.ACCESSIBILITY_ID, \"Trial Corner\"))).click()\nWebDriverWait(driver, 10).until(EC.presence_of_element_located((AppiumBy.ACCESSIBILITY_ID, \"Manage Trial\"))).click()"
+        }
+      ]
+    },
+    {
+      "test_case_id": "c75258cf-301a-4bd8-8030-7de6629b380e",
+      "status": "fail",
+      "duration_ms": 9678,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/69e1d509-b33c-40bd-a8b3-bb6b1c0760e5/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 9678,
+          "screenshot_path": "storage/test-runs/69e1d509-b33c-40bd-a8b3-bb6b1c0760e5/screenshots/step_1_error.png",
+          "error_message": "invalid syntax (<string>, line 3)",
+          "appium_command": "from appium.webdriver.common.appiumby import AppiumBy\nfrom selenium.webdriver.support.ui import WebDriverWait\nfrom"
+        }
+      ]
+    },
+    {
+      "test_case_id": "fd4b7dae-9c44-4f9e-8f03-73926e29417e",
+      "status": "fail",
+      "duration_ms": 23998,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/69e1d509-b33c-40bd-a8b3-bb6b1c0760e5/screenshots/step_2_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "pass",
+          "duration_ms": 16580,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "# Simulate user consumption reaching 90% by swiping/scrolling through content\n# Swipe from bottom to top multiple times to reach ~90% consumption\nfor _ in range(9):\n    driver.swipe(start_x=300, start_y=800, end_x=300, end_y=200, duration=800)"
+        },
+        {
+          "step_number": 2,
+          "status": "error",
+          "duration_ms": 7416,
+          "screenshot_path": "storage/test-runs/69e1d509-b33c-40bd-a8b3-bb6b1c0760e5/screenshots/step_2_error.png",
+          "error_message": "name 'WebDriverWait' is not defined",
+          "appium_command": "WebDriverWait(driver, 10).until(lambda x: x.find_element(AppiumBy.ACCESSIBILITY_ID, \"Trial Corner\")).click()"
+        }
+      ]
+    },
+    {
+      "test_case_id": "ce1838ea-27f3-4e4e-a001-a512638b75c2",
+      "status": "fail",
+      "duration_ms": 17680,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/69e1d509-b33c-40bd-a8b3-bb6b1c0760e5/screenshots/step_2_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "pass",
+          "duration_ms": 8677,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": ""
+        },
+        {
+          "step_number": 2,
+          "status": "error",
+          "duration_ms": 9001,
+          "screenshot_path": "storage/test-runs/69e1d509-b33c-40bd-a8b3-bb6b1c0760e5/screenshots/step_2_error.png",
+          "error_message": "Message: An element could not be located on the page using the given search parameters.; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception\nStacktrace:\nNoSuchElementError: An element could not be located on the page using the given search parameters.\n    at AndroidUiautomator2Driver.findElOrEls (/Users/prakashkumar/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/lib/commands/find.ts:93:11)\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at AndroidUiautomator2Driver.findElOrElsWithProcessing (/opt/homebrew/lib/node_modules/appium/node_modules/@appium/base-driver/lib/basedriver/commands/find.ts:60:12)\n    at AndroidUiautomator2Driver.findElement (/opt/homebrew/lib/node_modules/appium/node_modules/@appium/base-driver/lib/basedriver/commands/find.ts:75:12)",
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"Trial Corner\").click()"
+        }
+      ]
+    },
+    {
+      "test_case_id": "37fd846c-fb41-4a53-8e3d-8c1223dc798e",
+      "status": "fail",
+      "duration_ms": 18547,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/69e1d509-b33c-40bd-a8b3-bb6b1c0760e5/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 18546,
+          "screenshot_path": "storage/test-runs/69e1d509-b33c-40bd-a8b3-bb6b1c0760e5/screenshots/step_1_error.png",
+          "error_message": "Message: \nStacktrace:\nNoSuchElementError: An element could not be located on the page using the given search parameters.\n    at AndroidUiautomator2Driver.findElOrEls (/Users/prakashkumar/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/lib/commands/find.ts:93:11)\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at AndroidUiautomator2Driver.findElOrElsWithProcessing (/opt/homebrew/lib/node_modules/appium/node_modules/@appium/base-driver/lib/basedriver/commands/find.ts:60:12)\n    at AndroidUiautomator2Driver.findElement (/opt/homebrew/lib/node_modules/appium/node_modules/@appium/base-driver/lib/basedriver/commands/find.ts:75:12)",
+          "appium_command": "from appium import webdriver\nfrom appium.webdriver.common.appiumby import AppiumBy\nfrom selenium.webdriver.support.ui import WebDriverWait\nfrom selenium.webdriver.support import expected_conditions as EC\n\n# Wait for Trial Corner element and click\ntrial_corner_element = WebDriverWait(driver, 10).until(\n    EC.presence_of_element_located((AppiumBy.ACCESSIBILITY_ID, \"Trial Corner\"))\n)\ntrial_corner_element.click()\n\n# Wait for Manage Trial element and click\nmanage_trial_element = WebDriverWait(driver, 10).until(\n    EC.presence_of_element_located((AppiumBy.ACCESSIBILITY_ID, \"Manage Trial\"))\n)\nmanage_trial_element.click()"
+        }
+      ]
+    },
+    {
+      "test_case_id": "fbe5f19b-ac96-4b3a-ba69-bb8ff2c7155e",
+      "status": "fail",
+      "duration_ms": 18350,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/69e1d509-b33c-40bd-a8b3-bb6b1c0760e5/screenshots/step_2_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "pass",
+          "duration_ms": 8984,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": ""
+        },
+        {
+          "step_number": 2,
+          "status": "error",
+          "duration_ms": 9365,
+          "screenshot_path": "storage/test-runs/69e1d509-b33c-40bd-a8b3-bb6b1c0760e5/screenshots/step_2_error.png",
+          "error_message": "name 'WebDriverWait' is not defined",
+          "appium_command": "WebDriverWait(driver, 10).until(EC.element_to_be_clickable((AppiumBy.XPATH, \"//android.widget.TextView[@text='Pause Trial']\"))).click()"
+        }
+      ]
+    },
+    {
+      "test_case_id": "b2ea5247-c9d6-40ed-9f8c-2f99ebd7516f",
+      "status": "fail",
+      "duration_ms": 16449,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/69e1d509-b33c-40bd-a8b3-bb6b1c0760e5/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 16449,
+          "screenshot_path": "storage/test-runs/69e1d509-b33c-40bd-a8b3-bb6b1c0760e5/screenshots/step_1_error.png",
+          "error_message": "Message: \nStacktrace:\nNoSuchElementError: An element could not be located on the page using the given search parameters.\n    at AndroidUiautomator2Driver.findElOrEls (/Users/prakashkumar/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/lib/commands/find.ts:93:11)\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at AndroidUiautomator2Driver.findElOrElsWithProcessing (/opt/homebrew/lib/node_modules/appium/node_modules/@appium/base-driver/lib/basedriver/commands/find.ts:60:12)\n    at AndroidUiautomator2Driver.findElement (/opt/homebrew/lib/node_modules/appium/node_modules/@appium/base-driver/lib/basedriver/commands/find.ts:75:12)",
+          "appium_command": "from appium.webdriver.common.appiumby import AppiumBy\nfrom selenium.webdriver.support.ui import WebDriverWait\nfrom selenium.webdriver.support import expected_conditions as EC\n\nWebDriverWait(driver, 10).until(EC.presence_of_element_located((AppiumBy.ACCESSIBILITY_ID, \"Trial Corner\"))).click()\nWebDriverWait(driver, 10).until(EC.presence_of_element_located((AppiumBy.ACCESSIBILITY_ID, \"Manage Trial\"))).click()"
+        }
+      ]
+    },
+    {
+      "test_case_id": "3d7a6844-91e7-4278-93b8-3648ea3a3950",
+      "status": "fail",
+      "duration_ms": 16593,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/69e1d509-b33c-40bd-a8b3-bb6b1c0760e5/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 16592,
+          "screenshot_path": "storage/test-runs/69e1d509-b33c-40bd-a8b3-bb6b1c0760e5/screenshots/step_1_error.png",
+          "error_message": "Message: \nStacktrace:\nNoSuchElementError: An element could not be located on the page using the given search parameters.\n    at AndroidUiautomator2Driver.findElOrEls (/Users/prakashkumar/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/lib/commands/find.ts:93:11)\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at AndroidUiautomator2Driver.findElOrElsWithProcessing (/opt/homebrew/lib/node_modules/appium/node_modules/@appium/base-driver/lib/basedriver/commands/find.ts:60:12)\n    at AndroidUiautomator2Driver.findElement (/opt/homebrew/lib/node_modules/appium/node_modules/@appium/base-driver/lib/basedriver/commands/find.ts:75:12)",
+          "appium_command": "from appium import webdriver\nfrom appium.webdriver.common.appiumby import AppiumBy\nfrom selenium.webdriver.support.ui import WebDriverWait\nfrom selenium.webdriver.support import expected_conditions as EC\n\n# Activate trial for user\n# Assuming there's a button/element to activate trial - replace \"activate_trial\" with actual element ID\nWebDriverWait(driver, 10).until(EC.element_to_be_clickable((AppiumBy.ACCESSIBILITY_ID, \"activate_trial\"))).click()"
+        }
+      ]
+    },
+    {
+      "test_case_id": "17818f72-b755-4a25-89de-2b26ad381b25",
+      "status": "fail",
+      "duration_ms": 7508,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/69e1d509-b33c-40bd-a8b3-bb6b1c0760e5/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 7508,
+          "screenshot_path": "storage/test-runs/69e1d509-b33c-40bd-a8b3-bb6b1c0760e5/screenshots/step_1_error.png",
+          "error_message": "EOL while scanning string literal (<string>, line 5)",
+          "appium_command": "from appium.webdriver.common.appiumby import AppiumBy\nfrom selenium.webdriver.support.ui import WebDriverWait\nfrom selenium.webdriver.support import expected_conditions as EC\n\nWebDriverWait(driver, 10).until(EC.presence_of_element_located((AppiumBy.ACCESSIBILITY_ID, \""
+        }
+      ]
+    },
+    {
+      "test_case_id": "61894056-869a-4a00-b2b0-014881c71f2a",
+      "status": "fail",
+      "duration_ms": 23440,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/69e1d509-b33c-40bd-a8b3-bb6b1c0760e5/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 23439,
+          "screenshot_path": "storage/test-runs/69e1d509-b33c-40bd-a8b3-bb6b1c0760e5/screenshots/step_1_error.png",
+          "error_message": "Message: \nStacktrace:\nNoSuchElementError: An element could not be located on the page using the given search parameters.\n    at AndroidUiautomator2Driver.findElOrEls (/Users/prakashkumar/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/lib/commands/find.ts:93:11)\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at AndroidUiautomator2Driver.findElOrElsWithProcessing (/opt/homebrew/lib/node_modules/appium/node_modules/@appium/base-driver/lib/basedriver/commands/find.ts:60:12)\n    at AndroidUiautomator2Driver.findElement (/opt/homebrew/lib/node_modules/appium/node_modules/@appium/base-driver/lib/basedriver/commands/find.ts:75:12)",
+          "appium_command": "from appium.webdriver.common.appiumby import AppiumBy\nfrom selenium.webdriver.support.ui import WebDriverWait\nfrom selenium.webdriver.support import expected_conditions as EC\n\nWebDriverWait(driver, 10).until(EC.element_to_be_clickable((AppiumBy.ACCESSIBILITY_ID, \"Trial Corner\"))).click()"
+        }
+      ]
+    },
+    {
+      "test_case_id": "afb3d413-1156-48ef-94ea-159fda55a112",
+      "status": "fail",
+      "duration_ms": 5737,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/69e1d509-b33c-40bd-a8b3-bb6b1c0760e5/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 5736,
+          "screenshot_path": "storage/test-runs/69e1d509-b33c-40bd-a8b3-bb6b1c0760e5/screenshots/step_1_error.png",
+          "error_message": "name 'WebDriverWait' is not defined",
+          "appium_command": "WebDriverWait(driver, 10).until(EC.element_to_be_clickable((AppiumBy.ACCESSIBILITY_ID, \"Trial Corner\"))).click()\nWebDriverWait(driver, 10).until(EC.element_to_be_clickable((AppiumBy.ACCESSIBILITY_ID, \"Manage Trial\"))).click()"
+        }
+      ]
+    },
+    {
+      "test_case_id": "a03e8a70-a767-4cb2-b3e7-21c0cf646545",
+      "status": "fail",
+      "duration_ms": 6665,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/69e1d509-b33c-40bd-a8b3-bb6b1c0760e5/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 6664,
+          "screenshot_path": "storage/test-runs/69e1d509-b33c-40bd-a8b3-bb6b1c0760e5/screenshots/step_1_error.png",
+          "error_message": "unexpected EOF while parsing (<string>, line 6)",
+          "appium_command": "from appium.webdriver.common.appiumby import AppiumBy\nfrom selenium.webdriver.support.ui import WebDriverWait\nfrom selenium.webdriver.support import expected_conditions as EC\n\nWebDriverWait(driver, 10).until(EC.element_to_be_clickable((AppiumBy.ACCESSIBILITY_ID, \"Trial Corner\"))).click()\nWebDriverWait(driver, 10).until(EC.element_to_be"
+        }
+      ]
+    },
+    {
+      "test_case_id": "0ef2fef0-ca5e-4e1b-9daf-a57c0e9c02ed",
+      "status": "fail",
+      "duration_ms": 5953,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/69e1d509-b33c-40bd-a8b3-bb6b1c0760e5/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 5953,
+          "screenshot_path": "storage/test-runs/69e1d509-b33c-40bd-a8b3-bb6b1c0760e5/screenshots/step_1_error.png",
+          "error_message": "name 'WebDriverWait' is not defined",
+          "appium_command": "WebDriverWait(driver, 10).until(lambda x: x.find_element(AppiumBy.ACCESSIBILITY_ID, \"Trial Corner\")).click()\nWebDriverWait(driver, 10).until(lambda x: x.find_element(AppiumBy.ACCESSIBILITY_ID, \"Manage Trial\")).click()"
+        }
+      ]
+    },
+    {
+      "test_case_id": "3b75244e-7b0b-4812-af92-81c3272d64c0",
+      "status": "fail",
+      "duration_ms": 46866633,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/69e1d509-b33c-40bd-a8b3-bb6b1c0760e5/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 46866632,
+          "screenshot_path": "storage/test-runs/69e1d509-b33c-40bd-a8b3-bb6b1c0760e5/screenshots/step_1_error.png",
+          "error_message": "unexpected EOF while parsing (<string>, line 6)",
+          "appium_command": "from appium.webdriver.common.appiumby import AppiumBy\nfrom selenium.webdriver.support.ui import WebDriverWait\nfrom selenium.webdriver.support import expected_conditions as EC\n\nwait = WebDriverWait(driver, 10)\ntrial_corner = wait.until(EC"
+        }
+      ]
+    },
+    {
+      "test_case_id": "915849d9-990e-4a8b-b176-2f4c3ee5fc79",
+      "status": "fail",
+      "duration_ms": 9490,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/69e1d509-b33c-40bd-a8b3-bb6b1c0760e5/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 9489,
+          "screenshot_path": "storage/test-runs/69e1d509-b33c-40bd-a8b3-bb6b1c0760e5/screenshots/step_1_error.png",
+          "error_message": "unexpected EOF while parsing (<string>, line 1)",
+          "appium_command": "WebDriverWait(driver, 10).until(lambda x: x"
+        }
+      ]
+    },
+    {
+      "test_case_id": "b14ccbea-8ab8-4b39-9fa4-0d634b831f4a",
+      "status": "fail",
+      "duration_ms": 4454536,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/69e1d509-b33c-40bd-a8b3-bb6b1c0760e5/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 4454535,
+          "screenshot_path": "storage/test-runs/69e1d509-b33c-40bd-a8b3-bb6b1c0760e5/screenshots/step_1_error.png",
+          "error_message": "name 'WebDriverWait' is not defined",
+          "appium_command": "WebDriverWait(driver, 10).until(EC.element_to_be_clickable((AppiumBy.ACCESSIBILITY_ID, \"activate_trial\"))).click()"
+        }
+      ]
+    },
+    {
+      "test_case_id": "27871d62-8984-4255-8ada-3ddf0f48e28b",
+      "status": "fail",
+      "duration_ms": 8520,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/69e1d509-b33c-40bd-a8b3-bb6b1c0760e5/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 8519,
+          "screenshot_path": "storage/test-runs/69e1d509-b33c-40bd-a8b3-bb6b1c0760e5/screenshots/step_1_error.png",
+          "error_message": "missing 1 required keyword-only argument: 'options' (instance of driver `options.Options` class)",
+          "appium_command": "from appium import webdriver\nfrom appium.webdriver.common.appiumby import AppiumBy\nfrom selenium.webdriver.support.ui import WebDriverWait\nfrom selenium.webdriver.support import expected_conditions as EC\n\n# Initialize driver (assuming driver is already initialized)\ndriver = webdriver.Remote(\"http://localhost:4723/wd/hub\", {\"appPackage\": \"in.stage.dev\", \"platformName\": \"Android\"})\n\nwait = WebDriverWait(driver, 10)\n\n# Step 1: Create user account with trial active on Day 2\n# Tap on sign up button\nwait.until(EC.element_to_be_clickable((AppiumBy.ACCESSIBILITY_ID, \"sign_up_button\"))).click()\n\n# Enter username"
+        }
+      ]
+    },
+    {
+      "test_case_id": "089f7e55-5be0-4431-8889-23d52d27ec53",
+      "status": "fail",
+      "duration_ms": 6397,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/69e1d509-b33c-40bd-a8b3-bb6b1c0760e5/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 6396,
+          "screenshot_path": "storage/test-runs/69e1d509-b33c-40bd-a8b3-bb6b1c0760e5/screenshots/step_1_error.png",
+          "error_message": "unexpected EOF while parsing (<string>, line 32)",
+          "appium_command": "from appium import webdriver\nfrom appium.webdriver.common.appiumby import AppiumBy\nfrom selenium.webdriver.support.ui import WebDriverWait\nfrom selenium.webdriver.support import expected_conditions as EC\n\n# Initialize driver (assuming driver is already initialized)\n# Create new user account with trial\nwait = WebDriverWait(driver, 10)\n\n# Tap on sign up / create account button\ncreate_account_btn = wait.until(EC.element_to_be_clickable((AppiumBy.ACCESSIBILITY_ID, \"create_account\")))\ncreate_account_btn.click()\n\n# Enter username\nusername_field = wait.until(EC.presence_of_element_located((AppiumBy.ACCESSIBILITY_ID, \"username_field\")))\nusername_field.send_keys(\"new_user\")\n\n# Enter email\nemail_field = wait.until(EC.presence_of_element_located((AppiumBy.ACCESSIBILITY_ID, \"email_field\")))\nemail_field.send_keys(\"user@example.com\")\n\n# Enter password\npassword_field = wait.until(EC.presence_of_element_located((AppiumBy.ACCESSIBILITY_ID, \"password_field\")))\npassword_field.send_keys(\"Password123!\")\n\n# Confirm password\nconfirm_password_field = wait.until(EC.presence_of_element_located((AppiumBy.ACCESSIBILITY_ID, \"confirm_password_field\")))\nconfirm_password_field.click()\nconfirm_password_field.send_keys(\"Password123!\")\n\n# Select trial option (if available)\ntrial_option = wait.until(EC.element_to_be_clickable((AppiumBy.ACCESS"
+        }
+      ]
+    }
+  ]
+}

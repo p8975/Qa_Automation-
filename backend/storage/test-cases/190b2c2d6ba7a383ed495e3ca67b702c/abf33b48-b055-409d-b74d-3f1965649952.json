@@ -1,0 +1,40 @@
+{
+  "tc_id": "abf33b48-b055-409d-b74d-3f1965649952",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify password and confirm password mismatch is rejected",
+  "description": "Test that different values in password and confirm password fields are rejected",
+  "preconditions": [
+    "User is on registration page"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Enter valid email address",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enter valid password in password field",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Enter different password in confirm password field",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Click 'Register' button",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Error message indicating passwords do not match",
+  "priority": "High",
+  "category": "Error Handling",
+  "created_at": "2026-03-11T15:41:31.923691",
+  "updated_at": "2026-03-11T15:41:31.923693"
+}

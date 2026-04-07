@@ -1,0 +1,35 @@
+{
+  "tc_id": "d604263b-3042-405c-9792-75e7e504e167",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify user can access Trial Corner Hub from homepage widget",
+  "description": "Test that clicking the trial widget navigates user to the dedicated Trial Corner dashboard",
+  "preconditions": [
+    "User has active trial",
+    "User is on homepage with trial widget visible"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to homepage with active trial",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click on the trial widget showing remaining days",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify navigation to Trial Corner page",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "User is redirected to Trial Corner Hub displaying trial status, benefits, content sections, and manage trial options",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T10:02:10.486395",
+  "updated_at": "2026-03-11T10:02:10.486396"
+}

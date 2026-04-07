@@ -1,0 +1,40 @@
+{
+  "tc_id": "8404a43c-4d12-456e-ad9f-ea1910f055e7",
+  "prd_hash": "e0b156f3081e99b42f5dd2726924214c",
+  "title": "Edge Case - Verify behavior with no internet connection on Login screen",
+  "description": "Tests how the app handles a login attempt when the device is offline.",
+  "preconditions": [
+    "User is on the Login screen."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Disable Wi-Fi and mobile data on the device.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enter a valid 10-digit phone number.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Tap the '\u0932\u0949\u0917\u093f\u0928 \u0915\u0930\u0947\u0902' button.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Observe the app's response.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "A user-friendly error message like 'No internet connection. Please check your network and try again.' is displayed.",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-04-06T16:49:40.089767",
+  "updated_at": "2026-04-06T16:49:40.089769"
+}

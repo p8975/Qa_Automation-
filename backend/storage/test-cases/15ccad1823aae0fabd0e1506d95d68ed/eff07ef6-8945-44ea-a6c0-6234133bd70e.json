@@ -1,0 +1,35 @@
+{
+  "tc_id": "eff07ef6-8945-44ea-a6c0-6234133bd70e",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify cancellation flow when the discount offer is disabled from the backend",
+  "description": "Tests that the 'Incentive' offer pop-up is correctly skipped in the cancellation flow if it is disabled via a backend configuration.",
+  "preconditions": [
+    "User is in an active trial.",
+    "The 'First Month Discount' offer is turned OFF in the backend configuration."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to the 'Trial Corner' hub.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click the 'Cancel Trial' button.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. On the 'Loss Aversion' pop-up, click 'Cancel Anyway & Lose Access'.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The user is taken directly to the feedback pop-up after the loss aversion modal. The 'Incentive' offer pop-up is not displayed. The trial is cancelled.",
+  "priority": "High",
+  "category": "Edge Case",
+  "created_at": "2026-03-30T10:37:05.516423",
+  "updated_at": "2026-03-30T10:37:05.516423"
+}

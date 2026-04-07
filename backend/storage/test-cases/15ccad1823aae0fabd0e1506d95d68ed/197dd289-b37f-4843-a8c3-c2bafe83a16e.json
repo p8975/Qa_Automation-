@@ -1,0 +1,35 @@
+{
+  "tc_id": "197dd289-b37f-4843-a8c3-c2bafe83a16e",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Validate the Loss Aversion pop-up's primary action",
+  "description": "Test that clicking 'Keep Trial & Set Reminder' on the loss aversion pop-up successfully sets the reminder and keeps the trial active.",
+  "preconditions": [
+    "User has an active trial and is in the Trial Corner.",
+    "The 'Remind me' toggle is currently off."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Click the 'Cancel Trial' button.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. On the 'Wait! Don't lose your free days.' pop-up, observe the two actions.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Click the high-prominence primary action: 'Keep Trial & Set Reminder'.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The pop-up closes, the trial remains active, and the 'Remind me' toggle in the Trial Corner is now enabled. The `remind-me-clicked` event is fired with `page_source` as 'cancel pop-up'.",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-04-03T12:22:38.476978",
+  "updated_at": "2026-04-03T12:22:38.476981"
+}

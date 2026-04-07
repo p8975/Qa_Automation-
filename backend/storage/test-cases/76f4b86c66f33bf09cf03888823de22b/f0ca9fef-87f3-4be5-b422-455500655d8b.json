@@ -1,0 +1,28 @@
+{
+  "tc_id": "f0ca9fef-87f3-4be5-b422-455500655d8b",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify error handling when running opencode without installation",
+  "description": "Test that system handles attempt to run opencode before installation",
+  "preconditions": [
+    "OpenCode not installed"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Execute: opencode",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Observe error message",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Command not found error is displayed",
+  "priority": "Low",
+  "category": "Error Handling",
+  "created_at": "2026-03-11T13:51:23.505079",
+  "updated_at": "2026-03-11T13:51:23.505081"
+}

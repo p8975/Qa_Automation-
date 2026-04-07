@@ -1,0 +1,41 @@
+{
+  "tc_id": "ed1434d2-b921-49de-8c07-330a94ed128d",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify rate limiting locks account after 5 failed login attempts",
+  "description": "Test that the system locks out further login attempts after 5 failed attempts within the rate limit window",
+  "preconditions": [
+    "User account exists with known incorrect password",
+    "User is on login page"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to login page",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enter valid email and incorrect password",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Click 'Login' button",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Repeat steps 2-3 four more times (total 5 failed attempts)",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "After 5th failed attempt, account is locked for 15 minutes with appropriate message",
+  "priority": "High",
+  "category": "Security",
+  "created_at": "2026-03-11T15:42:39.036837",
+  "updated_at": "2026-03-11T15:42:39.036839"
+}

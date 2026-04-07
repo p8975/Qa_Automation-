@@ -1,0 +1,16 @@
+{
+  "android": {
+    "appium:app": "/Users/prakashkumar/qa-automation-platform/backend/storage/builds/858332ec-7a84-458a-bb77-3825210317ea/STAGE_2Mar2026_0910AM_preprod.apk",
+    "appium:deviceName": "Medium_Phone_API_36.1",
+    "appium:platformVersion": "15",
+    "appium:automationName": "UiAutomator2",
+    "appium:udid": "emulator-5554",
+    "platformName": "android"
+  },
+  "ios": {
+    "platformName": "ios",
+    "appium:deviceName": "iPhone 15 Pro",
+    "appium:platformVersion": "17.0",
+    "appium:automationName": "XCUITest"
+  }
+}

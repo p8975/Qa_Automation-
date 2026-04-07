@@ -1,0 +1,40 @@
+{
+  "tc_id": "122d1f12-ba88-49e9-bcd8-2125d5d3665c",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify all existing sessions are invalidated after password reset",
+  "description": "Test that changing password invalidates all active sessions for security",
+  "preconditions": [
+    "User is logged in from multiple devices or sessions"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Login from primary device",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Request password reset from another session",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Reset password using reset link",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Attempt to use old session tokens on first device",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Old sessions are invalid and user must re-login with new password",
+  "priority": "High",
+  "category": "Security",
+  "created_at": "2026-03-11T15:42:39.041463",
+  "updated_at": "2026-03-11T15:42:39.041465"
+}

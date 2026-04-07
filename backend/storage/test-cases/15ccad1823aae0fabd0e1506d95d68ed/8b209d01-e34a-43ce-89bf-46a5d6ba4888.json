@@ -1,0 +1,47 @@
+{
+  "tc_id": "8b209d01-e34a-43ce-89bf-46a5d6ba4888",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify 'Remind me' toggle functionality",
+  "description": "Test that the user can successfully enable and disable the 'Remind me 24h before trial ends' toggle.",
+  "preconditions": [
+    "User has an active trial",
+    "User is on the Trial Corner screen"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Locate the 'Remind me...' toggle in the 'Manage Trial' section",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click the toggle to turn it ON",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify the toggle state changes to ON",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Click the toggle again to turn it OFF",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Verify the toggle state changes to OFF",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The toggle state updates correctly upon each click, and the corresponding API call is made.",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-04-07T22:34:46.302655",
+  "updated_at": "2026-04-07T22:34:46.302658"
+}

@@ -1,0 +1,41 @@
+{
+  "tc_id": "f8e9adcf-fbe7-40ec-9a9d-e0dd6fd068aa",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify user can accept discount offer and convert to paid subscription",
+  "description": "Test that user can accept the discount offer and the first month gets discounted as promised",
+  "preconditions": [
+    "User has active trial",
+    "Discount offer popup is displayed"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Reach discount offer popup during cancel flow",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click 'Grab Offer' button",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Complete payment if required",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Verify subscription is updated with discount",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "User's first month subscription is discounted per offer. Confirmation shown and trial status updated",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T18:39:28.003928",
+  "updated_at": "2026-03-11T18:39:28.003930"
+}

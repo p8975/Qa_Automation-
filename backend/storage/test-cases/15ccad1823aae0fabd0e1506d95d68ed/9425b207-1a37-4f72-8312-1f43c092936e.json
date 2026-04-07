@@ -1,0 +1,47 @@
+{
+  "tc_id": "9425b207-1a37-4f72-8312-1f43c092936e",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify remind later option dismisses popup without action",
+  "description": "Test that clicking 'Remind later' dismisses popup and returns to Trial Corner",
+  "preconditions": [
+    "User has active trial",
+    "User clicked Pause or Cancel button"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Click 'Pause Trial' or 'Cancel Trial' button",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. In popup, click 'Remind later' option",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify popup closes",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Verify user returns to Trial Corner",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Verify trial state unchanged",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Popup closes and trial state remains unchanged",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-04-07T17:17:08.486405",
+  "updated_at": "2026-04-07T17:17:08.486406"
+}

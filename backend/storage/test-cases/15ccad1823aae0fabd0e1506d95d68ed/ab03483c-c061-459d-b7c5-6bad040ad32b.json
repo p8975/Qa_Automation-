@@ -1,0 +1,40 @@
+{
+  "tc_id": "ab03483c-c061-459d-b7c5-6bad040ad32b",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Validate Experiment Cohort Targeting Logic",
+  "description": "Tests that the Trial Corner feature is only shown to the correct user cohort based on consumption behavior.",
+  "preconditions": [
+    "Two new users (User A, User B) have just activated their \u20b91 trial."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. With User A, start watching a video and watch for less than 5 minutes, then return to the homepage.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. With User B, start watching a video and watch for more than 5 minutes, then return to the homepage.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Observe the homepage for User A.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Observe the homepage for User B.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "User A (consumption < 5 mins) should see the 'Trial Mode' widget. User B (consumption > 5 mins) should NOT see the 'Trial Mode' widget and should see the standard user experience.",
+  "priority": "High",
+  "category": "Edge Case",
+  "created_at": "2026-03-30T16:01:09.533856",
+  "updated_at": "2026-03-30T16:01:09.533857"
+}

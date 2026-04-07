@@ -1,0 +1,22 @@
+{
+  "tc_id": "e5d6834a-f10e-4fba-982a-ac06a4edf1c5",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify 'remind-me-clicked' event from Cancel pop-up",
+  "description": "Test that the reminder event is fired when selected from the cancel confirmation pop-up.",
+  "preconditions": [
+    "User is on the Cancel confirmation pop-up"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Click 'Keep Trial & Set Reminder'.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The 'remind-me-clicked' event is fired with 'page source' as 'cancel pop-up'.",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-04-07T18:16:59.956413",
+  "updated_at": "2026-04-07T18:16:59.956414"
+}

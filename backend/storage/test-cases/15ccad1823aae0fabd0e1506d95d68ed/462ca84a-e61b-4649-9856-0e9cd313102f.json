@@ -1,0 +1,35 @@
+{
+  "tc_id": "462ca84a-e61b-4649-9856-0e9cd313102f",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify user can access Trial Corner from homepage widget",
+  "description": "Test that clicking on the trial widget navigates user to the dedicated Trial Corner page",
+  "preconditions": [
+    "User has an active trial",
+    "User is on homepage with trial widget visible"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. User logs in with valid credentials",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Navigate to homepage",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Click on trial widget",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "User is navigated to Trial Corner page with all 5 sections (Hero, Progress & Benefits, Engagement, Trending, Manage Trial)",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T16:33:03.572738",
+  "updated_at": "2026-03-11T16:33:03.572740"
+}

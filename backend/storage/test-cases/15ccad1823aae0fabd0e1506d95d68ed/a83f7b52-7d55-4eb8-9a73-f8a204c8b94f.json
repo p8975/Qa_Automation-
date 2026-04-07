@@ -1,0 +1,48 @@
+{
+  "tc_id": "a83f7b52-7d55-4eb8-9a73-f8a204c8b94f",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify 'Set a Reminder' happy path for a targeted user",
+  "description": "Test that a user in the targeted cohort (no consumption within 5 mins) can see the widget, navigate to Trial Corner, and successfully enable the 'Remind me' toggle.",
+  "preconditions": [
+    "User has an active \u20b91 trial, started 6-10 minutes ago.",
+    "User has not watched any content.",
+    "User is part of the Trial Corner experiment cohort."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Observe the persistent 'Trial Mode' widget on the homepage.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click the widget to navigate to the 'Trial Corner' hub.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Locate the 'Manage Trial' section.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Click the toggle for 'Remind me 24h before trial ends'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Verify a confirmation message appears (e.g., 'Reminder set!').",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The reminder toggle should be in the 'On' state. The `remind-me-clicked` event should be fired with `page_source` as 'trial corner'. The user's trial remains active.",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-04-03T12:22:38.474196",
+  "updated_at": "2026-04-03T12:22:38.474210"
+}

@@ -1,0 +1,34 @@
+{
+  "tc_id": "1be718ea-a5d1-43ac-81d6-30cbfda81b57",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify models configuration with auto model selection",
+  "description": "Test that the models configuration with auto model is parsed correctly",
+  "preconditions": [
+    "Config file exists with models configuration"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Verify config contains: \"models\": { \"auto\": { \"name\": \"Auto\" } }",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Execute: opencode with config",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify auto model selection works",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Auto model configuration is recognized and functions correctly",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-03-11T15:25:37.065877",
+  "updated_at": "2026-03-11T15:25:37.065879"
+}

@@ -1,0 +1,52 @@
+{
+  "tc_id": "35c434f5-e06a-47a7-b2f6-39598d28a9c0",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify engagement content section shows correct content based on user history",
+  "description": "Tests the logic of the 'Engagement' section in the Trial Corner, ensuring it shows resume-watching content or recommendations as specified.",
+  "preconditions": [
+    "Two users (C and D) have active trials and are in the Trial Corner cohort."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. For User C, start watching a movie ('Action Movie A') and stop at 50% completion.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. For User D, fully watch a comedy show ('Comedy Show B').",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Have User C navigate to the Trial Corner.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Verify the 'Engagement' section prompts User C to resume watching 'Action Movie A'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Have User D navigate to the Trial Corner.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 6,
+      "description": "6. Verify the 'Engagement' section shows a recommendation for a top content in the comedy genre.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The 'Engagement' section dynamically displays content relevant to the user's viewing history, correctly showing 'resume' for partially watched content and 'recommendations' for completed content.",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-03-30T10:18:59.234039",
+  "updated_at": "2026-03-30T10:18:59.234040"
+}

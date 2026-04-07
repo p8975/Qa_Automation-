@@ -1,0 +1,100 @@
+{
+  "tc_id": "a97a1ad9-0466-4c6b-b5cb-92310c1dd10b",
+  "prd_hash": "e0b156f3081e99b42f5dd2726924214c",
+  "title": "Login Screen - Verify all UI elements are present and correctly displayed",
+  "description": "Checks for the presence, text, and default state of all UI components on the Login screen.",
+  "preconditions": [
+    "App is launched for the first time or user is logged out."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Launch the STAGE application.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Observe the Login screen.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify the STAGE App Logo is displayed at the top center.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Verify the welcome message '\u0930\u093e\u092e \u0930\u093e\u092e \u091c\u0940' is displayed.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Verify a hero image is present.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 6,
+      "description": "6. Verify the title '\u0905\u092a\u0928\u093e \u092b\u093c\u094b\u0928 \u0928\u0902\u092c\u0930 \u0921\u093e\u0932\u0947\u0902' is displayed.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 7,
+      "description": "7. Verify the subtitle '\u0907\u0938 \u0928\u0902\u092c\u0930 \u092a\u0930 4 \u0905\u0902\u0915\u094b\u0902 \u0915\u093e STAGE \u0915\u094b\u0921 \u092d\u0947\u091c\u093e \u091c\u093e\u090f\u0917\u093e\u0964' is displayed.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 8,
+      "description": "8. Verify the Country Code Selector is present and defaults to '+91'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 9,
+      "description": "9. Verify the Phone Number Input Field has the placeholder '\u092e\u094b\u092c\u093e\u0907\u0932 \u0928\u0902\u092c\u0930'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 10,
+      "description": "10. Verify the '\u0932\u0949\u0917\u093f\u0928 \u0915\u0930\u0947\u0902' button is visible and green.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 11,
+      "description": "11. Verify the divider '\u092f\u093e \u0915\u0928\u0947\u0915\u094d\u091f \u0915\u0930\u0947\u0902' is present.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 12,
+      "description": "12. Verify the Google Sign-In button with the Google icon is present.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 13,
+      "description": "13. Verify the 'Add Custom URL' button is present.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 14,
+      "description": "14. Verify links for 'Terms & Conditions', 'Privacy Policy', and 'Refund Policy' are present.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "All specified UI elements are displayed correctly on the Login screen as per the PRD.",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-04-06T16:49:40.077248",
+  "updated_at": "2026-04-06T16:49:40.077255"
+}

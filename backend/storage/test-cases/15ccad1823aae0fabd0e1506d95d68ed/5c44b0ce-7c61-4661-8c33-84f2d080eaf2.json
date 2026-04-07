@@ -1,0 +1,47 @@
+{
+  "tc_id": "5c44b0ce-7c61-4661-8c33-84f2d080eaf2",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Full Cancellation Flow with Incentive Conversion",
+  "description": "Tests the entire cancellation funnel where the user rejects the reminder, proceeds to cancel, and accepts the discount offer.",
+  "preconditions": [
+    "User has an active trial with more than 24 hours remaining.",
+    "The 'First Month Discount' offer is enabled in the backend."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to the 'Trial Corner' Hub.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click the 'Cancel Trial' button.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. In the 'Loss Aversion' pop-up, click the secondary action 'Cancel Anyway & Lose Access'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Observe the 'First Month Discount' offer pop-up.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Click the primary action to accept the offer (e.g., 'Grab Offer').",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "User is taken to a payment page to secure the discount. The user's trial remains active, and their first month mandate is updated to the discounted price. The 'cancel-clicked' event is fired from the discount pop-up.",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-30T16:01:09.531978",
+  "updated_at": "2026-03-30T16:01:09.531982"
+}

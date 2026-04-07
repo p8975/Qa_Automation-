@@ -1,0 +1,35 @@
+{
+  "tc_id": "86779ccc-6aa9-4cc3-a9fb-baa4f146c2e3",
+  "prd_hash": "517489e3d6a53e3e156cf7a9104b649e",
+  "title": "Verify error message for non-existent email",
+  "description": "Test that an error is shown when an unregistered email is used",
+  "preconditions": [
+    "Email is not registered in the system",
+    "User is on the login screen"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Enter an unregistered email address",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enter any 8-character password",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Click the \"Login\" button",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "System displays \"Invalid credentials\" error message",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-04-07T17:15:57.653176",
+  "updated_at": "2026-04-07T17:15:57.653176"
+}

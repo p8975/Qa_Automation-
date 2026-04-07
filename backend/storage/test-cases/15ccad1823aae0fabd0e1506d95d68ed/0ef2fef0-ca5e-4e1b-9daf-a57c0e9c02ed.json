@@ -1,0 +1,35 @@
+{
+  "tc_id": "0ef2fef0-ca5e-4e1b-9daf-a57c0e9c02ed",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Cancel Trial with Loss Aversion Exit Gate",
+  "description": "Test that clicking Cancel triggers the Loss Aversion Exit Gate with warning about losing remaining days",
+  "preconditions": [
+    "User has active trial with 6 days remaining",
+    "User is in Trial Corner Manage section"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to Trial Corner > Manage Trial",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click 'Cancel Trial' button",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Observe Loss Aversion Exit Gate popup",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Popup displays headline 'Wait! Don't lose your free days', body states 'If you cancel now, you lose access to all premium content immediately. You still have 6 days left', primary action shows 'Keep Trial & Set Reminder', secondary action shows 'Cancel Anyway & Lose Access', cancel-clicked event fires",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-10T19:16:40.859141",
+  "updated_at": "2026-03-10T19:16:40.859141"
+}

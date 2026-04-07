@@ -1,0 +1,41 @@
+{
+  "tc_id": "40553b7a-16ec-453e-b732-efa96d01c1ef",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Trial Corner is not shown to users who start consumption within 5 minutes",
+  "description": "Test that Trial Corner feature is mutually exclusive to early consumption users",
+  "preconditions": [
+    "User activates trial",
+    "User starts content consumption within 5 minutes"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Activate trial",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Start watching content within 5 minutes",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Navigate to homepage",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Check if Trial Corner widget appears",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Trial Corner widget does not appear for users who consume content within 5 minutes",
+  "priority": "High",
+  "category": "Edge Case",
+  "created_at": "2026-03-11T17:29:07.550577",
+  "updated_at": "2026-03-11T17:29:07.550579"
+}

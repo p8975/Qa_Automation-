@@ -1,0 +1,35 @@
+{
+  "tc_id": "75c0e59b-c4bc-42b8-9a14-decf5bbb836c",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Negative Test - Attempt to pause trial with no network connection",
+  "description": "Test the app's behavior when a user tries to pause their trial without an internet connection.",
+  "preconditions": [
+    "User has an active trial",
+    "Device is offline"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to the Trial Corner hub.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click the 'Pause Trial' button.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. On the pop-up, click 'Pause Anyway & Lose Access'.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "An appropriate error message is displayed (e.g., 'No internet connection'). The trial status remains 'Active'.",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-04-07T18:16:59.957275",
+  "updated_at": "2026-04-07T18:16:59.957276"
+}

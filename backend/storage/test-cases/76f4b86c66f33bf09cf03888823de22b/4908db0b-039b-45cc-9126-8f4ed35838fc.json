@@ -1,0 +1,34 @@
+{
+  "tc_id": "4908db0b-039b-45cc-9126-8f4ed35838fc",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify error handling during network failure during installation",
+  "description": "Test graceful handling when network is unavailable during curl installation",
+  "preconditions": [
+    "No internet connectivity or firewall blocking"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Disable network or use firewall",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Execute: curl -fsSL https://opencode.ai/install | bash",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Observe error handling",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "User receives clear network-related error message",
+  "priority": "Medium",
+  "category": "Error Handling",
+  "created_at": "2026-03-11T15:57:33.279701",
+  "updated_at": "2026-03-11T15:57:33.279702"
+}

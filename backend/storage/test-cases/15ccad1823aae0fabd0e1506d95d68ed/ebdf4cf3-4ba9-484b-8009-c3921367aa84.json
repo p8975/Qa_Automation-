@@ -1,0 +1,40 @@
+{
+  "tc_id": "ebdf4cf3-4ba9-484b-8009-c3921367aa84",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify targeting logic for the Trial Corner cohort",
+  "description": "Tests that the Trial Corner feature is only assigned to users who do NOT start content consumption within the first 5 minutes of activating their trial.",
+  "preconditions": [
+    "Two test users (User A, User B) have just activated a trial."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. With User A, start playing any content within 2 minutes of trial activation.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. With User B, do not play any content for at least 6 minutes after trial activation.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. For both users, navigate to the homepage and check for the 'Trial Mode' widget.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. For both users, navigate to the 'Manage Trial' section in their profile.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "User A (consumed content early) should NOT see the 'Trial Mode' widget or the new Trial Corner flow. User B (did not consume content) SHOULD see the 'Trial Mode' widget and be directed to the Trial Corner.",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-30T13:58:41.022720",
+  "updated_at": "2026-03-30T13:58:41.022724"
+}

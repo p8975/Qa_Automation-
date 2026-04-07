@@ -1,0 +1,46 @@
+{
+  "tc_id": "db585397-f856-40fd-be1e-d4f66d7dd871",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify logout from all devices invalidates all sessions",
+  "description": "Test that user can terminate all active sessions across devices",
+  "preconditions": [
+    "User has multiple active sessions"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Login from one device",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Navigate to session management",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Select 'Logout from all devices'",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Confirm action",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Attempt to use token from other device",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "All sessions terminated, all tokens invalidated",
+  "priority": "Medium",
+  "category": "Security",
+  "created_at": "2026-03-11T14:15:28.267590",
+  "updated_at": "2026-03-11T14:15:28.267590"
+}

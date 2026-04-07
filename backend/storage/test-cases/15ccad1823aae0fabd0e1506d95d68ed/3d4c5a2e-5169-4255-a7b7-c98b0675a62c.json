@@ -1,0 +1,42 @@
+{
+  "tc_id": "3d4c5a2e-5169-4255-a7b7-c98b0675a62c",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify discount offer appears after user persists with cancellation",
+  "description": "Test that users who continue to cancel after Loss Aversion warning receive a discount offer popup",
+  "preconditions": [
+    "User has active trial",
+    "User is on Trial Corner Hub",
+    "Discount offer is activated in backend"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to Trial Corner Hub",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click 'Cancel Trial'",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. On Loss Aversion popup, click 'Cancel Anyway'",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Observe discount offer popup",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Discount offer popup appears with offer title and discounted price from backend, showing 'Lock in 50% off your first month' or similar with trust clause about payment starting after trial ends",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T10:02:10.486772",
+  "updated_at": "2026-03-11T10:02:10.486772"
+}

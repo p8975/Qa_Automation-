@@ -1,0 +1,28 @@
+{
+  "tc_id": "8724bb07-c59e-4fe1-8511-f0c272cb7c37",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify UI update after pausing a trial - Homepage",
+  "description": "Test that the homepage widget updates to reflect the 'Paused' trial status.",
+  "preconditions": [
+    "User has just paused their trial"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Complete the flow to pause the trial.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Navigate back to the homepage.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The homepage widget now displays a 'Paused' design and corresponding copy.",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-04-07T18:16:59.947701",
+  "updated_at": "2026-04-07T18:16:59.947702"
+}

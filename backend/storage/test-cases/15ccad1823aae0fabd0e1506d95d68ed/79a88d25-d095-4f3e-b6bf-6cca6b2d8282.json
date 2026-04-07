@@ -1,0 +1,47 @@
+{
+  "tc_id": "79a88d25-d095-4f3e-b6bf-6cca6b2d8282",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify event 'remind-me-clicked' tracks page source correctly",
+  "description": "Test that analytics event captures correct source page when user sets reminder",
+  "preconditions": [
+    "User has active trial",
+    "Analytics is integrated"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to Trial Corner Hub",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enable Remind Me toggle",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Check event payload",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Go to cancel popup and enable reminder there",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Check event payload",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Event 'remind-me-clicked' includes correct page source attribute (trial corner, pause pop-up, or cancel pop-up)",
+  "priority": "Low",
+  "category": "Integration",
+  "created_at": "2026-03-11T10:00:04.287817",
+  "updated_at": "2026-03-11T10:00:04.287817"
+}

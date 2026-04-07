@@ -1,0 +1,35 @@
+{
+  "tc_id": "cbd73bc5-6652-41c4-976b-1a1c4d0c95cf",
+  "prd_hash": "517489e3d6a53e3e156cf7a9104b649e",
+  "title": "Verify login fails with valid email and incorrect password",
+  "description": "Test that the user cannot log in when providing a correct email but an incorrect password.",
+  "preconditions": [
+    "User account exists with email 'test@example.com'",
+    "User is on the login page"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Enter 'test@example.com' into the email field",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enter 'incorrectPassword' into the password field",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Click the 'Login' button",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "An error message 'Invalid credentials' is displayed. User remains on the login page.",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-04-07T17:40:52.835466",
+  "updated_at": "2026-04-07T17:40:52.835467"
+}

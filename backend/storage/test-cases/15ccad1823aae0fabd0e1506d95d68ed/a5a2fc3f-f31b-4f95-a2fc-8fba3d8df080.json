@@ -1,0 +1,23 @@
+{
+  "tc_id": "a5a2fc3f-f31b-4f95-a2fc-8fba3d8df080",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify event: trial-corner-widget-viewed",
+  "description": "Test that the 'trial-corner-widget-viewed' event is triggered when the homepage widget or pill is visible to the user.",
+  "preconditions": [
+    "User is eligible for Trial Corner",
+    "User is on the homepage"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Load the homepage",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The 'trial-corner-widget-viewed' event is fired with the correct 'which varient' attribute (e.g., 'home-trial-active', 'pill').",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-04-07T22:34:46.311475",
+  "updated_at": "2026-04-07T22:34:46.311477"
+}

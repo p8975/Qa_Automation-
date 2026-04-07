@@ -1,0 +1,35 @@
+{
+  "tc_id": "bc5878c4-b85e-41ea-b37b-5dc9594d9c66",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify trial corner widget displays on homepage for Day 0-1 trial users",
+  "description": "Test that the persistent trial corner widget with shield/clock icon appears on homepage for users with active trial on Day 0 and Day 1",
+  "preconditions": [
+    "User has activated a trial within last 24 hours",
+    "User is on Day 0 or Day 1 of trial"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Login as a user with active trial on Day 0 or Day 1",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Navigate to homepage",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Observe the trial corner widget in the header area",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Trial corner widget is visible with shield/clock icon and displays 'Trial Mode: X Days Remaining' with link to Manage Control Center",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T09:56:39.861889",
+  "updated_at": "2026-03-11T09:56:39.861895"
+}

@@ -1,0 +1,41 @@
+{
+  "tc_id": "75c34ca7-6cca-439d-921a-4e11e18cfd32",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Experiment Targeting and Mutual Exclusivity",
+  "description": "Test the cohort logic to ensure only eligible users see the Trial Corner, and that it doesn't conflict with other experiments.",
+  "preconditions": [
+    "Two test users have just activated their \u20b91 trial.",
+    "Another onboarding experiment is active."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. With User A, do not play any content within the first 5 minutes.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. With User B, start playing content within the first 5 minutes.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Observe the homepage for both users.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Ensure User A is not shown any other onboarding experiments.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "User A sees the 'Trial Mode' widget and can access the Trial Corner. User B does not see the widget. User A is correctly excluded from other conflicting experiments.",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-30T16:16:22.750447",
+  "updated_at": "2026-03-30T16:16:22.750449"
+}

@@ -1,0 +1,47 @@
+{
+  "tc_id": "55b40eee-c200-4e50-b18c-1da45721e77a",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify user can successfully register with valid email and password",
+  "description": "Test that a new user can create an account with valid email and a password meeting all security criteria",
+  "preconditions": [
+    "User is on registration page",
+    "No account with the test email exists"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to registration page",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enter valid email address (e.g., user@example.com)",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Enter password meeting all criteria: Minimum 8 characters, uppercase, lowercase, number, special char",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Enter same password in confirm password field",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Click 'Register' button",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Registration successful, verification email sent, user_id returned in response",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T15:38:47.291080",
+  "updated_at": "2026-03-11T15:38:47.291089"
+}

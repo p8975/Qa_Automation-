@@ -1,0 +1,41 @@
+{
+  "tc_id": "5d4eea5f-8b5a-47aa-b64d-070120b60ee4",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify login rate limiting after multiple failed attempts",
+  "description": "Test that a user's account is temporarily locked out after 5 consecutive failed login attempts.",
+  "preconditions": [
+    "A valid user account exists (e.g., 'user@example.com')",
+    "User is on the login page"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Enter the valid email 'user@example.com'",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enter an incorrect password and click 'Login'",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Repeat step 2 four more times for a total of 5 failed attempts",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. On the 6th attempt, enter the correct credentials and click 'Login'",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "After the 5th failed attempt, an error message indicating a lockout is displayed. The 6th attempt, even with correct credentials, should fail and show a 'RATE_LIMIT_EXCEEDED' error. The user should be able to log in successfully after the 15-minute lockout period expires.",
+  "priority": "High",
+  "category": "Security",
+  "created_at": "2026-03-27T15:38:37.608890",
+  "updated_at": "2026-03-27T15:38:37.608891"
+}

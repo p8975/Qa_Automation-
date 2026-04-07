@@ -1,0 +1,41 @@
+{
+  "tc_id": "13b6ef44-c165-4b14-8367-9a76e76dd8d4",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify discount offer appears when user persists with cancellation",
+  "description": "Test that continuing to cancel after Loss Aversion prompt shows the incentive offer with first month discount",
+  "preconditions": [
+    "User has active trial",
+    "User has clicked Cancel Trial and seen Loss Aversion warning"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to Trial Corner Hub",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click Cancel Trial",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. On Loss Aversion popup, click 'Cancel Anyway'",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Observe the discount offer popup",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Discount offer popup appears with backend-controlled offer title and discounted price, with option to 'Grab Offer' or cancel anyway",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T10:00:04.285931",
+  "updated_at": "2026-03-11T10:00:04.285932"
+}

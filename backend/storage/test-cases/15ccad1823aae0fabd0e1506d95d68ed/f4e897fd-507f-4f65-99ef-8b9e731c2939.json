@@ -1,0 +1,22 @@
+{
+  "tc_id": "f4e897fd-507f-4f65-99ef-8b9e731c2939",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify 'remind-me-clicked' event from Pause pop-up",
+  "description": "Test that the reminder event is fired when selected from the pause confirmation pop-up.",
+  "preconditions": [
+    "User is on the Pause confirmation pop-up"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Click 'Keep Trial & Set Reminder'.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The 'remind-me-clicked' event is fired with 'page source' as 'pause pop-up'.",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-04-07T18:16:59.956220",
+  "updated_at": "2026-04-07T18:16:59.956221"
+}

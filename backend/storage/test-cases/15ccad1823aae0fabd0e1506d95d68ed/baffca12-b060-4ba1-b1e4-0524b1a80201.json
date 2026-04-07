@@ -1,0 +1,48 @@
+{
+  "tc_id": "baffca12-b060-4ba1-b1e4-0524b1a80201",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify user can successfully set a reminder from the Trial Corner to avoid cancellation",
+  "description": "Tests the primary happy path where a user in the target cohort navigates to the Trial Corner and opts to set a reminder instead of canceling their trial.",
+  "preconditions": [
+    "User is in an active trial.",
+    "User belongs to the target cohort (no consumption in the first 5 mins).",
+    "User is on Day 0 or Day 1 of the trial."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Log in and land on the homepage.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Observe the persistent 'Trial Mode' widget.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Click the widget to navigate to the 'Trial Corner' hub.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Locate the 'Manage Trial' section.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Click the 'Remind me 24h before trial ends' toggle/button.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "A confirmation message appears, the toggle state is saved, and the 'remind-me-clicked' event is fired with 'page_source: trial_corner'. The user's trial remains active.",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-30T10:37:05.515380",
+  "updated_at": "2026-03-30T10:37:05.515410"
+}

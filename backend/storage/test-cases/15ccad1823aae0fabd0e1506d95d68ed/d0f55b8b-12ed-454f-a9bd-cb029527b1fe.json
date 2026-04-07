@@ -1,0 +1,28 @@
+{
+  "tc_id": "d0f55b8b-12ed-454f-a9bd-cb029527b1fe",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify 'trial-corner-topcontent-played' event",
+  "description": "Test that the content played event is fired from the Engagement section.",
+  "preconditions": [
+    "User is on the Trial Corner hub"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Scroll to the Engagement section.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click play on the displayed content.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The 'trial-corner-topcontent-played' event is fired with the correct 'content id' and 'play' type (self play/autoplay).",
+  "priority": "Low",
+  "category": "Functional",
+  "created_at": "2026-04-07T18:16:59.955542",
+  "updated_at": "2026-04-07T18:16:59.955543"
+}

@@ -1,0 +1,46 @@
+{
+  "tc_id": "6f0c0f7a-e5dc-4868-a115-835699ed321e",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify the 'Pause Trial' functionality and UI state change",
+  "description": "Test that a user can successfully pause their trial, and that all relevant UI components update to reflect the paused state and lock content access.",
+  "preconditions": [
+    "User has an active trial and is in the Trial Corner."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Click the 'Pause Trial' button.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. On the intervention pop-up, click the primary action to 'Pause'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Observe the Trial Corner hub.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Navigate back to the homepage and observe the widget.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Attempt to play any premium content.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The trial status is now 'Paused'. The Trial Corner and Homepage widget update to the 'paused' design. All content sections in the Trial Corner are locked, and the user is blocked from playing premium content.",
+  "priority": "Medium",
+  "category": "UI",
+  "created_at": "2026-04-03T12:22:38.476406",
+  "updated_at": "2026-04-03T12:22:38.476409"
+}

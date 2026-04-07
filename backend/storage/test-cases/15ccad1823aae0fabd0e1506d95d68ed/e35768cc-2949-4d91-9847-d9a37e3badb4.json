@@ -1,0 +1,35 @@
+{
+  "tc_id": "e35768cc-2949-4d91-9847-d9a37e3badb4",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Loss Aversion Exit Gate appears when user clicks Cancel",
+  "description": "Test that when user attempts to cancel, the Loss Aversion intervention screen appears with warning about losing remaining days",
+  "preconditions": [
+    "User has active trial with remaining days",
+    "User is on Trial Corner page"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to Trial Corner",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click on 'Cancel Trial' button",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Observe the intervention pop-up/gate",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Pop-up displays with headline 'Wait! Don't lose your free days', body warning about immediate access loss with remaining days count, 'Keep Trial & Set Reminder' as high prominence primary action, and 'Cancel Anyway & Lose Access' as low prominence secondary action",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T17:18:37.317706",
+  "updated_at": "2026-03-11T17:18:37.317708"
+}

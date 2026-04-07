@@ -1,0 +1,42 @@
+{
+  "tc_id": "acc719f1-6064-444e-b70f-4240e2f69113",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Trial Corner Content Engagement Section Logic",
+  "description": "Tests the logic of the 'Engagement' section, ensuring it shows resume-watching prompts or recommendations correctly.",
+  "preconditions": [
+    "User A has started a show but watched less than 90%.",
+    "User B has finished a show (watched > 90%).",
+    "Both users are eligible for Trial Corner."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. As User A, navigate to the Trial Corner.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Observe the 'Engagement' section.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. As User B, navigate to the Trial Corner.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Observe the 'Engagement' section.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "For User A, the 'Engagement' section shows the in-progress content with an option to 'Resume Consuming'. For User B, the section shows the top recommended content in a similar genre, and its trailer should autoplay.",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-03-30T16:01:09.536089",
+  "updated_at": "2026-03-30T16:01:09.536092"
+}

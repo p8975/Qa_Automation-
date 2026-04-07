@@ -1,0 +1,41 @@
+{
+  "tc_id": "b83fbf18-e88e-4602-ba5d-d2371989a77a",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify invalid credentials error message is user-friendly",
+  "description": "Test that failed login due to wrong password displays clear, non-revealing error message",
+  "preconditions": [
+    "User account exists",
+    "User is on login page"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to login page",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enter registered email address",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Enter incorrect password",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Click 'Login' button",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Error message displayed: INVALID_CREDENTIALS, message is human-readable without revealing if email or password is wrong",
+  "priority": "Medium",
+  "category": "Error Handling",
+  "created_at": "2026-03-11T15:38:47.296884",
+  "updated_at": "2026-03-11T15:38:47.296884"
+}

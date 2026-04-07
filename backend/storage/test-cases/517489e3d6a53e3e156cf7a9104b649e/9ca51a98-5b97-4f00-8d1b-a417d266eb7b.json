@@ -1,0 +1,34 @@
+{
+  "tc_id": "9ca51a98-5b97-4f00-8d1b-a417d266eb7b",
+  "prd_hash": "517489e3d6a53e3e156cf7a9104b649e",
+  "title": "Verify login failure with empty email field",
+  "description": "Validate that the login process cannot proceed without an email address.",
+  "preconditions": [
+    "User is on the login screen"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Leave the email field empty",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enter a valid 8-character password",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Click the \"Login\" button",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "System displays a required field error for the email input",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-04-07T17:10:13.194104",
+  "updated_at": "2026-04-07T17:10:13.194105"
+}

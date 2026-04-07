@@ -1,0 +1,41 @@
+{
+  "tc_id": "064c0a62-7c45-40ab-aeb0-f335b5436692",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify login fails with incorrect password",
+  "description": "Test that the system rejects login attempts with correct email but incorrect password",
+  "preconditions": [
+    "User account exists and is verified",
+    "User is on login page"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to login page",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enter valid email address",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Enter incorrect password",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Click 'Login' button",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Error message displayed indicating invalid credentials",
+  "priority": "High",
+  "category": "Security",
+  "created_at": "2026-03-11T15:42:39.037325",
+  "updated_at": "2026-03-11T15:42:39.037327"
+}

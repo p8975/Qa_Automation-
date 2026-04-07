@@ -1,0 +1,40 @@
+{
+  "tc_id": "4fca057b-82ca-4579-934e-e0df8926272c",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify content in 'Engagement' section updates based on consumption",
+  "description": "Tests the logic of the Engagement section, showing acquired content until 90% consumption and then switching to recommendations.",
+  "preconditions": [
+    "User is in the Trial Corner cohort and has acquired content but not watched it."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to the Trial Corner and observe the 'Engagement' section. It should show the acquired content.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Watch the acquired content to over 90% completion.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Revisit the Trial Corner page.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Observe the 'Engagement' section again.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "After watching the content past 90%, the 'Engagement' section should no longer show the acquired content but instead display the 'top 1 content in similar genre' as a recommendation.",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-03-30T13:58:41.025394",
+  "updated_at": "2026-03-30T13:58:41.025396"
+}

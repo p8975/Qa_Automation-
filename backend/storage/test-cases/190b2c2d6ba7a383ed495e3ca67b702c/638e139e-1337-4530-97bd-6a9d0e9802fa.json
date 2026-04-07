@@ -1,0 +1,47 @@
+{
+  "tc_id": "638e139e-1337-4530-97bd-6a9d0e9802fa",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify password history prevents reuse of the last 5 passwords",
+  "description": "Tests the security requirement that a user cannot reset their password to one of their last 5 previously used passwords.",
+  "preconditions": [
+    "A user account exists.",
+    "The user is able to reset their password."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Successfully reset the account password to 'NewPass1!'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Repeat the reset process four more times with 'NewPass2!', 'NewPass3!', 'NewPass4!', and 'NewPass5!'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Initiate the password reset flow again.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. On the reset page, attempt to set the new password to 'NewPass1!' (one of the last 5).",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Click 'Reset Password'.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The system rejects the password change. An error message is displayed, such as \"Password has been used recently. Please choose a new one.\"",
+  "priority": "Medium",
+  "category": "Security",
+  "created_at": "2026-03-27T15:39:44.152408",
+  "updated_at": "2026-03-27T15:39:44.152409"
+}

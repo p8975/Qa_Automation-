@@ -1,0 +1,36 @@
+{
+  "tc_id": "3b03a324-21e8-4778-a167-40a99a354d92",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify eligible user sees Trial Corner widget on Day 0/1",
+  "description": "Test that a user who has not watched content for 5 mins post-trial activation sees the persistent header widget on Day 0 and Day 1 of their trial.",
+  "preconditions": [
+    "User has an active trial for 0-1 days",
+    "User has not watched content for more than 5 minutes",
+    "User is on the homepage"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Login as the eligible user",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Navigate to the homepage",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Observe the header area of the screen",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "A high-visibility widget with a shield/clock icon and text 'Trial Mode: X Days Remaining. Manage Control Center \u2192' is displayed.",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-04-07T22:34:46.294108",
+  "updated_at": "2026-04-07T22:34:46.294136"
+}

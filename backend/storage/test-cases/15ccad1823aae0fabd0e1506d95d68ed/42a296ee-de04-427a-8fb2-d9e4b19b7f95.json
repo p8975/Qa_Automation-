@@ -1,0 +1,36 @@
+{
+  "tc_id": "42a296ee-de04-427a-8fb2-d9e4b19b7f95",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify trial widget displays on homepage for Day 0-1 users",
+  "description": "Test that the persistent high-visibility trial widget appears on the homepage for users on Day 0 or Day 1 of their trial",
+  "preconditions": [
+    "User has an active trial on Day 0 or Day 1",
+    "User is logged in",
+    "User is on homepage"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Log in with a user account that has an active trial on Day 0 or Day 1",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Navigate to the homepage",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Observe the homepage for the trial widget",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Trial widget with shield/clock icon and 'Trial Mode: X Days Remaining' text is displayed prominently",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T11:16:21.685110",
+  "updated_at": "2026-03-11T11:16:21.685132"
+}

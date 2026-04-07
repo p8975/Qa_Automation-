@@ -1,0 +1,28 @@
+{
+  "tc_id": "56d274b4-2675-48c5-ab6b-c1f474116604",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify network error during cancel trial flow",
+  "description": "Test the system's behavior when a network error occurs while attempting to cancel the trial.",
+  "preconditions": [
+    "User is on the Loss Aversion pop-up for cancelling"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Turn on airplane mode or disable network",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click the 'Cancel Anyway & Lose Access' button",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "An appropriate error message is displayed. The trial status remains active. The user can retry once the network is restored.",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-04-07T22:34:46.310992",
+  "updated_at": "2026-04-07T22:34:46.310995"
+}

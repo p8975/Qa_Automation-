@@ -1,0 +1,47 @@
+{
+  "tc_id": "4860c1bc-95e8-4639-8270-cfa2eed35271",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Remind Me toggle sends WhatsApp notification 24 hours before trial ends",
+  "description": "Test that when user enables the 'Remind me 24h before trial ends' toggle, the system registers the reminder and schedules a WhatsApp notification",
+  "preconditions": [
+    "User has active trial with remaining days",
+    "User is on Trial Corner page"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to Trial Corner via homepage widget",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Locate the 'Remind me 24h before trial ends' toggle in Manage Trial section",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Toggle the reminder option ON",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Verify the UI reflects the enabled state",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Check backend/notification system for scheduled reminder",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Toggle changes to enabled state and reminder is registered in system for 24hrs before trial end",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T17:18:37.317332",
+  "updated_at": "2026-03-11T17:18:37.317334"
+}

@@ -1,0 +1,41 @@
+{
+  "tc_id": "eb0a4e23-1000-46bc-b624-941c0c0ebc4f",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify feedback pop-up appears after trial cancellation",
+  "description": "Test that after user cancels trial and declines offer, a feedback collection pop-up appears",
+  "preconditions": [
+    "User has active trial",
+    "User has declined incentive offer"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to Trial Corner",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click Cancel Trial",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Decline offer when presented",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Observe feedback pop-up",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Feedback pop-up appears asking for cancellation reason with selectable options",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-03-11T17:18:37.322428",
+  "updated_at": "2026-03-11T17:18:37.322430"
+}

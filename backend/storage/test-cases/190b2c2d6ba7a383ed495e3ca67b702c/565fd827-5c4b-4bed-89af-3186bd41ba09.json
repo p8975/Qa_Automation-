@@ -1,0 +1,41 @@
+{
+  "tc_id": "565fd827-5c4b-4bed-89af-3186bd41ba09",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify password history prevents reuse of last 5 passwords",
+  "description": "Test that users cannot reuse any of their last 5 passwords when creating a new password",
+  "preconditions": [
+    "User has changed password multiple times",
+    "User is on password reset or change page"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to password reset page with valid link",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enter one of the previously used passwords",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Confirm new password",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Click 'Reset Password'",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Error message displayed indicating password was used previously",
+  "priority": "High",
+  "category": "Security",
+  "created_at": "2026-03-11T15:42:39.039655",
+  "updated_at": "2026-03-11T15:42:39.039656"
+}

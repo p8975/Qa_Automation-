@@ -1,0 +1,29 @@
+{
+  "tc_id": "4b636f5b-1d35-427f-9430-a9a86b1e4255",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify clicking the homepage widget/pill navigates to the Trial Corner hub",
+  "description": "Test that tapping the entry point (widget or pill) successfully redirects the user to the dedicated Trial Corner screen.",
+  "preconditions": [
+    "User is on the homepage",
+    "The Trial Corner widget or pill is visible"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Locate the 'Trial Mode' widget or floating pill",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click on the widget/pill",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The user is navigated to the 'Trial Corner' screen/dashboard.",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-04-07T22:34:46.297935",
+  "updated_at": "2026-04-07T22:34:46.297937"
+}

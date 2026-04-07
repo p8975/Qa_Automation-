@@ -1,0 +1,47 @@
+{
+  "tc_id": "c70095ab-45ba-429d-9df8-4e5d5a7479a9",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify account lockout after 5 failed login attempts",
+  "description": "Test that the system locks an account after 5 consecutive failed login attempts due to incorrect password",
+  "preconditions": [
+    "User account exists with known password",
+    "User is on login page"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to login page",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enter registered email address",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Enter incorrect password",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Click 'Login' button",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Repeat steps 2-4 four more times (total 5 attempts)",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "After 5th failed attempt, account locked for 15 minutes, error message displayed: RATE_LIMIT_EXCEEDED",
+  "priority": "High",
+  "category": "Security",
+  "created_at": "2026-03-11T15:38:47.294964",
+  "updated_at": "2026-03-11T15:38:47.294965"
+}

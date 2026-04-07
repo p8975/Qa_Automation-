@@ -1,0 +1,58 @@
+{
+  "tc_id": "295c509c-1407-478e-bb8c-fff977e05b48",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Validate UI State Changes for Pause and Cancel",
+  "description": "Tests that UI components correctly reflect the user's trial status after pausing or canceling.",
+  "preconditions": [
+    "User has an active trial."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to the 'Trial Corner' and click 'Pause Trial'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Confirm the pause action in the pop-up.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify the homepage widget updates to a 'paused' design and copy.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Verify the Trial Corner shows content sections as locked.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Follow the steps to cancel the trial.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 6,
+      "description": "6. Verify the homepage widget updates to a 'cancelled' design and copy.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 7,
+      "description": "7. Verify the Trial Corner still shows content sections as locked.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The UI on both the homepage (widget) and the Trial Corner (locked content) accurately and immediately reflects the current trial status (Paused, then Cancelled).",
+  "priority": "High",
+  "category": "UI",
+  "created_at": "2026-03-30T16:01:09.532988",
+  "updated_at": "2026-03-30T16:01:09.532991"
+}

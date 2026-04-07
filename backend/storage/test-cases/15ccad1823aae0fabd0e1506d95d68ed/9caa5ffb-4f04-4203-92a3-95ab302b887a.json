@@ -1,0 +1,35 @@
+{
+  "tc_id": "9caa5ffb-4f04-4203-92a3-95ab302b887a",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify trial widget displays correctly on homepage for active trial",
+  "description": "Test that the persistent trial widget displays accurate remaining days for users with active trial status",
+  "preconditions": [
+    "User has an active trial with 6 days remaining",
+    "User is on homepage"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. User logs in with valid credentials",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Navigate to homepage",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Observe the trial widget in the header area",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Widget displays 'Trial Mode: 6 Days Remaining' with shield/clock icon and 'Manage Control Center' link",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T16:33:03.570457",
+  "updated_at": "2026-03-11T16:33:03.570491"
+}

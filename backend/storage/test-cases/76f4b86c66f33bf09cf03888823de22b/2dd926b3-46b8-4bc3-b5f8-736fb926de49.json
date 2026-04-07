@@ -1,0 +1,35 @@
+{
+  "tc_id": "2dd926b3-46b8-4bc3-b5f8-736fb926de49",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify error handling for missing config.json file",
+  "description": "Test that opencode handles missing configuration file appropriately",
+  "preconditions": [
+    "OpenCode installed",
+    "config.json deleted or not created"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Remove or rename ~/.config/opencode/config.json",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Run: opencode",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Observe behavior",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "OpenCode creates default config or provides setup guidance",
+  "priority": "Medium",
+  "category": "Error Handling",
+  "created_at": "2026-03-11T15:23:56.749341",
+  "updated_at": "2026-03-11T15:23:56.749342"
+}

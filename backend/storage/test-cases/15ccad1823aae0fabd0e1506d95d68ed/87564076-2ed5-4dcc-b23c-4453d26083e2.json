@@ -1,0 +1,40 @@
+{
+  "tc_id": "87564076-2ed5-4dcc-b23c-4453d26083e2",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify no accidental charges occur with Reminder toggle active",
+  "description": "Security test ensuring the reminder feature does not auto-charge user",
+  "preconditions": [
+    "User has active trial with Remind Me enabled"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Enable Remind Me toggle",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Wait for notification trigger (or simulate 24h before trial end)",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify no payment is processed",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Verify user can still cancel after notification",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "No charges are processed; notification simply reminds user to decide, user retains full cancellation ability",
+  "priority": "High",
+  "category": "Security",
+  "created_at": "2026-03-11T10:00:04.288133",
+  "updated_at": "2026-03-11T10:00:04.288134"
+}

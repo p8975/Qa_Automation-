@@ -1,0 +1,46 @@
+{
+  "tc_id": "477daaaf-9c1b-492b-863f-704bb86eb091",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Content Locking for Paused/Cancelled Users",
+  "description": "Tests that a user who has paused or cancelled their trial cannot access any premium content.",
+  "preconditions": [
+    "User has an active trial."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Note a specific premium movie/show URL.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Navigate to the Trial Corner and cancel the trial.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify content sections in the Trial Corner appear locked.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Attempt to navigate directly to the premium content URL from step 1.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Attempt to play any content from the main app.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The user should be blocked from playing any premium content. Navigating directly to a content URL should either redirect them or show a paywall/error message indicating they do not have access.",
+  "priority": "Medium",
+  "category": "Security",
+  "created_at": "2026-03-30T16:01:09.535148",
+  "updated_at": "2026-03-30T16:01:09.535149"
+}

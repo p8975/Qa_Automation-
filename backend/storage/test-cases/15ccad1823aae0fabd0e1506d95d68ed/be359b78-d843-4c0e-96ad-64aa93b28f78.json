@@ -1,0 +1,47 @@
+{
+  "tc_id": "be359b78-d843-4c0e-96ad-64aa93b28f78",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify feedback popup appears after trial cancellation",
+  "description": "Test that feedback collection popup appears after user cancels trial and rejects discount offer",
+  "preconditions": [
+    "User has active trial",
+    "User is completing cancellation flow"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to Trial Corner Hub",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click Cancel Trial",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Click Cancel Anyway on Loss Aversion popup",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Click 'No thanks' or reject discount offer",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Observe next popup",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Feedback popup appears asking for cancellation reason with multiple option choices",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-03-11T10:02:10.487503",
+  "updated_at": "2026-03-11T10:02:10.487503"
+}

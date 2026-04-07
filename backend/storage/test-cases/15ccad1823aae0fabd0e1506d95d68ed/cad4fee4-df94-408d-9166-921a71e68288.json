@@ -1,0 +1,22 @@
+{
+  "tc_id": "cad4fee4-df94-408d-9166-921a71e68288",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify 'Pause Anyway & Lose Access' on Pause pop-up",
+  "description": "Test that clicking the secondary action on the Pause pop-up successfully pauses the user's trial.",
+  "preconditions": [
+    "The 'Loss Aversion' pop-up for pausing is displayed"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. In the pop-up, click the 'Pause Anyway & Lose Access' button",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The user's trial is paused. The user is returned to the Trial Corner, which now shows a 'Paused' state with locked content sections.",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-04-07T22:34:46.305647",
+  "updated_at": "2026-04-07T22:34:46.305649"
+}

@@ -1,0 +1,37 @@
+{
+  "tc_id": "4f1b7967-f18c-4684-8086-c5b45bd6e9fc",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify user can pause trial from intervention modal",
+  "description": "Test that user can proceed with pausing trial from the loss aversion modal",
+  "preconditions": [
+    "User has active trial",
+    "User is logged in",
+    "User is on Trial Corner hub",
+    "Pause button clicked"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to Trial Corner hub",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click Pause Trial button",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Click 'Pause Anyway' in the modal",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Trial pauses, pause-clicked event fired, homepage widget and Trial Corner update to paused design, all content sections become locked",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T09:59:31.933982",
+  "updated_at": "2026-03-11T09:59:31.933983"
+}

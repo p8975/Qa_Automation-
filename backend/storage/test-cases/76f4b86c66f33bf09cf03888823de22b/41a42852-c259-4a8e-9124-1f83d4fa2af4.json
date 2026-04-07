@@ -1,0 +1,41 @@
+{
+  "tc_id": "41a42852-c259-4a8e-9124-1f83d4fa2af4",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify error handling when OPENCODE_KEY is not set",
+  "description": "Test that opencode provides clear error when API key environment variable is missing",
+  "preconditions": [
+    "OpenCode installed and configured",
+    "OPENCODE_KEY not set or empty"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Unset OPENCODE_KEY: unset OPENCODE_KEY",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Run: opencode",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Observe error message",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Verify error clearly indicates missing API key",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "User-friendly error message indicating missing API key",
+  "priority": "High",
+  "category": "Error Handling",
+  "created_at": "2026-03-11T15:23:56.748764",
+  "updated_at": "2026-03-11T15:23:56.748769"
+}

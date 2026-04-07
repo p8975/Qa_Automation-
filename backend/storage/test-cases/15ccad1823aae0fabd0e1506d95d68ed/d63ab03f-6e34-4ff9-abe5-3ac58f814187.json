@@ -1,0 +1,42 @@
+{
+  "tc_id": "d63ab03f-6e34-4ff9-abe5-3ac58f814187",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Happy Path: User sets a reminder instead of canceling",
+  "description": "Tests the primary success flow where a user, intending to cancel, is successfully nudged to set a reminder and continue their trial.",
+  "preconditions": [
+    "User has an active \u20b91 trial for less than 24 hours.",
+    "User is part of the 'Trial Corner' experiment cohort (no content watched in first 5 mins).",
+    "User is on the 'Trial Corner' hub page."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Click the 'Cancel Trial' button in the 'Manage Trial' section.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Observe the 'Loss Aversion' pop-up with the headline 'Wait! Don't lose your free days.'",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Click the primary action button: 'Keep Trial & Set Reminder'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Verify the pop-up closes and the 'Remind me 24h before trial ends' toggle is now enabled on the Trial Corner hub.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The user successfully sets a reminder, the trial remains active, and the 'remind-me-clicked' event is triggered with 'cancel pop-up' as the page source.",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-31T10:52:09.846341",
+  "updated_at": "2026-03-31T10:52:09.846397"
+}

@@ -1,0 +1,41 @@
+{
+  "tc_id": "ba208ba2-ced3-451e-bdae-cbfc2b0505bc",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify engagement content section logic",
+  "description": "Test that the engagement section correctly shows acquired content if consumption is below 90% and switches to recommendations post-consumption.",
+  "preconditions": [
+    "User has an active trial and is in the Trial Corner.",
+    "User has acquired content (e.g., added to watchlist)."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Ensure consumption of acquired content is at 50%. Navigate to Trial Corner.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Observe the 'Engagement' section shows the partially watched content with a 'Resume' option.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Watch the content to 95% completion.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Return to the Trial Corner.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Initially, the section shows the acquired content. After consumption exceeds 90%, the section updates to show the top 1 recommended content in a similar genre.",
+  "priority": "Low",
+  "category": "Functional",
+  "created_at": "2026-03-30T13:51:34.956550",
+  "updated_at": "2026-03-30T13:51:34.956551"
+}

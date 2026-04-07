@@ -1,0 +1,40 @@
+{
+  "tc_id": "afa14975-c196-443e-ae90-0ab772447db0",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify locked content state for cancelled/paused users",
+  "description": "Test that a user who has cancelled or paused their trial cannot access any premium content from the Trial Corner or other parts of the app.",
+  "preconditions": [
+    "User has cancelled or paused their trial."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to the Trial Corner.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Verify the 'Engagement' and 'Trending' content sections are visually locked.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Click on a locked content item.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Navigate to the homepage or a show page directly and attempt to play content.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "User is blocked from playing content. Clicking locked items in the Trial Corner should do nothing or show a message to reactivate. The `trial-corner-trending-clicked` event should not fire.",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-04-03T12:22:38.480187",
+  "updated_at": "2026-04-03T12:22:38.480188"
+}

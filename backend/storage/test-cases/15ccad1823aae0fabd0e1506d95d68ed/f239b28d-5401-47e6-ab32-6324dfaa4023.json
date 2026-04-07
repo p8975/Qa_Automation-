@@ -1,0 +1,46 @@
+{
+  "tc_id": "f239b28d-5401-47e6-ab32-6324dfaa4023",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Loss Aversion Nudge: User accepts reminder instead of canceling",
+  "description": "Tests the primary action on the 'Loss Aversion' pop-up, ensuring it keeps the trial active and sets a reminder.",
+  "preconditions": [
+    "User has an active trial and is in the target cohort."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to the 'Trial Corner' hub.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click the 'Cancel Trial' button.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. On the 'Loss Aversion' pop-up ('Wait! Don't lose your free days.'), click the primary action 'Keep Trial & Set Reminder'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Verify the pop-up closes and the user is returned to the Trial Corner.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Check the 'Remind me' toggle in the 'Manage Trial' section.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The user's trial remains active. The 'Remind me' toggle is now enabled. The 'remind-me-clicked' event is triggered with 'cancel pop-up' as the page source.",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-31T12:24:36.078610",
+  "updated_at": "2026-03-31T12:24:36.078613"
+}

@@ -1,0 +1,35 @@
+{
+  "tc_id": "1f90a1ed-fb0b-4df5-ba02-733ba07ea919",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify loss aversion warning displays when cancelling trial",
+  "description": "Test that clicking cancel triggers the Loss Aversion Exit Gate with warning about losing remaining free days",
+  "preconditions": [
+    "User has active trial",
+    "User is on Trial Corner Manage Trial section"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Log in with trial user account",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Navigate to Trial Corner",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Click 'Cancel Trial' in Manage Trial section",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Loss Aversion Exit Gate appears with headline 'Wait! Don't lose your free days', body stating user will lose remaining days, with 'Keep Trial & Set Reminder' as primary action and 'Cancel Anyway' as secondary action",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T11:16:21.688096",
+  "updated_at": "2026-03-11T11:16:21.688096"
+}

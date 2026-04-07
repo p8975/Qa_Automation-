@@ -1,0 +1,36 @@
+{
+  "tc_id": "7eeccf3c-5f16-4278-90f8-9160379f74de",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify error handling when config file is in wrong location",
+  "description": "Test that OpenCode handles missing config file gracefully",
+  "preconditions": [
+    "OpenCode installed",
+    "OPENCODE_KEY set",
+    "No config.json in ~/.config/opencode/"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Remove or rename ~/.config/opencode/config.json",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Execute: opencode",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Observe fallback behavior or error",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "OpenCode either uses defaults or shows appropriate error about missing config",
+  "priority": "Medium",
+  "category": "Error Handling",
+  "created_at": "2026-03-11T13:51:23.504044",
+  "updated_at": "2026-03-11T13:51:23.504046"
+}

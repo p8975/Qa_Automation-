@@ -1,0 +1,35 @@
+{
+  "tc_id": "8ac8b04c-8601-49d1-a37a-0f10ac9e6c7b",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify trial widget updates to cancelled design after cancellation",
+  "description": "Test that homepage widget reflects cancelled trial state visually",
+  "preconditions": [
+    "User has cancelled trial",
+    "User is on homepage"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Cancel the trial completely",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Navigate to homepage",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Observe trial widget appearance",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Widget displays cancelled design with appropriate messaging",
+  "priority": "Medium",
+  "category": "UI",
+  "created_at": "2026-03-11T10:04:15.370403",
+  "updated_at": "2026-03-11T10:04:15.370403"
+}

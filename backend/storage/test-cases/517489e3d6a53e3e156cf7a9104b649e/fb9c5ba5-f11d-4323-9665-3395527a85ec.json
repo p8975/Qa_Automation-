@@ -1,0 +1,22 @@
+{
+  "tc_id": "fb9c5ba5-f11d-4323-9665-3395527a85ec",
+  "prd_hash": "517489e3d6a53e3e156cf7a9104b649e",
+  "title": "Verify password visibility is masked by default",
+  "description": "Validate that the password characters are not visible as plain text during entry.",
+  "preconditions": [
+    "User is on the login screen"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Enter characters into the password field",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Characters are displayed as dots or asterisks",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-04-07T17:10:13.195527",
+  "updated_at": "2026-04-07T17:10:13.195528"
+}

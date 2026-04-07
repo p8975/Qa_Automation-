@@ -1,0 +1,35 @@
+{
+  "tc_id": "0c7487b0-3cf0-44ae-b2ae-62f4fd4da58d",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Trial Corner displays accurate remaining trial days",
+  "description": "Test that the Trial Corner hero section shows correct number of remaining trial days based on activation time",
+  "preconditions": [
+    "User has active trial with known activation time",
+    "User is on Trial Corner page"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Login as user with active trial",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Navigate to Trial Corner",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Observe the Hero section showing remaining days",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Hero section displays accurate 'X Days Remaining' based on trial start date and current time",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T18:39:28.000504",
+  "updated_at": "2026-03-11T18:39:28.000505"
+}

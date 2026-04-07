@@ -1,0 +1,35 @@
+{
+  "tc_id": "3182c44c-09a1-4780-99da-ecf02913ba53",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify logout from all devices terminates all sessions",
+  "description": "Test that user can logout from all devices and all sessions are invalidated",
+  "preconditions": [
+    "User is logged in on one device",
+    "User has active sessions"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to session management or account settings",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click 'Logout from All Devices' option",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Confirm logout action",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "All user sessions terminated, user redirected to login page",
+  "priority": "Medium",
+  "category": "Security",
+  "created_at": "2026-03-11T15:38:47.296431",
+  "updated_at": "2026-03-11T15:38:47.296432"
+}

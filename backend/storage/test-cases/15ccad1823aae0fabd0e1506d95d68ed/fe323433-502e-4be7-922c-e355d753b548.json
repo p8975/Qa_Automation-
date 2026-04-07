@@ -1,0 +1,53 @@
+{
+  "tc_id": "fe323433-502e-4be7-922c-e355d753b548",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Validate UI and copy of the 'Loss Aversion' and 'Trial Corner' Hub",
+  "description": "Ensures all UI components, messaging, and copy on the Trial Corner hub and its pop-ups match the PRD specifications.",
+  "preconditions": [
+    "User has an active trial with 6 days remaining.",
+    "User is on the Trial Corner hub page."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. On the hub, verify the status text 'Your \u20b91 trial is active.' is present.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Verify the promise text 'Easy cancellation anytime. No hidden loops.' is present.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify the 'Remind me' toggle has the correct label and micro-copy.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Click 'Cancel'. On the pop-up, verify the headline is 'Wait! Don't lose your free days.'",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Verify the body text explicitly mentions losing '6 days' of access.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 6,
+      "description": "6. Verify the primary button is 'Keep Trial & Set Reminder' and the secondary button is 'Cancel/Pause Anyway & Lose Access' with lower visual prominence.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "All text, copy, and UI elements on the specified screens match the design direction and messaging strategy outlined in the PRD.",
+  "priority": "Low",
+  "category": "UI",
+  "created_at": "2026-03-30T10:18:59.233629",
+  "updated_at": "2026-03-30T10:18:59.233630"
+}

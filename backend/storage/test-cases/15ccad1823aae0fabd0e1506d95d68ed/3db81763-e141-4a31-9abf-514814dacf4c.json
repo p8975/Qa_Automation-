@@ -1,0 +1,41 @@
+{
+  "tc_id": "3db81763-e141-4a31-9abf-514814dacf4c",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Test the Trial Corner behavior on the last day of the trial",
+  "description": "Tests the copy and functionality when the trial has less than 24 hours remaining.",
+  "preconditions": [
+    "User has an active trial with < 24 hours remaining.",
+    "User is in the Trial Corner cohort."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Log in and view the homepage widget.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Navigate to the 'Trial Corner' Hub.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Observe the 'Remaining Days' display.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Observe the 'Remind me 24h before trial ends' toggle.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The copy should reflect the urgency, possibly showing 'Trial ends today' or hours/minutes remaining. The 'Remind me 24h before trial ends' toggle should be disabled or hidden, as the 24-hour window has passed.",
+  "priority": "Medium",
+  "category": "Edge Case",
+  "created_at": "2026-03-30T13:58:41.023446",
+  "updated_at": "2026-03-30T13:58:41.023449"
+}

@@ -1,0 +1,52 @@
+{
+  "tc_id": "485f9f08-6f6b-4ced-9d25-df4570e7de20",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Backend Control of Incentive Offer",
+  "description": "Tests that the 'First Month Discount' offer is correctly gated by a backend configuration.",
+  "preconditions": [
+    "User has an active \u20b91 trial and is in the 'Trial Corner' cohort."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Ensure the incentive offer is DISABLED in the backend.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Follow the cancellation flow: Click 'Cancel Trial', then 'Cancel Anyway & Lose Access'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify the 'Incentive' offer pop-up does NOT appear and the user is taken directly to the feedback pop-up.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Enable the incentive offer in the backend.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. With a different user, repeat step 2.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 6,
+      "description": "6. Verify the 'Incentive' offer pop-up with a backend-driven title and price DOES appear.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The display of the incentive offer during the cancellation flow is successfully controlled by the backend configuration.",
+  "priority": "Medium",
+  "category": "Integration",
+  "created_at": "2026-03-31T10:52:09.851994",
+  "updated_at": "2026-03-31T10:52:09.851998"
+}

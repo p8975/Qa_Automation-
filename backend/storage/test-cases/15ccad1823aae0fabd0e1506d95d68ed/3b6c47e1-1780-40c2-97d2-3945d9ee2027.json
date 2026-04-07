@@ -1,0 +1,35 @@
+{
+  "tc_id": "3b6c47e1-1780-40c2-97d2-3945d9ee2027",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Trial Corner displays Promise messaging",
+  "description": "Test that Trial Corner shows the promise messaging about easy cancellation",
+  "preconditions": [
+    "User has active trial",
+    "User is on Trial Corner hub"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to Trial Corner hub",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Verify 'Easy cancellation anytime' message is visible",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify 'No hidden loops' promise is displayed",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Trust messaging is displayed correctly in Trial Corner",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-04-07T17:17:08.487084",
+  "updated_at": "2026-04-07T17:17:08.487085"
+}

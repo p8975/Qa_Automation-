@@ -1,0 +1,40 @@
+{
+  "tc_id": "798c7e9a-bcaf-4fe4-a50d-27e2f215443c",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify content is locked after trial is paused",
+  "description": "Test that all content sections become inaccessible when trial is paused",
+  "preconditions": [
+    "User has paused their trial"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Pause the trial",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Navigate to Trial Corner Hub",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Try to access content in Progress & Benefits section",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Try to access content in Trending section",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "All content sections show locked state and content is not playable",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T10:00:04.286434",
+  "updated_at": "2026-03-11T10:00:04.286436"
+}

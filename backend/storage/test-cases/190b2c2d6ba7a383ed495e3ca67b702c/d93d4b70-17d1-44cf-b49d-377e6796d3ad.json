@@ -1,0 +1,35 @@
+{
+  "tc_id": "d93d4b70-17d1-44cf-b49d-377e6796d3ad",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify password reset link expiration after 1 hour",
+  "description": "Test that expired password reset links are rejected and user must request a new one",
+  "preconditions": [
+    "User has requested password reset",
+    "More than 1 hour has passed since reset link was sent"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to password reset link received via email",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Wait for link to expire (or use expired test link)",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Attempt to reset password",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Error message displayed indicating reset link has expired",
+  "priority": "High",
+  "category": "Security",
+  "created_at": "2026-03-11T15:42:39.039318",
+  "updated_at": "2026-03-11T15:42:39.039320"
+}

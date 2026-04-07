@@ -1,0 +1,28 @@
+{
+  "tc_id": "5922329d-1662-43a5-bc50-40c9dc436db2",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify password history prevents reuse of last 5 passwords",
+  "description": "Test that users cannot reuse any of their 5 most recent passwords",
+  "preconditions": [
+    "User has changed password multiple times"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to password change (if available) or reset flow",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Attempt to set a password that was used in last 5 passwords",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Error message indicates password was used previously; password change is blocked",
+  "priority": "Medium",
+  "category": "Security",
+  "created_at": "2026-03-11T13:48:21.467892",
+  "updated_at": "2026-03-11T13:48:21.467898"
+}

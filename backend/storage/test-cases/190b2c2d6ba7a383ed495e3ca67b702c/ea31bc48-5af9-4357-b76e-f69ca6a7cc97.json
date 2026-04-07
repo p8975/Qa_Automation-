@@ -1,0 +1,29 @@
+{
+  "tc_id": "ea31bc48-5af9-4357-b76e-f69ca6a7cc97",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify email verification activates user account",
+  "description": "Test that clicking the verification link in email activates a previously unverified account",
+  "preconditions": [
+    "User has registered but not verified email",
+    "Verification link is valid (within 24 hours)"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Click verification link from registration email",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Wait for account activation response",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Account is activated; user can now login with their credentials",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T13:48:21.459763",
+  "updated_at": "2026-03-11T13:48:21.459767"
+}

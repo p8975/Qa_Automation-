@@ -1,0 +1,59 @@
+{
+  "tc_id": "66995333-04e6-445e-ae02-1769fe77a6be",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify password reset flow completes successfully",
+  "description": "Test that a user can request a password reset, receive email, and successfully set a new password",
+  "preconditions": [
+    "User account exists",
+    "User has access to email"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Click 'Forgot Password' on login page",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enter registered email address",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Click 'Send Reset Link'",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Access reset link from email within 1 hour",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Enter new password meeting security requirements",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 6,
+      "description": "6. Confirm new password",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 7,
+      "description": "7. Click 'Reset Password' button",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Password is successfully reset; user is redirected to login page with success message",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T13:48:21.458928",
+  "updated_at": "2026-03-11T13:48:21.458931"
+}

@@ -1,0 +1,64 @@
+{
+  "tc_id": "33066bfb-8313-4b39-8a3f-15ec23376495",
+  "prd_hash": "e0b156f3081e99b42f5dd2726924214c",
+  "title": "OTP Screen - Verify all UI elements are present and correctly displayed",
+  "description": "Checks for the presence and initial state of all UI components on the OTP Verification screen.",
+  "preconditions": [
+    "User has entered a valid phone number and navigated to the OTP screen."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. On the OTP screen, verify the Back Button (arrow icon) is visible.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Verify the STAGE App Logo is at the top center.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify the title 'STAGE \u0932\u0949\u0917\u093f\u0928 \u0915\u094b\u0921 \u0921\u093e\u0932\u0947\u0902' is displayed.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Verify the subtitle '\u0939\u092e\u0928\u0947 +91 XXXXXXXXXX \u092a\u0930 4 \u0905\u0902\u0915\u094b\u0902 \u0915\u093e STAGE \u0915\u094b\u0921 \u092d\u0947\u091c\u093e \u0939\u0948\u0964' shows the correct phone number.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Verify there are 4 separate input boxes for the OTP.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 6,
+      "description": "6. Verify the resend timer '\u0915\u094b\u0921 XX \u0938\u0947\u0915\u0902\u0921 \u092e\u0947\u0902 \u092b\u093f\u0930 \u0938\u0947 \u092d\u0947\u091c\u093e \u091c\u093e\u090f\u0917\u093e\u0964' is displayed and counting down from 30.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 7,
+      "description": "7. Verify the 'Resend OTP' link is initially not visible or disabled.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 8,
+      "description": "8. Verify the security note '\u0938\u093f\u0930\u094d\u092b \u0906\u092a\u0915\u0940 \u092a\u0939\u091a\u093e\u0928 \u0915\u0940 \u092a\u0941\u0937\u094d\u091f\u093f \u0915\u0947 \u0932\u093f\u090f \u0939\u0948\u0964' is present with a checkmark icon.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "All specified UI elements are displayed correctly on the OTP Verification screen.",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-04-06T16:49:40.085219",
+  "updated_at": "2026-04-06T16:49:40.085224"
+}

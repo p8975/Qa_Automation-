@@ -1,0 +1,19 @@
+{
+  "run_id": "b39f1113-a570-4b48-9ec3-9431e121f0e5",
+  "build_id": "858332ec-7a84-458a-bb77-3825210317ea",
+  "test_case_ids": [
+    "ebff754a-8ec8-406e-90e4-a120d7fb26e0",
+    "20bcde28-35f6-4947-9cea-23ae1a3b5afe"
+  ],
+  "device_info": {
+    "device_id": "5D45UKAYLFWK8TPN",
+    "device_name": "DN2101",
+    "os_version": "13",
+    "is_emulator": false
+  },
+  "status": "failed",
+  "started_at": "2026-03-11T10:18:29.470383",
+  "completed_at": "2026-03-11T10:18:49.730130",
+  "duration_seconds": null,
+  "results": []
+}

@@ -1,0 +1,76 @@
+{
+  "run_id": "54e68022-06e4-4519-bda0-2cc3145fe574",
+  "build_id": "64100a0f-4a77-4336-8c69-c599c5e16ccf",
+  "test_case_ids": [
+    "3999053b-e862-4d02-b5f7-e8568a1c8b6f",
+    "97268753-45c2-4ad9-b8b0-2eb6ac897d28"
+  ],
+  "device_info": {
+    "device_id": "emulator-5554",
+    "device_name": "sdk_gphone64_arm64",
+    "os_version": "16",
+    "is_emulator": true
+  },
+  "status": "completed",
+  "started_at": "2026-03-31T12:32:36.755148",
+  "completed_at": "2026-03-31T12:33:16.246469",
+  "duration_seconds": 39.491321,
+  "results": [
+    {
+      "test_case_id": "3999053b-e862-4d02-b5f7-e8568a1c8b6f",
+      "status": "pass",
+      "duration_ms": 14826,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "pass",
+          "duration_ms": 2067,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ID, \"com.android.permissioncontroller:id/permission_message\").click()"
+        },
+        {
+          "step_number": 2,
+          "status": "pass",
+          "duration_ms": 1271,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ID, \"com.android.permissioncontroller:id/permission_message\").click()"
+        },
+        {
+          "step_number": 3,
+          "status": "pass",
+          "duration_ms": 1314,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ID, \"com.android.permissioncontroller:id/permission_message\").click()"
+        }
+      ]
+    },
+    {
+      "test_case_id": "97268753-45c2-4ad9-b8b0-2eb6ac897d28",
+      "status": "fail",
+      "duration_ms": 13313,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/54e68022-06e4-4519-bda0-2cc3145fe574/screenshots/step_1_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "error",
+          "duration_ms": 1333,
+          "screenshot_path": "storage/test-runs/54e68022-06e4-4519-bda0-2cc3145fe574/screenshots/step_1_error.png",
+          "error_message": "Could not parse command: driver.find_element(AppiumBy.ACCESSIBILITY ID, \"Home\").click()",
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY ID, \"Home\").click()"
+        }
+      ]
+    }
+  ]
+}

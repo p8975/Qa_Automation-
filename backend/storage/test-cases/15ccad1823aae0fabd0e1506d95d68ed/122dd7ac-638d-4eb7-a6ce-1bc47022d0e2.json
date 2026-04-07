@@ -1,0 +1,29 @@
+{
+  "tc_id": "122dd7ac-638d-4eb7-a6ce-1bc47022d0e2",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify UI Progression: Widget changes to floating pill after Day 1",
+  "description": "Tests that the entry point on the homepage correctly changes from a persistent widget to a floating pill on Day 2 of the trial.",
+  "preconditions": [
+    "User has an active trial and is in the target cohort.",
+    "The user's trial is now on Day 2."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Log in and navigate to the Homepage.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Observe the UI element for accessing the Trial Corner.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The persistent header widget from Day 0/1 is no longer present. A floating pill is now displayed on the homepage as the entry point to the Trial Corner.",
+  "priority": "Low",
+  "category": "UI",
+  "created_at": "2026-03-31T12:24:36.080891",
+  "updated_at": "2026-03-31T12:24:36.080893"
+}

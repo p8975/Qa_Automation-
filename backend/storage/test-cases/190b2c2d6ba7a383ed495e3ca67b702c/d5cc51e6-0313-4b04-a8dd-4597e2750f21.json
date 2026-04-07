@@ -1,0 +1,40 @@
+{
+  "tc_id": "d5cc51e6-0313-4b04-a8dd-4597e2750f21",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Validate registration failure with a password not meeting security criteria",
+  "description": "Ensures the system rejects passwords that do not meet the defined security criteria during registration and provides a clear error message.",
+  "preconditions": [
+    "User is on the registration page."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Enter a valid, unique email address.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enter a password that violates one of the rules (e.g., 'short').",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Confirm the password.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Click the 'Register' button.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Registration fails. An inline error message with the code 'WEAK_PASSWORD' is displayed, clearly stating all password requirements.",
+  "priority": "High",
+  "category": "Error Handling",
+  "created_at": "2026-03-27T15:39:44.150425",
+  "updated_at": "2026-03-27T15:39:44.150427"
+}

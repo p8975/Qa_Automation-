@@ -1,0 +1,35 @@
+{
+  "tc_id": "df517603-838c-4e33-b4cc-8a6bbc59b92b",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify environment variable substitution in config works",
+  "description": "Test that {env:OPENCODE_KEY} placeholder in config.json is correctly replaced with actual environment variable value",
+  "preconditions": [
+    "OPENCODE_KEY is set in environment",
+    "Config.json uses {env:OPENCODE_KEY} syntax"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Set OPENCODE_KEY environment variable",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Run opencode",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify API key from environment is used",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Environment variable is substituted correctly at runtime",
+  "priority": "High",
+  "category": "Integration",
+  "created_at": "2026-03-11T14:12:51.649815",
+  "updated_at": "2026-03-11T14:12:51.649816"
+}

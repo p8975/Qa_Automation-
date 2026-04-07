@@ -1,0 +1,41 @@
+{
+  "tc_id": "cb4de3c9-5316-4da8-a1a3-2925943b35d5",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify trial status updates across all entry points after cancellation",
+  "description": "Test that after cancelling, all trial indicators (widget, floating pill, profile icon) show cancelled status",
+  "preconditions": [
+    "User has cancelled their trial",
+    "Cancelled status should reflect on all entry points"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Cancel the trial through Trial Corner flow",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Navigate to homepage",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Check homepage widget",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Check profile icon indicator",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "All entry points display cancelled trial design/wording, not active trial status",
+  "priority": "Medium",
+  "category": "Integration",
+  "created_at": "2026-03-11T11:16:21.688532",
+  "updated_at": "2026-03-11T11:16:21.688532"
+}

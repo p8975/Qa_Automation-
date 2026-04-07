@@ -1,0 +1,48 @@
+{
+  "tc_id": "722ae82a-16ac-47db-9da2-a3a96d21082d",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Reminder Notification Delivery",
+  "description": "Test that the system correctly sends a WhatsApp/Push notification 24 hours before the trial's expiration time.",
+  "preconditions": [
+    "User has enabled the 'Remind me' toggle.",
+    "The trial is set to expire in approximately 24 hours (requires time manipulation or a test environment).",
+    "User has granted notification permissions."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Set up a test user whose trial will expire in 24 hours and 5 minutes.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enable the 'Remind me' toggle for this user.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Wait for the system clock to pass the 24-hour-to-expiry mark.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Monitor the user's registered device/WhatsApp for the notification.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Verify the notification content matches the required copy (e.g., 'Your trial ends in 24 hours...').",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The user receives the reminder notification at the correct time with the correct content, allowing them to take action before being charged.",
+  "priority": "High",
+  "category": "Integration",
+  "created_at": "2026-04-03T12:32:35.180189",
+  "updated_at": "2026-04-03T12:32:35.180190"
+}

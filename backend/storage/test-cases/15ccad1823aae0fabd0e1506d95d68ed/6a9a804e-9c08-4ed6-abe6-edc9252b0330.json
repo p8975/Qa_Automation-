@@ -1,0 +1,42 @@
+{
+  "tc_id": "6a9a804e-9c08-4ed6-abe6-edc9252b0330",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Engagement Content Logic",
+  "description": "Test the logic for the 'Engagement' section, ensuring it shows resume-watching content first, then recommendations.",
+  "preconditions": [
+    "User is in the experiment cohort.",
+    "Test User A has watched 50% of a movie.",
+    "Test User B has watched 95% of a movie."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Log in as User A and navigate to the Trial Corner.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Observe the 'Engagement' section.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Log out and log in as User B and navigate to the Trial Corner.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Observe the 'Engagement' section.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "For User A, the 'Engagement' section shows the movie they are halfway through, with an option to 'Resume'. For User B, it shows the top 1 content in a similar genre, as their previous content consumption is >90%.",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-03-30T16:16:22.754765",
+  "updated_at": "2026-03-30T16:16:22.754767"
+}

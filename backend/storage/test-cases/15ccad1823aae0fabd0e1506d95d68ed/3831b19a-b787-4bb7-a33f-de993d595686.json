@@ -1,0 +1,42 @@
+{
+  "tc_id": "3831b19a-b787-4bb7-a33f-de993d595686",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify user successfully sets a reminder instead of canceling the trial",
+  "description": "Tests the 'Loss Aversion' flow where a user initiates cancellation but chooses to set a reminder instead, keeping the trial active.",
+  "preconditions": [
+    "User has an active trial (e.g., 6 days remaining).",
+    "User is part of the 'Trial Corner' experiment cohort.",
+    "User is on the 'Trial Corner' hub page."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Locate and click the 'Cancel Trial' button in the 'Manage Trial' section.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Observe the 'Loss Aversion' pop-up with the headline 'Wait! Don't lose your free days.'",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Click the primary action button: 'Keep Trial & Set Reminder'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Verify the pop-up closes and the 'Remind me 24h before trial ends' toggle is now enabled on the Trial Corner hub.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The trial remains active, the reminder toggle is set to 'ON', and the user is not shown the incentive offer. The 'remind-me-clicked' event is fired with page source 'cancel pop-up'.",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-30T10:18:59.229412",
+  "updated_at": "2026-03-30T10:18:59.229449"
+}

@@ -1,0 +1,35 @@
+{
+  "tc_id": "a59fd478-d743-45c7-b000-b4ac4b8b66ce",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify opencode command is accessible after sourcing .zshrc",
+  "description": "Test that after running source ~/.zshrc, the opencode command is available in PATH",
+  "preconditions": [
+    "PATH is added to ~/.zshrc",
+    "~/.opencode/bin directory exists with opencode binary"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Run: source ~/.zshrc",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Run: which opencode",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Run: opencode --version (if available)",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "opencode command is found and executable from PATH",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T14:12:51.647606",
+  "updated_at": "2026-03-11T14:12:51.647607"
+}

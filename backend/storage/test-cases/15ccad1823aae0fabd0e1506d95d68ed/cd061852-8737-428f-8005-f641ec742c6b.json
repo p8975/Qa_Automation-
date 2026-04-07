@@ -1,0 +1,47 @@
+{
+  "tc_id": "cd061852-8737-428f-8005-f641ec742c6b",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify remind-me-clicked event triggers from multiple sources",
+  "description": "Test that the reminder click event fires correctly regardless of where user sets reminder from",
+  "preconditions": [
+    "Analytics tracking is enabled",
+    "User has active trial"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to Trial Corner",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enable remind me toggle in Manage Trial",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify event fires",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Test same from pause popup",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Test same from cancel popup",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Event 'remind-me-clicked' fires with correct page source attribute (trial corner, pause pop-up, cancel pop-up)",
+  "priority": "Medium",
+  "category": "Integration",
+  "created_at": "2026-03-11T18:39:28.006884",
+  "updated_at": "2026-03-11T18:39:28.006885"
+}

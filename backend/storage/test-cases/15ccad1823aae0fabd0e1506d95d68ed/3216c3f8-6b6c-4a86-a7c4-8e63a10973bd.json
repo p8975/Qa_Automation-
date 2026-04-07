@@ -1,0 +1,29 @@
+{
+  "tc_id": "3216c3f8-6b6c-4a86-a7c4-8e63a10973bd",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Support chat redirects from Manage Trial",
+  "description": "Test that clicking Support in Manage Trial section redirects to chat/WhatsApp support",
+  "preconditions": [
+    "User has active trial",
+    "User is in Trial Corner Manage section"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to Trial Corner > Manage Trial",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click Support option",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "User is redirected to chat support or WhatsApp support section",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-03-10T19:16:40.860660",
+  "updated_at": "2026-03-10T19:16:40.860660"
+}

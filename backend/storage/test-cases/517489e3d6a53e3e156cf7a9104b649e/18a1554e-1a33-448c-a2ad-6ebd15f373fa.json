@@ -1,0 +1,35 @@
+{
+  "tc_id": "18a1554e-1a33-448c-a2ad-6ebd15f373fa",
+  "prd_hash": "517489e3d6a53e3e156cf7a9104b649e",
+  "title": "Verify email is case-insensitive",
+  "description": "Test that users can login regardless of the casing used in the email field",
+  "preconditions": [
+    "Account registered with \"User@Example.com\"",
+    "User is on login screen"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Enter \"user@example.com\" in all lowercase",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Enter valid password",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Click the \"Login\" button",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "User is successfully authenticated",
+  "priority": "Medium",
+  "category": "Functional",
+  "created_at": "2026-04-07T17:15:57.653870",
+  "updated_at": "2026-04-07T17:15:57.653871"
+}

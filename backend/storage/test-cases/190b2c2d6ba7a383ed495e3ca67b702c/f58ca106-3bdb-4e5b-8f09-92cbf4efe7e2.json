@@ -1,0 +1,40 @@
+{
+  "tc_id": "f58ca106-3bdb-4e5b-8f09-92cbf4efe7e2",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify all sessions are invalidated after password reset",
+  "description": "Test that resetting password logs out user from all devices",
+  "preconditions": [
+    "User is logged in on multiple devices"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Login on device A",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Request password reset from device B",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Complete password reset on device B",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Attempt to use application on device A",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Device A session is invalidated; user must login with new password",
+  "priority": "High",
+  "category": "Security",
+  "created_at": "2026-03-11T13:48:21.467224",
+  "updated_at": "2026-03-11T13:48:21.467228"
+}

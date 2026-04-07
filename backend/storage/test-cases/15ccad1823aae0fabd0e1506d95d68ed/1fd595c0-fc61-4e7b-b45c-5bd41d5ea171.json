@@ -1,0 +1,54 @@
+{
+  "tc_id": "1fd595c0-fc61-4e7b-b45c-5bd41d5ea171",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify the 'Set a Reminder' happy path flow for an eligible user",
+  "description": "Tests that a user who has not watched content within 5 mins of trial activation can navigate to the Trial Corner, enable the 'Remind me' toggle, and see a confirmation.",
+  "preconditions": [
+    "User has an active \u20b91 trial, started more than 5 minutes ago.",
+    "User has not consumed any content.",
+    "User is part of the 'Trial Corner' experiment cohort."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Log in to the application.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Observe the persistent 'Trial Mode' widget on the homepage.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Click the widget to navigate to the 'Trial Corner' Hub.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Locate the 'Manage Trial' section.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Click the toggle for 'Remind me 24h before trial ends'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 6,
+      "description": "6. Verify a confirmation message is displayed (e.g., 'Reminder set!').",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The 'Remind me' toggle should be in the 'on' state. The system should schedule a WhatsApp/Push notification for 24 hours before the trial's expiration. The `remind-me-clicked` event with `page source` as `trial corner` should be triggered.",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-30T13:58:41.018062",
+  "updated_at": "2026-03-30T13:58:41.018113"
+}

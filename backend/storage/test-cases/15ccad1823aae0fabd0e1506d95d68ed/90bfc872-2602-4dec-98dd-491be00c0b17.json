@@ -1,0 +1,47 @@
+{
+  "tc_id": "90bfc872-2602-4dec-98dd-491be00c0b17",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Analytics Events are Triggered Correctly",
+  "description": "Test that key user actions fire the specified analytics events with the correct attributes.",
+  "preconditions": [
+    "User has an active trial and is in the experiment cohort.",
+    "Analytics debugging tool is active."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Load the homepage and view the widget.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click the widget.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. On the Trial Corner, click the 'Remind me' toggle.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Click the 'Cancel Trial' button.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. On the pop-up, click 'Cancel Anyway & Lose Access'.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The following events are fired in order: 'trial-corner-widget-viewed', 'trial-corner-widget-clicked', 'trial-corner-viewed', 'remind-me-clicked', 'cancel-clicked'. Each event must have the correct attributes as defined in the PRD.",
+  "priority": "High",
+  "category": "Integration",
+  "created_at": "2026-03-30T16:16:22.753958",
+  "updated_at": "2026-03-30T16:16:22.753959"
+}

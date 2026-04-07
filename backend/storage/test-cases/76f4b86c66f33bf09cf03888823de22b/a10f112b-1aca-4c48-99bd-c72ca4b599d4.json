@@ -1,0 +1,28 @@
+{
+  "tc_id": "a10f112b-1aca-4c48-99bd-c72ca4b599d4",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify EOF delimiter has no leading spaces",
+  "description": "Test that the closing EOF has proper indentation - no leading spaces as specified in guide",
+  "preconditions": [
+    "Config file created"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Check last line of config.json",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Verify EOF line has no leading whitespace",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Closing EOF has no leading spaces as documented",
+  "priority": "Medium",
+  "category": "Edge Case",
+  "created_at": "2026-03-11T15:36:35.981334",
+  "updated_at": "2026-03-11T15:36:35.981337"
+}

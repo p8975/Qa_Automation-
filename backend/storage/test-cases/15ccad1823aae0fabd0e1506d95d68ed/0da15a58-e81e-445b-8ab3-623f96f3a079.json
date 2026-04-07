@@ -1,0 +1,41 @@
+{
+  "tc_id": "0da15a58-e81e-445b-8ab3-623f96f3a079",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify cancelled widget shows on homepage for cancelled trials",
+  "description": "Test that homepage displays appropriate widget for cancelled trial users",
+  "preconditions": [
+    "User has cancelled trial",
+    "User is logged in"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Log in with cancelled trial user",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Navigate to homepage",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Verify widget displays cancelled trial design",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Verify messaging reflects cancellation",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Homepage shows widget for cancelled trial state",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-04-07T17:17:08.486850",
+  "updated_at": "2026-04-07T17:17:08.486851"
+}

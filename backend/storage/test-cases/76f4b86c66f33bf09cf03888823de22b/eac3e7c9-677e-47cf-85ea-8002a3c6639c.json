@@ -1,0 +1,28 @@
+{
+  "tc_id": "eac3e7c9-677e-47cf-85ea-8002a3c6639c",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify installation completes within reasonable time",
+  "description": "Test performance of curl installation command",
+  "preconditions": [
+    "Stable internet connection"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Time the curl installation command",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Measure total execution time",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Installation completes in under 30 seconds on normal connection",
+  "priority": "Low",
+  "category": "Performance",
+  "created_at": "2026-03-11T15:36:35.986246",
+  "updated_at": "2026-03-11T15:36:35.986247"
+}

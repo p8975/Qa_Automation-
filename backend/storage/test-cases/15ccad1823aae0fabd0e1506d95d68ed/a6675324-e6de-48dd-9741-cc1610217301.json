@@ -1,0 +1,41 @@
+{
+  "tc_id": "a6675324-e6de-48dd-9741-cc1610217301",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Integration with WhatsApp/Push Notification System",
+  "description": "Tests that setting a reminder successfully triggers a notification request to the appropriate service.",
+  "preconditions": [
+    "User has an active trial and has granted notification permissions.",
+    "QA has access to notification service logs or a test environment."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Set the user's trial to expire in approximately 24 hours.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Navigate to the 'Trial Corner' and enable the 'Remind me' toggle.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Monitor the backend logs or notification service for an outgoing message scheduled for this user.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Wait for the notification to be delivered.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "A notification (WhatsApp or Push) should be successfully scheduled and delivered to the user 24 hours before the trial's expiration time. The message content should be accurate.",
+  "priority": "High",
+  "category": "Integration",
+  "created_at": "2026-03-30T16:01:09.535766",
+  "updated_at": "2026-03-30T16:01:09.535767"
+}

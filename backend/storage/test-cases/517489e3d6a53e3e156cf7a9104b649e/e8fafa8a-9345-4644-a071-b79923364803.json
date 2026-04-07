@@ -1,0 +1,28 @@
+{
+  "tc_id": "e8fafa8a-9345-4644-a071-b79923364803",
+  "prd_hash": "517489e3d6a53e3e156cf7a9104b649e",
+  "title": "Verify error message clears upon modifying input fields",
+  "description": "Validate that the UI updates and removes error prompts when the user starts correcting the input.",
+  "preconditions": [
+    "An error message is currently displayed on the login screen"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Select the email or password field containing an error",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Type a new character in the field",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The previous error message is cleared or hidden",
+  "priority": "Low",
+  "category": "Functional",
+  "created_at": "2026-04-07T17:10:13.195232",
+  "updated_at": "2026-04-07T17:10:13.195232"
+}

@@ -1,0 +1,41 @@
+{
+  "tc_id": "074ddc1e-298c-470a-ac50-94fcf19ecd93",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify event triggers fire correctly for widget interactions",
+  "description": "Test that analytics events are fired at appropriate moments",
+  "preconditions": [
+    "Analytics system is integrated",
+    "User has active trial"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. View trial widget (trigger trial-corner-widget-viewed)",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click trial widget (trigger trial-corner-widget-clicked)",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. View Trial Corner (trigger trial-corner-viewed)",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Verify events in analytics",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "All specified events fire with correct attributes (variant, page source, etc.)",
+  "priority": "Medium",
+  "category": "Integration",
+  "created_at": "2026-03-11T10:04:15.370723",
+  "updated_at": "2026-03-11T10:04:15.370724"
+}

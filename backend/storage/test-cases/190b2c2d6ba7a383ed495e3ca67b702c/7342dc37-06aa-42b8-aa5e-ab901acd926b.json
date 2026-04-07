@@ -1,0 +1,29 @@
+{
+  "tc_id": "7342dc37-06aa-42b8-aa5e-ab901acd926b",
+  "prd_hash": "190b2c2d6ba7a383ed495e3ca67b702c",
+  "title": "Verify email verification flow activates account",
+  "description": "Test that clicking the verification link in email successfully activates a user account",
+  "preconditions": [
+    "User registered but email not verified",
+    "User has verification email"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Access email verification link from registration email",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click the verification link",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Account email verified, user redirected to login or dashboard with success message",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T15:38:47.295740",
+  "updated_at": "2026-03-11T15:38:47.295741"
+}

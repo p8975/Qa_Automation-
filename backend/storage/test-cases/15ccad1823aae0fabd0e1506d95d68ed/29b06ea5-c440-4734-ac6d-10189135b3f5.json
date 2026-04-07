@@ -1,0 +1,58 @@
+{
+  "tc_id": "29b06ea5-c440-4734-ac6d-10189135b3f5",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Loss Aversion Modal Functionality and Prominence",
+  "description": "Tests the behavior and UI of the 'Loss Aversion' pop-up when attempting to cancel.",
+  "preconditions": [
+    "User has an active trial with 6 days remaining."
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Navigate to the 'Trial Corner' Hub.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Click the 'Cancel Trial' button.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Observe the 'Loss Aversion' pop-up.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Verify the headline and body copy match the PRD, correctly stating '6 days'.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 5,
+      "description": "5. Verify the 'Keep Trial & Set Reminder' button has high visual prominence.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 6,
+      "description": "6. Verify the 'Cancel Anyway & Lose Access' button has low visual prominence.",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 7,
+      "description": "7. Click 'Keep Trial & Set Reminder'.",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "The pop-up closes, the user remains on the Trial Corner page, and the 'Remind me' toggle is now activated. The trial remains active.",
+  "priority": "High",
+  "category": "UI",
+  "created_at": "2026-03-30T16:01:09.533448",
+  "updated_at": "2026-03-30T16:01:09.533451"
+}

@@ -1,0 +1,56 @@
+{
+  "run_id": "53e1fe2c-cf34-40ac-be8b-6f43312abd09",
+  "build_id": "64100a0f-4a77-4336-8c69-c599c5e16ccf",
+  "test_case_ids": [
+    "8404a43c-4d12-456e-ad9f-ea1910f055e7"
+  ],
+  "device_info": {
+    "device_id": "emulator-5554",
+    "device_name": "sdk_gphone64_arm64",
+    "os_version": "16",
+    "is_emulator": true
+  },
+  "status": "completed",
+  "started_at": "2026-04-06T18:32:55.850160",
+  "completed_at": "2026-04-06T18:33:22.785462",
+  "duration_seconds": 26.935302,
+  "results": [
+    {
+      "test_case_id": "8404a43c-4d12-456e-ad9f-ea1910f055e7",
+      "status": "fail",
+      "duration_ms": 12405,
+      "error_message": null,
+      "stack_trace": null,
+      "screenshot_paths": [
+        "storage/test-runs/53e1fe2c-cf34-40ac-be8b-6f43312abd09/screenshots/step_3_error.png"
+      ],
+      "log_output": "",
+      "step_results": [
+        {
+          "step_number": 1,
+          "status": "pass",
+          "duration_ms": 2720,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"Add Custom URL\").click()"
+        },
+        {
+          "step_number": 2,
+          "status": "pass",
+          "duration_ms": 786,
+          "screenshot_path": null,
+          "error_message": null,
+          "appium_command": "driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"Enter Custom URLs\").send_keys(\"test_input\")"
+        },
+        {
+          "step_number": 3,
+          "status": "error",
+          "duration_ms": 436,
+          "screenshot_path": "storage/test-runs/53e1fe2c-cf34-40ac-be8b-6f43312abd09/screenshots/step_3_error.png",
+          "error_message": "Could not find element for step: 3. Tap the '\u0932\u0949\u0917\u093f\u0928 \u0915\u0930\u0947\u0902' button.",
+          "appium_command": null
+        }
+      ]
+    }
+  ]
+}

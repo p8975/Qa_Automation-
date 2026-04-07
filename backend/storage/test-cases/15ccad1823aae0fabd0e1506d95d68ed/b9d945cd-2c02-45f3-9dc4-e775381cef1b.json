@@ -1,0 +1,41 @@
+{
+  "tc_id": "b9d945cd-2c02-45f3-9dc4-e775381cef1b",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify content is locked for users who have paused trial",
+  "description": "Test that all content sections are inaccessible when trial is paused",
+  "preconditions": [
+    "User has paused trial",
+    "User is logged in"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Log in with user who has paused trial",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Navigate to Trial Corner hub",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Try to access content in Engagement section",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 4,
+      "description": "4. Try to access content in Trending section",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "All content sections show locked state, users cannot play or access any premium content",
+  "priority": "High",
+  "category": "Security",
+  "created_at": "2026-03-11T09:59:31.934593",
+  "updated_at": "2026-03-11T09:59:31.934593"
+}

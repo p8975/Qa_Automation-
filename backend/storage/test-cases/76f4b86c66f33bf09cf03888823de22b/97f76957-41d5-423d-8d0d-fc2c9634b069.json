@@ -1,0 +1,35 @@
+{
+  "tc_id": "97f76957-41d5-423d-8d0d-fc2c9634b069",
+  "prd_hash": "76f4b86c66f33bf09cf03888823de22b",
+  "title": "Verify API key is correctly set in ~/.zshrc using >> operator",
+  "description": "Test that API key export is appended without overwriting existing PATH configuration",
+  "preconditions": [
+    "OpenCode is installed",
+    "PATH has been added to ~/.zshrc"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Run: echo 'export OPENCODE_KEY=YOUR_KEY' >> ~/.zshrc",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Verify both PATH and OPENCODE_KEY exist in ~/.zshrc",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Check that configuration lines are on separate lines",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "Both PATH and OPENCODE_KEY configurations exist in ~/.zshrc",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T16:14:09.164475",
+  "updated_at": "2026-03-11T16:14:09.164477"
+}

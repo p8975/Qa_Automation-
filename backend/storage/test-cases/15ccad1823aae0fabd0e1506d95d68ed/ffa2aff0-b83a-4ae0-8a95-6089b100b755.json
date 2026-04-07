@@ -1,0 +1,35 @@
+{
+  "tc_id": "ffa2aff0-b83a-4ae0-8a95-6089b100b755",
+  "prd_hash": "15ccad1823aae0fabd0e1506d95d68ed",
+  "title": "Verify Trial Corner shows locked content for paused/cancelled users",
+  "description": "Test that content sections are inaccessible when trial is not active",
+  "preconditions": [
+    "User has paused or cancelled trial",
+    "User navigates to Trial Corner"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "1. Pause or cancel a trial",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 2,
+      "description": "2. Navigate to Trial Corner",
+      "locator_override": null,
+      "expected_element": null
+    },
+    {
+      "step_number": 3,
+      "description": "3. Try to access any content in Progress & Benefits, Engagement, or Trending sections",
+      "locator_override": null,
+      "expected_element": null
+    }
+  ],
+  "expected_result": "All content sections display as locked with appropriate messaging",
+  "priority": "High",
+  "category": "Functional",
+  "created_at": "2026-03-11T17:29:07.548386",
+  "updated_at": "2026-03-11T17:29:07.548387"
+}
