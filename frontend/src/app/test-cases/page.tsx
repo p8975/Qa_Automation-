@@ -21,6 +21,7 @@ export default function TestCasesPage() {
     saveModule,
     loadModule,
     deleteModule,
+    selectedBuildId,
   } = useTestStore();
 
   const [searchQuery, setSearchQuery] = useState('');
@@ -69,7 +70,12 @@ export default function TestCasesPage() {
 
   const handleProceed = () => {
     if (selectedCount > 0) {
-      router.push('/builds');
+      // Skip build selection if build is already selected
+      if (selectedBuildId) {
+        router.push('/devices');
+      } else {
+        router.push('/builds');
+      }
     }
   };
 
@@ -133,7 +139,7 @@ export default function TestCasesPage() {
               disabled={selectedCount === 0}
               className="flex items-center gap-1.5 px-4 py-2 bg-green-600 text-white rounded-lg text-sm font-medium hover:bg-green-700 disabled:bg-gray-300"
             >
-              Proceed to Build
+              {selectedBuildId ? 'Proceed to Devices' : 'Proceed to Build'}
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>

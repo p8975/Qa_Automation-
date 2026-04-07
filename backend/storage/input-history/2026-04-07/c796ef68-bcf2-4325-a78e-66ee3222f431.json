@@ -1,0 +1,15 @@
+{
+  "id": "c796ef68-bcf2-4325-a78e-66ee3222f431",
+  "input_type": "natural_language",
+  "filename": null,
+  "file_path": null,
+  "content_preview": "Test Title: Verify login flow on this build by entering mobile number as 2022123420 and otp as 3420\n\nDescription: Try yourself\n\n\n\n\n\nPriority: Medium\n\nApp Context:\n- Package: in.stage.dev\n- Version: 3.59.1 (505915)",
+  "content_hash": "b2349988212c8296b490dd90b32b7204",
+  "file_size_bytes": 213,
+  "test_cases_generated": 1,
+  "created_at": "2026-04-07T23:28:05.559402",
+  "metadata": {
+    "full_description": "Test Title: Verify login flow on this build by entering mobile number as 2022123420 and otp as 3420\n\nDescription: Try yourself\n\n\n\n\n\nPriority: Medium\n\nApp Context:\n- Package: in.stage.dev\n- Version: 3.59.1 (505915)",
+    "description_length": 213
+  }
+}

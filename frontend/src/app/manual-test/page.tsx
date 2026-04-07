@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import {
   ArrowLeft, ArrowRight, Package, Edit3, Sparkles, Loader2,
   AlertCircle, CheckCircle, Plus, Trash2, Lightbulb, Code,
-  Play, Eye, ChevronDown, ChevronUp, Upload
+  Play, Eye, ChevronDown, ChevronUp, Upload, FileText, X
 } from 'lucide-react';
 import { FileUploader } from '@/components/FileUploader';
 import { useTestStore, Build, TestCase } from '@/store/useTestStore';
@@ -36,8 +36,8 @@ const EXAMPLE_SCENARIOS = [
 function StepIndicator({ currentStep }: { currentStep: number }) {
   const steps = [
     { num: 1, label: 'Select Build' },
-    { num: 2, label: 'Write Test' },
-    { num: 3, label: 'Preview & Generate' },
+    { num: 2, label: 'Write Tests' },
+    { num: 3, label: 'Review & Continue' },
   ];
 
   return (
@@ -80,6 +80,7 @@ export default function ManualTestPage() {
     selectedBuildId,
     selectBuild,
     setTestCases,
+    testCases: existingTestCases,
   } = useTestStore();
 
   const [currentStep, setCurrentStep] = useState(1);
@@ -92,17 +93,20 @@ export default function ManualTestPage() {
   const [uploading, setUploading] = useState(false);
   const [uploadProgress, setUploadProgress] = useState(0);
 
-  // Test case input
+  // Created test cases list
+  const [createdTestCases, setCreatedTestCases] = useState<TestCase[]>([]);
+
+  // Test case input form
   const [testTitle, setTestTitle] = useState('');
   const [testDescription, setTestDescription] = useState('');
   const [preconditions, setPreconditions] = useState<string[]>(['']);
   const [expectedOutcome, setExpectedOutcome] = useState('');
   const [priority, setPriority] = useState<'High' | 'Medium' | 'Low'>('Medium');
   const [showExamples, setShowExamples] = useState(false);
+  const [showForm, setShowForm] = useState(true);
 
-  // Preview
-  const [generatedTestCase, setGeneratedTestCase] = useState<TestCase | null>(null);
-  const [showPreview, setShowPreview] = useState(false);
+  // Preview for current test case
+  const [previewTestCase, setPreviewTestCase] = useState<TestCase | null>(null);
 
   const selectedBuild = builds.find((b) => b.build_id === selectedBuildId);
 
@@ -110,6 +114,13 @@ export default function ManualTestPage() {
   useEffect(() => {
     fetchBuilds();
   }, []);
+
+  // Auto-proceed to step 2 if build already selected
+  useEffect(() => {
+    if (selectedBuildId && currentStep === 1 && !loadingBuilds) {
+      // Don't auto-proceed, let user confirm
+    }
+  }, [selectedBuildId, loadingBuilds]);
 
   const fetchBuilds = async () => {
     try {
@@ -188,17 +199,26 @@ export default function ManualTestPage() {
     setShowExamples(false);
   };
 
+  const resetForm = () => {
+    setTestTitle('');
+    setTestDescription('');
+    setPreconditions(['']);
+    setExpectedOutcome('');
+    setPriority('Medium');
+    setPreviewTestCase(null);
+    setError(null);
+  };
+
   const canProceedToStep2 = selectedBuildId !== null;
-  const canProceedToStep3 = testTitle.trim() && testDescription.trim();
+  const canGeneratePreview = testTitle.trim() && testDescription.trim();
 
   const handleGeneratePreview = async () => {
-    if (!canProceedToStep3 || !selectedBuild) return;
+    if (!canGeneratePreview || !selectedBuild) return;
 
     setLoading(true);
     setError(null);
 
     try {
-      // Build the natural language description
       const fullDescription = `
 Test Title: ${testTitle}
 
@@ -232,14 +252,12 @@ App Context:
 
       const data = await res.json();
       if (data.success && data.test_case) {
-        setGeneratedTestCase({
+        setPreviewTestCase({
           ...data.test_case,
           priority,
           status: 'pending',
           selected: true,
         });
-        setShowPreview(true);
-        setCurrentStep(3);
       } else {
         throw new Error('No test case was generated');
       }
@@ -250,23 +268,38 @@ App Context:
     }
   };
 
-  const handleSaveAndContinue = () => {
-    if (generatedTestCase) {
-      setTestCases([generatedTestCase]);
-      router.push('/test-cases');
+  const handleAddToList = () => {
+    if (previewTestCase) {
+      setCreatedTestCases([...createdTestCases, previewTestCase]);
+      resetForm();
+      setShowForm(true);
     }
   };
 
-  const handleAddAnother = () => {
-    // Reset form for another test case
-    setTestTitle('');
-    setTestDescription('');
-    setPreconditions(['']);
-    setExpectedOutcome('');
-    setPriority('Medium');
-    setGeneratedTestCase(null);
-    setShowPreview(false);
-    setCurrentStep(2);
+  const handleRemoveFromList = (id: string) => {
+    setCreatedTestCases(createdTestCases.filter(tc => tc.id !== id));
+  };
+
+  const handleContinueToDevices = () => {
+    if (createdTestCases.length > 0) {
+      // Merge with existing test cases or replace
+      setTestCases([...existingTestCases, ...createdTestCases]);
+      // Go directly to devices since build is already selected
+      router.push('/devices');
+    }
+  };
+
+  const handleSaveCurrentAndContinue = () => {
+    // If there's a preview test case, add it to the list first
+    let finalTestCases = [...createdTestCases];
+    if (previewTestCase) {
+      finalTestCases.push(previewTestCase);
+    }
+
+    if (finalTestCases.length > 0) {
+      setTestCases([...existingTestCases, ...finalTestCases]);
+      router.push('/devices');
+    }
   };
 
   return (
@@ -281,7 +314,7 @@ App Context:
           Home
         </button>
         <div>
-          <h1 className="text-xl font-bold text-gray-900">Write Manual Test Case</h1>
+          <h1 className="text-xl font-bold text-gray-900">Write Manual Test Cases</h1>
           <p className="text-sm text-gray-500">Create test cases using natural language</p>
         </div>
       </div>
@@ -388,7 +421,6 @@ App Context:
             )}
           </div>
 
-          {/* Error */}
           {error && (
             <div className="flex items-start gap-3 p-4 bg-red-50 border border-red-200 rounded-lg">
               <AlertCircle className="w-5 h-5 text-red-500 flex-shrink-0" />
@@ -396,21 +428,20 @@ App Context:
             </div>
           )}
 
-          {/* Continue Button */}
           <div className="flex justify-end">
             <button
               onClick={() => setCurrentStep(2)}
               disabled={!canProceedToStep2}
               className="flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-lg font-medium hover:bg-green-700 disabled:bg-gray-300 disabled:cursor-not-allowed"
             >
-              Continue to Write Test
+              Continue to Write Tests
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>
         </div>
       )}
 
-      {/* Step 2: Write Test Case */}
+      {/* Step 2: Write Test Cases */}
       {currentStep === 2 && (
         <div className="space-y-6">
           {/* Selected Build Info */}
@@ -432,149 +463,249 @@ App Context:
             </div>
           )}
 
-          {/* Examples Toggle */}
-          <button
-            onClick={() => setShowExamples(!showExamples)}
-            className="flex items-center gap-2 text-sm text-blue-600 hover:text-blue-700"
-          >
-            <Lightbulb className="w-4 h-4" />
-            {showExamples ? 'Hide examples' : 'Show example test scenarios'}
-            {showExamples ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-          </button>
-
-          {/* Examples */}
-          {showExamples && (
-            <div className="grid md:grid-cols-2 gap-3">
-              {EXAMPLE_SCENARIOS.map((example, idx) => (
+          {/* Created Test Cases List */}
+          {createdTestCases.length > 0 && (
+            <div className="bg-white rounded-xl border border-gray-200 p-4">
+              <div className="flex items-center justify-between mb-3">
+                <h3 className="font-semibold text-gray-900 flex items-center gap-2">
+                  <FileText className="w-5 h-5 text-green-600" />
+                  Created Test Cases ({createdTestCases.length})
+                </h3>
                 <button
-                  key={idx}
-                  onClick={() => useExample(example)}
-                  className="text-left p-4 bg-blue-50 border border-blue-200 rounded-lg hover:bg-blue-100 transition-colors"
+                  onClick={() => setCurrentStep(3)}
+                  className="text-sm text-green-600 hover:text-green-700 font-medium"
                 >
-                  <p className="font-medium text-blue-900">{example.title}</p>
-                  <p className="text-sm text-blue-700 mt-1 line-clamp-2">{example.description}</p>
+                  Review All & Continue →
                 </button>
-              ))}
+              </div>
+              <div className="space-y-2 max-h-48 overflow-y-auto">
+                {createdTestCases.map((tc) => (
+                  <div
+                    key={tc.id}
+                    className="flex items-center justify-between p-3 bg-green-50 border border-green-200 rounded-lg"
+                  >
+                    <div className="flex items-center gap-3">
+                      <CheckCircle className="w-4 h-4 text-green-600" />
+                      <div>
+                        <p className="font-medium text-gray-900 text-sm">{tc.title}</p>
+                        <p className="text-xs text-gray-500">{tc.steps.length} steps • {tc.priority} priority</p>
+                      </div>
+                    </div>
+                    <button
+                      onClick={() => handleRemoveFromList(tc.id)}
+                      className="p-1.5 text-gray-400 hover:text-red-500 hover:bg-red-50 rounded"
+                    >
+                      <Trash2 className="w-4 h-4" />
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Preview of current test case */}
+          {previewTestCase && (
+            <div className="bg-white rounded-xl border border-blue-200 p-4">
+              <div className="flex items-center justify-between mb-3">
+                <h3 className="font-semibold text-gray-900 flex items-center gap-2">
+                  <Eye className="w-5 h-5 text-blue-600" />
+                  Preview: {previewTestCase.title}
+                </h3>
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => setPreviewTestCase(null)}
+                    className="text-sm text-gray-500 hover:text-gray-700"
+                  >
+                    Edit
+                  </button>
+                  <button
+                    onClick={handleAddToList}
+                    className="flex items-center gap-1 px-3 py-1.5 bg-green-600 text-white rounded-lg text-sm font-medium hover:bg-green-700"
+                  >
+                    <Plus className="w-4 h-4" />
+                    Add to List
+                  </button>
+                </div>
+              </div>
+
+              <div className="space-y-3 text-sm">
+                <div>
+                  <p className="font-medium text-gray-700">Steps:</p>
+                  <ol className="list-decimal list-inside text-gray-600 bg-gray-50 rounded-lg p-3 mt-1">
+                    {previewTestCase.steps.map((step, idx) => (
+                      <li key={idx} className="py-0.5">{step}</li>
+                    ))}
+                  </ol>
+                </div>
+                <div>
+                  <p className="font-medium text-gray-700">Expected Result:</p>
+                  <p className="text-gray-600 bg-green-50 rounded-lg p-3 mt-1">{previewTestCase.expected_result}</p>
+                </div>
+              </div>
             </div>
           )}
 
           {/* Test Case Form */}
-          <div className="bg-white rounded-xl border border-gray-200 p-6 space-y-5">
-            <div className="flex items-center gap-2 mb-2">
-              <Edit3 className="w-5 h-5 text-blue-600" />
-              <h2 className="font-semibold text-gray-900">Test Case Details</h2>
-            </div>
+          {showForm && !previewTestCase && (
+            <>
+              {/* Examples Toggle */}
+              <button
+                onClick={() => setShowExamples(!showExamples)}
+                className="flex items-center gap-2 text-sm text-blue-600 hover:text-blue-700"
+              >
+                <Lightbulb className="w-4 h-4" />
+                {showExamples ? 'Hide examples' : 'Show example test scenarios'}
+                {showExamples ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+              </button>
 
-            {/* Title */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Test Title <span className="text-red-500">*</span>
-              </label>
-              <input
-                type="text"
-                value={testTitle}
-                onChange={(e) => setTestTitle(e.target.value)}
-                placeholder="e.g., Verify user login with valid phone number"
-                className="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-              />
-            </div>
+              {showExamples && (
+                <div className="grid md:grid-cols-2 gap-3">
+                  {EXAMPLE_SCENARIOS.map((example, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => useExample(example)}
+                      className="text-left p-4 bg-blue-50 border border-blue-200 rounded-lg hover:bg-blue-100 transition-colors"
+                    >
+                      <p className="font-medium text-blue-900">{example.title}</p>
+                      <p className="text-sm text-blue-700 mt-1 line-clamp-2">{example.description}</p>
+                    </button>
+                  ))}
+                </div>
+              )}
 
-            {/* Description */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Test Description <span className="text-red-500">*</span>
-              </label>
-              <p className="text-xs text-gray-500 mb-2">
-                Describe what the test should do in natural language. Be specific about user actions and expected behaviors.
-              </p>
-              <textarea
-                value={testDescription}
-                onChange={(e) => setTestDescription(e.target.value)}
-                placeholder="Describe the test scenario in detail. For example:&#10;&#10;1. Open the app and wait for splash screen&#10;2. User enters phone number 9876543210&#10;3. User taps on 'Get OTP' button&#10;4. User receives OTP and enters it&#10;5. User should be navigated to home screen"
-                className="w-full h-40 border border-gray-300 rounded-lg px-4 py-3 text-sm resize-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-              />
-            </div>
+              <div className="bg-white rounded-xl border border-gray-200 p-6 space-y-5">
+                <div className="flex items-center gap-2 mb-2">
+                  <Edit3 className="w-5 h-5 text-blue-600" />
+                  <h2 className="font-semibold text-gray-900">
+                    {createdTestCases.length > 0 ? 'Add Another Test Case' : 'Test Case Details'}
+                  </h2>
+                </div>
 
-            {/* Preconditions */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Preconditions (Optional)
-              </label>
-              <p className="text-xs text-gray-500 mb-2">
-                What needs to be true before this test can run?
-              </p>
-              <div className="space-y-2">
-                {preconditions.map((precondition, idx) => (
-                  <div key={idx} className="flex items-center gap-2">
-                    <input
-                      type="text"
-                      value={precondition}
-                      onChange={(e) => updatePrecondition(idx, e.target.value)}
-                      placeholder={`e.g., User must be logged out, App freshly installed`}
-                      className="flex-1 border border-gray-300 rounded-lg px-4 py-2 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    />
-                    {preconditions.length > 1 && (
-                      <button
-                        onClick={() => removePrecondition(idx)}
-                        className="p-2 text-gray-400 hover:text-red-500"
-                      >
-                        <Trash2 className="w-4 h-4" />
-                      </button>
-                    )}
+                {/* Title */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Test Title <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    value={testTitle}
+                    onChange={(e) => setTestTitle(e.target.value)}
+                    placeholder="e.g., Verify user login with valid phone number"
+                    className="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  />
+                </div>
+
+                {/* Description */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Test Description <span className="text-red-500">*</span>
+                  </label>
+                  <p className="text-xs text-gray-500 mb-2">
+                    Describe what the test should do in natural language. Be specific about user actions.
+                  </p>
+                  <textarea
+                    value={testDescription}
+                    onChange={(e) => setTestDescription(e.target.value)}
+                    placeholder="Describe the test scenario in detail..."
+                    className="w-full h-32 border border-gray-300 rounded-lg px-4 py-3 text-sm resize-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  />
+                </div>
+
+                {/* Preconditions */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Preconditions (Optional)
+                  </label>
+                  <div className="space-y-2">
+                    {preconditions.map((precondition, idx) => (
+                      <div key={idx} className="flex items-center gap-2">
+                        <input
+                          type="text"
+                          value={precondition}
+                          onChange={(e) => updatePrecondition(idx, e.target.value)}
+                          placeholder="e.g., User must be logged out"
+                          className="flex-1 border border-gray-300 rounded-lg px-4 py-2 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                        />
+                        {preconditions.length > 1 && (
+                          <button
+                            onClick={() => removePrecondition(idx)}
+                            className="p-2 text-gray-400 hover:text-red-500"
+                          >
+                            <Trash2 className="w-4 h-4" />
+                          </button>
+                        )}
+                      </div>
+                    ))}
+                    <button
+                      onClick={addPrecondition}
+                      className="flex items-center gap-1 text-sm text-blue-600 hover:text-blue-700"
+                    >
+                      <Plus className="w-4 h-4" />
+                      Add precondition
+                    </button>
                   </div>
-                ))}
+                </div>
+
+                {/* Expected Outcome */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Expected Outcome (Optional)
+                  </label>
+                  <input
+                    type="text"
+                    value={expectedOutcome}
+                    onChange={(e) => setExpectedOutcome(e.target.value)}
+                    placeholder="e.g., User is successfully logged in"
+                    className="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  />
+                </div>
+
+                {/* Priority */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Priority</label>
+                  <div className="flex gap-3">
+                    {(['High', 'Medium', 'Low'] as const).map((p) => (
+                      <button
+                        key={p}
+                        onClick={() => setPriority(p)}
+                        className={`px-4 py-2 rounded-lg text-sm font-medium border transition-all ${
+                          priority === p
+                            ? p === 'High'
+                              ? 'bg-red-100 border-red-300 text-red-700'
+                              : p === 'Medium'
+                              ? 'bg-yellow-100 border-yellow-300 text-yellow-700'
+                              : 'bg-green-100 border-green-300 text-green-700'
+                            : 'bg-gray-50 border-gray-200 text-gray-600 hover:bg-gray-100'
+                        }`}
+                      >
+                        {p}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Generate Button */}
                 <button
-                  onClick={addPrecondition}
-                  className="flex items-center gap-1 text-sm text-blue-600 hover:text-blue-700"
+                  onClick={handleGeneratePreview}
+                  disabled={!canGeneratePreview || loading}
+                  className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed"
                 >
-                  <Plus className="w-4 h-4" />
-                  Add precondition
+                  {loading ? (
+                    <>
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                      Generating Preview...
+                    </>
+                  ) : (
+                    <>
+                      <Sparkles className="w-4 h-4" />
+                      Generate Test Case Preview
+                    </>
+                  )}
                 </button>
               </div>
-            </div>
+            </>
+          )}
 
-            {/* Expected Outcome */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Expected Outcome (Optional)
-              </label>
-              <input
-                type="text"
-                value={expectedOutcome}
-                onChange={(e) => setExpectedOutcome(e.target.value)}
-                placeholder="e.g., User is successfully logged in and sees the home screen"
-                className="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-              />
-            </div>
-
-            {/* Priority */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Priority
-              </label>
-              <div className="flex gap-3">
-                {(['High', 'Medium', 'Low'] as const).map((p) => (
-                  <button
-                    key={p}
-                    onClick={() => setPriority(p)}
-                    className={`px-4 py-2 rounded-lg text-sm font-medium border transition-all ${
-                      priority === p
-                        ? p === 'High'
-                          ? 'bg-red-100 border-red-300 text-red-700'
-                          : p === 'Medium'
-                          ? 'bg-yellow-100 border-yellow-300 text-yellow-700'
-                          : 'bg-green-100 border-green-300 text-green-700'
-                        : 'bg-gray-50 border-gray-200 text-gray-600 hover:bg-gray-100'
-                    }`}
-                  >
-                    {p}
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Error */}
           {error && (
             <div className="flex items-start gap-3 p-4 bg-red-50 border border-red-200 rounded-lg">
               <AlertCircle className="w-5 h-5 text-red-500 flex-shrink-0" />
@@ -582,128 +713,128 @@ App Context:
             </div>
           )}
 
-          {/* Action Buttons */}
+          {/* Bottom Actions */}
           <div className="flex items-center justify-between">
             <button
               onClick={() => setCurrentStep(1)}
               className="flex items-center gap-2 px-4 py-2 text-gray-600 hover:text-gray-800"
             >
               <ArrowLeft className="w-4 h-4" />
-              Back
+              Back to Build
             </button>
-            <button
-              onClick={handleGeneratePreview}
-              disabled={!canProceedToStep3 || loading}
-              className="flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-lg font-medium hover:bg-green-700 disabled:bg-gray-300 disabled:cursor-not-allowed"
-            >
-              {loading ? (
-                <>
-                  <Loader2 className="w-4 h-4 animate-spin" />
-                  Generating...
-                </>
-              ) : (
-                <>
-                  <Eye className="w-4 h-4" />
-                  Preview Test Case
-                </>
-              )}
-            </button>
+
+            {(createdTestCases.length > 0 || previewTestCase) && (
+              <button
+                onClick={handleSaveCurrentAndContinue}
+                className="flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-lg font-medium hover:bg-green-700"
+              >
+                <Play className="w-4 h-4" />
+                Continue to Device Selection
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            )}
           </div>
         </div>
       )}
 
-      {/* Step 3: Preview & Generate */}
-      {currentStep === 3 && generatedTestCase && (
+      {/* Step 3: Review & Continue */}
+      {currentStep === 3 && (
         <div className="space-y-6">
           <div className="bg-white rounded-xl border border-gray-200 p-6">
-            <div className="flex items-center gap-2 mb-4">
-              <Code className="w-5 h-5 text-purple-600" />
-              <h2 className="font-semibold text-gray-900">Generated Test Case Preview</h2>
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="font-semibold text-gray-900 flex items-center gap-2">
+                <FileText className="w-5 h-5 text-green-600" />
+                Review Test Cases ({createdTestCases.length})
+              </h2>
+              <button
+                onClick={() => setCurrentStep(2)}
+                className="flex items-center gap-1 text-sm text-blue-600 hover:text-blue-700"
+              >
+                <Plus className="w-4 h-4" />
+                Add More
+              </button>
             </div>
 
             <div className="space-y-4">
-              {/* Title & Priority */}
-              <div className="flex items-start justify-between">
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-900">{generatedTestCase.title}</h3>
-                  <p className="text-sm text-gray-500 mt-1">{generatedTestCase.category}</p>
+              {createdTestCases.map((tc, idx) => (
+                <div key={tc.id} className="border border-gray-200 rounded-lg overflow-hidden">
+                  <div className="flex items-center justify-between p-4 bg-gray-50">
+                    <div className="flex items-center gap-3">
+                      <span className="w-6 h-6 flex items-center justify-center bg-green-100 text-green-700 rounded-full text-sm font-medium">
+                        {idx + 1}
+                      </span>
+                      <div>
+                        <p className="font-medium text-gray-900">{tc.title}</p>
+                        <p className="text-xs text-gray-500">{tc.category} • {tc.priority} priority</p>
+                      </div>
+                    </div>
+                    <button
+                      onClick={() => handleRemoveFromList(tc.id)}
+                      className="p-2 text-gray-400 hover:text-red-500 hover:bg-red-50 rounded"
+                    >
+                      <Trash2 className="w-4 h-4" />
+                    </button>
+                  </div>
+                  <div className="p-4 space-y-3 text-sm">
+                    <div>
+                      <p className="font-medium text-gray-700 mb-1">Steps:</p>
+                      <ol className="list-decimal list-inside text-gray-600 space-y-1">
+                        {tc.steps.map((step, sidx) => (
+                          <li key={sidx}>{step}</li>
+                        ))}
+                      </ol>
+                    </div>
+                    <div>
+                      <p className="font-medium text-gray-700 mb-1">Expected Result:</p>
+                      <p className="text-gray-600">{tc.expected_result}</p>
+                    </div>
+                  </div>
                 </div>
-                <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-                  generatedTestCase.priority === 'High'
-                    ? 'bg-red-100 text-red-700'
-                    : generatedTestCase.priority === 'Medium'
-                    ? 'bg-yellow-100 text-yellow-700'
-                    : 'bg-green-100 text-green-700'
-                }`}>
-                  {generatedTestCase.priority}
-                </span>
-              </div>
-
-              {/* Description */}
-              <div>
-                <p className="text-sm font-medium text-gray-700 mb-1">Description</p>
-                <p className="text-sm text-gray-600 bg-gray-50 rounded-lg p-3">
-                  {generatedTestCase.description}
-                </p>
-              </div>
-
-              {/* Preconditions */}
-              {generatedTestCase.preconditions.length > 0 && (
-                <div>
-                  <p className="text-sm font-medium text-gray-700 mb-1">Preconditions</p>
-                  <ul className="list-disc list-inside text-sm text-gray-600 bg-gray-50 rounded-lg p-3 space-y-1">
-                    {generatedTestCase.preconditions.map((pc, idx) => (
-                      <li key={idx}>{pc}</li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-
-              {/* Steps */}
-              <div>
-                <p className="text-sm font-medium text-gray-700 mb-1">Test Steps</p>
-                <ol className="list-decimal list-inside text-sm text-gray-600 bg-gray-50 rounded-lg p-3 space-y-2">
-                  {generatedTestCase.steps.map((step, idx) => (
-                    <li key={idx} className="pl-1">{step}</li>
-                  ))}
-                </ol>
-              </div>
-
-              {/* Expected Result */}
-              <div>
-                <p className="text-sm font-medium text-gray-700 mb-1">Expected Result</p>
-                <p className="text-sm text-gray-600 bg-green-50 border border-green-200 rounded-lg p-3">
-                  {generatedTestCase.expected_result}
-                </p>
-              </div>
+              ))}
             </div>
+
+            {createdTestCases.length === 0 && (
+              <div className="text-center py-8 text-gray-500">
+                <FileText className="w-10 h-10 mx-auto mb-2 text-gray-300" />
+                <p>No test cases created yet</p>
+                <button
+                  onClick={() => setCurrentStep(2)}
+                  className="mt-2 text-blue-600 hover:underline text-sm"
+                >
+                  Go back to write test cases
+                </button>
+              </div>
+            )}
           </div>
 
-          {/* Action Buttons */}
+          {/* Build Info Reminder */}
+          {selectedBuild && (
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+              <p className="text-sm text-blue-800">
+                <span className="font-medium">Selected Build:</span> {selectedBuild.file_name} ({selectedBuild.app_package})
+              </p>
+            </div>
+          )}
+
+          {/* Actions */}
           <div className="flex items-center justify-between">
             <button
               onClick={() => setCurrentStep(2)}
               className="flex items-center gap-2 px-4 py-2 text-gray-600 hover:text-gray-800"
             >
               <ArrowLeft className="w-4 h-4" />
-              Edit Test Case
+              Back to Write Tests
             </button>
-            <div className="flex items-center gap-3">
-              <button
-                onClick={handleAddAnother}
-                className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50"
-              >
-                <Plus className="w-4 h-4" />
-                Add Another
-              </button>
-              <button
-                onClick={handleSaveAndContinue}
-                className="flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-lg font-medium hover:bg-green-700"
-              >
-                <Play className="w-4 h-4" />
-                Save & Continue to Execution
-              </button>
-            </div>
+
+            <button
+              onClick={handleContinueToDevices}
+              disabled={createdTestCases.length === 0}
+              className="flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-lg font-medium hover:bg-green-700 disabled:bg-gray-300 disabled:cursor-not-allowed"
+            >
+              <Play className="w-4 h-4" />
+              Continue to Device Selection
+              <ArrowRight className="w-4 h-4" />
+            </button>
           </div>
         </div>
       )}
