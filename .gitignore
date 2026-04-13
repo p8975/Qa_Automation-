@@ -64,3 +64,4 @@ coverage/
 
 # Build storage (contains uploaded APKs)
 backend/storage/builds/*/
+*.md
