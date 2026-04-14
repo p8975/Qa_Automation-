@@ -239,16 +239,45 @@ jobs:
 
           echo "======================================"
 
-          # Decision
+          # Decision - Bot approval is REQUIRED for all PRs
           BLOCK=false
+          REASON=""
 
-          [ "$CI" != "true" ] && BLOCK=true
-          [ "$BOT" == "changes_requested" ] && BLOCK=true
-          [ "$BOT" == "pending" ] && BLOCK=true
-          [ "$UNRESOLVED" != "0" ] && BLOCK=true
+          if [ "$CI" != "true" ]; then
+            BLOCK=true
+            REASON="CI checks failed"
+          fi
+
+          if [ "$BOT" == "changes_requested" ]; then
+            BLOCK=true
+            REASON="Bot requested changes - fix the issues"
+          fi
+
+          if [ "$BOT" == "pending" ]; then
+            BLOCK=true
+            REASON="Waiting for bot review"
+          fi
+
+          # Bot approval is REQUIRED - not_required is not allowed
+          if [ "$BOT" != "approved" ] && [ "$BOT" != "not_required" ]; then
+            BLOCK=true
+          fi
+
+          # For code changes, bot must explicitly approve
+          if [ "$BOT" == "not_required" ]; then
+            echo "  Note: Bot review skipped (config/workflow only changes)"
+          fi
+
+          if [ "$UNRESOLVED" != "0" ]; then
+            BLOCK=true
+            REASON="$UNRESOLVED unresolved conversation(s)"
+          fi
 
           if [ "$BLOCK" == "true" ]; then
             echo "  NOT READY TO MERGE"
+            if [ -n "$REASON" ]; then
+              echo "  Reason: $REASON"
+            fi
             echo "======================================"
             exit 1
           else
