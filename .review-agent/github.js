@@ -579,3 +579,69 @@ export async function updateReviewLabel(status) {
   await removeAllBotLabels();
   await addLabel(labelConfig.name);
 }
+
+/**
+ * Check if CI checks have passed for the PR
+ * Returns: { passed: boolean, pending: boolean, details: string[] }
+ */
+export async function checkCIStatus() {
+  const PR_HEAD_SHA = process.env.PR_HEAD_SHA;
+
+  const requiredChecks = [
+    'Frontend Checks',
+    'Backend Checks',
+  ];
+
+  const maxWaitMs = 5 * 60 * 1000; // 5 minutes
+  const pollMs = 15 * 1000; // 15 seconds
+  const startTime = Date.now();
+
+  console.log("   Waiting for CI checks to complete before approval decision...");
+
+  while (Date.now() - startTime < maxWaitMs) {
+    const response = await fetch(
+      `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/commits/${PR_HEAD_SHA}/check-runs`,
+      { headers }
+    );
+
+    if (!response.ok) {
+      console.log(`   Failed to get check runs: ${response.statusText}`);
+      return { passed: false, pending: true, details: ['Failed to fetch CI status'] };
+    }
+
+    const data = await response.json();
+    const checkRuns = data.check_runs || [];
+
+    let allDone = true;
+    let anyFailed = false;
+    const details = [];
+
+    for (const name of requiredChecks) {
+      const check = checkRuns.find(c => c.name === name);
+
+      if (!check) {
+        details.push(`${name}: not started`);
+        allDone = false;
+      } else if (check.status !== 'completed') {
+        details.push(`${name}: ${check.status}`);
+        allDone = false;
+      } else if (check.conclusion === 'success' || check.conclusion === 'skipped') {
+        details.push(`${name}: ${check.conclusion}`);
+      } else {
+        details.push(`${name}: ${check.conclusion}`);
+        anyFailed = true;
+      }
+    }
+
+    if (allDone) {
+      console.log(`   CI Status: ${details.join(', ')}`);
+      return { passed: !anyFailed, pending: false, details };
+    }
+
+    console.log(`   CI still running: ${details.join(', ')} - waiting ${pollMs/1000}s...`);
+    await new Promise(r => setTimeout(r, pollMs));
+  }
+
+  console.log("   Timeout waiting for CI checks");
+  return { passed: false, pending: true, details: ['Timeout waiting for CI'] };
+}

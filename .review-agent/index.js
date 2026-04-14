@@ -20,6 +20,7 @@ import {
   getPRDiffWithFallback,
   buildDiffFromPatches,
   setCurrentDiff,
+  checkCIStatus,
 } from "./github.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -338,7 +339,7 @@ async function main() {
     }
 
     // Determine status and review event
-    const status = determineStatus(comments);
+    let status = determineStatus(comments);
     const reviewEvent = getReviewEvent(status);
     console.log(`\n   Review status: ${status} (${reviewEvent})`);
 
@@ -364,15 +365,41 @@ async function main() {
         }
       }
     } else {
-      console.log("   No issues found, approving PR...");
-      try {
-        const approvalMsg =
-          REVIEW_MODE === "council"
-            ? "LGTM! No issues found by the Code Review Council (5 specialized reviewers)."
-            : "LGTM! No issues found by automated review.";
-        await submitPRReview("APPROVE", approvalMsg);
-      } catch (error) {
-        console.log("   Failed to submit approval:", error.message);
+      console.log("   No issues found by code review.");
+
+      // Check CI status before approving
+      console.log("\n   Checking CI status before approval...");
+      const ciStatus = await checkCIStatus();
+
+      if (ciStatus.passed) {
+        console.log("   CI checks passed - approving PR...");
+        try {
+          const approvalMsg =
+            REVIEW_MODE === "council"
+              ? "LGTM! No issues found by the Code Review Council (5 specialized reviewers). CI checks passed."
+              : "LGTM! No issues found by automated review. CI checks passed.";
+          await submitPRReview("APPROVE", approvalMsg);
+        } catch (error) {
+          console.log("   Failed to submit approval:", error.message);
+        }
+      } else if (ciStatus.pending) {
+        console.log("   CI checks still pending - skipping approval for now");
+        await postComment(
+          `**Bot Review Complete** - No issues found.\n\n` +
+          `Waiting for CI checks to complete before approval.\n\n` +
+          `CI Status: ${ciStatus.details.join(', ')}`
+        );
+        // Don't approve, don't fail - just comment
+        // The merge-gate will re-run when CI completes
+      } else {
+        console.log("   CI checks failed - cannot approve");
+        await postComment(
+          `**Bot Review Complete** - No code issues found.\n\n` +
+          `However, CI checks have failed. Please fix the CI issues before this PR can be approved.\n\n` +
+          `CI Status:\n${ciStatus.details.map(d => `- ${d}`).join('\n')}`
+        );
+        // Update label to show bot found no issues but CI failed
+        status = "comments"; // Override to prevent "approved" label
       }
     }
 
