@@ -3,7 +3,7 @@ NavigationService: Handles automatic navigation to target screens before test ex
 """
 
 import time
-from typing import Optional, Dict, Any
+from typing import Optional, Dict
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from appium.webdriver.common.appiumby import AppiumBy
@@ -42,7 +42,7 @@ class NavigationService:
 
             # If on auth screen, handle login first
             if current_screen in ['login', 'otp', 'auth']:
-                print(f"  On auth screen, attempting login...")
+                print("  On auth screen, attempting login...")
                 credentials = {'phone': '2022123418', 'otp': '3418'}
                 self.handle_auth_screen(credentials)
                 time.sleep(1.5)  # Reduced from 3
@@ -206,7 +206,7 @@ class NavigationService:
     def _try_login(self, credentials: dict) -> bool:
         """Try to login with provided credentials. OPTIMIZED with reduced waits."""
         try:
-            print(f"  Attempting login with credentials...")
+            print("  Attempting login with credentials...")
 
             # Find phone/username field - usually first EditText
             fields = self.driver.find_elements(AppiumBy.CLASS_NAME, "android.widget.EditText")

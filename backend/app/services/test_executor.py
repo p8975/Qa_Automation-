@@ -6,21 +6,18 @@ import time
 import uuid
 from datetime import datetime
 from typing import List, Optional, Dict
-from pathlib import Path
 
 from app.models import (
     TestRunEntity, TestResult, TestStatus, StepResult, StepStatus,
-    TestRunStatus, TestCaseEntity, DeviceInfo
+    TestRunStatus, TestCaseEntity
 )
 from app.services.appium_service import AppiumService
 from app.services.device_manager import DeviceManager
 from app.services.ai_step_translator import AIStepTranslator
 from app.services.codebase_analyzer import CodebaseAnalyzer
-from app.services.navigation_service import NavigationService
 from app.services.dynamic_element_discovery import DynamicElementDiscovery
 from app.services.flutter_locator_service import FlutterLocatorService
 from app.services.stage_key_mapper import StageKeyMapper
-from app.services.screen_state_detector import ScreenStateDetector
 from app.repositories.test_run_repository import TestRunRepository
 from app.repositories.element_map_repository import ElementMapRepository
 from app.repositories.build_repository import BuildRepository
@@ -214,7 +211,7 @@ class TestExecutor:
             int: Number of dialogs dismissed
         """
         from appium.webdriver.common.appiumby import AppiumBy
-        from selenium.common.exceptions import NoSuchElementException, TimeoutException
+        from selenium.common.exceptions import NoSuchElementException
 
         dismissed_count = 0
 
@@ -292,7 +289,6 @@ class TestExecutor:
             bool: True if app is ready, False if timeout reached
         """
         from appium.webdriver.common.appiumby import AppiumBy
-        from selenium.common.exceptions import NoSuchElementException
 
         timeout = timeout or self.app_ready_timeout
         start_time = time.time()
@@ -496,7 +492,7 @@ class TestExecutor:
                 time.sleep(2)
                 self._dismiss_permission_dialogs(driver)
                 if self._wait_for_app_ready(driver, timeout=10):
-                    print(f"  ✓ Navigated to Login via app relaunch")
+                    print("  ✓ Navigated to Login via app relaunch")
                     return True
             except Exception as e:
                 print(f"  → Navigation failed: {e}")
@@ -889,7 +885,6 @@ class TestExecutor:
         screenshot_dir = self.test_run_repository.get_screenshot_dir(run_id)
         screenshot_dir.mkdir(parents=True, exist_ok=True)
 
-        from appium.webdriver.common.appiumby import AppiumBy
 
         # PHASE 1: Analyze test case context
         print(f"\n🔍 Test case: {test_case.title}")
@@ -967,10 +962,10 @@ class TestExecutor:
                     # SPECIAL HANDLING: Verification steps - check text presence
                     verification_passed = self._verify_text_on_screen(step.description, driver, discovered_elements)
                     if verification_passed:
-                        print(f"    ✓ Verification passed")
+                        print("    ✓ Verification passed")
                         command = f"# Verified: {step.description[:50]}..."
                     else:
-                        raise ValueError(f"Verification failed: expected content not found on screen")
+                        raise ValueError("Verification failed: expected content not found on screen")
 
                 else:
                     # Find element using multiple strategies
@@ -980,7 +975,7 @@ class TestExecutor:
 
                     if step.locator_override:
                         command = step.locator_override
-                        print(f"    Using manual locator override")
+                        print("    Using manual locator override")
                     else:
                         # Strategy 1: Direct keyword match on discovered elements
                         for keyword in step_keywords:
@@ -1053,7 +1048,7 @@ class TestExecutor:
                             action=action,
                             text_input=text_to_input
                         )
-                        print(f"    >>> EXECUTED SUCCESSFULLY")
+                        print("    >>> EXECUTED SUCCESSFULLY")
                     elif element_info and isinstance(element_info, str):
                         # Strategies 4, 6 - element_info is an xpath string
                         print(f"    >>> EXECUTING XPATH: {element_info[:60]}")
@@ -1064,15 +1059,15 @@ class TestExecutor:
                             action=action,
                             text_input=text_to_input
                         )
-                        print(f"    >>> EXECUTED SUCCESSFULLY")
+                        print("    >>> EXECUTED SUCCESSFULLY")
                     else:
                         # Fallback to string parsing (locator_override case)
-                        print(f"    >>> FALLBACK: Using _execute_command")
+                        print("    >>> FALLBACK: Using _execute_command")
                         self._execute_command(driver, command)
 
                 # Brief pause after action to let UI settle
                 time.sleep(self.post_action_delay)
-                print(f"    ✓ Step executed successfully")
+                print("    ✓ Step executed successfully")
                 _add_execution_log(run_id, f"✓ Step {idx} PASSED", "success")
 
             except Exception as e:
@@ -1290,7 +1285,7 @@ class TestExecutor:
             
             # Check if we navigated to a new screen (elements changed significantly)
             if len(new_elements) != len(discovered_elements):
-                print(f"    ✓ Screen changed after click (validation passed)")
+                print("    ✓ Screen changed after click (validation passed)")
                 return True
             
             # Check for confirmation messages
@@ -1298,7 +1293,7 @@ class TestExecutor:
             for elem_id, elem_info in new_elements.items():
                 elem_text = (elem_info.get("text", "") + elem_info.get("content_desc", "")).lower()
                 if any(word in elem_text for word in confirm_words):
-                    print(f"    ✓ Confirmation element found")
+                    print("    ✓ Confirmation element found")
                     return True
             
             return True  # Assume click worked if no exception
@@ -1371,7 +1366,6 @@ class TestExecutor:
 
     def _detect_screen_fast(self, driver) -> str:
         """Quick screen detection using native UiAutomator2 (no FlutterLocator)."""
-        from appium.webdriver.common.appiumby import AppiumBy
 
         screen_indicators = {
             'login': ['लॉगिन करें', '+91', 'Login', 'phone', 'Continue with Google'],

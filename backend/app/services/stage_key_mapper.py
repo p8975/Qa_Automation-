@@ -177,7 +177,7 @@ class StageKeyMapper:
             'tap', 'click', 'press', 'enter', 'type', 'input', 'select',
             'toggle', 'verify', 'check', 'see', 'should', 'ensure', 'the',
             'on', 'a', 'an', 'to', 'from', 'with', 'in', 'of', 'is', 'are',
-            'button', 'field', 'input', 'text', 'screen', 'page', 'user'
+            'button', 'field', 'text', 'screen', 'page', 'user'
         }
 
         words = re.findall(r'\b[a-zA-Z]{3,}\b', step_lower)

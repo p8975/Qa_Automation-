@@ -1,7 +1,5 @@
 import PyPDF2
 import docx
-import markdown
-from typing import Optional
 import io
 
 
@@ -46,9 +44,7 @@ class DocumentParser:
         """Extract text from Markdown file."""
         try:
             md_text = file_bytes.decode('utf-8')
-            # Convert markdown to HTML then strip tags for plain text
-            html = markdown.markdown(md_text)
-            # For now, just return the raw markdown (more readable for AI)
+            # Return raw markdown (more readable for AI)
             return md_text
         except Exception as e:
             raise ValueError(f"Failed to parse Markdown: {str(e)}")

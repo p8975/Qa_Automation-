@@ -1,0 +1,87 @@
+# Ruff configuration for QA Automation Platform
+# https://docs.astral.sh/ruff/configuration/
+
+# Target Python version
+target-version = "py310"
+
+# Line length
+line-length = 120
+
+[lint]
+# Enable these rule categories - focused on catching real bugs and security issues
+select = [
+    "E",      # pycodestyle errors
+    "W",      # pycodestyle warnings
+    "F",      # Pyflakes (unused imports, undefined names, etc.)
+    "B",      # flake8-bugbear (common bugs)
+    "S",      # flake8-bandit (security) - critical for QA platform
+]
+
+# Ignore these specific rules
+ignore = [
+    # Style preferences - not critical
+    "E501",   # Line too long (handled by formatter if needed)
+    "E722",   # Bare except (common pattern in this codebase)
+    "W291",   # Trailing whitespace
+    "W293",   # Blank line with whitespace
+
+    # Security rules that are too strict for this codebase
+    "S101",   # Assert used (acceptable in QA automation)
+    "S104",   # Possible binding to all interfaces (needed for API)
+    "S108",   # Probable insecure temp file usage
+    "S110",   # try-except-pass (used for optional error handling)
+    "S112",   # try-except-continue (used in loops)
+    "S324",   # Insecure hash function (MD5 used for non-crypto purposes)
+    "S603",   # subprocess without shell=True check
+    "S602",   # subprocess with shell=True (needed for some commands)
+    "S607",   # start-process-with-partial-path
+    "S314",   # XML parsing (not a concern here)
+    "S105",   # Hardcoded password (false positives on variable names)
+
+    # Bugbear rules that conflict with FastAPI patterns
+    "B008",   # Function call in default argument (FastAPI Depends pattern)
+    "B904",   # raise-without-from (not critical)
+    "B007",   # Unused loop control variable (common pattern)
+]
+
+# Allow autofix for all enabled rules
+fixable = ["ALL"]
+unfixable = []
+
+# Exclude these paths
+exclude = [
+    ".git",
+    ".venv",
+    "venv",
+    "__pycache__",
+    "*.pyc",
+    ".ruff_cache",
+    "node_modules",
+    "build",
+    "dist",
+    "*.egg-info",
+]
+
+[lint.per-file-ignores]
+# Tests can have assertions and unused variables
+"**/tests/**/*.py" = ["S101", "F841"]
+"**/test_*.py" = ["S101", "F841"]
+# Services may have complex error handling
+"**/services/**/*.py" = ["E722"]
+# Init files often have unused imports for re-export
+"**/__init__.py" = ["F401"]
+
+[lint.isort]
+known-first-party = ["app"]
+force-single-line = false
+lines-after-imports = 2
+
+[format]
+# Use double quotes for strings
+quote-style = "double"
+# Indent with spaces
+indent-style = "space"
+# Respect magic trailing commas
+skip-magic-trailing-comma = false
+# Unix line endings
+line-ending = "auto"
