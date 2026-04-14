@@ -64,4 +64,8 @@ coverage/
 
 # Build storage (contains uploaded APKs)
 backend/storage/builds/*/
+
+# Markdown files (except CLAUDE.md)
 *.md
+!.claude/CLAUDE.md
+!CLAUDE.md
