@@ -1,0 +1,257 @@
+name: Merge Ready Gate
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+    branches: [main]
+  pull_request_review:
+    types: [submitted, dismissed]
+
+jobs:
+  merge-ready:
+    name: "Merge Ready"
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Get PR info
+        id: pr-info
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const prNumber = context.payload.pull_request.number;
+            const sha = context.payload.pull_request.head.sha;
+
+            console.log(`PR #${prNumber}, SHA: ${sha}`);
+            core.setOutput('pr-number', prNumber);
+            core.setOutput('sha', sha);
+
+      - name: Wait for CI checks
+        id: wait-ci
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const sha = '${{ steps.pr-info.outputs.sha }}';
+
+            const requiredChecks = [
+              'Frontend Checks',
+              'Backend Checks',
+            ];
+
+            const maxWaitMs = 10 * 60 * 1000; // 10 minutes
+            const pollMs = 30 * 1000; // 30 seconds
+            const startTime = Date.now();
+
+            console.log('Waiting for required CI checks to complete...\n');
+
+            while (Date.now() - startTime < maxWaitMs) {
+              const { data: checkRuns } = await github.rest.checks.listForRef({
+                owner, repo, ref: sha,
+              });
+
+              let allDone = true;
+              let anyFailed = false;
+              const status = [];
+
+              for (const name of requiredChecks) {
+                const check = checkRuns.check_runs.find(c => c.name === name);
+
+                if (!check) {
+                  status.push(`Waiting: ${name}: not started`);
+                  allDone = false;
+                } else if (check.status !== 'completed') {
+                  status.push(`Waiting: ${name}: ${check.status}`);
+                  allDone = false;
+                } else if (check.conclusion === 'success' || check.conclusion === 'skipped') {
+                  status.push(`Passed: ${name}: ${check.conclusion}`);
+                } else {
+                  status.push(`Failed: ${name}: ${check.conclusion}`);
+                  anyFailed = true;
+                  allDone = true;
+                }
+              }
+
+              console.log(status.join('\n'));
+
+              if (allDone) {
+                core.setOutput('passed', (!anyFailed).toString());
+                return;
+              }
+
+              console.log(`\nWaiting ${pollMs/1000}s...\n`);
+              await new Promise(r => setTimeout(r, pollMs));
+            }
+
+            console.log('Timeout waiting for CI checks');
+            core.setOutput('passed', 'false');
+
+      - name: Check bot review
+        id: bot-review
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const prNumber = parseInt('${{ steps.pr-info.outputs.pr-number }}');
+
+            // Check if PR has code changes that require bot review
+            const { data: files } = await github.rest.pulls.listFiles({
+              owner, repo, pull_number: prNumber,
+            });
+
+            const codeFiles = files.filter(f =>
+              f.filename.startsWith('frontend/src/') ||
+              f.filename.startsWith('backend/app/') ||
+              f.filename.startsWith('.review-agent/')
+            );
+
+            // Check if PR only contains workflow/config changes
+            const workflowOnlyChanges = files.every(f =>
+              f.filename.startsWith('.github/') ||
+              f.filename === 'package.json' ||
+              f.filename === 'package-lock.json' ||
+              f.filename === 'requirements.txt' ||
+              f.filename.endsWith('.config.js') ||
+              f.filename.endsWith('.config.ts')
+            );
+
+            if (workflowOnlyChanges) {
+              console.log('Workflow/config changes only - bot review not required');
+              core.setOutput('status', 'not_required');
+              return;
+            }
+
+            if (codeFiles.length === 0) {
+              console.log('No code changes - bot review not required');
+              core.setOutput('status', 'not_required');
+              return;
+            }
+
+            // Get reviews
+            const { data: reviews } = await github.rest.pulls.listReviews({
+              owner, repo, pull_number: prNumber,
+            });
+
+            const botReviews = reviews.filter(r =>
+              r.user.login === 'github-actions[bot]' || r.user.type === 'Bot'
+            );
+
+            if (botReviews.length === 0) {
+              console.log('Waiting for bot review');
+              core.setOutput('status', 'pending');
+              return;
+            }
+
+            const latest = botReviews[botReviews.length - 1];
+            console.log(`Bot review: ${latest.state}`);
+
+            if (latest.state === 'APPROVED') {
+              core.setOutput('status', 'approved');
+            } else if (latest.state === 'CHANGES_REQUESTED') {
+              core.setOutput('status', 'changes_requested');
+            } else {
+              core.setOutput('status', latest.state.toLowerCase());
+            }
+
+      - name: Check conversations
+        id: conversations
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const prNumber = parseInt('${{ steps.pr-info.outputs.pr-number }}');
+
+            // Check unresolved review threads, but ignore bot comments
+            const result = await github.graphql(`
+              query($owner: String!, $repo: String!, $pr: Int!) {
+                repository(owner: $owner, name: $repo) {
+                  pullRequest(number: $pr) {
+                    reviewThreads(first: 100) {
+                      nodes {
+                        isResolved
+                        comments(first: 10) {
+                          nodes {
+                            author { login }
+                            body
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            `, { owner, repo, pr: prNumber });
+
+            const threads = result.repository.pullRequest.reviewThreads.nodes;
+
+            // Known bot accounts that should not block merges
+            const botLogins = [
+              'github-actions[bot]',
+              'github-actions',
+              'dependabot[bot]',
+              'dependabot',
+              'renovate[bot]',
+              'renovate',
+            ];
+
+            // Filter to only unresolved threads from humans (not bots)
+            const unresolvedFromHumans = threads.filter(t => {
+              if (t.isResolved) return false;
+              // Check if any comment is from a human
+              const hasHumanComment = t.comments.nodes.some(c =>
+                c.author && !botLogins.some(bot => c.author.login.includes(bot))
+              );
+              return hasHumanComment;
+            });
+
+            console.log(`Review threads: ${threads.length} total, ${unresolvedFromHumans.length} unresolved from humans`);
+            core.setOutput('unresolved', unresolvedFromHumans.length.toString());
+
+      - name: Final decision
+        run: |
+          echo "======================================"
+          echo "         MERGE READY GATE             "
+          echo "======================================"
+
+          CI="${{ steps.wait-ci.outputs.passed }}"
+          BOT="${{ steps.bot-review.outputs.status }}"
+          UNRESOLVED="${{ steps.conversations.outputs.unresolved }}"
+
+          # Display status
+          if [ "$CI" == "true" ]; then
+            echo "  CI Checks:     Passed"
+          else
+            echo "  CI Checks:     Failed"
+          fi
+
+          case "$BOT" in
+            approved)     echo "  Bot Review:    Approved" ;;
+            not_required) echo "  Bot Review:    Not required" ;;
+            pending)      echo "  Bot Review:    Pending" ;;
+            *)            echo "  Bot Review:    $BOT" ;;
+          esac
+
+          if [ "$UNRESOLVED" == "0" ]; then
+            echo "  Conversations: All resolved"
+          else
+            echo "  Conversations: $UNRESOLVED unresolved"
+          fi
+
+          echo "======================================"
+
+          # Decision
+          BLOCK=false
+
+          [ "$CI" != "true" ] && BLOCK=true
+          [ "$BOT" == "changes_requested" ] && BLOCK=true
+          [ "$BOT" == "pending" ] && BLOCK=true
+          [ "$UNRESOLVED" != "0" ] && BLOCK=true
+
+          if [ "$BLOCK" == "true" ]; then
+            echo "  NOT READY TO MERGE"
+            echo "======================================"
+            exit 1
+          else
+            echo "  READY TO MERGE"
+            echo "======================================"
+          fi

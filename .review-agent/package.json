@@ -1,0 +1,14 @@
+{
+  "name": "pr-review-agent",
+  "version": "1.0.0",
+  "description": "Automated PR review agent using Claude AI for QA Automation project",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "capture-feedback": "node capture-feedback.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.24.0"
+  }
+}

@@ -1,0 +1,97 @@
+name: AI Code Review
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    branches: [main]
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+jobs:
+  ai-review:
+    name: AI Code Review
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    # Don't run on draft PRs or closed PRs
+    if: github.event.pull_request.draft == false && github.event.action != 'closed'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check for merge commit
+        id: check-merge
+        run: |
+          COMMIT_MSG=$(git log -1 --pretty=%B)
+          echo "Commit message: $COMMIT_MSG"
+          if [[ "$COMMIT_MSG" == Merge\ branch\ \'main\'\ into* ]] || [[ "$COMMIT_MSG" == chore:\ merge* ]]; then
+            echo "is_merge=true" >> $GITHUB_OUTPUT
+            echo "Skipping review - merge commit detected"
+          else
+            echo "is_merge=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Set up Node.js
+        if: steps.check-merge.outputs.is_merge != 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        if: steps.check-merge.outputs.is_merge != 'true'
+        working-directory: .review-agent
+        run: npm install
+
+      - name: Run PR Review Agent
+        if: steps.check-merge.outputs.is_merge != 'true'
+        working-directory: .review-agent
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          AIROUTER_API_KEY: ${{ secrets.AIROUTER_API_KEY }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_AUTHOR: ${{ github.event.pull_request.user.login }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          REPO_OWNER: ${{ github.repository_owner }}
+          REPO_NAME: ${{ github.event.repository.name }}
+          PR_EVENT: ${{ github.event.action }}
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          REVIEW_MODE: council
+        # 15 minute timeout to fail fast on hung API calls
+        run: timeout 900s node index.js || { echo "Review agent timed out after 15 minutes"; exit 1; }
+
+  # Capture feedback when PR is merged (for self-learning)
+  capture-feedback:
+    name: Capture Review Feedback
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    # Only run when PR is merged (not just closed)
+    if: github.event.action == 'closed' && github.event.pull_request.merged == true
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install agent dependencies
+        working-directory: .review-agent
+        run: npm install
+
+      - name: Capture review feedback
+        working-directory: .review-agent
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO_OWNER: ${{ github.repository_owner }}
+          REPO_NAME: ${{ github.event.repository.name }}
+        run: node capture-feedback.js ${{ github.event.pull_request.number }}
