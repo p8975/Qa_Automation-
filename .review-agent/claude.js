@@ -13,8 +13,8 @@ const CONFIG = {
   maxTokens: parseInt(process.env.REVIEW_MAX_TOKENS, 10) || 30000,
   maxInputTokens: parseInt(process.env.REVIEW_MAX_INPUT_TOKENS, 10) || 28000,
   charsPerToken: 4,
-  baseUrl: process.env.AIROUTER_BASE_URL || "https://api.anthropic.com/v1/messages",
-  model: process.env.REVIEW_MODEL || "claude-sonnet-4-20250514",
+  baseUrl: process.env.AIROUTER_BASE_URL || "http://neorouter.stage.in/v1/chat/completions",
+  model: process.env.REVIEW_MODEL || "auto",
   maxRetries: 2,
   retryBatchDivisor: 2,
 };
@@ -155,15 +155,17 @@ async function callAIRouter(systemPrompt, userPrompt, retryAttempt = 0) {
   const response = await fetch(CONFIG.baseUrl, {
     method: "POST",
     headers: {
-      "x-api-key": apiKey,
-      "anthropic-version": "2023-06-01",
+      Authorization: `Bearer ${apiKey}`,
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
       model: CONFIG.model,
       max_tokens: CONFIG.maxTokens,
-      system: systemPrompt,
       messages: [
+        {
+          role: "system",
+          content: systemPrompt,
+        },
         {
           role: "user",
           content: userPrompt,
@@ -189,21 +191,73 @@ async function callAIRouter(systemPrompt, userPrompt, retryAttempt = 0) {
     throw new Error(`AI API error: ${response.status} - ${errorText}`);
   }
 
-  const data = await response.json();
+  const responseText = await response.text();
 
-  // Anthropic API format
-  if (data.content && Array.isArray(data.content)) {
-    const textContent = data.content.find((c) => c.type === "text");
-    if (textContent) {
+  // Check if response is SSE format (streaming)
+  if (responseText.includes("data: ")) {
+    const lines = responseText.split("\n");
+    let fullContent = "";
+    let usage = null;
+    let modelUsed = null;
+
+    for (const line of lines) {
+      if (line.startsWith(":") || !line.trim()) continue;
+
+      if (line.startsWith("data: ")) {
+        const dataStr = line.slice(6);
+        if (dataStr === "[DONE]") continue;
+
+        try {
+          const chunk = JSON.parse(dataStr);
+          if (chunk.model) modelUsed = chunk.model;
+          if (chunk.choices?.[0]?.delta?.content) {
+            fullContent += chunk.choices[0].delta.content;
+          }
+          if (chunk.usage) usage = chunk.usage;
+        } catch {
+          // Skip malformed chunks
+        }
+      }
+    }
+
+    if (fullContent) {
       return {
-        choices: [{ message: { content: textContent.text } }],
-        usage: data.usage,
-        model: data.model,
+        choices: [{ message: { content: fullContent } }],
+        usage,
+        model: modelUsed,
       };
     }
   }
 
-  throw new Error(`Empty response from AI API`);
+  // Try parsing as JSON (non-streaming OpenAI format)
+  try {
+    const data = JSON.parse(responseText);
+
+    // OpenAI format
+    if (data.choices?.[0]?.message?.content) {
+      return {
+        choices: [{ message: { content: data.choices[0].message.content } }],
+        usage: data.usage,
+        model: data.model,
+      };
+    }
+
+    // Anthropic API format
+    if (data.content && Array.isArray(data.content)) {
+      const textContent = data.content.find((c) => c.type === "text");
+      if (textContent) {
+        return {
+          choices: [{ message: { content: textContent.text } }],
+          usage: data.usage,
+          model: data.model,
+        };
+      }
+    }
+  } catch {
+    // Not valid JSON
+  }
+
+  throw new Error(`Empty response from AI API. Raw: ${responseText.substring(0, 200)}`);
 }
 
 function salvageTruncatedJson(jsonStr) {
