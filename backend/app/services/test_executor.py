@@ -733,8 +733,8 @@ class TestExecutor:
             try:
                 if driver:
                     self.appium_service.disconnect()
-            except Exception:
-                pass
+            except Exception as e:
+                print(f"Warning: Failed to disconnect Appium service: {e}")
 
     def execute_test_run(
         self,
@@ -863,8 +863,8 @@ class TestExecutor:
             try:
                 if driver:
                     self.appium_service.disconnect()
-            except Exception:
-                pass
+            except Exception as e:
+                print(f"Warning: Failed to disconnect Appium service: {e}")
 
         return run_id
 

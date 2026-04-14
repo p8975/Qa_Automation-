@@ -1753,9 +1753,14 @@ async def get_device_screenshot_adb(device_id: str):
     """
     import subprocess
     import base64
+    import re
+
+    # Validate device_id to prevent command injection
+    if not re.match(r'^[a-zA-Z0-9_\-.:]+$', device_id):
+        raise HTTPException(status_code=400, detail="Invalid device ID format")
 
     try:
-        # Use adb to capture screenshot
+        # Use adb to capture screenshot (using list to prevent shell injection)
         result = subprocess.run(
             ['adb', '-s', device_id, 'exec-out', 'screencap', '-p'],
             capture_output=True,

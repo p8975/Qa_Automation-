@@ -2,6 +2,7 @@
 NavigationService: Handles automatic navigation to target screens before test execution.
 """
 
+import os
 import time
 from typing import Optional, Dict
 from selenium.webdriver.support.ui import WebDriverWait
@@ -21,6 +22,11 @@ class NavigationService:
         """
         self.driver = driver
         self.wait = WebDriverWait(driver, 10)  # Reduced from 30 for faster execution
+        # Load test credentials from environment variables
+        self._test_credentials = {
+            'phone': os.getenv('TEST_PHONE', ''),
+            'otp': os.getenv('TEST_OTP', '')
+        }
 
     def navigate_to_route(self, route_path: str) -> bool:
         """
@@ -43,8 +49,7 @@ class NavigationService:
             # If on auth screen, handle login first
             if current_screen in ['login', 'otp', 'auth']:
                 print("  On auth screen, attempting login...")
-                credentials = {'phone': '2022123418', 'otp': '3418'}
-                self.handle_auth_screen(credentials)
+                self.handle_auth_screen(self._test_credentials)
                 time.sleep(1.5)  # Reduced from 3
 
                 # Check screen after login
@@ -72,7 +77,7 @@ class NavigationService:
             # If still on auth, try login once more
             if final_screen in ['login', 'otp', 'auth']:
                 print("  Still on auth screen, retrying login...")
-                self.handle_auth_screen({'phone': '2022123418', 'otp': '3418'})
+                self.handle_auth_screen(self._test_credentials)
                 time.sleep(1)  # Reduced from 2
 
             return True
