@@ -35,8 +35,8 @@ load_dotenv()
 # Initialize FastAPI app
 app = FastAPI(
     title="QA Automation Platform API",
-    description="AI-powered test case generation from PRDs",
-    version="0.1.0"
+    description="AI-powered test case generation from PRDs with real-time execution",
+    version="0.1.1"
 )
 
 # Configure CORS
