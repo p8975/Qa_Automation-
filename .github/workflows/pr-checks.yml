@@ -1,0 +1,260 @@
+name: PR Checks
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches: [main]
+    paths:
+      - 'frontend/**'
+      - 'backend/**'
+      - 'package.json'
+      - 'requirements.txt'
+      - 'pyproject.toml'
+
+concurrency:
+  group: pr-checks-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  # Frontend checks (Next.js + TypeScript)
+  frontend-checks:
+    name: Frontend Checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    if: github.event.pull_request.draft == false
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check for frontend changes
+        id: frontend-changes
+        run: |
+          if git diff --name-only origin/${{ github.base_ref }}...HEAD | grep -q "^frontend/"; then
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Setup Node.js
+        if: steps.frontend-changes.outputs.has_changes == 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install dependencies
+        if: steps.frontend-changes.outputs.has_changes == 'true'
+        working-directory: frontend
+        run: npm ci
+
+      - name: Run ESLint
+        id: lint
+        if: steps.frontend-changes.outputs.has_changes == 'true'
+        working-directory: frontend
+        run: |
+          npm run lint 2>&1 | tee lint-output.txt
+          exit ${PIPESTATUS[0]}
+        continue-on-error: true
+
+      - name: Run TypeScript type checking
+        id: typecheck
+        if: steps.frontend-changes.outputs.has_changes == 'true'
+        working-directory: frontend
+        run: npx tsc --noEmit
+        continue-on-error: true
+
+      - name: Build check
+        id: build
+        if: steps.frontend-changes.outputs.has_changes == 'true'
+        working-directory: frontend
+        run: npm run build
+        continue-on-error: true
+
+      - name: Check for console.log statements
+        id: console-check
+        if: steps.frontend-changes.outputs.has_changes == 'true'
+        run: |
+          echo "Checking for console.log statements in frontend/src/..."
+          if git diff origin/${{ github.base_ref }}...HEAD -- frontend/src/ | grep -E "^\+.*console\.(log|debug|info)"; then
+            echo "Warning: console.log statements detected in changes"
+            echo "has-console-logs=true" >> $GITHUB_OUTPUT
+          else
+            echo "No console.log statements in changes"
+            echo "has-console-logs=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Frontend Summary
+        if: always() && steps.frontend-changes.outputs.has_changes == 'true'
+        run: |
+          echo ""
+          echo "======================================"
+          echo "      FRONTEND CHECK SUMMARY          "
+          echo "======================================"
+          echo "  ESLint:      ${{ steps.lint.outcome == 'success' && 'Passed' || steps.lint.outcome == 'skipped' && 'Skipped' || 'Failed' }}"
+          echo "  TypeScript:  ${{ steps.typecheck.outcome == 'success' && 'Passed' || steps.typecheck.outcome == 'skipped' && 'Skipped' || 'Failed' }}"
+          echo "  Build:       ${{ steps.build.outcome == 'success' && 'Passed' || steps.build.outcome == 'skipped' && 'Skipped' || 'Failed' }}"
+          echo "  Console.log: ${{ steps.console-check.outputs.has-console-logs == 'true' && 'Warning' || 'Clean' }}"
+          echo "======================================"
+
+      - name: Fail if checks failed
+        if: steps.frontend-changes.outputs.has_changes == 'true' && (steps.lint.outcome == 'failure' || steps.typecheck.outcome == 'failure' || steps.build.outcome == 'failure')
+        run: exit 1
+
+  # Backend checks (Python + FastAPI)
+  backend-checks:
+    name: Backend Checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    if: github.event.pull_request.draft == false
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check for backend changes
+        id: backend-changes
+        run: |
+          if git diff --name-only origin/${{ github.base_ref }}...HEAD | grep -q "^backend/"; then
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Setup Python
+        if: steps.backend-changes.outputs.has_changes == 'true'
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install tools
+        if: steps.backend-changes.outputs.has_changes == 'true'
+        run: pip install ruff
+
+      - name: Syntax Check
+        id: syntax
+        if: steps.backend-changes.outputs.has_changes == 'true'
+        run: |
+          echo "Checking Python syntax..."
+          find backend -name "*.py" -exec python -m py_compile {} \;
+          echo "Syntax check passed"
+        continue-on-error: true
+
+      - name: Ruff Lint
+        id: ruff
+        if: steps.backend-changes.outputs.has_changes == 'true'
+        run: |
+          echo "Running ruff linter..."
+          ruff check backend/ --output-format=github
+        continue-on-error: true
+
+      - name: Security Check - Hardcoded Secrets
+        id: security
+        if: steps.backend-changes.outputs.has_changes == 'true'
+        run: |
+          echo "Checking for hardcoded secrets..."
+
+          PATTERNS=(
+            'API_KEY\s*=\s*["\x27][a-zA-Z0-9_-]{20,}["\x27]'
+            'SECRET\s*=\s*["\x27][a-zA-Z0-9_-]{20,}["\x27]'
+            'PASSWORD\s*=\s*["\x27][^"\x27]{8,}["\x27]'
+            'TOKEN\s*=\s*["\x27][a-zA-Z0-9_-]{20,}["\x27]'
+            'sk-[a-zA-Z0-9]{20,}'
+            'ghp_[a-zA-Z0-9]{36}'
+          )
+
+          FOUND=0
+          for pattern in "${PATTERNS[@]}"; do
+            if grep -rEn "$pattern" --include="*.py" backend/ 2>/dev/null | grep -v "\.env" | grep -v "os\.getenv" | grep -v "os\.environ"; then
+              FOUND=1
+            fi
+          done
+
+          if [ $FOUND -eq 1 ]; then
+            echo "Potential hardcoded secrets detected!"
+            exit 1
+          fi
+
+          echo "No hardcoded secrets detected"
+        continue-on-error: true
+
+      - name: Check for Debug Prints
+        id: debug
+        if: steps.backend-changes.outputs.has_changes == 'true'
+        run: |
+          echo "Checking for excessive debug prints..."
+          PRINT_COUNT=$(grep -rn "print(" --include="*.py" backend/ | grep -v "test_" | wc -l)
+
+          if [ "$PRINT_COUNT" -gt 100 ]; then
+            echo "Warning: $PRINT_COUNT print statements found"
+            echo "Consider using logging for production code"
+          else
+            echo "Print statement count is acceptable ($PRINT_COUNT)"
+          fi
+
+      - name: Backend Summary
+        if: always() && steps.backend-changes.outputs.has_changes == 'true'
+        run: |
+          echo ""
+          echo "======================================"
+          echo "      BACKEND CHECK SUMMARY           "
+          echo "======================================"
+          echo "  Syntax Check:   ${{ steps.syntax.outcome == 'success' && 'Passed' || steps.syntax.outcome == 'skipped' && 'Skipped' || 'Failed' }}"
+          echo "  Ruff Lint:      ${{ steps.ruff.outcome == 'success' && 'Passed' || steps.ruff.outcome == 'skipped' && 'Skipped' || 'Failed' }}"
+          echo "  Security Check: ${{ steps.security.outcome == 'success' && 'Passed' || steps.security.outcome == 'skipped' && 'Skipped' || 'Failed' }}"
+          echo "======================================"
+
+      - name: Fail if checks failed
+        if: steps.backend-changes.outputs.has_changes == 'true' && (steps.syntax.outcome == 'failure' || steps.ruff.outcome == 'failure' || steps.security.outcome == 'failure')
+        run: exit 1
+
+  # Summary job
+  pr-check-summary:
+    name: PR Check Summary
+    needs: [frontend-checks, backend-checks]
+    runs-on: ubuntu-latest
+    if: always()
+
+    steps:
+      - name: Check job status
+        run: |
+          echo "Frontend checks: ${{ needs.frontend-checks.result }}"
+          echo "Backend checks: ${{ needs.backend-checks.result }}"
+
+      - name: Determine overall status
+        id: status
+        run: |
+          if [ "${{ needs.frontend-checks.result }}" == "failure" ] || [ "${{ needs.backend-checks.result }}" == "failure" ]; then
+            echo "status=failure" >> $GITHUB_OUTPUT
+            echo "Overall status: FAILED"
+            exit 1
+          else
+            echo "status=success" >> $GITHUB_OUTPUT
+            echo "Overall status: SUCCESS"
+          fi
+
+      - name: Post PR comment on failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const body = `## PR Check Summary
+
+            | Check | Status |
+            |-------|--------|
+            | Frontend | ${{ needs.frontend-checks.result == 'success' && '✅ Passed' || needs.frontend-checks.result == 'skipped' && '⏭️ Skipped' || '❌ Failed' }} |
+            | Backend | ${{ needs.backend-checks.result == 'success' && '✅ Passed' || needs.backend-checks.result == 'skipped' && '⏭️ Skipped' || '❌ Failed' }} |
+
+            Please fix the failing checks before merging.`;
+
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: body
+            });
