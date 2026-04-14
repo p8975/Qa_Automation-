@@ -65,8 +65,9 @@ coverage/
 # Build storage (contains uploaded APKs)
 backend/storage/builds/*/
 
-# Storage directories (runtime data)
-backend/storage/test-runs/
-backend/storage/test-cases/
-backend/storage/uploads/
-backend/storage/input-history/
+# Storage directories (runtime data, keep dirs but ignore contents)
+backend/storage/test-runs/*
+backend/storage/test-cases/*
+backend/storage/uploads/*
+backend/storage/input-history/*
+!backend/storage/**/.gitkeep
