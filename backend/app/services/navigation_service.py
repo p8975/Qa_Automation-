@@ -7,6 +7,12 @@ import time
 from typing import Optional, Dict
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import (
+    NoSuchElementException,
+    StaleElementReferenceException,
+    ElementNotInteractableException,
+    WebDriverException
+)
 from appium.webdriver.common.appiumby import AppiumBy
 
 
@@ -98,7 +104,7 @@ class NavigationService:
                 try:
                     elements = self.driver.find_elements(AppiumBy.XPATH,
                         f"//*[contains(translate(@text,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), '{pattern}') or contains(translate(@content-desc,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), '{pattern}')]")
-                    
+
                     for elem in elements:
                         try:
                             if elem.is_displayed() and elem.is_enabled():
@@ -106,17 +112,17 @@ class NavigationService:
                                 time.sleep(1)
                                 print(f"  Clicked: {pattern}")
                                 return True
-                        except Exception:
+                        except (StaleElementReferenceException, ElementNotInteractableException):
                             continue
-                except Exception:
+                except (NoSuchElementException, StaleElementReferenceException):
                     continue
 
             # Try pressing back
             try:
                 self.driver.back()
                 time.sleep(1)
-            except Exception:
-                pass
+            except WebDriverException as e:
+                print(f"  Back button failed: {e}")
                 
         except Exception as e:
             print(f"  Close auth failed: {e}")
@@ -170,7 +176,7 @@ class NavigationService:
                     return indicator
                     
             return None
-        except Exception:
+        except (NoSuchElementException, StaleElementReferenceException, ElementNotInteractableException):
             return None
 
     def handle_auth_screen(self, test_credentials: dict = None) -> bool:
@@ -195,7 +201,7 @@ class NavigationService:
                             time.sleep(0.5)  # Reduced from 2
                             print(f"  ✓ Clicked skip: {pattern}")
                             return True
-                    except Exception:
+                    except (NoSuchElementException, StaleElementReferenceException, ElementNotInteractableException):
                         continue
 
             # Strategy 2: If test credentials provided, try to login
@@ -233,7 +239,7 @@ class NavigationService:
                             time.sleep(0.8)  # Reduced from 2
                             print(f"  ✓ Clicked: {pattern}")
                             break
-                except Exception:
+                except (NoSuchElementException, StaleElementReferenceException, ElementNotInteractableException):
                     continue
 
             # Wait for OTP field to appear
@@ -260,7 +266,7 @@ class NavigationService:
                             time.sleep(1)  # Reduced from 3
                             print(f"  ✓ Clicked: {pattern}")
                             return True
-                except Exception:
+                except (NoSuchElementException, StaleElementReferenceException, ElementNotInteractableException):
                     continue
 
             return True  # Assume success if no error
@@ -284,7 +290,7 @@ class NavigationService:
                         elem.click()
                         time.sleep(0.5)  # Reduced from 2
                         print(f"  Clicked skip button: {text}")
-                except Exception:
+                except (NoSuchElementException, StaleElementReferenceException, ElementNotInteractableException):
                     continue
 
             # Try to directly navigate using activity intent
@@ -305,7 +311,7 @@ class NavigationService:
                     time.sleep(0.5)  # Reduced from 2
                     print(f"  Started activity: {activity}")
                     return True
-                except Exception:
+                except (NoSuchElementException, StaleElementReferenceException, ElementNotInteractableException):
                     continue
 
             return False
@@ -347,7 +353,7 @@ class NavigationService:
                 if attempt():
                     time.sleep(2)  # Wait for screen to load
                     return True
-            except Exception:
+            except (NoSuchElementException, StaleElementReferenceException, ElementNotInteractableException):
                 continue
 
         return False
@@ -369,7 +375,7 @@ class NavigationService:
                 or len(d.find_elements(AppiumBy.CLASS_NAME, "android.widget.TextView")) > 0
             )
             return True
-        except Exception:
+        except (NoSuchElementException, StaleElementReferenceException, ElementNotInteractableException):
             return False
 
     def go_back(self, steps: int = 1) -> None:
@@ -391,7 +397,7 @@ class NavigationService:
             )
             element.click()
             return True
-        except Exception:
+        except (NoSuchElementException, StaleElementReferenceException, ElementNotInteractableException):
             return False
 
     def _tap_element_by_accessibility_id(self, accessibility_id: str) -> bool:
@@ -402,7 +408,7 @@ class NavigationService:
             )
             element.click()
             return True
-        except Exception:
+        except (NoSuchElementException, StaleElementReferenceException, ElementNotInteractableException):
             return False
 
     def _tap_from_element_map(self, keyword: str, element_map: Dict) -> bool:
@@ -413,6 +419,6 @@ class NavigationService:
                     element = self.driver.find_element(AppiumBy.ACCESSIBILITY_ID, element_id)
                     element.click()
                     return True
-                except Exception:
+                except (NoSuchElementException, StaleElementReferenceException, ElementNotInteractableException):
                     continue
         return False

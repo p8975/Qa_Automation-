@@ -1751,7 +1751,7 @@ async def get_device_screenshot_adb(device_id: str):
     Returns:
         Base64 encoded PNG screenshot
     """
-    import subprocess
+    import asyncio
     import base64
     import re
 
@@ -1760,15 +1760,21 @@ async def get_device_screenshot_adb(device_id: str):
         raise HTTPException(status_code=400, detail="Invalid device ID format")
 
     try:
-        # Use adb to capture screenshot (using list to prevent shell injection)
-        result = subprocess.run(
-            ['adb', '-s', device_id, 'exec-out', 'screencap', '-p'],
-            capture_output=True,
-            timeout=10
+        # Use async subprocess to avoid blocking the event loop
+        process = await asyncio.create_subprocess_exec(
+            'adb', '-s', device_id, 'exec-out', 'screencap', '-p',
+            stdout=asyncio.subprocess.PIPE,
+            stderr=asyncio.subprocess.PIPE
         )
 
-        if result.returncode == 0 and result.stdout:
-            screenshot_base64 = base64.b64encode(result.stdout).decode('utf-8')
+        try:
+            stdout, stderr = await asyncio.wait_for(process.communicate(), timeout=10)
+        except asyncio.TimeoutError:
+            process.kill()
+            raise HTTPException(status_code=504, detail="Screenshot capture timed out")
+
+        if process.returncode == 0 and stdout:
+            screenshot_base64 = base64.b64encode(stdout).decode('utf-8')
             return {
                 "success": True,
                 "device_id": device_id,
@@ -1778,8 +1784,8 @@ async def get_device_screenshot_adb(device_id: str):
         else:
             raise HTTPException(status_code=500, detail="Failed to capture screenshot")
 
-    except subprocess.TimeoutExpired:
-        raise HTTPException(status_code=504, detail="Screenshot capture timed out")
+    except HTTPException:
+        raise
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Screenshot error: {str(e)}")
 

@@ -4,6 +4,7 @@ TestExecutor: Main execution engine for running tests against APK builds.
 
 import time
 import uuid
+import logging
 from datetime import datetime
 from typing import List, Optional, Dict
 
@@ -396,14 +397,14 @@ class TestExecutor:
             try:
                 all_views = driver.find_elements(AppiumBy.XPATH, "//*")
                 summary["total_elements"] = len(all_views)
-            except Exception:
-                pass
+            except Exception as e:
+                logging.debug(f"Failed to get all views: {e}")
 
             try:
                 clickables = driver.find_elements(AppiumBy.XPATH, "//*[@clickable='true']")
                 summary["clickable_elements"] = len(clickables)
-            except Exception:
-                pass
+            except Exception as e:
+                logging.debug(f"Failed to get clickable elements: {e}")
 
             try:
                 text_views = driver.find_elements(AppiumBy.CLASS_NAME, "android.widget.TextView")
@@ -413,14 +414,14 @@ class TestExecutor:
                     text = tv.text
                     if text and len(text.strip()) > 0:
                         summary["visible_text"].append(text[:50])
-            except Exception:
-                pass
+            except Exception as e:
+                logging.debug(f"Failed to get text views: {e}")
 
             try:
                 edit_texts = driver.find_elements(AppiumBy.CLASS_NAME, "android.widget.EditText")
                 summary["edit_texts"] = len(edit_texts)
-            except Exception:
-                pass
+            except Exception as e:
+                logging.debug(f"Failed to get edit texts: {e}")
 
             summary["has_content"] = (
                 summary["total_elements"] > 10 or
@@ -1080,8 +1081,8 @@ class TestExecutor:
                     step_screenshot = str(screenshot_dir / f"step_{idx}_error.png")
                     self.appium_service.take_screenshot(step_screenshot)
                     screenshot_paths.append(step_screenshot)
-                except Exception:
-                    pass
+                except Exception as screenshot_error:
+                    logging.warning(f"Failed to capture error screenshot: {screenshot_error}")
                 print(f"    ✗ Error: {step_error}")
 
             step_duration = int((time.time() - step_start) * 1000)
@@ -1153,7 +1154,8 @@ class TestExecutor:
         # Get page source for text search
         try:
             page_source = driver.page_source
-        except Exception:
+        except Exception as e:
+            logging.warning(f"Failed to get page_source: {e}")
             page_source = ""
 
         # Also search in discovered elements
