@@ -36,7 +36,7 @@ load_dotenv()
 app = FastAPI(
     title="QA Automation Platform API",
     description="AI-powered test case generation from PRDs",
-    version="0.1.0"
+    version="0.2.0"
 )
 
 # Configure CORS
@@ -161,6 +161,7 @@ async def generate_test_cases(
                     # Convert TestCase to TestCaseEntity
                     tc_entity = TestCaseEntity(
                         tc_id=str(uuid.uuid4()),
+                        original_id=test_case.id,
                         prd_hash=prd_hash,
                         title=test_case.title,
                         description=test_case.description,
