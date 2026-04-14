@@ -2,7 +2,6 @@
 AIStepTranslator: Converts text test steps into executable Appium commands.
 """
 
-import json
 from typing import Dict, Optional
 from openai import OpenAI
 
@@ -85,7 +84,6 @@ class AIStepTranslator:
 
     def _build_translation_prompt(self, step_description: str, context: Dict) -> str:
         """Build prompt for AI translation."""
-        element_map = context.get("element_map", {})
         app_package = context.get("app_package", "")
         discovered_elements = context.get("discovered_elements", {})
         

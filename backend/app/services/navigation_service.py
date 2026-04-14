@@ -3,7 +3,7 @@ NavigationService: Handles automatic navigation to target screens before test ex
 """
 
 import time
-from typing import Optional, Dict, Any
+from typing import Optional, Dict
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from appium.webdriver.common.appiumby import AppiumBy
@@ -42,7 +42,7 @@ class NavigationService:
 
             # If on auth screen, handle login first
             if current_screen in ['login', 'otp', 'auth']:
-                print(f"  On auth screen, attempting login...")
+                print("  On auth screen, attempting login...")
                 credentials = {'phone': '2022123418', 'otp': '3418'}
                 self.handle_auth_screen(credentials)
                 time.sleep(1.5)  # Reduced from 3
@@ -101,16 +101,16 @@ class NavigationService:
                                 time.sleep(1)
                                 print(f"  Clicked: {pattern}")
                                 return True
-                        except:
+                        except Exception:
                             continue
-                except:
+                except Exception:
                     continue
-            
+
             # Try pressing back
             try:
                 self.driver.back()
                 time.sleep(1)
-            except:
+            except Exception:
                 pass
                 
         except Exception as e:
@@ -165,9 +165,9 @@ class NavigationService:
                     return indicator
                     
             return None
-        except:
+        except Exception:
             return None
-    
+
     def handle_auth_screen(self, test_credentials: dict = None) -> bool:
         """Handle login/OTP screen by trying to authenticate or skip. OPTIMIZED."""
         if test_credentials is None:
@@ -190,7 +190,7 @@ class NavigationService:
                             time.sleep(0.5)  # Reduced from 2
                             print(f"  ✓ Clicked skip: {pattern}")
                             return True
-                    except:
+                    except Exception:
                         continue
 
             # Strategy 2: If test credentials provided, try to login
@@ -206,7 +206,7 @@ class NavigationService:
     def _try_login(self, credentials: dict) -> bool:
         """Try to login with provided credentials. OPTIMIZED with reduced waits."""
         try:
-            print(f"  Attempting login with credentials...")
+            print("  Attempting login with credentials...")
 
             # Find phone/username field - usually first EditText
             fields = self.driver.find_elements(AppiumBy.CLASS_NAME, "android.widget.EditText")
@@ -228,7 +228,7 @@ class NavigationService:
                             time.sleep(0.8)  # Reduced from 2
                             print(f"  ✓ Clicked: {pattern}")
                             break
-                except:
+                except Exception:
                     continue
 
             # Wait for OTP field to appear
@@ -255,7 +255,7 @@ class NavigationService:
                             time.sleep(1)  # Reduced from 3
                             print(f"  ✓ Clicked: {pattern}")
                             return True
-                except:
+                except Exception:
                     continue
 
             return True  # Assume success if no error
@@ -279,7 +279,7 @@ class NavigationService:
                         elem.click()
                         time.sleep(0.5)  # Reduced from 2
                         print(f"  Clicked skip button: {text}")
-                except:
+                except Exception:
                     continue
 
             # Try to directly navigate using activity intent
@@ -300,7 +300,7 @@ class NavigationService:
                     time.sleep(0.5)  # Reduced from 2
                     print(f"  Started activity: {activity}")
                     return True
-                except:
+                except Exception:
                     continue
 
             return False
