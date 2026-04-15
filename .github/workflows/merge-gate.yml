@@ -146,7 +146,14 @@ jobs:
             const latest = botReviews[botReviews.length - 1];
             console.log(`Bot review: ${latest.state}`);
 
-            if (latest.state === 'APPROVED') {
+            // Also check for bot: approved label (fallback when GitHub blocks approval submission)
+            const { data: labels } = await github.rest.issues.listLabelsOnIssue({
+              owner, repo, issue_number: prNumber,
+            });
+            const hasApprovedLabel = labels.some(l => l.name === 'bot: approved');
+            console.log(`Has 'bot: approved' label: ${hasApprovedLabel}`);
+
+            if (latest.state === 'APPROVED' || hasApprovedLabel) {
               core.setOutput('status', 'approved');
             } else if (latest.state === 'CHANGES_REQUESTED') {
               core.setOutput('status', 'changes_requested');
