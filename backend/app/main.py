@@ -1755,8 +1755,9 @@ async def get_device_screenshot_adb(device_id: str):
     import base64
     import re
 
-    # Validate device_id to prevent command injection
-    if not re.match(r'^[a-zA-Z0-9_\-.:]+$', device_id):
+    # Validate device_id to prevent command/argument injection
+    # Block hyphen at start to prevent argument injection (e.g., "-e sh")
+    if device_id.startswith('-') or not re.match(r'^[a-zA-Z0-9_\-.:]+$', device_id):
         raise HTTPException(status_code=400, detail="Invalid device ID format")
 
     try:
