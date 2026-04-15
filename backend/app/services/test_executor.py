@@ -110,14 +110,14 @@ class TestExecutor:
         """Ensure Stage app is actually in foreground, not home screen."""
         import subprocess
 
-        print("  → Ensuring Stage app is in foreground...")
+        logging.debug("→ Ensuring Stage app is in foreground...")
 
         # Method 1: Use Appium activate_app
         try:
             driver.activate_app("in.stage.dev")
             time.sleep(2)
         except Exception as e:
-            print(f"    Warning: activate_app failed: {e}")
+            logging.warning(f" activate_app failed: {e}")
 
         # Method 2: Verify via ADB that Stage app is focused
         device_arg = f"-s {device_id}" if device_id else ""
@@ -127,10 +127,10 @@ class TestExecutor:
                 shell=True, capture_output=True, text=True, timeout=5
             )
             if "in.stage.dev" in result.stdout:
-                print("    ✓ Stage app is in foreground")
+                logging.info("✓ Stage app is in foreground")
                 return True
             else:
-                print(f"    ⚠️ Stage app not focused: {result.stdout.strip()[:60]}")
+                logging.warning(f"⚠️ Stage app not focused: {result.stdout.strip()[:60]}")
                 # Force launch via ADB
                 subprocess.run(
                     f"adb {device_arg} shell am start -n in.stage.dev/in.stage.MainActivity",
@@ -141,7 +141,7 @@ class TestExecutor:
                 time.sleep(2)
                 return True
         except Exception as e:
-            print(f"    Warning: ADB check failed: {e}")
+            logging.warning(f" ADB check failed: {e}")
 
         return False
 
@@ -152,7 +152,7 @@ class TestExecutor:
         # FIRST: Ensure app is in foreground (not home screen)
         self._ensure_app_in_foreground(driver, device_id)
 
-        print("  → Dismissing any blocking dialogs...")
+        logging.debug("→ Dismissing any blocking dialogs...")
 
         # 1. Dismiss permission dialogs (Allow/Don't allow)
         for _ in range(3):
@@ -160,7 +160,7 @@ class TestExecutor:
                 allow_btn = driver.find_elements(AppiumBy.XPATH, "//*[@text='Allow' or @text='ALLOW']")
                 if allow_btn:
                     allow_btn[0].click()
-                    print("    Clicked 'Allow' permission")
+                    logging.debug("Clicked 'Allow' permission")
                     time.sleep(1)
                     continue
             except Exception:
@@ -170,7 +170,7 @@ class TestExecutor:
                 dont_allow = driver.find_elements(AppiumBy.XPATH, "//*[@text=\"Don't allow\"]")
                 if dont_allow:
                     dont_allow[0].click()
-                    print("    Clicked 'Don't allow' permission")
+                    logging.debug("Clicked 'Don't allow' permission")
                     time.sleep(1)
                     continue
             except Exception:
@@ -184,7 +184,7 @@ class TestExecutor:
                     "//*[@content-desc='Cancel' or @content-desc='Dismiss' or @content-desc='Close' or @text='Cancel']")
                 if dismiss_btns:
                     dismiss_btns[0].click()
-                    print("    Dismissed debug dialog")
+                    logging.debug("Dismissed debug dialog")
                     time.sleep(1)
                     continue
             except Exception:
@@ -197,7 +197,7 @@ class TestExecutor:
             custom_url = driver.find_elements(AppiumBy.XPATH, "//*[contains(@content-desc, 'Custom URL') or contains(@text, 'Custom URL')]")
             if custom_url:
                 driver.press_keycode(4)  # BACK
-                print("    Pressed BACK to close dialog")
+                logging.debug("Pressed BACK to close dialog")
                 time.sleep(1)
         except Exception:
             pass
@@ -226,7 +226,7 @@ class TestExecutor:
                 try:
                     element = driver.find_element(AppiumBy.ID, resource_id)
                     if element.is_displayed():
-                        print(f"  → Dismissing permission dialog (resource: {resource_id})")
+                        logging.debug(f"→ Dismissing permission dialog (resource: {resource_id})")
                         element.click()
                         time.sleep(0.5)
                         dismissed_count += 1
@@ -235,7 +235,7 @@ class TestExecutor:
                 except NoSuchElementException:
                     continue
                 except Exception as e:
-                    print(f"  → Error clicking permission button: {e}")
+                    logging.debug(f"→ Error clicking permission button: {e}")
                     continue
 
             if dialog_found:
@@ -254,7 +254,7 @@ class TestExecutor:
                                 # Check if element looks like a button
                                 class_name = element.get_attribute("className") or ""
                                 if "Button" in class_name or element.get_attribute("clickable") == "true":
-                                    print(f"  → Dismissing permission dialog (text: {text_pattern})")
+                                    logging.debug(f"→ Dismissing permission dialog (text: {text_pattern})")
                                     element.click()
                                     time.sleep(0.5)
                                     dismissed_count += 1
@@ -274,7 +274,7 @@ class TestExecutor:
             time.sleep(0.3)
 
         if dismissed_count > 0:
-            print(f"  ✓ Dismissed {dismissed_count} permission dialog(s)")
+            logging.info(f"✓ Dismissed {dismissed_count} permission dialog(s)")
             time.sleep(1)  # Wait for app to stabilize after dismissing dialogs
 
         return dismissed_count
@@ -298,7 +298,7 @@ class TestExecutor:
         last_element_count = 0
         stable_count = 0
 
-        print(f"  ⏳ Waiting for app to become ready (max {timeout}s)...")
+        logging.info(f"⏳ Waiting for app to become ready (max {timeout}s)...")
 
         while time.time() - start_time < timeout:
             try:
@@ -313,7 +313,7 @@ class TestExecutor:
                             f"//*[contains(@text, '{indicator}') or contains(@content-desc, '{indicator}')]"
                         )
                         if elements:
-                            print(f"  ✓ App ready - found indicator: '{indicator}'")
+                            logging.info(f"✓ App ready - found indicator: '{indicator}'")
                             return True
                     except Exception:
                         continue
@@ -337,32 +337,32 @@ class TestExecutor:
                         if current_count == last_element_count:
                             stable_count += 1
                             if stable_count >= 3:  # Stable for 3 polls
-                                print(f"  ✓ App ready - {current_count} interactive elements found")
+                                logging.info(f"✓ App ready - {current_count} interactive elements found")
                                 return True
                         else:
                             stable_count = 0
                         last_element_count = current_count
 
                 except Exception as e:
-                    print(f"  → Polling error: {e}")
+                    logging.debug(f"→ Polling error: {e}")
 
                 # Strategy 3: Check for EditText (input fields) - common on login screens
                 try:
                     edit_texts = driver.find_elements(AppiumBy.CLASS_NAME, "android.widget.EditText")
                     if edit_texts:
-                        print(f"  ✓ App ready - found {len(edit_texts)} input field(s)")
+                        logging.info(f"✓ App ready - found {len(edit_texts)} input field(s)")
                         return True
                 except Exception:
                     pass
 
             except Exception as e:
-                print(f"  → Wait cycle error: {e}")
+                logging.debug(f"→ Wait cycle error: {e}")
 
             time.sleep(self.app_ready_poll_interval)
 
         # Timeout reached - log current state for debugging
         elapsed = time.time() - start_time
-        print(f"  ⚠️ App ready timeout after {elapsed:.1f}s")
+        logging.warning(f"⚠️ App ready timeout after {elapsed:.1f}s")
         self._log_screen_state(driver)
 
         return False
@@ -424,17 +424,17 @@ class TestExecutor:
                 len(summary["visible_text"]) > 0
             )
 
-            print(f"  [{prefix}] Screen state:")
-            print(f"    - Total elements: {summary['total_elements']}")
-            print(f"    - Clickable: {summary['clickable_elements']}")
-            print(f"    - TextViews: {summary['text_views']}")
-            print(f"    - EditTexts: {summary['edit_texts']}")
+            logging.debug(f"[{prefix}] Screen state:")
+            logging.debug(f"- Total elements: {summary['total_elements']}")
+            logging.debug(f"- Clickable: {summary['clickable_elements']}")
+            logging.debug(f"- TextViews: {summary['text_views']}")
+            logging.debug(f"- EditTexts: {summary['edit_texts']}")
             if summary["visible_text"]:
-                print(f"    - Visible text: {summary['visible_text'][:3]}")
-            print(f"    - Has content: {summary['has_content']}")
+                logging.debug(f"- Visible text: {summary['visible_text'][:3]}")
+            logging.debug(f"- Has content: {summary['has_content']}")
 
         except Exception as e:
-            print(f"  [{prefix}] Error logging screen state: {e}")
+            logging.debug(f"[{prefix}] Error logging screen state: {e}")
 
         return summary
 
@@ -472,13 +472,13 @@ class TestExecutor:
                     f"//*[contains(@text, '{indicator}') or contains(@content-desc, '{indicator}')]"
                 )
                 if elements:
-                    print(f"  ✓ Already on {target_screen} screen (found: '{indicator}')")
+                    logging.info(f"✓ Already on {target_screen} screen (found: '{indicator}')")
                     return True
             except Exception:
                 continue
 
         # Not on target screen - try to navigate
-        print(f"  ⚠️ Not on {target_screen} screen, attempting navigation...")
+        logging.warning(f"⚠️ Not on {target_screen} screen, attempting navigation...")
 
         # Strategy 1: If target is Login and we're elsewhere, relaunch app
         if target_lower == "login":
@@ -488,10 +488,10 @@ class TestExecutor:
                 time.sleep(2)
                 self._dismiss_permission_dialogs(driver)
                 if self._wait_for_app_ready(driver, timeout=10):
-                    print("  ✓ Navigated to Login via app relaunch")
+                    logging.info("✓ Navigated to Login via app relaunch")
                     return True
             except Exception as e:
-                print(f"  → Navigation failed: {e}")
+                logging.debug(f"→ Navigation failed: {e}")
 
         # Strategy 2: Press back button to potentially go to login/home
         try:
@@ -508,14 +508,14 @@ class TestExecutor:
                         f"//*[contains(@text, '{indicator}')]"
                     )
                     if elements:
-                        print(f"  ✓ Navigated to {target_screen} via back button")
+                        logging.info(f"✓ Navigated to {target_screen} via back button")
                         return True
                 except Exception:
                     continue
         except Exception:
             pass
 
-        print(f"  ✗ Could not navigate to {target_screen} screen")
+        logging.error(f"✗ Could not navigate to {target_screen} screen")
         return False
 
     def _is_system_element(self, resource_id: str) -> bool:
@@ -589,7 +589,7 @@ class TestExecutor:
         """
         test_run = self.test_run_repository.get(run_id)
         if not test_run:
-            print(f"Error: Test run not found: {run_id}")
+            logging.error(f"Error: Test run not found: {run_id}")
             return
 
         build = self.build_repository.get(test_run.build_id)
@@ -617,10 +617,10 @@ class TestExecutor:
             driver = self.appium_service.connect(test_run.device_info.device_id, apk_path)
 
             # Wait for app to become ready with smart polling (Phase 1 fix)
-            print("  Waiting for app to launch...")
+            logging.info("Waiting for app to launch...")
             app_ready = self._wait_for_app_ready(driver)
             if not app_ready:
-                print("  ⚠️ App may not be fully ready, continuing with fallback delay...")
+                logging.warning("⚠️ App may not be fully ready, continuing with fallback delay...")
                 time.sleep(self.app_launch_delay)
 
             # CRITICAL: Dismiss ALL dialogs (permissions, debug overlays, etc.)
@@ -632,7 +632,7 @@ class TestExecutor:
 
             # Run each test case with robust error handling
             for idx, test_case in enumerate(test_cases):
-                print(f"\n📋 Executing test {idx + 1} of {len(test_cases)}: {test_case.title}")
+                logging.info(f"📋 Executing test {idx + 1} of {len(test_cases)}: {test_case.title}")
 
                 try:
                     result = self.execute_single_test(test_case, driver, test_run.build_id, run_id)
@@ -650,7 +650,7 @@ class TestExecutor:
 
                 except Exception as e:
                     error_msg = str(e)
-                    print(f"  ✗ Test execution error: {error_msg}")
+                    logging.error(f"✗ Test execution error: {error_msg}")
 
                     # Create a failed result for this test
                     result = TestResult(
@@ -668,7 +668,7 @@ class TestExecutor:
 
                     # Check for driver/session issues
                     if "session" in error_msg.lower() or "driver" in error_msg.lower():
-                        print("  ⚠️ Driver session issue detected, attempting recovery...")
+                        logging.warning("⚠️ Driver session issue detected, attempting recovery...")
                         try:
                             self.appium_service.disconnect()
                             time.sleep(1)
@@ -678,25 +678,25 @@ class TestExecutor:
                                 time.sleep(self.app_launch_delay)
                             self._dismiss_permission_dialogs(driver)
                             consecutive_errors = 0  # Reset on successful recovery
-                            print("  ✓ Driver session recovered")
+                            logging.info("✓ Driver session recovered")
                         except Exception as recovery_error:
-                            print(f"  ✗ Recovery failed: {recovery_error}")
+                            logging.error(f"✗ Recovery failed: {recovery_error}")
 
                 # Update test run after each test (for real-time progress)
                 test_run.results = results.copy()
                 self.test_run_repository.save(test_run)
-                print(f"  ✅ Test {idx + 1} completed with status: {result.status}")
+                logging.info(f"✅ Test {idx + 1} completed with status: {result.status}")
 
                 # Check if we should stop due to repeated driver failures
                 if consecutive_errors >= max_consecutive_errors:
-                    print(f"\n⚠️ Stopping: {consecutive_errors} consecutive driver errors")
+                    logging.warning(f"⚠️ Stopping: {consecutive_errors} consecutive driver errors")
                     break
 
                 # OPTIMIZED: Only reset app if test failed AND it's not the last test
                 # Skip reset if previous test passed (assume app is in good state)
                 if idx < len(test_cases) - 1 and result.status == TestStatus.FAIL:
                     try:
-                        print("  Resetting app state...")
+                        logging.info("Resetting app state...")
                         # Use clear_app_data instead of uninstall/reinstall (much faster)
                         self.device_manager.clear_app_data(test_run.device_info.device_id, build.app_package)
                         # Relaunch app
@@ -706,7 +706,7 @@ class TestExecutor:
                             time.sleep(self.app_launch_delay)
                         self._dismiss_permission_dialogs(driver)
                     except Exception as e:
-                        print(f"  Warning: App reset issue: {e}")
+                        logging.warning(f" App reset issue: {e}")
                         pass  # Continue even if reset fails
 
             # Final update - mark as completed
@@ -715,7 +715,7 @@ class TestExecutor:
             test_run.completed_at = datetime.now()
             test_run.duration_seconds = (test_run.completed_at - test_run.started_at).total_seconds()
             self.test_run_repository.save(test_run)
-            print(f"\n🎉 Test run completed: {len(results)} tests executed")
+            logging.info(f"🎉 Test run completed: {len(results)} tests executed")
 
         except Exception as e:
             # Mark as failed but preserve any results we have
@@ -724,13 +724,13 @@ class TestExecutor:
             test_run.completed_at = datetime.now()
             test_run.duration_seconds = (test_run.completed_at - test_run.started_at).total_seconds()
             self.test_run_repository.save(test_run)
-            print(f"Test run failed: {str(e)}")
+            logging.error(f"Test run failed: {str(e)}")
         finally:
             try:
                 if driver:
                     self.appium_service.disconnect()
             except Exception as e:
-                print(f"Warning: Failed to disconnect Appium service: {e}")
+                logging.warning(f" Failed to disconnect Appium service: {e}")
 
     def execute_test_run(
         self,
@@ -790,10 +790,10 @@ class TestExecutor:
             driver = self.appium_service.connect(device_id, apk_path)
 
             # Wait for app to become ready with smart polling (Phase 1 fix)
-            print("  Waiting for app to launch...")
+            logging.info("Waiting for app to launch...")
             app_ready = self._wait_for_app_ready(driver)
             if not app_ready:
-                print("  ⚠️ App may not be fully ready, continuing with fallback delay...")
+                logging.warning("⚠️ App may not be fully ready, continuing with fallback delay...")
                 time.sleep(self.app_launch_delay)
 
             # CRITICAL: Dismiss ALL dialogs (permissions, debug overlays, etc.)
@@ -805,7 +805,7 @@ class TestExecutor:
 
             # Run each test case
             for idx, test_case in enumerate(test_cases):
-                print(f"\n📋 Executing test {idx + 1} of {len(test_cases)}: {test_case.title}")
+                logging.info(f"📋 Executing test {idx + 1} of {len(test_cases)}: {test_case.title}")
 
                 try:
                     result = self.execute_single_test(test_case, driver, build_id, run_id)
@@ -825,7 +825,7 @@ class TestExecutor:
                 # Update test run after each test (for real-time progress)
                 test_run.results = results.copy()
                 self.test_run_repository.save(test_run)
-                print(f"  ✅ Test {idx + 1} completed with status: {result.status}")
+                logging.info(f"✅ Test {idx + 1} completed with status: {result.status}")
 
                 # OPTIMIZED: Only reset app if test failed AND not the last test
                 if idx < len(test_cases) - 1 and result.status == TestStatus.FAIL:
@@ -837,7 +837,7 @@ class TestExecutor:
                             time.sleep(self.app_launch_delay)
                         self._dismiss_permission_dialogs(driver)
                     except Exception as e:
-                        print(f"  Warning: App reset issue: {e}")
+                        logging.warning(f" App reset issue: {e}")
 
             # Final update - mark as completed
             test_run.results = results
@@ -845,7 +845,7 @@ class TestExecutor:
             test_run.completed_at = datetime.now()
             test_run.duration_seconds = (test_run.completed_at - test_run.started_at).total_seconds()
             self.test_run_repository.save(test_run)
-            print(f"\n🎉 Test run completed: {len(results)} tests executed")
+            logging.info(f"🎉 Test run completed: {len(results)} tests executed")
 
         except Exception as e:
             # Mark as failed but preserve results
@@ -860,7 +860,7 @@ class TestExecutor:
                 if driver:
                     self.appium_service.disconnect()
             except Exception as e:
-                print(f"Warning: Failed to disconnect Appium service: {e}")
+                logging.warning(f" Failed to disconnect Appium service: {e}")
 
         return run_id
 
@@ -882,7 +882,7 @@ class TestExecutor:
         screenshot_dir.mkdir(parents=True, exist_ok=True)
 
         # PHASE 1: Analyze test case context
-        print(f"\n🔍 Test case: {test_case.title}")
+        logging.info(f"🔍 Test case: {test_case.title}")
 
         # PHASE 2: Initialize element discovery (UiAutomator2 - fast and reliable)
         # NOTE: Skip FlutterLocatorService - it hangs on release builds
@@ -890,7 +890,7 @@ class TestExecutor:
 
         # Quick screen detection using native elements (no FlutterLocator)
         current_screen = self._detect_screen_fast(driver)
-        print(f"  📱 Current screen: {current_screen}")
+        logging.info(f"📱 Current screen: {current_screen}")
 
         # Phase 3: Handle preconditions - try to get to required screen
         if test_case.preconditions:
@@ -903,7 +903,7 @@ class TestExecutor:
                     self._ensure_app_on_screen(driver, "OTP", "", "")
                 elif "home" in precond_lower:
                     self._ensure_app_on_screen(driver, "Home", "", "")
-                print(f"  📋 Precondition: {precondition}")
+                logging.info(f"📋 Precondition: {precondition}")
 
         # Wait for screen to settle after any navigation
         time.sleep(self.screen_settle_delay)
@@ -918,7 +918,7 @@ class TestExecutor:
             command = ""
 
             try:
-                print(f"  Step {idx}: {step.description}")
+                logging.info(f"Step {idx}: {step.description}")
                 _add_execution_log(run_id, f"Step {idx}: {step.description}", "info")
 
                 # Determine action from step description
@@ -929,16 +929,16 @@ class TestExecutor:
                 for retry in range(3):
                     try:
                         current_activity = driver.current_activity
-                        print(f"    Current activity: {current_activity}")
+                        logging.debug(f"Current activity: {current_activity}")
                         if "stage" in current_activity.lower() or "MainActivity" in current_activity:
                             break
-                        print(f"    ⚠️ NOT IN STAGE APP! Forcing launch (attempt {retry+1})...")
+                        logging.warning(f"⚠️ NOT IN STAGE APP! Forcing launch (attempt {retry+1})...")
                         driver.terminate_app("in.stage.dev")
                         time.sleep(1)
                         driver.activate_app("in.stage.dev")
                         time.sleep(3)
                     except Exception as e:
-                        print(f"    Activity check error: {e}")
+                        logging.debug(f"Activity check error: {e}")
                         # Fallback: Use ADB to force launch
                         import subprocess
                         subprocess.run(
@@ -950,14 +950,14 @@ class TestExecutor:
                 # Use native element discovery (UiAutomator2)
                 # Note: Flutter driver only works with debug builds, Stage preprod is release
                 discovered_elements = element_discovery.inspect_current_screen()
-                print(f"    Found {len(discovered_elements)} elements on screen")
+                logging.debug(f"Found {len(discovered_elements)} elements on screen")
                 _add_execution_log(run_id, f"  Found {len(discovered_elements)} elements", "debug")
 
                 if action == "is_displayed":
                     # SPECIAL HANDLING: Verification steps - check text presence
                     verification_passed = self._verify_text_on_screen(step.description, driver, discovered_elements)
                     if verification_passed:
-                        print("    ✓ Verification passed")
+                        logging.info("✓ Verification passed")
                         command = f"# Verified: {step.description[:50]}..."
                     else:
                         raise ValueError("Verification failed: expected content not found on screen")
@@ -970,13 +970,13 @@ class TestExecutor:
 
                     if step.locator_override:
                         command = step.locator_override
-                        print("    Using manual locator override")
+                        logging.debug("Using manual locator override")
                     else:
                         # Strategy 1: Direct keyword match on discovered elements
                         for keyword in step_keywords:
                             element_info = element_discovery.find_element_by_keyword(keyword, discovered_elements)
                             if element_info:
-                                print(f"    ✓ Found element for keyword '{keyword}': {element_info.get('element_id')}")
+                                logging.info(f"✓ Found element for keyword '{keyword}': {element_info.get('element_id')}")
                                 command = element_discovery.generate_appium_command_from_element(element_info, action, text_to_input)
                                 break
 
@@ -984,35 +984,35 @@ class TestExecutor:
                         if not element_info and discovered_elements:
                             element_info = element_discovery.find_element_by_fuzzy_match(step_keywords, discovered_elements)
                             if element_info:
-                                print(f"    ✓ Fuzzy match found: {element_info.get('element_id')}")
+                                logging.info(f"✓ Fuzzy match found: {element_info.get('element_id')}")
                                 command = element_discovery.generate_appium_command_from_element(element_info, action, text_to_input)
 
                         # Strategy 3: Search by text content (including Hindi text)
                         if not element_info and discovered_elements:
                             element_info = element_discovery.find_element_by_text_fallback(step_keywords, discovered_elements)
                             if element_info:
-                                print(f"    ✓ Text fallback found: {element_info.get('element_id')}")
+                                logging.info(f"✓ Text fallback found: {element_info.get('element_id')}")
                                 command = element_discovery.generate_appium_command_from_element(element_info, action, text_to_input)
 
                         # Strategy 4: Search by exact text from step description (for Hindi buttons)
                         if not element_info:
                             element_info = self._find_element_by_exact_text(step.description, driver)
                             if element_info:
-                                print(f"    ✓ Exact text found: {element_info}")
+                                logging.info(f"✓ Exact text found: {element_info}")
                                 command = f"driver.find_element(AppiumBy.XPATH, \"{element_info}\").click()"
 
                         # Strategy 5: Search all screen elements for step content
                         if not element_info:
                             element_info = self._find_element_for_step(step.description, discovered_elements, driver)
                             if element_info:
-                                print(f"    ✓ Screen search found: {element_info.get('element_id')}")
+                                logging.info(f"✓ Screen search found: {element_info.get('element_id')}")
                                 command = element_discovery.generate_appium_command_from_element(element_info, action, text_to_input)
 
                         # Strategy 6: Direct tap by visible text
                         if not element_info:
                             element_info = self._try_direct_tap(step.description, driver)
                             if element_info:
-                                print(f"    ✓ Direct tap found: {element_info}")
+                                logging.info(f"✓ Direct tap found: {element_info}")
                                 command = f"driver.find_element(AppiumBy.XPATH, \"{element_info}\").click()"
 
                     if not command:
@@ -1028,14 +1028,14 @@ class TestExecutor:
                             error_detail += "\n    No visible text found - screen may be blank or loading."
                         raise ValueError(error_detail)
 
-                    print(f"    Command: {command[:100]}...")
-                    print(f"    DEBUG: element_info type={type(element_info).__name__}, action={action}")
+                    logging.debug(f"Command: {command[:100]}...")
+                    logging.debug(f"DEBUG: element_info type={type(element_info).__name__}, action={action}")
 
                     # Execute action directly (no string parsing)
                     if element_info and isinstance(element_info, dict):
                         # Strategies 1, 2, 3, 5 - element_info is a dict
                         locator_type, locator_value = self._get_best_locator(element_info)
-                        print(f"    >>> EXECUTING DIRECT: {locator_type}={locator_value[:60]}")
+                        logging.debug(f">>> EXECUTING DIRECT: {locator_type}={locator_value[:60]}")
                         self._execute_action_direct(
                             driver=driver,
                             locator_type=locator_type,
@@ -1043,10 +1043,10 @@ class TestExecutor:
                             action=action,
                             text_input=text_to_input
                         )
-                        print("    >>> EXECUTED SUCCESSFULLY")
+                        logging.debug(">>> EXECUTED SUCCESSFULLY")
                     elif element_info and isinstance(element_info, str):
                         # Strategies 4, 6 - element_info is an xpath string
-                        print(f"    >>> EXECUTING XPATH: {element_info[:60]}")
+                        logging.debug(f">>> EXECUTING XPATH: {element_info[:60]}")
                         self._execute_action_direct(
                             driver=driver,
                             locator_type='XPATH',
@@ -1054,15 +1054,15 @@ class TestExecutor:
                             action=action,
                             text_input=text_to_input
                         )
-                        print("    >>> EXECUTED SUCCESSFULLY")
+                        logging.debug(">>> EXECUTED SUCCESSFULLY")
                     else:
                         # Fallback to string parsing (locator_override case)
-                        print("    >>> FALLBACK: Using _execute_command")
+                        logging.debug(">>> FALLBACK: Using _execute_command")
                         self._execute_command(driver, command)
 
                 # Brief pause after action to let UI settle
                 time.sleep(self.post_action_delay)
-                print("    ✓ Step executed successfully")
+                logging.info("✓ Step executed successfully")
                 _add_execution_log(run_id, f"✓ Step {idx} PASSED", "success")
 
             except Exception as e:
@@ -1078,7 +1078,7 @@ class TestExecutor:
                     screenshot_paths.append(step_screenshot)
                 except Exception as screenshot_error:
                     logging.warning(f"Failed to capture error screenshot: {screenshot_error}")
-                print(f"    ✗ Error: {step_error}")
+                logging.error(f"✗ Error: {step_error}")
 
             step_duration = int((time.time() - step_start) * 1000)
 
@@ -1162,10 +1162,10 @@ class TestExecutor:
         # Check if any pattern is found
         for pattern in patterns_to_find:
             if pattern.lower() in all_text:
-                print(f"    ✓ Found '{pattern}' on screen")
+                logging.info(f"✓ Found '{pattern}' on screen")
                 return True
 
-        print(f"    ✗ Could not find any of: {patterns_to_find}")
+        logging.error(f"✗ Could not find any of: {patterns_to_find}")
         return False
 
     def _escape_xpath_string(self, text: str) -> str:
@@ -1312,7 +1312,7 @@ class TestExecutor:
             
             # Check if we navigated to a new screen (elements changed significantly)
             if len(new_elements) != len(discovered_elements):
-                print("    ✓ Screen changed after click (validation passed)")
+                logging.info("✓ Screen changed after click (validation passed)")
                 return True
             
             # Check for confirmation messages
@@ -1320,7 +1320,7 @@ class TestExecutor:
             for elem_id, elem_info in new_elements.items():
                 elem_text = (elem_info.get("text", "") + elem_info.get("content_desc", "")).lower()
                 if any(word in elem_text for word in confirm_words):
-                    print("    ✓ Confirmation element found")
+                    logging.info("✓ Confirmation element found")
                     return True
             
             return True  # Assume click worked if no exception
@@ -1386,7 +1386,7 @@ class TestExecutor:
             except Exception as e:
                 last_error = e
                 if attempt < retries:
-                    print(f"    Retry {attempt + 1}: {str(e)[:50]}")
+                    logging.debug(f"Retry {attempt + 1}: {str(e)[:50]}")
                     time.sleep(0.5)
 
         raise last_error
@@ -1511,7 +1511,7 @@ class TestExecutor:
             )
 
             main_activity = result.stdout.strip()
-            print(f"  Main activity: {main_activity}")
+            logging.debug(f"Main activity: {main_activity}")
 
             if main_activity:
                 # Try to start the activity directly
@@ -1523,7 +1523,7 @@ class TestExecutor:
                 return True
 
         except Exception as e:
-            print(f"  Failed to start app directly: {e}")
+            logging.error(f"Failed to start app directly: {e}")
 
         return False
 
