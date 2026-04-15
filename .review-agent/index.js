@@ -190,8 +190,10 @@ async function main() {
 
         const hasPendingChanges = await hasPendingChangesRequested();
         if (hasPendingChanges) {
-          console.log(`   Previous review had CHANGES_REQUESTED - doing FULL review`);
-        } else if (nonMergeCommits.length > CONFIG.maxIncrementalCommits) {
+          // Still do incremental review - assume new commits address the issues
+          console.log(`   Previous review had CHANGES_REQUESTED - reviewing new commits only`);
+        }
+        if (nonMergeCommits.length > CONFIG.maxIncrementalCommits) {
           console.log(`   Too many commits - falling back to FULL review`);
         } else {
           const incrementalFiles = await getCommitRangeFiles(
