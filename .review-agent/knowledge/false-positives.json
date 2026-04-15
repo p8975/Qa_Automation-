@@ -9,7 +9,22 @@
       "file": "backend/app/services/test_executor.py",
       "pattern": "_execute_command.*eval",
       "reason": "_execute_command does NOT use eval(). It parses commands with strict regex and only calls whitelisted Appium API methods."
+    },
+    {
+      "file": "backend/app/services/test_executor.py",
+      "pattern": "Inefficient loop|N\\+1|separate.*network call|multiple.*find_elements",
+      "reason": "_find_element_by_exact_text and _try_direct_tap now batch all searches into a single XPath query with OR conditions. See 'Batch all texts into single XPath query' comment at line 1199."
+    },
+    {
+      "file": "backend/app/services/test_executor.py",
+      "pattern": "print\\(\\)|logging module",
+      "reason": "print() statements have been replaced with logging.warning() calls. See imports at top of file."
+    },
+    {
+      "file": "backend/app/main.py",
+      "pattern": "generic.*error|stderr",
+      "reason": "adb screencap error now includes stderr in the error message. See line 1786."
     }
   ],
-  "updated": "2026-04-15T05:45:00.000Z"
+  "updated": "2026-04-15T06:40:00.000Z"
 }
