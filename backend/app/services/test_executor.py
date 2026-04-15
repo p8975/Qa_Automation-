@@ -1,5 +1,7 @@
 """
 TestExecutor: Main execution engine for running tests against APK builds.
+
+This module handles test case execution using Appium for mobile automation.
 """
 
 import time
