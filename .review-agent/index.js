@@ -348,20 +348,41 @@ async function main() {
 
     if (comments.length > 0) {
       console.log("   Posting review comments...");
+      const summary = comments
+        .map(
+          (c) => `**${c.severity}** - \`${c.file}:${c.line}\`\n${c.message}`
+        )
+        .join("\n\n---\n\n");
+      const reviewBody = `## Automated Review\n\n${summary}`;
+
       try {
         await postReviewComment(comments, reviewEvent);
       } catch (error) {
-        console.log("   Inline comments failed, posting summary...");
-        const summary = comments
-          .map(
-            (c) => `**${c.severity}** - \`${c.file}:${c.line}\`\n${c.message}`
-          )
-          .join("\n\n---\n\n");
-        await postComment(`## Automated Review\n\n${summary}`);
+        console.log(`   Inline comments failed: ${error.message}`);
+        console.log("   Falling back to summary comment + review submission...");
+
+        // Post summary as a comment
         try {
-          await submitPRReview(reviewEvent);
-        } catch {
-          console.log("   Failed to submit standalone review event");
+          await postComment(reviewBody);
+          console.log("   Posted summary comment");
+        } catch (commentError) {
+          console.log(`   Failed to post summary comment: ${commentError.message}`);
+        }
+
+        // Submit review with the summary as body (required for REQUEST_CHANGES/COMMENT)
+        try {
+          await submitPRReview(reviewEvent, reviewBody);
+          console.log(`   Submitted ${reviewEvent} review`);
+        } catch (reviewError) {
+          console.log(`   Failed to submit review: ${reviewError.message}`);
+          // Last resort: try with a minimal body
+          try {
+            const minimalBody = `Automated review: ${comments.length} issue(s) found. See comments above.`;
+            await submitPRReview(reviewEvent, minimalBody);
+            console.log(`   Submitted ${reviewEvent} review with minimal body`);
+          } catch (finalError) {
+            console.log(`   Final review submission failed: ${finalError.message}`);
+          }
         }
       }
     } else {
