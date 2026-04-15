@@ -1,4 +1,15 @@
 {
-  "patterns": [],
-  "updated": "2026-04-14T00:00:00.000Z"
+  "patterns": [
+    {
+      "file": "backend/app/services/test_executor.py",
+      "pattern": "XPath injection",
+      "reason": "_escape_xpath_string() is used to sanitize all user input before XPath construction. The functions _find_element_by_exact_text and _try_direct_tap both call this escape function."
+    },
+    {
+      "file": "backend/app/services/test_executor.py",
+      "pattern": "_execute_command.*eval",
+      "reason": "_execute_command does NOT use eval(). It parses commands with strict regex and only calls whitelisted Appium API methods."
+    }
+  ],
+  "updated": "2026-04-15T05:45:00.000Z"
 }
