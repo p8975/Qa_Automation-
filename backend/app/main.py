@@ -1783,7 +1783,8 @@ async def get_device_screenshot_adb(device_id: str):
                 "format": "png"
             }
         else:
-            raise HTTPException(status_code=500, detail="Failed to capture screenshot")
+            error_msg = stderr.decode(errors='ignore').strip() if stderr else "Unknown error"
+            raise HTTPException(status_code=500, detail=f"Failed to capture screenshot: {error_msg}")
 
     except HTTPException:
         raise

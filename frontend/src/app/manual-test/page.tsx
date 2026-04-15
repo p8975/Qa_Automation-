@@ -280,25 +280,90 @@ App Context:
     setCreatedTestCases(createdTestCases.filter(tc => tc.id !== id));
   };
 
-  const handleContinueToDevices = () => {
+  const saveTestCasesToBackend = async (testCases: TestCase[]): Promise<TestCase[]> => {
+    const savedTestCases: TestCase[] = [];
+
+    for (const tc of testCases) {
+      try {
+        // Generate UUID if the id is not already a UUID
+        const tcId = tc.id.includes('-') && tc.id.length > 30 ? tc.id : crypto.randomUUID();
+        const res = await fetch(`${API_BASE}/api/test-cases`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            tc_id: tcId,
+            original_id: tc.id,
+            prd_hash: 'manual_' + Date.now(),
+            title: tc.title,
+            description: tc.description,
+            preconditions: tc.preconditions,
+            steps: tc.steps.map((step, idx) => ({
+              step_number: idx + 1,
+              description: step,
+              locator_override: null,
+              expected_element: null,
+            })),
+            expected_result: tc.expected_result,
+            priority: tc.priority,
+            category: tc.category || 'Functional',
+            created_at: new Date().toISOString(),
+            updated_at: new Date().toISOString(),
+          }),
+        });
+
+        if (res.ok) {
+          const savedTc = await res.json();
+          savedTestCases.push({ ...tc, id: savedTc.tc_id });
+        } else {
+          const errText = await res.text();
+          console.error('Failed to save test case:', tc.title, errText);
+          // Use the generated UUID anyway so execution can at least be attempted
+          savedTestCases.push({ ...tc, id: tcId });
+        }
+      } catch (err) {
+        console.error('Error saving test case:', err);
+        savedTestCases.push({ ...tc, id: tc.id.includes('-') && tc.id.length > 30 ? tc.id : crypto.randomUUID() });
+      }
+    }
+
+    return savedTestCases;
+  };
+
+  const handleContinueToDevices = async () => {
     if (createdTestCases.length > 0) {
-      // Merge with existing test cases or replace
-      setTestCases([...existingTestCases, ...createdTestCases]);
-      // Go directly to devices since build is already selected
-      router.push('/devices');
+      setLoading(true);
+      try {
+        // Save test cases to backend first
+        const savedTestCases = await saveTestCasesToBackend(createdTestCases);
+        // Merge with existing test cases
+        setTestCases([...existingTestCases, ...savedTestCases]);
+        router.push('/devices');
+      } catch (err) {
+        setError('Failed to save test cases');
+      } finally {
+        setLoading(false);
+      }
     }
   };
 
-  const handleSaveCurrentAndContinue = () => {
-    // If there's a preview test case, add it to the list first
+  const handleSaveCurrentAndContinue = async () => {
     let finalTestCases = [...createdTestCases];
     if (previewTestCase) {
       finalTestCases.push(previewTestCase);
     }
 
     if (finalTestCases.length > 0) {
-      setTestCases([...existingTestCases, ...finalTestCases]);
-      router.push('/devices');
+      setLoading(true);
+      try {
+        // Save test cases to backend first
+        const savedTestCases = await saveTestCasesToBackend(finalTestCases);
+        setTestCases([...existingTestCases, ...savedTestCases]);
+        router.push('/devices');
+      } catch (err) {
+        setError('Failed to save test cases');
+      } finally {
+        setLoading(false);
+      }
     }
   };
 

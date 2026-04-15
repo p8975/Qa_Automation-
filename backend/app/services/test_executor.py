@@ -1191,25 +1191,30 @@ class TestExecutor:
         if not quoted_texts:
             return None
 
-        # Search each quoted text individually with XPath injection prevention
-        for text in quoted_texts:
-            try:
-                # SECURITY: Escape text to prevent XPath injection attacks
-                escaped = self._escape_xpath_string(text)
-                # Safe XPath using escaped value
-                xpath = f"//*[@text={escaped} or @content-desc={escaped}]"
-                elements = driver.find_elements(AppiumBy.XPATH, xpath)
-                if elements:
-                    return xpath
+        # SECURITY: Escape all texts to prevent XPath injection
+        escaped_texts = [self._escape_xpath_string(t) for t in quoted_texts]
 
-                # Try contains for partial match
-                xpath = f"//*[contains(@text, {escaped}) or contains(@content-desc, {escaped})]"
-                elements = driver.find_elements(AppiumBy.XPATH, xpath)
-                if elements:
-                    return xpath
-            except (WebDriverException, InvalidSelectorException) as e:
-                print(f"    Warning: XPath search failed for '{text}': {e}")
-                continue
+        # Batch all texts into single XPath query (reduces network round-trips)
+        try:
+            # Try exact match first with combined OR conditions
+            conditions = " or ".join(
+                f"@text={esc} or @content-desc={esc}" for esc in escaped_texts
+            )
+            xpath = f"//*[{conditions}]"
+            elements = driver.find_elements(AppiumBy.XPATH, xpath)
+            if elements:
+                return xpath
+
+            # Try contains for partial match
+            conditions = " or ".join(
+                f"contains(@text, {esc}) or contains(@content-desc, {esc})" for esc in escaped_texts
+            )
+            xpath = f"//*[{conditions}]"
+            elements = driver.find_elements(AppiumBy.XPATH, xpath)
+            if elements:
+                return xpath
+        except (WebDriverException, InvalidSelectorException) as e:
+            logging.warning(f"XPath search failed: {e}")
 
         return None
 
@@ -1274,19 +1279,23 @@ class TestExecutor:
         stop_words = {"the", "and", "for", "from", "this", "that", "click", "tap", "on", "button"}
         keywords = [w for w in words if w not in stop_words]
 
-        # Search each keyword individually with XPath injection prevention
-        for kw in keywords:
-            try:
-                # SECURITY: Escape keyword to prevent XPath injection attacks
-                escaped = self._escape_xpath_string(kw.title())
-                # Safe XPath using escaped value
-                xpath = f"//*[contains(@text, {escaped}) or contains(@content-desc, {escaped})]"
-                elements = driver.find_elements(AppiumBy.XPATH, xpath)
-                if elements:
-                    return xpath
-            except (WebDriverException, InvalidSelectorException) as e:
-                print(f"    Warning: Keyword search failed for '{kw}': {e}")
-                continue
+        if not keywords:
+            return None
+
+        # SECURITY: Escape all keywords to prevent XPath injection
+        escaped_keywords = [self._escape_xpath_string(kw.title()) for kw in keywords]
+
+        # Batch all keywords into single XPath query (reduces network round-trips)
+        try:
+            conditions = " or ".join(
+                f"contains(@text, {esc}) or contains(@content-desc, {esc})" for esc in escaped_keywords
+            )
+            xpath = f"//*[{conditions}]"
+            elements = driver.find_elements(AppiumBy.XPATH, xpath)
+            if elements:
+                return xpath
+        except (WebDriverException, InvalidSelectorException) as e:
+            logging.warning(f"Keyword search failed: {e}")
 
         return None
 
