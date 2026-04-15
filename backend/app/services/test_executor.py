@@ -377,7 +377,7 @@ class TestExecutor:
         Returns:
             dict: Summary of screen state
         """
-        from appium.webdriver.common.appiumby import AppiumBy
+        import xml.etree.ElementTree as ET
 
         summary = {
             "total_elements": 0,
@@ -389,39 +389,32 @@ class TestExecutor:
         }
 
         try:
-            # Get page source length as indicator
+            # Get page source once and parse locally (single network call)
             page_source = driver.page_source
             summary["page_source_length"] = len(page_source)
 
-            # Count different element types
+            # Parse XML locally to count elements (avoids multiple network calls)
             try:
-                all_views = driver.find_elements(AppiumBy.XPATH, "//*")
-                summary["total_elements"] = len(all_views)
-            except Exception as e:
-                logging.debug(f"Failed to get all views: {e}")
+                root = ET.fromstring(page_source)
+                all_elements = list(root.iter())
+                summary["total_elements"] = len(all_elements)
 
-            try:
-                clickables = driver.find_elements(AppiumBy.XPATH, "//*[@clickable='true']")
-                summary["clickable_elements"] = len(clickables)
-            except Exception as e:
-                logging.debug(f"Failed to get clickable elements: {e}")
+                for elem in all_elements:
+                    # Count clickable elements
+                    if elem.get("clickable") == "true":
+                        summary["clickable_elements"] += 1
 
-            try:
-                text_views = driver.find_elements(AppiumBy.CLASS_NAME, "android.widget.TextView")
-                summary["text_views"] = len(text_views)
-                # Collect visible text (first 5)
-                for tv in text_views[:5]:
-                    text = tv.text
-                    if text and len(text.strip()) > 0:
-                        summary["visible_text"].append(text[:50])
-            except Exception as e:
-                logging.debug(f"Failed to get text views: {e}")
-
-            try:
-                edit_texts = driver.find_elements(AppiumBy.CLASS_NAME, "android.widget.EditText")
-                summary["edit_texts"] = len(edit_texts)
-            except Exception as e:
-                logging.debug(f"Failed to get edit texts: {e}")
+                    # Count TextViews and collect visible text
+                    class_name = elem.get("class", "")
+                    if "TextView" in class_name:
+                        summary["text_views"] += 1
+                        text = elem.get("text", "")
+                        if text and len(text.strip()) > 0 and len(summary["visible_text"]) < 5:
+                            summary["visible_text"].append(text[:50])
+                    elif "EditText" in class_name:
+                        summary["edit_texts"] += 1
+            except ET.ParseError as e:
+                logging.debug(f"Failed to parse page source: {e}")
 
             summary["has_content"] = (
                 summary["total_elements"] > 10 or
@@ -1425,14 +1418,20 @@ class TestExecutor:
         raise ValueError(f"No valid locator: {element_info}")
 
     def _execute_command(self, driver, command: str) -> None:
-        """Execute Appium command directly without using exec()."""
+        """
+        Execute Appium command safely by parsing the command string.
+
+        SECURITY: This function does NOT use eval() or exec(). It:
+        1. Parses the command using a strict regex pattern
+        2. Whitelists allowed locator types (ID, XPATH, etc.)
+        3. Whitelists allowed actions (click, send_keys, is_displayed)
+        4. Rejects any command that doesn't match the expected format
+        """
         from appium.webdriver.common.appiumby import AppiumBy
-        
-        # Parse the command string to extract locator type and value
         import re
 
-        # Pattern: driver.find_element(AppiumBy.XPATH, "...").click()
-        # Updated to handle both "ACCESSIBILITY_ID" and "ACCESSIBILITY ID" (with space)
+        # Strict pattern for Appium element commands
+        # Only matches: driver.find_element(AppiumBy.TYPE, "value")
         pattern = r'driver\.find_element\(AppiumBy\.([A-Z_]+(?:\s+[A-Z]+)?),\s*["\']([^"\']+)["\']\)'
         match = re.search(pattern, command)
 
