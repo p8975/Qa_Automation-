@@ -617,6 +617,21 @@ class TestExecutor:
             if tc:
                 test_cases.append(tc)
 
+        # Fail early if no valid test cases found
+        if not test_cases:
+            test_run.status = TestRunStatus.FAILED
+            test_run.completed_at = datetime.now()
+            if test_run.started_at:
+                test_run.duration_seconds = (test_run.completed_at - test_run.started_at).total_seconds()
+            else:
+                test_run.duration_seconds = 0
+            self.test_run_repository.save(test_run)
+            # Truncate IDs list to prevent log flooding
+            ids_list = test_run.test_case_ids or []
+            ids_preview = ids_list[:5]
+            logging.error(f"No valid test cases found for run {run_id}. IDs provided: {ids_preview} (total: {len(ids_list)})")
+            return
+
         # Execute tests
         driver = None
         results = []
