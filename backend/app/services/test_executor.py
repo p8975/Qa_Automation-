@@ -1191,11 +1191,12 @@ class TestExecutor:
         if not quoted_texts:
             return None
 
-        # Search each quoted text individually (safer for XPath)
+        # Search each quoted text individually with XPath injection prevention
         for text in quoted_texts:
             try:
+                # SECURITY: Escape text to prevent XPath injection attacks
                 escaped = self._escape_xpath_string(text)
-                # Try exact text match
+                # Safe XPath using escaped value
                 xpath = f"//*[@text={escaped} or @content-desc={escaped}]"
                 elements = driver.find_elements(AppiumBy.XPATH, xpath)
                 if elements:
@@ -1273,10 +1274,12 @@ class TestExecutor:
         stop_words = {"the", "and", "for", "from", "this", "that", "click", "tap", "on", "button"}
         keywords = [w for w in words if w not in stop_words]
 
-        # Search each keyword individually with proper escaping
+        # Search each keyword individually with XPath injection prevention
         for kw in keywords:
             try:
+                # SECURITY: Escape keyword to prevent XPath injection attacks
                 escaped = self._escape_xpath_string(kw.title())
+                # Safe XPath using escaped value
                 xpath = f"//*[contains(@text, {escaped}) or contains(@content-desc, {escaped})]"
                 elements = driver.find_elements(AppiumBy.XPATH, xpath)
                 if elements:
