@@ -71,3 +71,4 @@ backend/storage/test-cases/*
 backend/storage/uploads/*
 backend/storage/input-history/*
 !backend/storage/**/.gitkeep
+frontend/tsconfig.tsbuildinfo

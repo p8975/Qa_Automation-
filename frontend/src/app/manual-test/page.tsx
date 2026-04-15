@@ -193,7 +193,7 @@ export default function ManualTestPage() {
     }
   };
 
-  const useExample = (example: typeof EXAMPLE_SCENARIOS[0]) => {
+  const applyExample = (example: typeof EXAMPLE_SCENARIOS[0]) => {
     setTestTitle(example.title);
     setTestDescription(example.description);
     setShowExamples(false);
@@ -396,7 +396,7 @@ App Context:
               <div>
                 <p className="font-medium text-blue-900">Why select a build first?</p>
                 <p className="text-sm text-blue-700 mt-1">
-                  Selecting a build helps us understand your app's structure, activities, and UI elements.
+                  Selecting a build helps us understand your app&apos;s structure, activities, and UI elements.
                   This enables better script generation with accurate element locators and navigation paths.
                 </p>
               </div>
@@ -628,7 +628,7 @@ App Context:
                   {EXAMPLE_SCENARIOS.map((example, idx) => (
                     <button
                       key={idx}
-                      onClick={() => useExample(example)}
+                      onClick={() => applyExample(example)}
                       className="text-left p-4 bg-blue-50 border border-blue-200 rounded-lg hover:bg-blue-100 transition-colors"
                     >
                       <p className="font-medium text-blue-900">{example.title}</p>
