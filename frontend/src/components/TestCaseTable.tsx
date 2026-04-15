@@ -9,12 +9,12 @@ interface TestCaseTableProps {
   onUpdateTestCase: (id: string, updates: Partial<TestCase>) => void;
 }
 
-type StatusType = 'pending' | 'good' | 'needs_edit' | 'useless';
+type StatusType = 'pending' | 'good' | 'edited' | 'useless';
 
 const STATUS_OPTIONS: { value: StatusType; label: string }[] = [
   { value: 'pending', label: 'Pending Review' },
   { value: 'good', label: 'Good' },
-  { value: 'needs_edit', label: 'Needs Edit' },
+  { value: 'edited', label: 'Edited' },
   { value: 'useless', label: 'Useless' },
 ];
 
@@ -27,7 +27,7 @@ const PRIORITY_COLORS: Record<string, string> = {
 const STATUS_COLORS: Record<StatusType, string> = {
   pending: 'bg-gray-100 text-gray-600',
   good: 'bg-green-100 text-green-700',
-  needs_edit: 'bg-yellow-100 text-yellow-700',
+  edited: 'bg-yellow-100 text-yellow-700',
   useless: 'bg-red-100 text-red-700',
 };
 
@@ -64,7 +64,7 @@ export function TestCaseTable({ testCases, onUpdateTestCase }: TestCaseTableProp
   const stats = {
     total: testCases.length,
     good: testCases.filter(tc => tc.status === 'good').length,
-    needsEdit: testCases.filter(tc => tc.status === 'needs_edit').length,
+    needsEdit: testCases.filter(tc => tc.status === 'edited').length,
     useless: testCases.filter(tc => tc.status === 'useless').length,
     pending: testCases.filter(tc => !tc.status || tc.status === 'pending').length,
   };
@@ -169,14 +169,14 @@ export function TestCaseTable({ testCases, onUpdateTestCase }: TestCaseTableProp
                       <div>
                         <span className="font-medium text-gray-700">Preconditions:</span>
                         <ul className="list-disc list-inside text-gray-600 ml-2">
-                          {tc.preconditions.map((p, i) => <li key={i}>{p}</li>)}
+                          {tc.preconditions.map((p: string, i: number) => <li key={i}>{p}</li>)}
                         </ul>
                       </div>
                     )}
                     <div>
                       <span className="font-medium text-gray-700">Steps:</span>
                       <ol className="list-decimal list-inside text-gray-600 ml-2">
-                        {tc.steps.map((s, i) => <li key={i}>{s.replace(/^\d+\.\s*/, '')}</li>)}
+                        {tc.steps.map((s: string, i: number) => <li key={i}>{s.replace(/^\d+\.\s*/, '')}</li>)}
                       </ol>
                     </div>
                     <div>

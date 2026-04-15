@@ -192,7 +192,6 @@ class AITestCaseGenerator:
         Raises:
             Exception: If AI generation fails
         """
-        start_time = time.time()
         last_error = None
 
         for attempt in range(max_retries + 1):
@@ -307,6 +306,6 @@ class AITestCaseGenerator:
 
             return test_cases
 
-        except Exception as e:
+        except Exception:
             # Re-raise with context
             raise

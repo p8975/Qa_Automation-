@@ -64,4 +64,11 @@ coverage/
 
 # Build storage (contains uploaded APKs)
 backend/storage/builds/*/
-*.md
+
+# Storage directories (runtime data, keep dirs but ignore contents)
+backend/storage/test-runs/*
+backend/storage/test-cases/*
+backend/storage/uploads/*
+backend/storage/input-history/*
+!backend/storage/**/.gitkeep
+frontend/tsconfig.tsbuildinfo

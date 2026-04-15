@@ -7,11 +7,11 @@ from datetime import datetime
 from typing import List, Optional
 from fastapi import FastAPI, UploadFile, File, HTTPException, Query, Response, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse, StreamingResponse
+from pydantic import BaseModel
 from dotenv import load_dotenv
 from app.models import (
-    TestCaseGenerationResponse, ErrorResponse, BuildEntity,
-    DeviceInfo, TestRunEntity, TestCaseEntity, TestStep, ElementMap, Priority, Category,
+    TestCaseGenerationResponse, BuildEntity,
+    DeviceInfo, TestRunEntity, TestCaseEntity, TestStep, Priority, Category,
     TestModule, CreateModuleRequest, UpdateModuleRequest
 )
 from app.services.document_parser import DocumentParser
@@ -28,6 +28,7 @@ from app.repositories.element_map_repository import ElementMapRepository
 from app.repositories.test_module_repository import TestModuleRepository
 from app.repositories.input_history_repository import InputHistoryRepository, InputHistoryEntry
 from app.utils.scheduler import TestScheduler
+from app.services.execution_logger import get_logs as get_execution_logs
 
 # Load environment variables
 load_dotenv()
@@ -557,7 +558,6 @@ async def delete_test_case(tc_id: str):
 # Manual Test Case Conversion Endpoints
 # ============================================================================
 
-from pydantic import BaseModel
 
 class ManualTestCaseRequest(BaseModel):
     title: str
@@ -1741,9 +1741,9 @@ async def get_mobile_test_status(run_id: str):
 # ============================================================================
 
 @app.get("/api/device/{device_id}/screenshot")
-async def get_device_screenshot(device_id: str):
+async def get_device_screenshot_adb(device_id: str):
     """
-    Get live screenshot from device.
+    Get live screenshot from device using ADB.
 
     Args:
         device_id: Device ID (e.g., emulator-5554)
@@ -1751,19 +1751,31 @@ async def get_device_screenshot(device_id: str):
     Returns:
         Base64 encoded PNG screenshot
     """
-    import subprocess
+    import asyncio
     import base64
+    import re
+
+    # Validate device_id to prevent command/argument injection
+    # Block hyphen at start to prevent argument injection (e.g., "-e sh")
+    if device_id.startswith('-') or not re.match(r'^[a-zA-Z0-9_\-.:]+$', device_id):
+        raise HTTPException(status_code=400, detail="Invalid device ID format")
 
     try:
-        # Use adb to capture screenshot
-        result = subprocess.run(
-            ['adb', '-s', device_id, 'exec-out', 'screencap', '-p'],
-            capture_output=True,
-            timeout=10
+        # Use async subprocess to avoid blocking the event loop
+        process = await asyncio.create_subprocess_exec(
+            'adb', '-s', device_id, 'exec-out', 'screencap', '-p',
+            stdout=asyncio.subprocess.PIPE,
+            stderr=asyncio.subprocess.PIPE
         )
 
-        if result.returncode == 0 and result.stdout:
-            screenshot_base64 = base64.b64encode(result.stdout).decode('utf-8')
+        try:
+            stdout, stderr = await asyncio.wait_for(process.communicate(), timeout=10)
+        except asyncio.TimeoutError:
+            process.kill()
+            raise HTTPException(status_code=504, detail="Screenshot capture timed out")
+
+        if process.returncode == 0 and stdout:
+            screenshot_base64 = base64.b64encode(stdout).decode('utf-8')
             return {
                 "success": True,
                 "device_id": device_id,
@@ -1771,15 +1783,13 @@ async def get_device_screenshot(device_id: str):
                 "format": "png"
             }
         else:
-            raise HTTPException(status_code=500, detail="Failed to capture screenshot")
+            error_msg = stderr.decode(errors='ignore').strip() if stderr else "Unknown error"
+            raise HTTPException(status_code=500, detail=f"Failed to capture screenshot: {error_msg}")
 
-    except subprocess.TimeoutExpired:
-        raise HTTPException(status_code=504, detail="Screenshot capture timed out")
+    except HTTPException:
+        raise
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Screenshot error: {str(e)}")
-
-
-from app.services.execution_logger import get_logs as get_execution_logs
 
 
 @app.get("/api/test-runs/{run_id}/live-progress")

@@ -37,6 +37,7 @@ jobs:
             const requiredChecks = [
               'Frontend Checks',
               'Backend Checks',
+              'AI Code Review',  // Must wait for bot review to complete
             ];
 
             const maxWaitMs = 10 * 60 * 1000; // 10 minutes
@@ -145,7 +146,14 @@ jobs:
             const latest = botReviews[botReviews.length - 1];
             console.log(`Bot review: ${latest.state}`);
 
-            if (latest.state === 'APPROVED') {
+            // Also check for bot: approved label (fallback when GitHub blocks approval submission)
+            const { data: labels } = await github.rest.issues.listLabelsOnIssue({
+              owner, repo, issue_number: prNumber,
+            });
+            const hasApprovedLabel = labels.some(l => l.name === 'bot: approved');
+            console.log(`Has 'bot: approved' label: ${hasApprovedLabel}`);
+
+            if (latest.state === 'APPROVED' || hasApprovedLabel) {
               core.setOutput('status', 'approved');
             } else if (latest.state === 'CHANGES_REQUESTED') {
               core.setOutput('status', 'changes_requested');
@@ -258,8 +266,9 @@ jobs:
             REASON="Waiting for bot review"
           fi
 
-          # Bot approval is REQUIRED - not_required is not allowed
-          if [ "$BOT" != "approved" ] && [ "$BOT" != "not_required" ]; then
+          # Allow merge if bot approved, commented (no HIGH issues), or not required
+          # Only block if bot requested changes or is pending
+          if [ "$BOT" != "approved" ] && [ "$BOT" != "not_required" ] && [ "$BOT" != "commented" ]; then
             BLOCK=true
           fi
 

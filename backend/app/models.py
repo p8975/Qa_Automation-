@@ -71,6 +71,7 @@ class TestStep(BaseModel):
 
 class TestCaseEntity(BaseModel):
     tc_id: str = Field(..., description="UUID for test case")
+    original_id: Optional[str] = Field(None, description="Original TC### ID from generation")
     prd_hash: str = Field(..., description="Links to originating PRD document")
     title: str = Field(..., description="Test case title")
     description: str = Field(..., description="Test case description")

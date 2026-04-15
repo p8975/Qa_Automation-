@@ -4,7 +4,6 @@ InputHistoryRepository: Filesystem-based storage for user inputs (PRDs and natur
 
 import json
 import uuid
-import shutil
 from typing import Optional, List
 from pathlib import Path
 from datetime import datetime

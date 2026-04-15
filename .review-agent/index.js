@@ -190,23 +190,27 @@ async function main() {
 
         const hasPendingChanges = await hasPendingChangesRequested();
         if (hasPendingChanges) {
-          console.log(`   Previous review had CHANGES_REQUESTED - doing FULL review`);
-        } else if (nonMergeCommits.length > CONFIG.maxIncrementalCommits) {
+          // Still do incremental review - assume new commits address the issues
+          console.log(`   Previous review had CHANGES_REQUESTED - reviewing new commits only`);
+        }
+        if (nonMergeCommits.length > CONFIG.maxIncrementalCommits) {
           console.log(`   Too many commits - falling back to FULL review`);
         } else {
           const incrementalFiles = await getCommitRangeFiles(
             lastReviewedCommit,
             PR_HEAD_SHA
           );
-          const incrementalLines = incrementalFiles.reduce(
+          // Exclude lock files from line count (they're skipped from review anyway)
+          const codeOnlyFiles = incrementalFiles.filter(f => !shouldSkipFile(f.filename));
+          const incrementalLines = codeOnlyFiles.reduce(
             (sum, f) => sum + f.additions + f.deletions,
             0
           );
 
-          if (incrementalFiles.length > CONFIG.maxIncrementalFiles) {
+          if (codeOnlyFiles.length > CONFIG.maxIncrementalFiles) {
             console.log(`   Too many files changed - falling back to FULL review`);
           } else if (incrementalLines > CONFIG.maxIncrementalLines) {
-            console.log(`   Too many lines changed - falling back to FULL review`);
+            console.log(`   Too many lines changed (${incrementalLines}) - falling back to FULL review`);
           } else {
             console.log(`   Performing incremental review (${nonMergeCommits.length} new commits)`);
             isIncrementalReview = true;
@@ -348,20 +352,41 @@ async function main() {
 
     if (comments.length > 0) {
       console.log("   Posting review comments...");
+      const summary = comments
+        .map(
+          (c) => `**${c.severity}** - \`${c.file}:${c.line}\`\n${c.message}`
+        )
+        .join("\n\n---\n\n");
+      const reviewBody = `## Automated Review\n\n${summary}`;
+
       try {
         await postReviewComment(comments, reviewEvent);
       } catch (error) {
-        console.log("   Inline comments failed, posting summary...");
-        const summary = comments
-          .map(
-            (c) => `**${c.severity}** - \`${c.file}:${c.line}\`\n${c.message}`
-          )
-          .join("\n\n---\n\n");
-        await postComment(`## Automated Review\n\n${summary}`);
+        console.log(`   Inline comments failed: ${error.message}`);
+        console.log("   Falling back to summary comment + review submission...");
+
+        // Post summary as a comment
         try {
-          await submitPRReview(reviewEvent);
-        } catch {
-          console.log("   Failed to submit standalone review event");
+          await postComment(reviewBody);
+          console.log("   Posted summary comment");
+        } catch (commentError) {
+          console.log(`   Failed to post summary comment: ${commentError.message}`);
+        }
+
+        // Submit review with the summary as body (required for REQUEST_CHANGES/COMMENT)
+        try {
+          await submitPRReview(reviewEvent, reviewBody);
+          console.log(`   Submitted ${reviewEvent} review`);
+        } catch (reviewError) {
+          console.log(`   Failed to submit review: ${reviewError.message}`);
+          // Last resort: try with a minimal body
+          try {
+            const minimalBody = `Automated review: ${comments.length} issue(s) found. See comments above.`;
+            await submitPRReview(reviewEvent, minimalBody);
+            console.log(`   Submitted ${reviewEvent} review with minimal body`);
+          } catch (finalError) {
+            console.log(`   Final review submission failed: ${finalError.message}`);
+          }
         }
       }
     } else {

@@ -46,9 +46,10 @@ class TestCaseRepository:
     def get(self, tc_id: str) -> Optional[TestCaseEntity]:
         """
         Retrieve test case by ID (searches across all PRD hashes).
+        Also supports lookup by original ID (TC001 format) by searching all test cases.
 
         Args:
-            tc_id: Test case identifier
+            tc_id: Test case identifier (UUID or TC001 format)
 
         Returns:
             Optional[TestCaseEntity]: Test case if found
@@ -56,7 +57,7 @@ class TestCaseRepository:
         if not self.test_cases_dir.exists():
             return None
 
-        # Search all PRD directories
+        # First try direct lookup by tc_id (UUID format)
         for prd_dir in self.test_cases_dir.iterdir():
             if prd_dir.is_dir():
                 tc_path = prd_dir / f"{tc_id}.json"
@@ -64,6 +65,17 @@ class TestCaseRepository:
                     with open(tc_path, 'r') as f:
                         data = json.load(f)
                         return TestCaseEntity(**data)
+
+        # If not found and looks like TC### format, search by original_id field
+        if tc_id.upper().startswith('TC') and tc_id[2:].isdigit():
+            for prd_dir in self.test_cases_dir.iterdir():
+                if prd_dir.is_dir():
+                    for tc_file in prd_dir.glob("*.json"):
+                        with open(tc_file, 'r') as f:
+                            data = json.load(f)
+                            # Check if original_id matches
+                            if data.get('original_id', '').upper() == tc_id.upper():
+                                return TestCaseEntity(**data)
 
         return None
 

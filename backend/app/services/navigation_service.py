@@ -2,10 +2,17 @@
 NavigationService: Handles automatic navigation to target screens before test execution.
 """
 
+import os
 import time
-from typing import Optional, Dict, Any
+from typing import Optional, Dict
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import (
+    NoSuchElementException,
+    StaleElementReferenceException,
+    ElementNotInteractableException,
+    WebDriverException
+)
 from appium.webdriver.common.appiumby import AppiumBy
 
 
@@ -21,6 +28,11 @@ class NavigationService:
         """
         self.driver = driver
         self.wait = WebDriverWait(driver, 10)  # Reduced from 30 for faster execution
+        # Load test credentials from environment variables
+        self._test_credentials = {
+            'phone': os.getenv('TEST_PHONE', ''),
+            'otp': os.getenv('TEST_OTP', '')
+        }
 
     def navigate_to_route(self, route_path: str) -> bool:
         """
@@ -42,10 +54,15 @@ class NavigationService:
 
             # If on auth screen, handle login first
             if current_screen in ['login', 'otp', 'auth']:
-                print(f"  On auth screen, attempting login...")
-                credentials = {'phone': '2022123418', 'otp': '3418'}
-                self.handle_auth_screen(credentials)
-                time.sleep(1.5)  # Reduced from 3
+                print("  On auth screen, attempting login...")
+                self.handle_auth_screen(self._test_credentials)
+                # Wait for screen to change after login using explicit wait
+                try:
+                    WebDriverWait(self.driver, 3).until(
+                        lambda d: self._detect_current_screen() not in ['login', 'otp', 'auth']
+                    )
+                except Exception:
+                    time.sleep(0.5)  # Fallback if explicit wait times out
 
                 # Check screen after login
                 new_screen = self._detect_current_screen()
@@ -72,7 +89,7 @@ class NavigationService:
             # If still on auth, try login once more
             if final_screen in ['login', 'otp', 'auth']:
                 print("  Still on auth screen, retrying login...")
-                self.handle_auth_screen({'phone': '2022123418', 'otp': '3418'})
+                self.handle_auth_screen(self._test_credentials)
                 time.sleep(1)  # Reduced from 2
 
             return True
@@ -93,7 +110,7 @@ class NavigationService:
                 try:
                     elements = self.driver.find_elements(AppiumBy.XPATH,
                         f"//*[contains(translate(@text,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), '{pattern}') or contains(translate(@content-desc,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), '{pattern}')]")
-                    
+
                     for elem in elements:
                         try:
                             if elem.is_displayed() and elem.is_enabled():
@@ -101,17 +118,17 @@ class NavigationService:
                                 time.sleep(1)
                                 print(f"  Clicked: {pattern}")
                                 return True
-                        except:
+                        except (StaleElementReferenceException, ElementNotInteractableException):
                             continue
-                except:
+                except (NoSuchElementException, StaleElementReferenceException):
                     continue
-            
+
             # Try pressing back
             try:
                 self.driver.back()
                 time.sleep(1)
-            except:
-                pass
+            except WebDriverException as e:
+                print(f"  Back button failed: {e}")
                 
         except Exception as e:
             print(f"  Close auth failed: {e}")
@@ -165,9 +182,9 @@ class NavigationService:
                     return indicator
                     
             return None
-        except:
+        except (NoSuchElementException, StaleElementReferenceException, ElementNotInteractableException):
             return None
-    
+
     def handle_auth_screen(self, test_credentials: dict = None) -> bool:
         """Handle login/OTP screen by trying to authenticate or skip. OPTIMIZED."""
         if test_credentials is None:
@@ -190,7 +207,7 @@ class NavigationService:
                             time.sleep(0.5)  # Reduced from 2
                             print(f"  ✓ Clicked skip: {pattern}")
                             return True
-                    except:
+                    except (NoSuchElementException, StaleElementReferenceException, ElementNotInteractableException):
                         continue
 
             # Strategy 2: If test credentials provided, try to login
@@ -206,7 +223,7 @@ class NavigationService:
     def _try_login(self, credentials: dict) -> bool:
         """Try to login with provided credentials. OPTIMIZED with reduced waits."""
         try:
-            print(f"  Attempting login with credentials...")
+            print("  Attempting login with credentials...")
 
             # Find phone/username field - usually first EditText
             fields = self.driver.find_elements(AppiumBy.CLASS_NAME, "android.widget.EditText")
@@ -225,14 +242,23 @@ class NavigationService:
                     for btn in btns:
                         if btn.is_displayed():
                             btn.click()
-                            time.sleep(0.8)  # Reduced from 2
+                            # Wait for button to become stale (screen changed) with fallback
+                            try:
+                                WebDriverWait(self.driver, 2).until(EC.staleness_of(btn))
+                            except Exception:
+                                time.sleep(0.5)  # Fallback if element doesn't go stale
                             print(f"  ✓ Clicked: {pattern}")
                             break
-                except:
+                except (NoSuchElementException, StaleElementReferenceException, ElementNotInteractableException):
                     continue
 
-            # Wait for OTP field to appear
-            time.sleep(1)  # Reduced from 2
+            # Wait for OTP field to appear using explicit wait
+            try:
+                WebDriverWait(self.driver, 3).until(
+                    EC.presence_of_element_located((AppiumBy.CLASS_NAME, "android.widget.EditText"))
+                )
+            except Exception:
+                pass  # Continue even if OTP field not found immediately
 
             # Find OTP field (usually 4-6 digit fields)
             otp_fields = self.driver.find_elements(AppiumBy.CLASS_NAME, "android.widget.EditText")
@@ -255,7 +281,7 @@ class NavigationService:
                             time.sleep(1)  # Reduced from 3
                             print(f"  ✓ Clicked: {pattern}")
                             return True
-                except:
+                except (NoSuchElementException, StaleElementReferenceException, ElementNotInteractableException):
                     continue
 
             return True  # Assume success if no error
@@ -279,7 +305,7 @@ class NavigationService:
                         elem.click()
                         time.sleep(0.5)  # Reduced from 2
                         print(f"  Clicked skip button: {text}")
-                except:
+                except (NoSuchElementException, StaleElementReferenceException, ElementNotInteractableException):
                     continue
 
             # Try to directly navigate using activity intent
@@ -300,7 +326,7 @@ class NavigationService:
                     time.sleep(0.5)  # Reduced from 2
                     print(f"  Started activity: {activity}")
                     return True
-                except:
+                except (NoSuchElementException, StaleElementReferenceException, ElementNotInteractableException):
                     continue
 
             return False
@@ -342,7 +368,7 @@ class NavigationService:
                 if attempt():
                     time.sleep(2)  # Wait for screen to load
                     return True
-            except Exception:
+            except (NoSuchElementException, StaleElementReferenceException, ElementNotInteractableException):
                 continue
 
         return False
@@ -364,7 +390,7 @@ class NavigationService:
                 or len(d.find_elements(AppiumBy.CLASS_NAME, "android.widget.TextView")) > 0
             )
             return True
-        except Exception:
+        except (NoSuchElementException, StaleElementReferenceException, ElementNotInteractableException):
             return False
 
     def go_back(self, steps: int = 1) -> None:
@@ -386,7 +412,7 @@ class NavigationService:
             )
             element.click()
             return True
-        except Exception:
+        except (NoSuchElementException, StaleElementReferenceException, ElementNotInteractableException):
             return False
 
     def _tap_element_by_accessibility_id(self, accessibility_id: str) -> bool:
@@ -397,7 +423,7 @@ class NavigationService:
             )
             element.click()
             return True
-        except Exception:
+        except (NoSuchElementException, StaleElementReferenceException, ElementNotInteractableException):
             return False
 
     def _tap_from_element_map(self, keyword: str, element_map: Dict) -> bool:
@@ -408,6 +434,6 @@ class NavigationService:
                     element = self.driver.find_element(AppiumBy.ACCESSIBILITY_ID, element_id)
                     element.click()
                     return True
-                except Exception:
+                except (NoSuchElementException, StaleElementReferenceException, ElementNotInteractableException):
                     continue
         return False

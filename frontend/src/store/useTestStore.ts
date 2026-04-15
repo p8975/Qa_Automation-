@@ -186,12 +186,12 @@ export const useTestStore = create<TestStore>()(
       })),
 
       loadModule: (moduleId) => {
-        const module = get().savedModules.find((m) => m.id === moduleId);
-        if (module) {
+        const savedModule = get().savedModules.find((m) => m.id === moduleId);
+        if (savedModule) {
           set((state) => ({
             testCases: state.testCases.map((tc) => ({
               ...tc,
-              selected: module.test_case_ids.includes(tc.id),
+              selected: savedModule.test_case_ids.includes(tc.id),
             })),
           }));
         }

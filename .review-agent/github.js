@@ -274,6 +274,18 @@ export async function postReviewComment(comments, reviewEvent = "COMMENT") {
 }
 
 export async function submitPRReview(reviewEvent, body = "") {
+  // GitHub requires a body for REQUEST_CHANGES and recommends it for COMMENT
+  const reviewBody = body || (reviewEvent === "APPROVE" ? "" : "Automated review completed.");
+
+  const payload = {
+    event: reviewEvent,
+  };
+
+  // Only include body if non-empty (APPROVE can have empty body)
+  if (reviewBody) {
+    payload.body = reviewBody;
+  }
+
   const response = await fetch(
     `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/pulls/${PR_NUMBER}/reviews`,
     {
@@ -282,16 +294,13 @@ export async function submitPRReview(reviewEvent, body = "") {
         ...headers,
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        event: reviewEvent,
-        body,
-      }),
+      body: JSON.stringify(payload),
     }
   );
 
   if (!response.ok) {
     const error = await response.text();
-    throw new Error(`Failed to submit review: ${error}`);
+    throw new Error(`Failed to submit review (${response.status}): ${error}`);
   }
 
   return response.json();
