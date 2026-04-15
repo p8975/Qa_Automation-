@@ -236,14 +236,23 @@ class NavigationService:
                     for btn in btns:
                         if btn.is_displayed():
                             btn.click()
-                            time.sleep(0.8)  # Reduced from 2
+                            # Wait for button to become stale (screen changed) with fallback
+                            try:
+                                WebDriverWait(self.driver, 2).until(EC.staleness_of(btn))
+                            except Exception:
+                                time.sleep(0.5)  # Fallback if element doesn't go stale
                             print(f"  ✓ Clicked: {pattern}")
                             break
                 except (NoSuchElementException, StaleElementReferenceException, ElementNotInteractableException):
                     continue
 
-            # Wait for OTP field to appear
-            time.sleep(1)  # Reduced from 2
+            # Wait for OTP field to appear using explicit wait
+            try:
+                WebDriverWait(self.driver, 3).until(
+                    EC.presence_of_element_located((AppiumBy.CLASS_NAME, "android.widget.EditText"))
+                )
+            except Exception:
+                pass  # Continue even if OTP field not found immediately
 
             # Find OTP field (usually 4-6 digit fields)
             otp_fields = self.driver.find_elements(AppiumBy.CLASS_NAME, "android.widget.EditText")

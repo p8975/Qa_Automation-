@@ -1262,15 +1262,20 @@ class TestExecutor:
         stop_words = {"the", "and", "for", "from", "this", "that", "click", "tap", "on", "button"}
         keywords = [w for w in words if w not in stop_words]
         
-        for keyword in keywords:
+        # Batch keywords into single XPath query to avoid N+1 calls
+        if keywords:
             try:
-                # Try XPath by text
-                elements = driver.find_elements(AppiumBy.XPATH, f"//*[contains(@text, '{keyword.title()}') or contains(@content-desc, '{keyword.title()}')]")
+                conditions = " or ".join(
+                    f"contains(@text, '{kw.title()}') or contains(@content-desc, '{kw.title()}')"
+                    for kw in keywords[:5]  # Limit to first 5 keywords for reasonable XPath
+                )
+                xpath = f"//*[{conditions}]"
+                elements = driver.find_elements(AppiumBy.XPATH, xpath)
                 if elements:
-                    return f"//*[contains(@text, '{keyword.title()}') or contains(@content-desc, '{keyword.title()}')]"
+                    return xpath
             except Exception:
-                continue
-        
+                pass
+
         return None
 
     def _validate_step_result(self, step, driver, discovered_elements: dict, action: str) -> bool:
