@@ -37,6 +37,7 @@ jobs:
             const requiredChecks = [
               'Frontend Checks',
               'Backend Checks',
+              'AI Code Review',  // Must wait for bot review to complete
             ];
 
             const maxWaitMs = 10 * 60 * 1000; // 10 minutes
