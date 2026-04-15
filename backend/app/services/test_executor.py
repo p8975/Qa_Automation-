@@ -106,38 +106,52 @@ class TestExecutor:
             "Continue",
         ]
 
-    def _ensure_app_in_foreground(self, driver, device_id: str = None) -> bool:
-        """Ensure Stage app is actually in foreground, not home screen."""
+    def _ensure_app_in_foreground(self, driver, device_id: str = None, build_package: str = "in.stage.dev") -> bool:
+        """Ensure app is actually in foreground, not home screen.
+
+        Args:
+            driver: Appium WebDriver instance
+            device_id: Device ID for ADB commands
+            build_package: App package name (defaults to in.stage.dev)
+        """
         import subprocess
 
-        logging.debug("→ Ensuring Stage app is in foreground...")
+        logging.debug(f"→ Ensuring {build_package} is in foreground...")
 
         # Method 1: Use Appium activate_app
         try:
-            driver.activate_app("in.stage.dev")
+            driver.activate_app(build_package)
             time.sleep(2)
         except Exception as e:
             logging.warning(f" activate_app failed: {e}")
 
-        # Method 2: Verify via ADB that Stage app is focused
-        device_arg = f"-s {device_id}" if device_id else ""
+        # Method 2: Verify via ADB that app is focused
+        # Build ADB command as list to prevent command injection
+        adb_cmd = ["adb"]
+        if device_id:
+            adb_cmd.extend(["-s", device_id])
+        adb_cmd.extend(["shell", "dumpsys", "window"])
+
         try:
             result = subprocess.run(
-                f"adb {device_arg} shell dumpsys window | grep mCurrentFocus",
-                shell=True, capture_output=True, text=True, timeout=5
+                adb_cmd,
+                capture_output=True, text=True, timeout=5
             )
-            if "in.stage.dev" in result.stdout:
-                logging.info("✓ Stage app is in foreground")
+            # Use Python string matching instead of grep (cross-platform)
+            focus_line = next((line for line in result.stdout.split('\n') if 'mCurrentFocus' in line), '')
+            if build_package in focus_line:
+                logging.info("✓ App is in foreground")
                 return True
             else:
-                logging.warning(f"⚠️ Stage app not focused: {result.stdout.strip()[:60]}")
-                # Force launch via ADB
-                subprocess.run(
-                    f"adb {device_arg} shell am start -n in.stage.dev/in.stage.MainActivity",
-                    shell=True, capture_output=True, timeout=5
-                )
+                logging.warning(f"⚠️ App not focused: {focus_line.strip()[:60]}")
+                # Force launch via ADB - use list args to prevent injection
+                launch_cmd = ["adb"]
+                if device_id:
+                    launch_cmd.extend(["-s", device_id])
+                launch_cmd.extend(["shell", "am", "start", "-n", f"{build_package}/.MainActivity"])
+                subprocess.run(launch_cmd, capture_output=True, timeout=5)
                 time.sleep(3)
-                driver.activate_app("in.stage.dev")
+                driver.activate_app(build_package)
                 time.sleep(2)
                 return True
         except Exception as e:
@@ -145,12 +159,12 @@ class TestExecutor:
 
         return False
 
-    def _dismiss_all_dialogs(self, driver, device_id: str = None) -> None:
+    def _dismiss_all_dialogs(self, driver, device_id: str = None, build_package: str = "in.stage.dev") -> None:
         """Dismiss permission dialogs, debug dialogs, and any overlays."""
         from appium.webdriver.common.appiumby import AppiumBy
 
         # FIRST: Ensure app is in foreground (not home screen)
-        self._ensure_app_in_foreground(driver, device_id)
+        self._ensure_app_in_foreground(driver, device_id, build_package)
 
         logging.debug("→ Dismissing any blocking dialogs...")
 
@@ -163,8 +177,8 @@ class TestExecutor:
                     logging.debug("Clicked 'Allow' permission")
                     time.sleep(1)
                     continue
-            except Exception:
-                pass
+            except Exception as e:
+                logging.debug(f"Allow button not found or click failed: {e}")
 
             try:
                 dont_allow = driver.find_elements(AppiumBy.XPATH, "//*[@text=\"Don't allow\"]")
@@ -173,8 +187,8 @@ class TestExecutor:
                     logging.debug("Clicked 'Don't allow' permission")
                     time.sleep(1)
                     continue
-            except Exception:
-                pass
+            except Exception as e:
+                logging.debug(f"Don't allow button not found or click failed: {e}")
             break
 
         # 2. Dismiss debug dialogs (Cancel, Dismiss, Close)
@@ -187,8 +201,8 @@ class TestExecutor:
                     logging.debug("Dismissed debug dialog")
                     time.sleep(1)
                     continue
-            except Exception:
-                pass
+            except Exception as e:
+                logging.debug(f"Dismiss button not found or click failed: {e}")
             break
 
         # 3. Press back to close any remaining overlays
@@ -199,8 +213,8 @@ class TestExecutor:
                 driver.press_keycode(4)  # BACK
                 logging.debug("Pressed BACK to close dialog")
                 time.sleep(1)
-        except Exception:
-            pass
+        except Exception as e:
+            logging.debug(f"Back button press failed: {e}")
 
     def _dismiss_permission_dialogs(self, driver, max_attempts: int = 5) -> int:
         """
@@ -214,7 +228,6 @@ class TestExecutor:
             int: Number of dialogs dismissed
         """
         from appium.webdriver.common.appiumby import AppiumBy
-        from selenium.common.exceptions import NoSuchElementException
 
         dismissed_count = 0
 
@@ -222,18 +235,17 @@ class TestExecutor:
             dialog_found = False
 
             # Strategy 1: Try to find permission dialog by resource ID
+            # Use find_elements (plural) to avoid implicit wait delays
             for resource_id in self.PERMISSION_BUTTON_PATTERNS:
                 try:
-                    element = driver.find_element(AppiumBy.ID, resource_id)
-                    if element.is_displayed():
+                    elements = driver.find_elements(AppiumBy.ID, resource_id)
+                    if elements and elements[0].is_displayed():
                         logging.debug(f"→ Dismissing permission dialog (resource: {resource_id})")
-                        element.click()
+                        elements[0].click()
                         time.sleep(0.5)
                         dismissed_count += 1
                         dialog_found = True
                         break
-                except NoSuchElementException:
-                    continue
                 except Exception as e:
                     logging.debug(f"→ Error clicking permission button: {e}")
                     continue
@@ -624,7 +636,7 @@ class TestExecutor:
                 time.sleep(self.app_launch_delay)
 
             # CRITICAL: Dismiss ALL dialogs (permissions, debug overlays, etc.)
-            self._dismiss_all_dialogs(driver, test_run.device_info.device_id)
+            self._dismiss_all_dialogs(driver, test_run.device_info.device_id, build.app_package)
             time.sleep(0.5)
 
             # Log initial screen state for debugging (Phase 2)
@@ -635,7 +647,11 @@ class TestExecutor:
                 logging.info(f"📋 Executing test {idx + 1} of {len(test_cases)}: {test_case.title}")
 
                 try:
-                    result = self.execute_single_test(test_case, driver, test_run.build_id, run_id)
+                    result = self.execute_single_test(
+                        test_case, driver, test_run.build_id, run_id,
+                        build_package=build.app_package,
+                        device_id=test_run.device_info.device_id
+                    )
                     results.append(result)
 
                     # Reset consecutive error counter on successful execution
@@ -797,7 +813,7 @@ class TestExecutor:
                 time.sleep(self.app_launch_delay)
 
             # CRITICAL: Dismiss ALL dialogs (permissions, debug overlays, etc.)
-            self._dismiss_all_dialogs(driver, device_id)
+            self._dismiss_all_dialogs(driver, device_id, build.app_package)
             time.sleep(0.5)
 
             # Log initial screen state for debugging (Phase 2)
@@ -808,7 +824,11 @@ class TestExecutor:
                 logging.info(f"📋 Executing test {idx + 1} of {len(test_cases)}: {test_case.title}")
 
                 try:
-                    result = self.execute_single_test(test_case, driver, build_id, run_id)
+                    result = self.execute_single_test(
+                        test_case, driver, build_id, run_id,
+                        build_package=build.app_package,
+                        device_id=device_id
+                    )
                 except Exception as e:
                     result = TestResult(
                         test_case_id=test_case.tc_id,
@@ -869,7 +889,9 @@ class TestExecutor:
         test_case: TestCaseEntity,
         driver,
         build_id: str,
-        run_id: str
+        run_id: str,
+        build_package: str = "in.stage.dev",
+        device_id: str = ""
     ) -> TestResult:
         """Execute a single test case with intelligent navigation and element discovery."""
         test_start = time.time()
@@ -898,11 +920,11 @@ class TestExecutor:
                 precond_lower = precondition.lower()
                 # Extract target screen from precondition
                 if "login screen" in precond_lower:
-                    self._ensure_app_on_screen(driver, "Login", "", "")
+                    self._ensure_app_on_screen(driver, "Login", build_package, device_id)
                 elif "otp screen" in precond_lower:
-                    self._ensure_app_on_screen(driver, "OTP", "", "")
+                    self._ensure_app_on_screen(driver, "OTP", build_package, device_id)
                 elif "home" in precond_lower:
-                    self._ensure_app_on_screen(driver, "Home", "", "")
+                    self._ensure_app_on_screen(driver, "Home", build_package, device_id)
                 logging.info(f"📋 Precondition: {precondition}")
 
         # Wait for screen to settle after any navigation
@@ -939,11 +961,12 @@ class TestExecutor:
                         time.sleep(3)
                     except Exception as e:
                         logging.debug(f"Activity check error: {e}")
-                        # Fallback: Use ADB to force launch
+                        # Fallback: Use ADB to force launch (list args to prevent injection)
                         import subprocess
+                        udid = driver.capabilities.get('udid', 'emulator-5554')
                         subprocess.run(
-                            f"adb -s {driver.capabilities.get('udid', 'emulator-5554')} shell am start -n in.stage.dev/in.stage.MainActivity",
-                            shell=True, capture_output=True
+                            ["adb", "-s", udid, "shell", "am", "start", "-n", "in.stage.dev/in.stage.MainActivity"],
+                            capture_output=True
                         )
                         time.sleep(3)
 
