@@ -1173,6 +1173,16 @@ class TestExecutor:
         print(f"    ✗ Could not find any of: {patterns_to_find}")
         return False
 
+    def _escape_xpath_string(self, text: str) -> str:
+        """Escape a string for safe use in XPath queries to prevent injection."""
+        if "'" not in text:
+            return f"'{text}'"
+        if '"' not in text:
+            return f'"{text}"'
+        # Contains both quotes - use concat()
+        parts = text.split("'")
+        return "concat('" + "', \"'\", '".join(parts) + "')"
+
     def _find_element_by_exact_text(self, step_description: str, driver) -> Optional[str]:
         """
         Find element by exact text match, including Hindi/Unicode text.
@@ -1188,28 +1198,24 @@ class TestExecutor:
         if not quoted_texts:
             return None
 
-        # Batch all quoted texts into single XPath query
-        try:
-            conditions = " or ".join(
-                f"@text='{text}' or @content-desc='{text}'"
-                for text in quoted_texts[:3]  # Limit to first 3 to keep XPath reasonable
-            )
-            xpath = f"//*[{conditions}]"
-            elements = driver.find_elements(AppiumBy.XPATH, xpath)
-            if elements:
-                return xpath
+        # Search each quoted text individually (safer for XPath)
+        for text in quoted_texts:
+            try:
+                escaped = self._escape_xpath_string(text)
+                # Try exact text match
+                xpath = f"//*[@text={escaped} or @content-desc={escaped}]"
+                elements = driver.find_elements(AppiumBy.XPATH, xpath)
+                if elements:
+                    return xpath
 
-            # Try contains for partial match
-            conditions = " or ".join(
-                f"contains(@text, '{text}') or contains(@content-desc, '{text}')"
-                for text in quoted_texts[:3]
-            )
-            xpath = f"//*[{conditions}]"
-            elements = driver.find_elements(AppiumBy.XPATH, xpath)
-            if elements:
-                return xpath
-        except (WebDriverException, InvalidSelectorException) as e:
-            print(f"    Warning: XPath search failed: {e}")
+                # Try contains for partial match
+                xpath = f"//*[contains(@text, {escaped}) or contains(@content-desc, {escaped})]"
+                elements = driver.find_elements(AppiumBy.XPATH, xpath)
+                if elements:
+                    return xpath
+            except (WebDriverException, InvalidSelectorException) as e:
+                print(f"    Warning: XPath search failed for '{text}': {e}")
+                continue
 
         return None
 
@@ -1269,24 +1275,22 @@ class TestExecutor:
         
         # Extract key action words
         import re
+        from selenium.common.exceptions import WebDriverException, InvalidSelectorException
         words = re.findall(r'\b[a-zA-Z]{3,}\b', step_lower)
         stop_words = {"the", "and", "for", "from", "this", "that", "click", "tap", "on", "button"}
         keywords = [w for w in words if w not in stop_words]
-        
-        # Batch keywords into single XPath query to avoid N+1 calls
-        if keywords:
-            from selenium.common.exceptions import WebDriverException, InvalidSelectorException
+
+        # Search each keyword individually with proper escaping
+        for kw in keywords:
             try:
-                conditions = " or ".join(
-                    f"contains(@text, '{kw.title()}') or contains(@content-desc, '{kw.title()}')"
-                    for kw in keywords[:5]  # Limit to first 5 keywords for reasonable XPath
-                )
-                xpath = f"//*[{conditions}]"
+                escaped = self._escape_xpath_string(kw.title())
+                xpath = f"//*[contains(@text, {escaped}) or contains(@content-desc, {escaped})]"
                 elements = driver.find_elements(AppiumBy.XPATH, xpath)
                 if elements:
                     return xpath
             except (WebDriverException, InvalidSelectorException) as e:
-                print(f"    Warning: Keyword search failed: {e}")
+                print(f"    Warning: Keyword search failed for '{kw}': {e}")
+                continue
 
         return None
 
