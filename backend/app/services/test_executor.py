@@ -7,7 +7,7 @@ This module handles test case execution using Appium for mobile automation.
 import time
 import uuid
 import logging
-from datetime import datetime, timezone
+from datetime import datetime
 from typing import List, Optional, Dict
 
 from app.models import (
@@ -608,15 +608,16 @@ class TestExecutor:
         # Fail early if no valid test cases found
         if not test_cases:
             test_run.status = TestRunStatus.FAILED
-            test_run.completed_at = datetime.now(timezone.utc)
+            test_run.completed_at = datetime.now()
             if test_run.started_at:
                 test_run.duration_seconds = (test_run.completed_at - test_run.started_at).total_seconds()
             else:
                 test_run.duration_seconds = 0
             self.test_run_repository.save(test_run)
             # Truncate IDs list to prevent log flooding
-            ids_preview = test_run.test_case_ids[:5] if len(test_run.test_case_ids) > 5 else test_run.test_case_ids
-            logging.error(f"No valid test cases found for run {run_id}. IDs provided: {ids_preview} (total: {len(test_run.test_case_ids)})")
+            ids_list = test_run.test_case_ids or []
+            ids_preview = ids_list[:5]
+            logging.error(f"No valid test cases found for run {run_id}. IDs provided: {ids_preview} (total: {len(ids_list)})")
             return
 
         # Execute tests
