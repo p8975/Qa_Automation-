@@ -1180,25 +1180,36 @@ class TestExecutor:
         """
         import re
         from appium.webdriver.common.appiumby import AppiumBy
+        from selenium.common.exceptions import WebDriverException, InvalidSelectorException
 
         # Extract text in quotes (for Hindi buttons like 'लॉगिन करें')
         quoted_texts = re.findall(r'["\']([^"\']+)["\']', step_description)
 
-        for text in quoted_texts:
-            try:
-                # Try exact text match
-                xpath = f"//*[@text='{text}' or @content-desc='{text}']"
-                elements = driver.find_elements(AppiumBy.XPATH, xpath)
-                if elements:
-                    return xpath
+        if not quoted_texts:
+            return None
 
-                # Try contains for partial match
-                xpath = f"//*[contains(@text, '{text}') or contains(@content-desc, '{text}')]"
-                elements = driver.find_elements(AppiumBy.XPATH, xpath)
-                if elements:
-                    return xpath
-            except Exception:
-                continue
+        # Batch all quoted texts into single XPath query
+        try:
+            conditions = " or ".join(
+                f"@text='{text}' or @content-desc='{text}'"
+                for text in quoted_texts[:3]  # Limit to first 3 to keep XPath reasonable
+            )
+            xpath = f"//*[{conditions}]"
+            elements = driver.find_elements(AppiumBy.XPATH, xpath)
+            if elements:
+                return xpath
+
+            # Try contains for partial match
+            conditions = " or ".join(
+                f"contains(@text, '{text}') or contains(@content-desc, '{text}')"
+                for text in quoted_texts[:3]
+            )
+            xpath = f"//*[{conditions}]"
+            elements = driver.find_elements(AppiumBy.XPATH, xpath)
+            if elements:
+                return xpath
+        except (WebDriverException, InvalidSelectorException) as e:
+            print(f"    Warning: XPath search failed: {e}")
 
         return None
 
@@ -1264,6 +1275,7 @@ class TestExecutor:
         
         # Batch keywords into single XPath query to avoid N+1 calls
         if keywords:
+            from selenium.common.exceptions import WebDriverException, InvalidSelectorException
             try:
                 conditions = " or ".join(
                     f"contains(@text, '{kw.title()}') or contains(@content-desc, '{kw.title()}')"
@@ -1273,8 +1285,8 @@ class TestExecutor:
                 elements = driver.find_elements(AppiumBy.XPATH, xpath)
                 if elements:
                     return xpath
-            except Exception:
-                pass
+            except (WebDriverException, InvalidSelectorException) as e:
+                print(f"    Warning: Keyword search failed: {e}")
 
         return None
 

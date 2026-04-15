@@ -56,7 +56,13 @@ class NavigationService:
             if current_screen in ['login', 'otp', 'auth']:
                 print("  On auth screen, attempting login...")
                 self.handle_auth_screen(self._test_credentials)
-                time.sleep(1.5)  # Reduced from 3
+                # Wait for screen to change after login using explicit wait
+                try:
+                    WebDriverWait(self.driver, 3).until(
+                        lambda d: self._detect_current_screen() not in ['login', 'otp', 'auth']
+                    )
+                except Exception:
+                    time.sleep(0.5)  # Fallback if explicit wait times out
 
                 # Check screen after login
                 new_screen = self._detect_current_screen()
