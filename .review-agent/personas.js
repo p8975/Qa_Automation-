@@ -73,6 +73,16 @@ export const PERSONAS = {
 // Shared rules for all personas
 const SHARED_RULES = `
 IMPORTANT RULES (ALL PERSONAS):
+
+CRITICAL - DIFF FORMAT RULES:
+- You are reviewing a git diff. Lines starting with "+" are NEW code being ADDED.
+- Lines starting with "-" are OLD code being DELETED (IGNORE THESE - they are being removed).
+- Lines starting with " " (space) are context lines (unchanged code for reference).
+- ONLY report issues found in lines starting with "+" (new/added code).
+- NEVER report issues from lines starting with "-" - that code is being deleted.
+- The line number you report should be the line number in the NEW file (from the @@ hunk header, the number after the +).
+
+OTHER RULES:
 1. Only comment if you are >80% confident about the issue
 2. Skip lines with "// @review-ignore" comments
 3. Focus on bugs, performance, and code quality - not style preferences
@@ -96,6 +106,8 @@ Return your review as a JSON array:
     "message": "Clear explanation of the issue and suggested fix"
   }
 ]
+
+REMEMBER: Only report issues in ADDED lines (starting with "+"). If a bug exists in a "-" line, it's being fixed - do not report it.
 
 If the code looks good with no issues, return an empty array: []
 `;
