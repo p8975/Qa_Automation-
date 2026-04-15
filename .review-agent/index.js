@@ -200,15 +200,17 @@ async function main() {
             lastReviewedCommit,
             PR_HEAD_SHA
           );
-          const incrementalLines = incrementalFiles.reduce(
+          // Exclude lock files from line count (they're skipped from review anyway)
+          const codeOnlyFiles = incrementalFiles.filter(f => !shouldSkipFile(f.filename));
+          const incrementalLines = codeOnlyFiles.reduce(
             (sum, f) => sum + f.additions + f.deletions,
             0
           );
 
-          if (incrementalFiles.length > CONFIG.maxIncrementalFiles) {
+          if (codeOnlyFiles.length > CONFIG.maxIncrementalFiles) {
             console.log(`   Too many files changed - falling back to FULL review`);
           } else if (incrementalLines > CONFIG.maxIncrementalLines) {
-            console.log(`   Too many lines changed - falling back to FULL review`);
+            console.log(`   Too many lines changed (${incrementalLines}) - falling back to FULL review`);
           } else {
             console.log(`   Performing incremental review (${nonMergeCommits.length} new commits)`);
             isIncrementalReview = true;
