@@ -371,7 +371,7 @@ async function reviewBatchWithRetry(
   retryCount = 0
 ) {
   const batchFiles = batch.files.length > 0 ? batch.files : filesChanged;
-  const userPrompt = `Review this PR.
+  const userPrompt = `Review this PR diff. IMPORTANT: Only review lines starting with "+" (additions). Ignore lines starting with "-" (deletions - that code is being removed).
 
 FILES CHANGED:
 ${batchFiles.join("\n")}
@@ -379,7 +379,7 @@ ${batchFiles.join("\n")}
 DIFF:
 ${batch.diff}
 
-Return ONLY the JSON array, no other text.`;
+Return ONLY the JSON array, no other text. Remember: only flag issues in NEW code (+ lines), not deleted code (- lines).`;
 
   try {
     const response = await callAIRouter(systemPrompt, userPrompt);
