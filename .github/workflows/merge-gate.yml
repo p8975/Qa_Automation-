@@ -259,8 +259,9 @@ jobs:
             REASON="Waiting for bot review"
           fi
 
-          # Bot approval is REQUIRED - not_required is not allowed
-          if [ "$BOT" != "approved" ] && [ "$BOT" != "not_required" ]; then
+          # Allow merge if bot approved, commented (no HIGH issues), or not required
+          # Only block if bot requested changes or is pending
+          if [ "$BOT" != "approved" ] && [ "$BOT" != "not_required" ] && [ "$BOT" != "commented" ]; then
             BLOCK=true
           fi
 
